@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
-  "dgSpecHash": "5FUroq4yvXxSAw4a4P1cmxPWm9ziT8MFooCHq49Z8rcWa+W0eQlfSFQ71UEKqsj+8rz5atH8ZEEMHn3IZf5ySQ==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Mikkel\\source\\KrakenRepos\\ITExpress\\BL\\BL.csproj",
-=======
-  "dgSpecHash": "oeb2R+MIvA1b6DaOJcKnzP61KzZZmQ1XkEvT9uFo1Oy17DOYit5KO4g8TeA6KS99/nEkstu+oPjUzDpL2xuIjQ==",
+  "dgSpecHash": "WwcuYyiWeatIgVAMpKJcNoJpu0k57k+NWdosphfbLUeFB5krDqOe4QzV/qGj8rUV2GEiZRkK59RhPibTigA8lA==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\BL.csproj",
->>>>>>> Stashed changes
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class Class2
+    public class Message
     {
+        public int MessageId { get; set; }
+        public string MessageHeader { get; set; }
+        public string MessageContent { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+        public int ConsultantId { get; set; }
+        public Consultant Consultant { get; set; }
     }
 }
