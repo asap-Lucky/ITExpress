@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Q4zc5H2tvxHQi20ODiGK3/LzZGh4WU+WYbBxdeWo6B8xF+LIQk0LLKvDvhMIV442oU1eXojbKtK3NvXUe4rKbQ==",
+<<<<<<< Updated upstream
+  "dgSpecHash": "5FUroq4yvXxSAw4a4P1cmxPWm9ziT8MFooCHq49Z8rcWa+W0eQlfSFQ71UEKqsj+8rz5atH8ZEEMHn3IZf5ySQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Macia\\source\\repos\\ITExpress\\BL\\BL.csproj",
+  "projectFilePath": "C:\\Users\\Mikkel\\source\\KrakenRepos\\ITExpress\\BL\\BL.csproj",
+=======
+  "dgSpecHash": "oeb2R+MIvA1b6DaOJcKnzP61KzZZmQ1XkEvT9uFo1Oy17DOYit5KO4g8TeA6KS99/nEkstu+oPjUzDpL2xuIjQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\BL.csproj",
+>>>>>>> Stashed changes
   "expectedPackageFiles": [],
   "logs": []
 }

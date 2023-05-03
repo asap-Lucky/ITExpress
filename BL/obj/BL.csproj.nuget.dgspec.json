@@ -1,20 +1,43 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Macia\\source\\repos\\ITExpress\\BL\\BL.csproj": {}
+<<<<<<< Updated upstream
+    "C:\\Users\\Mikkel\\source\\KrakenRepos\\ITExpress\\BL\\BL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Macia\\source\\repos\\ITExpress\\BL\\BL.csproj": {
+    "C:\\Users\\Mikkel\\source\\KrakenRepos\\ITExpress\\BL\\BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Macia\\source\\repos\\ITExpress\\BL\\BL.csproj",
+        "projectUniqueName": "C:\\Users\\Mikkel\\source\\KrakenRepos\\ITExpress\\BL\\BL.csproj",
         "projectName": "BL",
-        "projectPath": "C:\\Users\\Macia\\source\\repos\\ITExpress\\BL\\BL.csproj",
-        "packagesPath": "C:\\Users\\Macia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Macia\\source\\repos\\ITExpress\\BL\\obj\\",
+        "projectPath": "C:\\Users\\Mikkel\\source\\KrakenRepos\\ITExpress\\BL\\BL.csproj",
+        "packagesPath": "C:\\Users\\Mikkel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mikkel\\source\\KrakenRepos\\ITExpress\\BL\\obj\\",
+=======
+    "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\BL.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\BL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\BL.csproj",
+        "projectName": "BL",
+        "projectPath": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\BL.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\obj\\",
+>>>>>>> Stashed changes
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Macia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< Updated upstream
+          "C:\\Users\\Mikkel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> Stashed changes
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +45,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +79,11 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+<<<<<<< Updated upstream
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+>>>>>>> Stashed changes
         }
       }
     }
