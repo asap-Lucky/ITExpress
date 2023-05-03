@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class Class4
+    public class Consultant
     {
+        public int ConsultantId { get; set; }
+        public string ConsultantFirstName { get; set; }
+        public string ConsultantLastName { get; set; }
+        public string ConsultantLogin { get; set; }
+        public string ConsultantPassword { get; set; }
+        public string ConsultantEmail { get; set; }
+        public string ConsultantAddress { get; set; }
+        public string ConsultantPhoneNumber { get; set; }
     }
 }

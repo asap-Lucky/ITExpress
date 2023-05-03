@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "mz3+gpqRHBo4qfJXUKzvOSV3+5ot5YBFJaSOjjP6UT3EPxzm2pr+zXzrphsvsqJjGcR/kYgUy6V3jnY92vc6Kw==",
+  "dgSpecHash": "Anu4at+W6gf2crXFh9wPZpHZWdIwmW7LSQLhnhG1R6YqWxibvBS79MxD952YTSz+iqCUwZo3dye/FbehQizt3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mikkel\\source\\KrakenRepos\\ITExpress\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\DAL\\DAL.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\DAL\\obj\\project.nuget.cache : Unexpected character encountered while parsing value: <. Path '', line 0, position 0."
+    }
+  ]
 }

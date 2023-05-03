@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    internal class Class3
+    public class Admin
     {
+        public string AdminId { get; set; }
+        public string AdminLogin { get; set; }
+        public string AdminPassword { get; set; }
     }
 }
