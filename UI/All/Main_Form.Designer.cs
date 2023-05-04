@@ -84,7 +84,7 @@
             this.bt_LogInAsAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
             this.bt_LogInAsAdmin.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.bt_LogInAsAdmin.FlatAppearance.BorderSize = 0;
-            this.bt_LogInAsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bt_LogInAsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_LogInAsAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_LogInAsAdmin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.bt_LogInAsAdmin.Location = new System.Drawing.Point(12, 519);
