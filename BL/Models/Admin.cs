@@ -10,10 +10,10 @@ namespace BL.Models
     {
         //Does Admin need an ID in the code?
         public int Id { get; set; }
-        public string? Login { get; set; }
-        public string? Password { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
 
-        public Admin(string? login, string? password)
+        public Admin(string login, string password)
         {            
             Login = login;
             Password = password;

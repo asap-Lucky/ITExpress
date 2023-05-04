@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL.Linq2SQL
+namespace DAL.LingToSQL
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -49,6 +49,12 @@ namespace DAL.Linq2SQL
     partial void UpdateProject(Project instance);
     partial void DeleteProject(Project instance);
     #endregion
+		
+		public ITExpressDataClassesDataContext() : 
+				base(global::DAL.Properties.Settings.Default._2_sem_gr_1ConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public ITExpressDataClassesDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -340,6 +346,8 @@ namespace DAL.Linq2SQL
 		
 		private string _Consultant_Email;
 		
+		private int _Consultant_ZipDode;
+		
 		private string _Consultant_Address;
 		
 		private int _Consultant_PhoneNumber;
@@ -366,6 +374,8 @@ namespace DAL.Linq2SQL
     partial void OnConsultant_PasswordChanged();
     partial void OnConsultant_EmailChanging(string value);
     partial void OnConsultant_EmailChanged();
+    partial void OnConsultant_ZipDodeChanging(int value);
+    partial void OnConsultant_ZipDodeChanged();
     partial void OnConsultant_AddressChanging(string value);
     partial void OnConsultant_AddressChanged();
     partial void OnConsultant_PhoneNumberChanging(int value);
@@ -496,6 +506,26 @@ namespace DAL.Linq2SQL
 					this._Consultant_Email = value;
 					this.SendPropertyChanged("Consultant_Email");
 					this.OnConsultant_EmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_ZipDode", DbType="Int NOT NULL")]
+		public int Consultant_ZipDode
+		{
+			get
+			{
+				return this._Consultant_ZipDode;
+			}
+			set
+			{
+				if ((this._Consultant_ZipDode != value))
+				{
+					this.OnConsultant_ZipDodeChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_ZipDode = value;
+					this.SendPropertyChanged("Consultant_ZipDode");
+					this.OnConsultant_ZipDodeChanged();
 				}
 			}
 		}
@@ -654,6 +684,8 @@ namespace DAL.Linq2SQL
 		
 		private string _Customer_Email;
 		
+		private int _Customer_ZipCodee;
+		
 		private string _Customer_Address;
 		
 		private int _Customer_PhoneNumber;
@@ -680,6 +712,8 @@ namespace DAL.Linq2SQL
     partial void OnCustomer_PasswordChanged();
     partial void OnCustomer_EmailChanging(string value);
     partial void OnCustomer_EmailChanged();
+    partial void OnCustomer_ZipCodeeChanging(int value);
+    partial void OnCustomer_ZipCodeeChanged();
     partial void OnCustomer_AddressChanging(string value);
     partial void OnCustomer_AddressChanged();
     partial void OnCustomer_PhoneNumberChanging(int value);
@@ -810,6 +844,26 @@ namespace DAL.Linq2SQL
 					this._Customer_Email = value;
 					this.SendPropertyChanged("Customer_Email");
 					this.OnCustomer_EmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_ZipCodee", DbType="Int NOT NULL")]
+		public int Customer_ZipCodee
+		{
+			get
+			{
+				return this._Customer_ZipCodee;
+			}
+			set
+			{
+				if ((this._Customer_ZipCodee != value))
+				{
+					this.OnCustomer_ZipCodeeChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_ZipCodee = value;
+					this.SendPropertyChanged("Customer_ZipCodee");
+					this.OnCustomer_ZipCodeeChanged();
 				}
 			}
 		}
