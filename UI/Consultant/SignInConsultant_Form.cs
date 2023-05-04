@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI
+namespace UI.Consultant
 {
-    public partial class Form1 : Form
+    public partial class SignInConsultant_Form : Form
     {
-        public Form1()
+        public SignInConsultant_Form()
         {
             InitializeComponent();
         }
+
     }
 }

@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{62C6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{38B4912C-0CD6-4C9C-9DA9-2210396DB1F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{0FDB1CF9-A57B-4867-8E42-FD65BE756D7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{0FDB1CF9-A57B-4867-8E42-FD65BE756D7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstractions", "Abstractions\Abstractions.csproj", "{2D98EA51-919D-40FD-84C1-01AB56C2DDF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0FDB1CF9-A57B-4867-8E42-FD65BE756D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FDB1CF9-A57B-4867-8E42-FD65BE756D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FDB1CF9-A57B-4867-8E42-FD65BE756D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D98EA51-919D-40FD-84C1-01AB56C2DDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D98EA51-919D-40FD-84C1-01AB56C2DDF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D98EA51-919D-40FD-84C1-01AB56C2DDF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D98EA51-919D-40FD-84C1-01AB56C2DDF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
