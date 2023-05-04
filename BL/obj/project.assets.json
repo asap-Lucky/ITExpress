@@ -1,26 +1,61 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Abstractions.dll": {}
+        }
+      },
+      "DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAL.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../Abstractions/Abstractions.csproj",
+      "msbuildProject": "../Abstractions/Abstractions.csproj"
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "path": "../DAL/DAL.csproj",
+      "msbuildProject": "../DAL/DAL.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "Abstractions >= 1.0.0",
+      "DAL >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\Macia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\BL.csproj",
+      "projectUniqueName": "C:\\Users\\Macia\\source\\repos\\ITExpress\\BL\\BL.csproj",
       "projectName": "BL",
-      "projectPath": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\BL.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\BL\\obj\\",
+      "projectPath": "C:\\Users\\Macia\\source\\repos\\ITExpress\\BL\\BL.csproj",
+      "packagesPath": "C:\\Users\\Macia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Macia\\source\\repos\\ITExpress\\BL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Macia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +68,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Macia\\source\\repos\\ITExpress\\Abstractions\\Abstractions.csproj": {
+              "projectPath": "C:\\Users\\Macia\\source\\repos\\ITExpress\\Abstractions\\Abstractions.csproj"
+            },
+            "C:\\Users\\Macia\\source\\repos\\ITExpress\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\Macia\\source\\repos\\ITExpress\\DAL\\DAL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -61,7 +103,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
