@@ -94,10 +94,10 @@
             this.ll_SignUpAsConsultant.LinkColor = System.Drawing.Color.Blue;
             this.ll_SignUpAsConsultant.Location = new System.Drawing.Point(92, 265);
             this.ll_SignUpAsConsultant.Name = "ll_SignUpAsConsultant";
-            this.ll_SignUpAsConsultant.Size = new System.Drawing.Size(130, 15);
+            this.ll_SignUpAsConsultant.Size = new System.Drawing.Size(135, 15);
             this.ll_SignUpAsConsultant.TabIndex = 5;
             this.ll_SignUpAsConsultant.TabStop = true;
-            this.ll_SignUpAsConsultant.Text = "Sign-up as a costumer";
+            this.ll_SignUpAsConsultant.Text = "Sign-up as a consultant";
             // 
             // tb_passWordConsultant
             // 
@@ -157,7 +157,7 @@
             this.MaximumSize = new System.Drawing.Size(600, 600);
             this.MinimumSize = new System.Drawing.Size(600, 600);
             this.Name = "LogInConsultant";
-            this.Text = "LogInConsultant";
+            this.Text = "Log in";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -140,7 +140,7 @@
             this.lb_LogInSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.lb_LogInSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
             this.lb_LogInSign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_LogInSign.Location = new System.Drawing.Point(50, 15);
+            this.lb_LogInSign.Location = new System.Drawing.Point(50, 38);
             this.lb_LogInSign.Name = "lb_LogInSign";
             this.lb_LogInSign.Size = new System.Drawing.Size(337, 54);
             this.lb_LogInSign.TabIndex = 0;
