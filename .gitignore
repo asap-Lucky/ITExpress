@@ -1,9 +1,17 @@
 Abstractions/obj/
 
+Abstractions/bin/
+
 DAL/obj/
+
+DAL/bin/
 
 UI/obj/
 
+UI/bin/
+
 BL/obj/
+
+BL/bin/
 
 .vs/
