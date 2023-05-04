@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LingToSQL\ITExpressDataClasses.designer.cs">
+    <Compile Include="LinqToSQL\ITExpressDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ITExpressDataClasses.dbml</DependentUpon>
@@ -56,12 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="LingToSQL\ITExpressDataClasses.dbml">
+    <None Include="LinqToSQL\ITExpressDataClasses.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>ITExpressDataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="LingToSQL\ITExpressDataClasses.dbml.layout">
+    <None Include="LinqToSQL\ITExpressDataClasses.dbml.layout">
       <DependentUpon>ITExpressDataClasses.dbml</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
