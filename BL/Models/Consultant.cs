@@ -16,16 +16,31 @@ namespace BL.Models
         public string Login { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        public int ZipCode { get; set; }
         public string Address { get; set; }
-        public string PhoneNumber { get; set; }
+        public int PhoneNumber { get; set; }
 
-        public Consultant(string firstName, string lastName, string login, string password, string email, string address, string phoneNumber)
+        public Consultant(int id, string firstName, string lastName, string login, string password, string email, int zipCode, string address, int phoneNumber)
+        {
+            Id= id;
+            FirstName = firstName;
+            LastName = lastName;
+            Login = login;
+            Password = password;
+            Email = email;
+            ZipCode = zipCode;
+            Address = address;
+            PhoneNumber = phoneNumber;
+        }
+
+        public Consultant(string firstName, string lastName, string login, string password, string email, int zipCode, string address, int phoneNumber)
         {
             FirstName = firstName;
             LastName = lastName;
             Login = login;
             Password = password;
             Email = email;
+            ZipCode = zipCode;
             Address = address;
             PhoneNumber = phoneNumber;
         }

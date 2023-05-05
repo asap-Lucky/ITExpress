@@ -10,7 +10,7 @@ namespace DAL.Repository
 {
     public class CustomerRepo
     {
-        public ITExpressDataClassesDataContext DataContext { get; set; }
+        private ITExpressDataClassesDataContext DataContext { get; set; }
 
         public CustomerRepo(ITExpressDataClassesDataContext dataContext)
         {

@@ -53,6 +53,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Repository\ConsultantRepo.cs" />
     <Compile Include="Repository\CustomerRepo.cs" />
   </ItemGroup>
   <ItemGroup>

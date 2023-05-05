@@ -14,11 +14,13 @@ namespace BL.Services
         static DataService instance;
         DAL.LinqToSQL.ITExpressDataClassesDataContext _DataContext { get; set; }
         DAL.Repository.CustomerRepo _CustomerRepo { get; set; }
+        DAL.Repository.ConsultantRepo _consultantRepo { get; set; }
 
         protected DataService()
         {
             _DataContext = new DAL.LinqToSQL.ITExpressDataClassesDataContext("Data Source=ucl-jtm-sqlserver.database.windows.net;Initial Catalog=2-sem-gr-1;Persist Security Info=True;User ID=2-sem-gr-1-login;Password=Gr21Pa$$word!");
             _CustomerRepo = new CustomerRepo(_DataContext);
+            _consultantRepo = new ConsultantRepo(_DataContext);
         }
 
         //Initialization. Should be thread-safe
@@ -43,6 +45,17 @@ namespace BL.Services
             return customers;
         }
 
+        public List<Models.Consultant> GetAllConsultants()
+        {
+            List<Models.Consultant> consultants = new List<Models.Consultant>();
+            var consultantTable = _consultantRepo.GetAllConsultants();
+            foreach(var dataConsultant in consultantTable)
+            {
+                consultants.Add(MapConsultant(dataConsultant));
+            }
+            return consultants;
+        }
+
         //Create methods
         public void Save(Models.Customer customer)
         {            
@@ -51,7 +64,7 @@ namespace BL.Services
 
         public void Save(Models.Consultant consultant)
         {
-
+            _consultantRepo.CreateConsultant(MapConsultant(consultant));
         }
 
         //Delete Methods
@@ -62,7 +75,7 @@ namespace BL.Services
 
         public void Delete(Models.Consultant consultant) 
         {
-
+            _consultantRepo.DeleteConsultant(MapConsultant(consultant));
         }
 
         //Update Methods
@@ -71,7 +84,14 @@ namespace BL.Services
             _CustomerRepo.UpdateCustomer(MapCustomer(customer));
         }
 
+        public void UpdateConsultant(Models.Consultant consultant)
+        {
+            _consultantRepo.DeleteConsultant(MapConsultant(consultant));
+        }
+
         //Map Methods
+
+        //Maps LinqToSQL.Customer to Models.Customer
         private Models.Customer MapCustomer(DAL.LinqToSQL.Customer dataCustomer)
         {
             Models.Customer modelCustomer = new Models.Customer(dataCustomer.CustomerId,
@@ -86,6 +106,7 @@ namespace BL.Services
             return modelCustomer;
         }
 
+        //Maps Models.Customer to LingToSQL.Customer
         private DAL.LinqToSQL.Customer MapCustomer(Models.Customer modelCustomer)
         {
             DAL.LinqToSQL.Customer dataCustomer = new DAL.LinqToSQL.Customer() { 
@@ -98,6 +119,37 @@ namespace BL.Services
                 Customer_Address = modelCustomer.Address, 
                 Customer_PhoneNumber = modelCustomer.PhoneNumber};
             return dataCustomer;
+        }
+
+        //Maps LinqToSQL.Consultant to Models.Consultant
+        private Models.Consultant MapConsultant(DAL.LinqToSQL.Consultant dataConsultant)
+        {
+            Models.Consultant modelConsultant = new Models.Consultant(dataConsultant.ConsultantId,
+                dataConsultant.Consultant_FirstName,
+                dataConsultant.Consultant_LastName,
+                dataConsultant.Consultant_Login,
+                dataConsultant.Consultant_Password,
+                dataConsultant.Consultant_Email,
+                dataConsultant.Consultant_ZipDode,
+                dataConsultant.Consultant_Address,
+                dataConsultant.Consultant_PhoneNumber);
+            return modelConsultant;
+        }
+
+        //Maps Models.Consultant to LinqToSQL.Consultant
+        private DAL.LinqToSQL.Consultant MapConsultant(Models.Consultant modelConsultant)
+        {
+            DAL.LinqToSQL.Consultant dataConsultant = new DAL.LinqToSQL.Consultant();
+            dataConsultant.ConsultantId = modelConsultant.Id;
+            dataConsultant.Consultant_FirstName = modelConsultant.FirstName;
+            dataConsultant.Consultant_LastName = modelConsultant.LastName;
+            dataConsultant.Consultant_Login = modelConsultant.Login;
+            dataConsultant.Consultant_Password = modelConsultant.Password;
+            dataConsultant.Consultant_Email = modelConsultant.Email;
+            dataConsultant.Consultant_ZipDode = modelConsultant.ZipCode;
+            dataConsultant.Consultant_Address = modelConsultant.Address;
+            dataConsultant.Consultant_PhoneNumber = modelConsultant.PhoneNumber;
+            return dataConsultant;
         }
     }
 }
