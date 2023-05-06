@@ -1,4 +1,4 @@
-﻿using DAL.LinqToSQL;
+using DAL.LinqToSQL;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
