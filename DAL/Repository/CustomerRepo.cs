@@ -91,5 +91,12 @@ namespace DAL.Repository
                 DataContext.SubmitChanges();
             }
         }
+
+        //Checks the the customer table for the login and password information
+        public bool IsValidCustomer(string login, string password)
+        {
+            var customer = DataContext.Customers.FirstOrDefault(c => c.Customer_Login == login && c.Customer_Password == password);
+            return customer != null;
+        }
     }
 }

@@ -10,10 +10,14 @@ namespace Abstraction.Interfaces
     {
         List<IConsultant> GetAllConsultants();
 
+        IConsultant GetConsultant(string login, string password);
+
         void AddConsultant(IConsultant dto);
 
         void DeleteConsultant(IConsultant dto);
 
         void EditConsultant(IConsultant consultant);
+
+        bool IsValidConsultant(string login, string password);
     }
 }

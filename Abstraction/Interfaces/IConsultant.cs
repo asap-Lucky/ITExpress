@@ -15,6 +15,7 @@ namespace Abstraction.Interfaces
         string Password { get; set; }
         string Email { get; set; }
         int ZipCode { get; set; }
+        string City { get; set; }
         string Address { get; set; }
         int PhoneNumber { get; set; }
     }

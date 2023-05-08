@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -89,6 +90,31 @@ namespace DAL.Repository
                 // Save the changes to the database.
                 DataContext.SubmitChanges();
             }
+        }
+
+        public bool IsValidConsultant(string login, string password)
+        {
+            var consultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login &&  c.Consultant_Password == password);
+            return consultant != null;
+        }
+
+        public IConsultant GetConsultant(string login, string password)
+        {
+            var dataConsultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login && c.Consultant_Password == password);
+            Models.Consultant consultant = new Models.Consultant()
+            {
+                Id = dataConsultant.ConsultantId,
+                FirstName = dataConsultant.Consultant_FirstName,
+                LastName = dataConsultant.Consultant_LastName,
+                Login = dataConsultant.Consultant_Login,
+                Password = dataConsultant.Consultant_Password,
+                Email = dataConsultant.Consultant_Email,
+                ZipCode = dataConsultant.Consultant_ZipCode,
+                City = dataConsultant.Consultant_City,
+                Address = dataConsultant.Consultant_Address,
+                PhoneNumber = dataConsultant.Consultant_PhoneNumber
+            };
+            return consultant;
         }
     }
 }

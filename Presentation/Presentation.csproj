@@ -120,6 +120,10 @@
     <Folder Include="Admin\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Abstraction\Abstraction.csproj">
+      <Project>{05090193-6DA4-4694-B83F-2AADCE37BE5E}</Project>
+      <Name>Abstraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{b4a09a33-a2ec-4137-a514-7b045a50b016}</Project>
       <Name>BLL</Name>

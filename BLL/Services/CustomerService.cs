@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL.Services
+namespace BLL.Services
 {
     public class CustomerService : ICustomerService
     {
@@ -30,6 +31,11 @@ namespace BL.Services
         public List<ICustomer> GetAllCustomers()
         {
             return _customerRepo.GetAllCustomers();
+        }
+
+        public bool IsValidCustomer(string login, string password)
+        {
+            return _customerRepo.IsValidCustomer(login, password);
         }
 
         public void UpdateCustomer(ICustomer customer)

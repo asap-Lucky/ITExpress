@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Abstraction.Interfaces;
 using BLL.Models;
 
-namespace BL.Services
+namespace BLL.Services
 {
-    internal class ConsultantService : IConsultantService
+    public class ConsultantService : IConsultantService
     {
         IConsultantRepo _consultantRepo;
 
@@ -34,7 +34,17 @@ namespace BL.Services
 
         public void EditConsultant(IConsultant consultant)
         {
-            
+            _consultantRepo.EditConsultant(consultant);
+        }
+
+        public bool IsValidConsultant(string login, string password)
+        {
+            return _consultantRepo.IsValidConsultant(login, password);
+        }
+
+        public IConsultant GetConsultant(string login, string password)
+        {
+            return _consultantRepo.GetConsultant(login, password);
         }
     }
 }
