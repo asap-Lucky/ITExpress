@@ -1,56 +1,95 @@
-using DAL.LinqToSQL;
+using Abstraction.Interfaces;
+using DAL.Database;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class CustomerRepo
+    public class CustomerRepo : ICustomerRepo
     {
         private ITExpressDataClassesDataContext DataContext { get; set; }
 
-        public CustomerRepo(ITExpressDataClassesDataContext dataContext)
+        public CustomerRepo()
         {
-            DataContext = dataContext;
+            DataContext = new ITExpressDataClassesDataContext();
         }
 
-        public Table<Customer> GetAllCustomer()
+        public List<ICustomer> GetAllCustomers()
         {
-            return DataContext.Customers;
-        }
+            var result = new List<ICustomer>();
 
-        public void CreateCustomer(Customer customer)
-        {
-            DataContext.Customers.InsertOnSubmit(customer);
-            DataContext.SubmitChanges();
-        }
+            var AllDtoItem = DataContext.Customers;
 
-        public void DeleteCustomer(Customer customer)
-        {
-            DataContext.Customers.DeleteOnSubmit(customer);
-            DataContext.SubmitChanges();
-        }
-
-        public void UpdateCustomer(Customer customer) 
-        {
-            Customer dataCustomer = (from c in DataContext.Customers
-                                     where c.CustomerId == customer.CustomerId
-                                     select c).FirstOrDefault();
-            if (dataCustomer != null)
+            foreach (var dto in AllDtoItem)
             {
-                dataCustomer.Customer_Address = customer.Customer_Address;
-                dataCustomer.Customer_PhoneNumber = customer.Customer_PhoneNumber;
-                dataCustomer.Customer_FirstName = customer.Customer_FirstName;
-                dataCustomer.Customer_LastName = customer.Customer_LastName;
-                dataCustomer.Customer_Address = customer.Customer_Address.ToString();
-                dataCustomer.Customer_ZipCodee = customer.Customer_ZipCodee;
-                dataCustomer.Customer_Password = customer.Customer_Password;
-                dataCustomer.Customer_Login = customer.Customer_Login;
+                Models.Customer customer = new Models.Customer();
+
+                customer.Id = dto.CustomerId;
+                customer.Email = dto.Customer_Email;
+                customer.FirstName = dto.Customer_FirstName;
+                customer.LastName = dto.Customer_LastName;
+                customer.Address = dto.Customer_Address;
+                customer.ZipCode = dto.Customer_ZipCodee;
+                customer.PhoneNumber = dto.Customer_PhoneNumber;
+                customer.Login = dto.Customer_Login;
+                customer.Password = dto.Customer_Password;
+
+
+                result.Add(customer);
             }
+            return result;
+        }
+
+        public void AddCustomer(ICustomer dto)
+        {
+            var cus = new Customer()
+            {
+                CustomerId = dto.Id,
+                Customer_FirstName = dto.FirstName,
+                Customer_LastName = dto.LastName,
+                Customer_Login = dto.Login,
+                Customer_Password = dto.Password,
+                Customer_Email = dto.Email,
+                Customer_Address = dto.Address,
+                Customer_ZipCodee = dto.ZipCode,
+                Customer_PhoneNumber = dto.PhoneNumber,
+            };
+            DataContext.Customers.InsertOnSubmit(cus);
             DataContext.SubmitChanges();
+        }
+
+        public void DeleteCustomer(ICustomer dto)
+        {
+            var targetCustomer = DataContext.Customers.FirstOrDefault(i => i.CustomerId == dto.Id);
+
+            DataContext.Customers.DeleteOnSubmit(targetCustomer);
+
+            DataContext.SubmitChanges();
+        }
+
+        public void EditCustomer(ICustomer customer) 
+        {
+            var targetCustomer = DataContext.Customers.FirstOrDefault(c =>  c.CustomerId == customer.Id);
+            if (targetCustomer != null)
+            {
+                // Update the customer object with the new values.
+                targetCustomer.Customer_Address = customer.Address;
+                targetCustomer.Customer_PhoneNumber = customer.PhoneNumber;
+                targetCustomer.Customer_FirstName = customer.FirstName;
+                targetCustomer.Customer_LastName = customer.LastName;
+                targetCustomer.Customer_Address = customer.Address;
+                targetCustomer.Customer_ZipCodee = customer.ZipCode;
+                targetCustomer.Customer_Password = customer.Password;
+                targetCustomer.Customer_Login = customer.Login;
+
+                // Save the changes to the database.
+                DataContext.SubmitChanges();
+            }
         }
     }
 }
