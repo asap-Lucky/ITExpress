@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Macia\\source\\repos\\ITExpress\\DAL\\DAL.csproj": {}
+    "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Macia\\source\\repos\\ITExpress\\DAL\\DAL.csproj": {
+    "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Macia\\source\\repos\\ITExpress\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\Macia\\source\\repos\\ITExpress\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\Macia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Macia\\source\\repos\\ITExpress\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\ITExpress\\ITExpress\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Macia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
