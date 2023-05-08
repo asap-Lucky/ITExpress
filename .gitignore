@@ -1,17 +1,17 @@
-Abstractions/obj/
+Abstraction/obj/
 
-Abstractions/bin/
+Abstraction/bin/
 
 DAL/obj/
 
 DAL/bin/
 
-UI/obj/
+Presentation/obj/
 
-UI/bin/
+Presentation/bin/
 
-BL/obj/
+BLL/obj/
 
-BL/bin/
+BLL/bin/
 
 .vs/
