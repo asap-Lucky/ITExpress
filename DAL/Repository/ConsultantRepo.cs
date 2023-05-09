@@ -1,4 +1,4 @@
-﻿using Abstraction.Interfaces;
+using Abstraction.Interfaces;
 using DAL.Database;
 using DAL.Models;
 using System;
@@ -37,7 +37,6 @@ namespace DAL.Repository
                 consultant.Password = dto.Consultant_Password;
                 consultant.Email = dto.Consultant_Email;
                 consultant.ZipCode = dto.Consultant_ZipCode;
-                //Add city
                 consultant.Address = dto.Consultant_Address;
                 consultant.PhoneNumber = dto.Consultant_PhoneNumber;
 
@@ -58,7 +57,6 @@ namespace DAL.Repository
                 Consultant_Email = dto.Email,
                 Consultant_Address = dto.Address,
                 Consultant_ZipCode = dto.ZipCode,
-                //Add city
                 Consultant_PhoneNumber = dto.PhoneNumber,
             };
             DataContext.Consultants.InsertOnSubmit(con);
@@ -86,7 +84,6 @@ namespace DAL.Repository
                 targetConsultant.Consultant_LastName = consultant.LastName;
                 targetConsultant.Consultant_Address = consultant.Address;
                 targetConsultant.Consultant_ZipCode = consultant.ZipCode;
-                // add City
                 targetConsultant.Consultant_Password = consultant.Password;
                 targetConsultant.Consultant_Login = consultant.Login;
 
