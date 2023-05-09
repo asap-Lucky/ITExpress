@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Abstraction.Interfaces
 {
-    internal class IProjectService
+    public interface IProjectService
     {
+        List<IProject> GetAllProjects();
+
+        void AddProject(IProject project);
+
+        void EditProject(IProject project);
+
+        void DeleteProject(IProject project);
     }
 }
