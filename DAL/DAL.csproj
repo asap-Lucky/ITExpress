@@ -67,11 +67,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\ITExpressDataClasses.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITExpressDataClasses.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Models\Consultant.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Project.cs" />
@@ -87,14 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Database\ITExpressDataClasses.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>ITExpressDataClasses.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Database\ITExpressDataClasses.dbml.layout">
-      <DependentUpon>ITExpressDataClasses.dbml</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -109,6 +96,9 @@
       <Project>{05090193-6da4-4694-b83f-2aadce37be5e}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
