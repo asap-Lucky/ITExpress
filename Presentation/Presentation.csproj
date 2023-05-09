@@ -58,6 +58,12 @@
     <Compile Include="Consultant\SignUpConsultant_Form.Designer.cs">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer\CreateNewProject_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\CreateNewProject_Form.Designer.cs">
+      <DependentUpon>CreateNewProject_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer\LogInCustomer_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     </Compile>
     <Compile Include="All\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\OverViewWindow_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\OverViewWindow_Form.Designer.cs">
+      <DependentUpon>OverViewWindow_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\SignUpCustomer_Form.cs">
       <SubType>Form</SubType>
@@ -84,11 +96,17 @@
     <EmbeddedResource Include="Consultant\SignUpConsultant_Form.resx">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Customer\CreateNewProject_Form.resx">
+      <DependentUpon>CreateNewProject_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer\LogInCustomer_Form.resx">
       <DependentUpon>LogInCustomer_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\OverViewWindow_Form.resx">
+      <DependentUpon>OverViewWindow_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\SignUpCustomer_Form.resx">
       <DependentUpon>SignUpCustomer_Form.cs</DependentUpon>
