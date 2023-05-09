@@ -1,10 +1,4 @@
-﻿using Abstraction.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace BLL.Models
 {
     //Represents a consultant.
@@ -19,5 +13,6 @@ namespace BLL.Models
         public int ZipCode { get; set; }
         public string Address { get; set; }
         public int PhoneNumber { get; set; }
+        public string City { get; set; }
     }
 }

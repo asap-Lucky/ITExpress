@@ -34,7 +34,7 @@ namespace DAL.Repository
                 customer.FirstName = dto.Customer_FirstName;
                 customer.LastName = dto.Customer_LastName;
                 customer.Address = dto.Customer_Address;
-                customer.ZipCode = dto.Customer_ZipCodee;
+                customer.ZipCode = dto.Customer_ZipCode;
                 customer.PhoneNumber = dto.Customer_PhoneNumber;
                 customer.Login = dto.Customer_Login;
                 customer.Password = dto.Customer_Password;
@@ -56,7 +56,7 @@ namespace DAL.Repository
                 Customer_Password = dto.Password,
                 Customer_Email = dto.Email,
                 Customer_Address = dto.Address,
-                Customer_ZipCodee = dto.ZipCode,
+                Customer_ZipCode = dto.ZipCode,
                 Customer_PhoneNumber = dto.PhoneNumber,
             };
             DataContext.Customers.InsertOnSubmit(cus);
@@ -83,7 +83,7 @@ namespace DAL.Repository
                 targetCustomer.Customer_FirstName = customer.FirstName;
                 targetCustomer.Customer_LastName = customer.LastName;
                 targetCustomer.Customer_Address = customer.Address;
-                targetCustomer.Customer_ZipCodee = customer.ZipCode;
+                targetCustomer.Customer_ZipCode = customer.ZipCode;
                 targetCustomer.Customer_Password = customer.Password;
                 targetCustomer.Customer_Login = customer.Login;
 
