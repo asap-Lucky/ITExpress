@@ -59,6 +59,7 @@ namespace UI.Costumer
                 MyCustomer.Email = tb_email.Text;
                 MyCustomer.Login = tb_userName.Text;
                 MyCustomer.Password = tb_passWord.Text;
+                MyCustomer.City = tb_City.Text;
 
                 CustomerService.AddCustomer(MyCustomer);
             }

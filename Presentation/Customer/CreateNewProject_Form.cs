@@ -17,7 +17,5 @@ namespace Presentation.Costumer
             InitializeComponent();
             this.Dock = DockStyle.Fill;
         }
-
-
     }
 }
