@@ -36,7 +36,7 @@ namespace DAL.Repository
                 consultant.Login = dto.Consultant_Login;
                 consultant.Password = dto.Consultant_Password;
                 consultant.Email = dto.Consultant_Email;
-                consultant.ZipCode = dto.Consultant_ZipDode;
+                consultant.ZipCode = dto.Consultant_ZipCode;
                 consultant.Address = dto.Consultant_Address;
                 consultant.PhoneNumber = dto.Consultant_PhoneNumber;
 
@@ -56,7 +56,7 @@ namespace DAL.Repository
                 Consultant_Password = dto.Password,
                 Consultant_Email = dto.Email,
                 Consultant_Address = dto.Address,
-                Consultant_ZipDode = dto.ZipCode,
+                Consultant_ZipCode = dto.ZipCode,
                 Consultant_PhoneNumber = dto.PhoneNumber,
             };
             DataContext.Consultants.InsertOnSubmit(con);
@@ -83,7 +83,7 @@ namespace DAL.Repository
                 targetConsultant.Consultant_FirstName = consultant.FirstName;
                 targetConsultant.Consultant_LastName = consultant.LastName;
                 targetConsultant.Consultant_Address = consultant.Address;
-                targetConsultant.Consultant_ZipDode = consultant.ZipCode;
+                targetConsultant.Consultant_ZipCode = consultant.ZipCode;
                 targetConsultant.Consultant_Password = consultant.Password;
                 targetConsultant.Consultant_Login = consultant.Login;
 

@@ -33,6 +33,12 @@ namespace DAL.Database
     partial void InsertAdmin(Admin instance);
     partial void UpdateAdmin(Admin instance);
     partial void DeleteAdmin(Admin instance);
+    partial void InsertConsultant(Consultant instance);
+    partial void UpdateConsultant(Consultant instance);
+    partial void DeleteConsultant(Consultant instance);
+    partial void InsertCustomer(Customer instance);
+    partial void UpdateCustomer(Customer instance);
+    partial void DeleteCustomer(Customer instance);
     partial void InsertInvitation(Invitation instance);
     partial void UpdateInvitation(Invitation instance);
     partial void DeleteInvitation(Invitation instance);
@@ -42,12 +48,6 @@ namespace DAL.Database
     partial void InsertProject(Project instance);
     partial void UpdateProject(Project instance);
     partial void DeleteProject(Project instance);
-    partial void InsertCustomer(Customer instance);
-    partial void UpdateCustomer(Customer instance);
-    partial void DeleteCustomer(Customer instance);
-    partial void InsertConsultant(Consultant instance);
-    partial void UpdateConsultant(Consultant instance);
-    partial void DeleteConsultant(Consultant instance);
     #endregion
 		
 		public ITExpressDataClassesDataContext() : 
@@ -96,6 +96,22 @@ namespace DAL.Database
 			}
 		}
 		
+		public System.Data.Linq.Table<Consultant> Consultants
+		{
+			get
+			{
+				return this.GetTable<Consultant>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Customer> Customers
+		{
+			get
+			{
+				return this.GetTable<Customer>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Invitation> Invitations
 		{
 			get
@@ -117,22 +133,6 @@ namespace DAL.Database
 			get
 			{
 				return this.GetTable<Project>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Customer> Customers
-		{
-			get
-			{
-				return this.GetTable<Customer>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Consultant> Consultants
-		{
-			get
-			{
-				return this.GetTable<Consultant>();
 			}
 		}
 	}
@@ -325,6 +325,730 @@ namespace DAL.Database
 					this._Specialization_ConsultantId = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Consultant")]
+	public partial class Consultant : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ConsultantId;
+		
+		private string _Consultant_FirstName;
+		
+		private string _Consultant_LastName;
+		
+		private string _Consultant_Login;
+		
+		private string _Consultant_Password;
+		
+		private string _Consultant_Email;
+		
+		private int _Consultant_ZipCode;
+		
+		private string _Consultant_City;
+		
+		private string _Consultant_Address;
+		
+		private int _Consultant_PhoneNumber;
+		
+		private EntitySet<Invitation> _Invitations;
+		
+		private EntitySet<Message> _Messages;
+		
+		private EntitySet<Project> _Projects;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnConsultantIdChanging(int value);
+    partial void OnConsultantIdChanged();
+    partial void OnConsultant_FirstNameChanging(string value);
+    partial void OnConsultant_FirstNameChanged();
+    partial void OnConsultant_LastNameChanging(string value);
+    partial void OnConsultant_LastNameChanged();
+    partial void OnConsultant_LoginChanging(string value);
+    partial void OnConsultant_LoginChanged();
+    partial void OnConsultant_PasswordChanging(string value);
+    partial void OnConsultant_PasswordChanged();
+    partial void OnConsultant_EmailChanging(string value);
+    partial void OnConsultant_EmailChanged();
+    partial void OnConsultant_ZipCodeChanging(int value);
+    partial void OnConsultant_ZipCodeChanged();
+    partial void OnConsultant_CityChanging(string value);
+    partial void OnConsultant_CityChanged();
+    partial void OnConsultant_AddressChanging(string value);
+    partial void OnConsultant_AddressChanged();
+    partial void OnConsultant_PhoneNumberChanging(int value);
+    partial void OnConsultant_PhoneNumberChanged();
+    #endregion
+		
+		public Consultant()
+		{
+			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
+			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConsultantId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ConsultantId
+		{
+			get
+			{
+				return this._ConsultantId;
+			}
+			set
+			{
+				if ((this._ConsultantId != value))
+				{
+					this.OnConsultantIdChanging(value);
+					this.SendPropertyChanging();
+					this._ConsultantId = value;
+					this.SendPropertyChanged("ConsultantId");
+					this.OnConsultantIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Consultant_FirstName
+		{
+			get
+			{
+				return this._Consultant_FirstName;
+			}
+			set
+			{
+				if ((this._Consultant_FirstName != value))
+				{
+					this.OnConsultant_FirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_FirstName = value;
+					this.SendPropertyChanged("Consultant_FirstName");
+					this.OnConsultant_FirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Consultant_LastName
+		{
+			get
+			{
+				return this._Consultant_LastName;
+			}
+			set
+			{
+				if ((this._Consultant_LastName != value))
+				{
+					this.OnConsultant_LastNameChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_LastName = value;
+					this.SendPropertyChanged("Consultant_LastName");
+					this.OnConsultant_LastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_Login", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Consultant_Login
+		{
+			get
+			{
+				return this._Consultant_Login;
+			}
+			set
+			{
+				if ((this._Consultant_Login != value))
+				{
+					this.OnConsultant_LoginChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_Login = value;
+					this.SendPropertyChanged("Consultant_Login");
+					this.OnConsultant_LoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Consultant_Password
+		{
+			get
+			{
+				return this._Consultant_Password;
+			}
+			set
+			{
+				if ((this._Consultant_Password != value))
+				{
+					this.OnConsultant_PasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_Password = value;
+					this.SendPropertyChanged("Consultant_Password");
+					this.OnConsultant_PasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Consultant_Email
+		{
+			get
+			{
+				return this._Consultant_Email;
+			}
+			set
+			{
+				if ((this._Consultant_Email != value))
+				{
+					this.OnConsultant_EmailChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_Email = value;
+					this.SendPropertyChanged("Consultant_Email");
+					this.OnConsultant_EmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_ZipCode", DbType="Int NOT NULL")]
+		public int Consultant_ZipCode
+		{
+			get
+			{
+				return this._Consultant_ZipCode;
+			}
+			set
+			{
+				if ((this._Consultant_ZipCode != value))
+				{
+					this.OnConsultant_ZipCodeChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_ZipCode = value;
+					this.SendPropertyChanged("Consultant_ZipCode");
+					this.OnConsultant_ZipCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_City", DbType="VarChar(50)")]
+		public string Consultant_City
+		{
+			get
+			{
+				return this._Consultant_City;
+			}
+			set
+			{
+				if ((this._Consultant_City != value))
+				{
+					this.OnConsultant_CityChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_City = value;
+					this.SendPropertyChanged("Consultant_City");
+					this.OnConsultant_CityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_Address", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Consultant_Address
+		{
+			get
+			{
+				return this._Consultant_Address;
+			}
+			set
+			{
+				if ((this._Consultant_Address != value))
+				{
+					this.OnConsultant_AddressChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_Address = value;
+					this.SendPropertyChanged("Consultant_Address");
+					this.OnConsultant_AddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_PhoneNumber", DbType="Int NOT NULL")]
+		public int Consultant_PhoneNumber
+		{
+			get
+			{
+				return this._Consultant_PhoneNumber;
+			}
+			set
+			{
+				if ((this._Consultant_PhoneNumber != value))
+				{
+					this.OnConsultant_PhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._Consultant_PhoneNumber = value;
+					this.SendPropertyChanged("Consultant_PhoneNumber");
+					this.OnConsultant_PhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Invitation", Storage="_Invitations", ThisKey="ConsultantId", OtherKey="Invitaiton_ConsultantId")]
+		public EntitySet<Invitation> Invitations
+		{
+			get
+			{
+				return this._Invitations;
+			}
+			set
+			{
+				this._Invitations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Message", Storage="_Messages", ThisKey="ConsultantId", OtherKey="Message_ConsultantId")]
+		public EntitySet<Message> Messages
+		{
+			get
+			{
+				return this._Messages;
+			}
+			set
+			{
+				this._Messages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Project", Storage="_Projects", ThisKey="ConsultantId", OtherKey="Project_ConsultantId")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Invitations(Invitation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = this;
+		}
+		
+		private void detach_Invitations(Invitation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = null;
+		}
+		
+		private void attach_Messages(Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = this;
+		}
+		
+		private void detach_Messages(Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = null;
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = this;
+		}
+		
+		private void detach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customer")]
+	public partial class Customer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CustomerId;
+		
+		private string _Customer_FirstName;
+		
+		private string _Customer_LastName;
+		
+		private string _Customer_Login;
+		
+		private string _Customer_Password;
+		
+		private string _Customer_Email;
+		
+		private int _Customer_ZipCode;
+		
+		private string _Customer_City;
+		
+		private string _Customer_Address;
+		
+		private int _Customer_PhoneNumber;
+		
+		private EntitySet<Invitation> _Invitations;
+		
+		private EntitySet<Message> _Messages;
+		
+		private EntitySet<Project> _Projects;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCustomerIdChanging(int value);
+    partial void OnCustomerIdChanged();
+    partial void OnCustomer_FirstNameChanging(string value);
+    partial void OnCustomer_FirstNameChanged();
+    partial void OnCustomer_LastNameChanging(string value);
+    partial void OnCustomer_LastNameChanged();
+    partial void OnCustomer_LoginChanging(string value);
+    partial void OnCustomer_LoginChanged();
+    partial void OnCustomer_PasswordChanging(string value);
+    partial void OnCustomer_PasswordChanged();
+    partial void OnCustomer_EmailChanging(string value);
+    partial void OnCustomer_EmailChanged();
+    partial void OnCustomer_ZipCodeChanging(int value);
+    partial void OnCustomer_ZipCodeChanged();
+    partial void OnCustomer_CityChanging(string value);
+    partial void OnCustomer_CityChanged();
+    partial void OnCustomer_AddressChanging(string value);
+    partial void OnCustomer_AddressChanged();
+    partial void OnCustomer_PhoneNumberChanging(int value);
+    partial void OnCustomer_PhoneNumberChanged();
+    #endregion
+		
+		public Customer()
+		{
+			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
+			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int CustomerId
+		{
+			get
+			{
+				return this._CustomerId;
+			}
+			set
+			{
+				if ((this._CustomerId != value))
+				{
+					this.OnCustomerIdChanging(value);
+					this.SendPropertyChanging();
+					this._CustomerId = value;
+					this.SendPropertyChanged("CustomerId");
+					this.OnCustomerIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Customer_FirstName
+		{
+			get
+			{
+				return this._Customer_FirstName;
+			}
+			set
+			{
+				if ((this._Customer_FirstName != value))
+				{
+					this.OnCustomer_FirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_FirstName = value;
+					this.SendPropertyChanged("Customer_FirstName");
+					this.OnCustomer_FirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Customer_LastName
+		{
+			get
+			{
+				return this._Customer_LastName;
+			}
+			set
+			{
+				if ((this._Customer_LastName != value))
+				{
+					this.OnCustomer_LastNameChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_LastName = value;
+					this.SendPropertyChanged("Customer_LastName");
+					this.OnCustomer_LastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_Login", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Customer_Login
+		{
+			get
+			{
+				return this._Customer_Login;
+			}
+			set
+			{
+				if ((this._Customer_Login != value))
+				{
+					this.OnCustomer_LoginChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_Login = value;
+					this.SendPropertyChanged("Customer_Login");
+					this.OnCustomer_LoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Customer_Password
+		{
+			get
+			{
+				return this._Customer_Password;
+			}
+			set
+			{
+				if ((this._Customer_Password != value))
+				{
+					this.OnCustomer_PasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_Password = value;
+					this.SendPropertyChanged("Customer_Password");
+					this.OnCustomer_PasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Customer_Email
+		{
+			get
+			{
+				return this._Customer_Email;
+			}
+			set
+			{
+				if ((this._Customer_Email != value))
+				{
+					this.OnCustomer_EmailChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_Email = value;
+					this.SendPropertyChanged("Customer_Email");
+					this.OnCustomer_EmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_ZipCode", DbType="Int NOT NULL")]
+		public int Customer_ZipCode
+		{
+			get
+			{
+				return this._Customer_ZipCode;
+			}
+			set
+			{
+				if ((this._Customer_ZipCode != value))
+				{
+					this.OnCustomer_ZipCodeChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_ZipCode = value;
+					this.SendPropertyChanged("Customer_ZipCode");
+					this.OnCustomer_ZipCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_City", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Customer_City
+		{
+			get
+			{
+				return this._Customer_City;
+			}
+			set
+			{
+				if ((this._Customer_City != value))
+				{
+					this.OnCustomer_CityChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_City = value;
+					this.SendPropertyChanged("Customer_City");
+					this.OnCustomer_CityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_Address", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Customer_Address
+		{
+			get
+			{
+				return this._Customer_Address;
+			}
+			set
+			{
+				if ((this._Customer_Address != value))
+				{
+					this.OnCustomer_AddressChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_Address = value;
+					this.SendPropertyChanged("Customer_Address");
+					this.OnCustomer_AddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_PhoneNumber", DbType="Int NOT NULL")]
+		public int Customer_PhoneNumber
+		{
+			get
+			{
+				return this._Customer_PhoneNumber;
+			}
+			set
+			{
+				if ((this._Customer_PhoneNumber != value))
+				{
+					this.OnCustomer_PhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._Customer_PhoneNumber = value;
+					this.SendPropertyChanged("Customer_PhoneNumber");
+					this.OnCustomer_PhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Invitation", Storage="_Invitations", ThisKey="CustomerId", OtherKey="Invitation_CustomerId")]
+		public EntitySet<Invitation> Invitations
+		{
+			get
+			{
+				return this._Invitations;
+			}
+			set
+			{
+				this._Invitations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Message", Storage="_Messages", ThisKey="CustomerId", OtherKey="Message_CustomerId")]
+		public EntitySet<Message> Messages
+		{
+			get
+			{
+				return this._Messages;
+			}
+			set
+			{
+				this._Messages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Project", Storage="_Projects", ThisKey="CustomerId", OtherKey="Project_CustomerId")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Invitations(Invitation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = this;
+		}
+		
+		private void detach_Invitations(Invitation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = null;
+		}
+		
+		private void attach_Messages(Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = this;
+		}
+		
+		private void detach_Messages(Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = null;
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = this;
+		}
+		
+		private void detach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = null;
 		}
 	}
 	
@@ -1141,730 +1865,6 @@ namespace DAL.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customer")]
-	public partial class Customer : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _CustomerId;
-		
-		private string _Customer_FirstName;
-		
-		private string _Customer_LastName;
-		
-		private string _Customer_Login;
-		
-		private string _Customer_Password;
-		
-		private string _Customer_Email;
-		
-		private int _Customer_ZipCode;
-		
-		private string _Customer_City;
-		
-		private string _Customer_Address;
-		
-		private int _Customer_PhoneNumber;
-		
-		private EntitySet<Invitation> _Invitations;
-		
-		private EntitySet<Message> _Messages;
-		
-		private EntitySet<Project> _Projects;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCustomerIdChanging(int value);
-    partial void OnCustomerIdChanged();
-    partial void OnCustomer_FirstNameChanging(string value);
-    partial void OnCustomer_FirstNameChanged();
-    partial void OnCustomer_LastNameChanging(string value);
-    partial void OnCustomer_LastNameChanged();
-    partial void OnCustomer_LoginChanging(string value);
-    partial void OnCustomer_LoginChanged();
-    partial void OnCustomer_PasswordChanging(string value);
-    partial void OnCustomer_PasswordChanged();
-    partial void OnCustomer_EmailChanging(string value);
-    partial void OnCustomer_EmailChanged();
-    partial void OnCustomer_ZipCodeChanging(int value);
-    partial void OnCustomer_ZipCodeChanged();
-    partial void OnCustomer_CityChanging(string value);
-    partial void OnCustomer_CityChanged();
-    partial void OnCustomer_AddressChanging(string value);
-    partial void OnCustomer_AddressChanged();
-    partial void OnCustomer_PhoneNumberChanging(int value);
-    partial void OnCustomer_PhoneNumberChanged();
-    #endregion
-		
-		public Customer()
-		{
-			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
-			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
-			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int CustomerId
-		{
-			get
-			{
-				return this._CustomerId;
-			}
-			set
-			{
-				if ((this._CustomerId != value))
-				{
-					this.OnCustomerIdChanging(value);
-					this.SendPropertyChanging();
-					this._CustomerId = value;
-					this.SendPropertyChanged("CustomerId");
-					this.OnCustomerIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Customer_FirstName
-		{
-			get
-			{
-				return this._Customer_FirstName;
-			}
-			set
-			{
-				if ((this._Customer_FirstName != value))
-				{
-					this.OnCustomer_FirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_FirstName = value;
-					this.SendPropertyChanged("Customer_FirstName");
-					this.OnCustomer_FirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Customer_LastName
-		{
-			get
-			{
-				return this._Customer_LastName;
-			}
-			set
-			{
-				if ((this._Customer_LastName != value))
-				{
-					this.OnCustomer_LastNameChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_LastName = value;
-					this.SendPropertyChanged("Customer_LastName");
-					this.OnCustomer_LastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_Login", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Customer_Login
-		{
-			get
-			{
-				return this._Customer_Login;
-			}
-			set
-			{
-				if ((this._Customer_Login != value))
-				{
-					this.OnCustomer_LoginChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_Login = value;
-					this.SendPropertyChanged("Customer_Login");
-					this.OnCustomer_LoginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Customer_Password
-		{
-			get
-			{
-				return this._Customer_Password;
-			}
-			set
-			{
-				if ((this._Customer_Password != value))
-				{
-					this.OnCustomer_PasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_Password = value;
-					this.SendPropertyChanged("Customer_Password");
-					this.OnCustomer_PasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Customer_Email
-		{
-			get
-			{
-				return this._Customer_Email;
-			}
-			set
-			{
-				if ((this._Customer_Email != value))
-				{
-					this.OnCustomer_EmailChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_Email = value;
-					this.SendPropertyChanged("Customer_Email");
-					this.OnCustomer_EmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_ZipCode", DbType="Int NOT NULL")]
-		public int Customer_ZipCode
-		{
-			get
-			{
-				return this._Customer_ZipCode;
-			}
-			set
-			{
-				if ((this._Customer_ZipCode != value))
-				{
-					this.OnCustomer_ZipCodeChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_ZipCode = value;
-					this.SendPropertyChanged("Customer_ZipCode");
-					this.OnCustomer_ZipCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_City", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Customer_City
-		{
-			get
-			{
-				return this._Customer_City;
-			}
-			set
-			{
-				if ((this._Customer_City != value))
-				{
-					this.OnCustomer_CityChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_City = value;
-					this.SendPropertyChanged("Customer_City");
-					this.OnCustomer_CityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_Address", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Customer_Address
-		{
-			get
-			{
-				return this._Customer_Address;
-			}
-			set
-			{
-				if ((this._Customer_Address != value))
-				{
-					this.OnCustomer_AddressChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_Address = value;
-					this.SendPropertyChanged("Customer_Address");
-					this.OnCustomer_AddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Customer_PhoneNumber", DbType="Int NOT NULL")]
-		public int Customer_PhoneNumber
-		{
-			get
-			{
-				return this._Customer_PhoneNumber;
-			}
-			set
-			{
-				if ((this._Customer_PhoneNumber != value))
-				{
-					this.OnCustomer_PhoneNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Customer_PhoneNumber = value;
-					this.SendPropertyChanged("Customer_PhoneNumber");
-					this.OnCustomer_PhoneNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Invitation", Storage="_Invitations", ThisKey="CustomerId", OtherKey="Invitation_CustomerId")]
-		public EntitySet<Invitation> Invitations
-		{
-			get
-			{
-				return this._Invitations;
-			}
-			set
-			{
-				this._Invitations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Message", Storage="_Messages", ThisKey="CustomerId", OtherKey="Message_CustomerId")]
-		public EntitySet<Message> Messages
-		{
-			get
-			{
-				return this._Messages;
-			}
-			set
-			{
-				this._Messages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Project", Storage="_Projects", ThisKey="CustomerId", OtherKey="Project_CustomerId")]
-		public EntitySet<Project> Projects
-		{
-			get
-			{
-				return this._Projects;
-			}
-			set
-			{
-				this._Projects.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Invitations(Invitation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = this;
-		}
-		
-		private void detach_Invitations(Invitation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = null;
-		}
-		
-		private void attach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = this;
-		}
-		
-		private void detach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = null;
-		}
-		
-		private void attach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = this;
-		}
-		
-		private void detach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Consultant")]
-	public partial class Consultant : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ConsultantId;
-		
-		private string _Consultant_FirstName;
-		
-		private string _Consultant_LastName;
-		
-		private string _Consultant_Login;
-		
-		private string _Consultant_Password;
-		
-		private string _Consultant_Email;
-		
-		private int _Consultant_ZipCode;
-		
-		private string _Consultant_City;
-		
-		private string _Consultant_Address;
-		
-		private int _Consultant_PhoneNumber;
-		
-		private EntitySet<Invitation> _Invitations;
-		
-		private EntitySet<Message> _Messages;
-		
-		private EntitySet<Project> _Projects;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnConsultantIdChanging(int value);
-    partial void OnConsultantIdChanged();
-    partial void OnConsultant_FirstNameChanging(string value);
-    partial void OnConsultant_FirstNameChanged();
-    partial void OnConsultant_LastNameChanging(string value);
-    partial void OnConsultant_LastNameChanged();
-    partial void OnConsultant_LoginChanging(string value);
-    partial void OnConsultant_LoginChanged();
-    partial void OnConsultant_PasswordChanging(string value);
-    partial void OnConsultant_PasswordChanged();
-    partial void OnConsultant_EmailChanging(string value);
-    partial void OnConsultant_EmailChanged();
-    partial void OnConsultant_ZipCodeChanging(int value);
-    partial void OnConsultant_ZipCodeChanged();
-    partial void OnConsultant_CityChanging(string value);
-    partial void OnConsultant_CityChanged();
-    partial void OnConsultant_AddressChanging(string value);
-    partial void OnConsultant_AddressChanged();
-    partial void OnConsultant_PhoneNumberChanging(int value);
-    partial void OnConsultant_PhoneNumberChanged();
-    #endregion
-		
-		public Consultant()
-		{
-			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
-			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
-			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConsultantId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ConsultantId
-		{
-			get
-			{
-				return this._ConsultantId;
-			}
-			set
-			{
-				if ((this._ConsultantId != value))
-				{
-					this.OnConsultantIdChanging(value);
-					this.SendPropertyChanging();
-					this._ConsultantId = value;
-					this.SendPropertyChanged("ConsultantId");
-					this.OnConsultantIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Consultant_FirstName
-		{
-			get
-			{
-				return this._Consultant_FirstName;
-			}
-			set
-			{
-				if ((this._Consultant_FirstName != value))
-				{
-					this.OnConsultant_FirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._Consultant_FirstName = value;
-					this.SendPropertyChanged("Consultant_FirstName");
-					this.OnConsultant_FirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Consultant_LastName
-		{
-			get
-			{
-				return this._Consultant_LastName;
-			}
-			set
-			{
-				if ((this._Consultant_LastName != value))
-				{
-					this.OnConsultant_LastNameChanging(value);
-					this.SendPropertyChanging();
-					this._Consultant_LastName = value;
-					this.SendPropertyChanged("Consultant_LastName");
-					this.OnConsultant_LastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_Login", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Consultant_Login
-		{
-			get
-			{
-				return this._Consultant_Login;
-			}
-			set
-			{
-				if ((this._Consultant_Login != value))
-				{
-					this.OnConsultant_LoginChanging(value);
-					this.SendPropertyChanging();
-					this._Consultant_Login = value;
-					this.SendPropertyChanged("Consultant_Login");
-					this.OnConsultant_LoginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Consultant_Password
-		{
-			get
-			{
-				return this._Consultant_Password;
-			}
-			set
-			{
-				if ((this._Consultant_Password != value))
-				{
-					this.OnConsultant_PasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Consultant_Password = value;
-					this.SendPropertyChanged("Consultant_Password");
-					this.OnConsultant_PasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Consultant_Email
-		{
-			get
-			{
-				return this._Consultant_Email;
-			}
-			set
-			{
-				if ((this._Consultant_Email != value))
-				{
-					this.OnConsultant_EmailChanging(value);
-					this.SendPropertyChanging();
-					this._Consultant_Email = value;
-					this.SendPropertyChanged("Consultant_Email");
-					this.OnConsultant_EmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_ZipCode", DbType="Int NOT NULL")]
-		public int Consultant_ZipCode
-		{
-			get
-			{
-				return this._Consultant_ZipCode;
-			}
-			set
-			{
-				if ((this._Consultant_ZipCode != value))
-				{
-					this.OnConsultant_ZipCodeChanging(value);
-					this.SendPropertyChanging();
-					this._Consultant_ZipCode = value;
-					this.SendPropertyChanged("Consultant_ZipCode");
-					this.OnConsultant_ZipCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_City", DbType="VarChar(50)")]
-		public string Consultant_City
-		{
-			get
-			{
-				return this._Consultant_City;
-			}
-			set
-			{
-				if ((this._Consultant_City != value))
-				{
-					this.OnConsultant_CityChanging(value);
-					this.SendPropertyChanging();
-					this._Consultant_City = value;
-					this.SendPropertyChanged("Consultant_City");
-					this.OnConsultant_CityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_Address", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Consultant_Address
-		{
-			get
-			{
-				return this._Consultant_Address;
-			}
-			set
-			{
-				if ((this._Consultant_Address != value))
-				{
-					this.OnConsultant_AddressChanging(value);
-					this.SendPropertyChanging();
-					this._Consultant_Address = value;
-					this.SendPropertyChanged("Consultant_Address");
-					this.OnConsultant_AddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_PhoneNumber", DbType="Int NOT NULL")]
-		public int Consultant_PhoneNumber
-		{
-			get
-			{
-				return this._Consultant_PhoneNumber;
-			}
-			set
-			{
-				if ((this._Consultant_PhoneNumber != value))
-				{
-					this.OnConsultant_PhoneNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Consultant_PhoneNumber = value;
-					this.SendPropertyChanged("Consultant_PhoneNumber");
-					this.OnConsultant_PhoneNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Invitation", Storage="_Invitations", ThisKey="ConsultantId", OtherKey="Invitaiton_ConsultantId")]
-		public EntitySet<Invitation> Invitations
-		{
-			get
-			{
-				return this._Invitations;
-			}
-			set
-			{
-				this._Invitations.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Message", Storage="_Messages", ThisKey="ConsultantId", OtherKey="Message_ConsultantId")]
-		public EntitySet<Message> Messages
-		{
-			get
-			{
-				return this._Messages;
-			}
-			set
-			{
-				this._Messages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Project", Storage="_Projects", ThisKey="ConsultantId", OtherKey="Project_ConsultantId")]
-		public EntitySet<Project> Projects
-		{
-			get
-			{
-				return this._Projects;
-			}
-			set
-			{
-				this._Projects.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Invitations(Invitation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = this;
-		}
-		
-		private void detach_Invitations(Invitation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = null;
-		}
-		
-		private void attach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = this;
-		}
-		
-		private void detach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = null;
-		}
-		
-		private void attach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = this;
-		}
-		
-		private void detach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = null;
 		}
 	}
 }

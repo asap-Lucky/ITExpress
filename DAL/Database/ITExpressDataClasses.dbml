@@ -16,6 +16,41 @@
       <Association Name="Consultant_Specialization" Member="Consultant" ThisKey="Specialization_ConsultantId" OtherKey="ConsultantId" Type="Consultant" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Consultant" Member="Consultants">
+    <Type Name="Consultant">
+      <Column Name="ConsultantId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Consultant_FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Consultant_LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Consultant_Login" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Consultant_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Consultant_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Consultant_ZipCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Consultant_City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Consultant_Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Consultant_PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Consultant_Specialization" Member="Specializations" ThisKey="ConsultantId" OtherKey="Specialization_ConsultantId" Type="Specialization" />
+      <Association Name="Consultant_Invitation" Member="Invitations" ThisKey="ConsultantId" OtherKey="Invitaiton_ConsultantId" Type="Invitation" />
+      <Association Name="Consultant_Message" Member="Messages" ThisKey="ConsultantId" OtherKey="Message_ConsultantId" Type="Message" />
+      <Association Name="Consultant_Project" Member="Projects" ThisKey="ConsultantId" OtherKey="Project_ConsultantId" Type="Project" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Customer_FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_Login" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_ZipCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Customer_Invitation" Member="Invitations" ThisKey="CustomerId" OtherKey="Invitation_CustomerId" Type="Invitation" />
+      <Association Name="Customer_Message" Member="Messages" ThisKey="CustomerId" OtherKey="Message_CustomerId" Type="Message" />
+      <Association Name="Customer_Project" Member="Projects" ThisKey="CustomerId" OtherKey="Project_CustomerId" Type="Project" />
+    </Type>
+  </Table>
   <Table Name="dbo.Invitation" Member="Invitations">
     <Type Name="Invitation">
       <Column Name="InvitationId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -51,41 +86,6 @@
       <Column Name="Project_ConsultantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Customer_Project" Member="Customer" ThisKey="Project_CustomerId" OtherKey="CustomerId" Type="Customer" IsForeignKey="true" />
       <Association Name="Consultant_Project" Member="Consultant" ThisKey="Project_ConsultantId" OtherKey="ConsultantId" Type="Consultant" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Customer" Member="Customers">
-    <Type Name="Customer">
-      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Customer_FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Customer_LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Customer_Login" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Customer_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Customer_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Customer_ZipCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Customer_City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Customer_Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Customer_PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Customer_Invitation" Member="Invitations" ThisKey="CustomerId" OtherKey="Invitation_CustomerId" Type="Invitation" />
-      <Association Name="Customer_Message" Member="Messages" ThisKey="CustomerId" OtherKey="Message_CustomerId" Type="Message" />
-      <Association Name="Customer_Project" Member="Projects" ThisKey="CustomerId" OtherKey="Project_CustomerId" Type="Project" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Consultant" Member="Consultants">
-    <Type Name="Consultant">
-      <Column Name="ConsultantId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Consultant_FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Consultant_LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Consultant_Login" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Consultant_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Consultant_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Consultant_ZipCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Consultant_City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Consultant_Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Consultant_PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Consultant_Specialization" Member="Specializations" ThisKey="ConsultantId" OtherKey="Specialization_ConsultantId" Type="Specialization" />
-      <Association Name="Consultant_Invitation" Member="Invitations" ThisKey="ConsultantId" OtherKey="Invitaiton_ConsultantId" Type="Invitation" />
-      <Association Name="Consultant_Message" Member="Messages" ThisKey="ConsultantId" OtherKey="Message_ConsultantId" Type="Message" />
-      <Association Name="Consultant_Project" Member="Projects" ThisKey="ConsultantId" OtherKey="Project_ConsultantId" Type="Project" />
     </Type>
   </Table>
 </Database>
