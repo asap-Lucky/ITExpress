@@ -17,7 +17,7 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Presentation.Costumer.OverViewWindow_Form());
+            Application.Run(new Main_Form());
         }
     }
 }

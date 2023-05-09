@@ -141,7 +141,7 @@
             this.panel4.Location = new System.Drawing.Point(31, 731);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(874, 1027);
+            this.panel4.Size = new System.Drawing.Size(669, 1027);
             this.panel4.TabIndex = 12;
             // 
             // tb_languageDescript_3
