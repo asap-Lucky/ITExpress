@@ -106,7 +106,7 @@ namespace Presentation.Costumer
         private void bt_LogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Main_Form main_Form = new Main_Form();
+            UI.Main_Form main_Form = new UI.Main_Form();
             main_Form.ShowDialog();
             this.Show();
         }

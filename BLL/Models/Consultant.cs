@@ -19,5 +19,6 @@ namespace BLL.Models
         public int ZipCode { get; set; }
         public string Address { get; set; }
         public int PhoneNumber { get; set; }
+        public string City { get; set; }
     }
 }
