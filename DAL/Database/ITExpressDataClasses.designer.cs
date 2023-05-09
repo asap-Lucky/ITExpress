@@ -88,14 +88,6 @@ namespace DAL.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Specialization> Specializations
-		{
-			get
-			{
-				return this.GetTable<Specialization>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Consultant> Consultants
 		{
 			get
@@ -133,6 +125,14 @@ namespace DAL.Database
 			get
 			{
 				return this.GetTable<Project>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Specialization> Specializations
+		{
+			get
+			{
+				return this.GetTable<Specialization>();
 			}
 		}
 	}
@@ -243,87 +243,6 @@ namespace DAL.Database
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Specialization")]
-	public partial class Specialization
-	{
-		
-		private string _Specialization_CodeLanguage;
-		
-		private string _Specialization_EndType;
-		
-		private string _Specialization_Description;
-		
-		private int _Specialization_ConsultantId;
-		
-		public Specialization()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_CodeLanguage", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Specialization_CodeLanguage
-		{
-			get
-			{
-				return this._Specialization_CodeLanguage;
-			}
-			set
-			{
-				if ((this._Specialization_CodeLanguage != value))
-				{
-					this._Specialization_CodeLanguage = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_EndType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Specialization_EndType
-		{
-			get
-			{
-				return this._Specialization_EndType;
-			}
-			set
-			{
-				if ((this._Specialization_EndType != value))
-				{
-					this._Specialization_EndType = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_Description", DbType="VarChar(255)")]
-		public string Specialization_Description
-		{
-			get
-			{
-				return this._Specialization_Description;
-			}
-			set
-			{
-				if ((this._Specialization_Description != value))
-				{
-					this._Specialization_Description = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_ConsultantId", DbType="Int NOT NULL")]
-		public int Specialization_ConsultantId
-		{
-			get
-			{
-				return this._Specialization_ConsultantId;
-			}
-			set
-			{
-				if ((this._Specialization_ConsultantId != value))
-				{
-					this._Specialization_ConsultantId = value;
-				}
 			}
 		}
 	}
@@ -1864,6 +1783,87 @@ namespace DAL.Database
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Specialization")]
+	public partial class Specialization
+	{
+		
+		private string _Specialization_CodeLanguage;
+		
+		private string _Specialization_EndType;
+		
+		private string _Specialization_Description;
+		
+		private int _Specialization_ConsultantId;
+		
+		public Specialization()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_CodeLanguage", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Specialization_CodeLanguage
+		{
+			get
+			{
+				return this._Specialization_CodeLanguage;
+			}
+			set
+			{
+				if ((this._Specialization_CodeLanguage != value))
+				{
+					this._Specialization_CodeLanguage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_EndType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Specialization_EndType
+		{
+			get
+			{
+				return this._Specialization_EndType;
+			}
+			set
+			{
+				if ((this._Specialization_EndType != value))
+				{
+					this._Specialization_EndType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_Description", DbType="VarChar(255)")]
+		public string Specialization_Description
+		{
+			get
+			{
+				return this._Specialization_Description;
+			}
+			set
+			{
+				if ((this._Specialization_Description != value))
+				{
+					this._Specialization_Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_ConsultantId", DbType="Int NOT NULL")]
+		public int Specialization_ConsultantId
+		{
+			get
+			{
+				return this._Specialization_ConsultantId;
+			}
+			set
+			{
+				if ((this._Specialization_ConsultantId != value))
+				{
+					this._Specialization_ConsultantId = value;
+				}
 			}
 		}
 	}
