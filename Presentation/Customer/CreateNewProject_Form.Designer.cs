@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_projectHourWage = new System.Windows.Forms.TextBox();
@@ -44,8 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.bt_DiscardProject = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
-            this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -69,6 +69,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 484);
             this.panel1.TabIndex = 0;
+            // 
+            // dtp_endDate
+            // 
+            this.dtp_endDate.Location = new System.Drawing.Point(143, 404);
+            this.dtp_endDate.Name = "dtp_endDate";
+            this.dtp_endDate.Size = new System.Drawing.Size(215, 20);
+            this.dtp_endDate.TabIndex = 28;
+            // 
+            // dtp_startDate
+            // 
+            this.dtp_startDate.Location = new System.Drawing.Point(143, 350);
+            this.dtp_startDate.Name = "dtp_startDate";
+            this.dtp_startDate.Size = new System.Drawing.Size(215, 20);
+            this.dtp_startDate.TabIndex = 27;
             // 
             // label6
             // 
@@ -219,20 +233,6 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Discard project details";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // dtp_startDate
-            // 
-            this.dtp_startDate.Location = new System.Drawing.Point(143, 350);
-            this.dtp_startDate.Name = "dtp_startDate";
-            this.dtp_startDate.Size = new System.Drawing.Size(215, 20);
-            this.dtp_startDate.TabIndex = 27;
-            // 
-            // dtp_endDate
-            // 
-            this.dtp_endDate.Location = new System.Drawing.Point(143, 404);
-            this.dtp_endDate.Name = "dtp_endDate";
-            this.dtp_endDate.Size = new System.Drawing.Size(215, 20);
-            this.dtp_endDate.TabIndex = 28;
             // 
             // contextMenuStrip1
             // 
