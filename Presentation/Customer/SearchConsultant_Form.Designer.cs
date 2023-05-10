@@ -28,36 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label1.Location = new System.Drawing.Point(296, 265);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(446, 39);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Display possible consultants";
             // 
             // SearchConsultant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SearchConsultant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
     }
 }
