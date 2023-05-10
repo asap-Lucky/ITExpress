@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -58,6 +58,36 @@
     <Compile Include="Consultant\SignUpConsultant_Form.Designer.cs">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer\SearchConsultant_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\SearchConsultant_Form.Designer.cs">
+      <DependentUpon>SearchConsultant_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\EditProfileCustomer_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\EditProfileCustomer_Form.Designer.cs">
+      <DependentUpon>EditProfileCustomer_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\MessageBoxCustumer_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\MessageBoxCustumer_Form.Designer.cs">
+      <DependentUpon>MessageBoxCustumer_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\ClosedProjects_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\ClosedProjects_Form.Designer.cs">
+      <DependentUpon>ClosedProjects_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\ExistingProject_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\ExistingProject_Form.Designer.cs">
+      <DependentUpon>ExistingProject_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer\CreateNewProject_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +125,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\SignUpConsultant_Form.resx">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\SearchConsultant_Form.resx">
+      <DependentUpon>SearchConsultant_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\EditProfileCustomer_Form.resx">
+      <DependentUpon>EditProfileCustomer_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\MessageBoxCustumer_Form.resx">
+      <DependentUpon>MessageBoxCustumer_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\ClosedProjects_Form.resx">
+      <DependentUpon>ClosedProjects_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\ExistingProject_Form.resx">
+      <DependentUpon>ExistingProject_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\CreateNewProject_Form.resx">
       <DependentUpon>CreateNewProject_Form.cs</DependentUpon>

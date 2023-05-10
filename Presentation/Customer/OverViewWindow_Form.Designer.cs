@@ -41,6 +41,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lb_firstNameOfCustomer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.panelDesktop = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -221,12 +222,21 @@
             this.label1.Text = "Welcome,";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelDesktop
+            // 
+            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDesktop.Location = new System.Drawing.Point(200, 100);
+            this.panelDesktop.Name = "panelDesktop";
+            this.panelDesktop.Size = new System.Drawing.Size(1084, 561);
+            this.panelDesktop.TabIndex = 2;
+            // 
             // OverViewWindow_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1284, 661);
+            this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMenu);
             this.Name = "OverViewWindow_Form";
@@ -254,5 +264,6 @@
         private System.Windows.Forms.Button bt_Messages;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelDesktop;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentation.Costumer
 {
-    public partial class CreateNewProject_Form : Form
+    public partial class SearchConsultant : Form
     {
-        public CreateNewProject_Form()
+        public SearchConsultant()
         {
             InitializeComponent();
         }

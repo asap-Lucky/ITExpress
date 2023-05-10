@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Presentation;
 using UI.Consultant;
 using UI.Costumer;
+using Presentation.Costumer;
 
 namespace UI
 {
@@ -20,7 +21,7 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignUpCustomer_Form());
+            Application.Run(new OverViewWindow_Form());
         }
     }
 }

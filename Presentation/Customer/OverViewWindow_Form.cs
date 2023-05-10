@@ -8,12 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Presentation;
 
 namespace Presentation.Costumer
 {
     public partial class OverViewWindow_Form : Form
     {
         Button lastClickedButton = null;
+        private Form currentChildForm;
 
         public OverViewWindow_Form()
         {
@@ -45,27 +47,34 @@ namespace Presentation.Costumer
             lastClickedButton = clickedButton; // remember the current clicked button
         }
 
+
+        private void OpenChildForm(Form childform)
+        {
+            if (currentChildForm != null)
+            {
+                // Opems only one instance of the form
+                currentChildForm.Close();
+            }
+            currentChildForm = childform;
+            childform.TopLevel = false;
+            childform.FormBorderStyle = FormBorderStyle.None;
+            childform.Dock = DockStyle.Fill;
+            panelDesktop.Controls.Add(childform);
+            panelDesktop.Tag = childform;
+            childform.BringToFront();
+            childform.Show();
+        }
+
+        
+
         private void bt_createNewProject_Click(object sender, EventArgs e)
         {
+            //Logic that creats the child form (createNewProject_Form) in the parent form (overViewWindow_Form)
+            //Logic that prevents the forms from creating more than one instance of the child form.
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-
-            //Logic that prevents the forms from creating more than one instance of the child form.
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.GetType() == typeof(CreateNewProject_Form))
-                {
-                    form.Activate();
-                    return;
-                }
-            }
-
-            //Logic that creats the child form (createNewProject_Form) in the parent form (overViewWindow_Form)
-            CreateNewProject_Form childform = new CreateNewProject_Form();
-            childform.MdiParent = this;
-            childform.StartPosition = FormStartPosition.CenterParent;
-            childform.Show();
+            OpenChildForm(new CreateNewProject_Form());
         }
      
         private void bt_existingProjects_Click(object sender, EventArgs e)
@@ -73,6 +82,7 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
+            OpenChildForm(new ExistingProject_Form());
         }
 
         private void bt_closedProjects_Click(object sender, EventArgs e)
@@ -80,6 +90,7 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
+            OpenChildForm(new ClosedProjects());
         }
 
         private void bt_searchConsultant_Click(object sender, EventArgs e)
@@ -87,6 +98,7 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
+            OpenChildForm(new SearchConsultant());
         }
 
         private void bt_editProfile_Click(object sender, EventArgs e)
@@ -94,6 +106,7 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
+            OpenChildForm(new EditProfileCustomer());
         }
 
         private void bt_Messages_Click(object sender, EventArgs e)
@@ -101,6 +114,7 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
+            OpenChildForm(new MessageBoxCustumer());
         }
 
         private void bt_LogOut_Click(object sender, EventArgs e)
