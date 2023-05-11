@@ -1,10 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="2-sem-gr-1" Class="ITExpressDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+<?xml version="1.0" encoding="utf-8"?><Database Name="2-sem-gr-1" Class="ITExpressDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=ucl-jtm-sqlserver.database.windows.net;Initial Catalog=2-sem-gr-1;Persist Security Info=True;User ID=2-sem-gr-1-login" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="_2_sem_gr_1ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Admin_UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Admin_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Specialization" Member="Specializations">
+    <Type Name="Specialization">
+      <Column Name="SpecializationId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Specialization_CodeLanguage" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Specialization_EndType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Specialization_Description" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="Specialization_Consultant" Member="Consultants" ThisKey="SpecializationId" OtherKey="Consultant_SpecializationId" Type="Consultant" />
     </Type>
   </Table>
   <Table Name="dbo.Consultant" Member="Consultants">
@@ -79,15 +88,6 @@
       <Column Name="Project_ConsultantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Customer_Project" Member="Customer" ThisKey="Project_CustomerId" OtherKey="CustomerId" Type="Customer" IsForeignKey="true" />
       <Association Name="Consultant_Project" Member="Consultant" ThisKey="Project_ConsultantId" OtherKey="ConsultantId" Type="Consultant" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Specialization" Member="Specializations">
-    <Type Name="Specialization">
-      <Column Name="SpecializationId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Specialization_CodeLanguage" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Specialization_EndType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Specialization_Description" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Association Name="Specialization_Consultant" Member="Consultants" ThisKey="SpecializationId" OtherKey="Consultant_SpecializationId" Type="Consultant" />
     </Type>
   </Table>
 </Database>

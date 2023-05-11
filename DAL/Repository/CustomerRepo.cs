@@ -19,12 +19,15 @@ namespace DAL.Repository
             DataContext = new ITExpressDataClassesDataContext();
         }
 
+        // Retrieve all customers from the database
         public List<ICustomer> GetAllCustomers()
         {
             var result = new List<ICustomer>();
 
+            // Retrieve all customer data transfer objects (DTOs) from the database
             var AllDtoItem = DataContext.Customers;
 
+            // Convert each customer DTO to a customer model object and add to the result list
             foreach (var dto in AllDtoItem)
             {
                 Models.Customer customer = new Models.Customer();
@@ -39,14 +42,15 @@ namespace DAL.Repository
                 customer.Login = dto.Customer_Login;
                 customer.Password = dto.Customer_Password;
 
-
                 result.Add(customer);
             }
             return result;
         }
 
+        // Add a new customer to the database
         public void AddCustomer(ICustomer dto)
         {
+            // Convert the customer model object to a customer DTO
             var cus = new Customer()
             {
                 CustomerId = dto.Id,
@@ -60,25 +64,31 @@ namespace DAL.Repository
                 Customer_City = dto.City,
                 Customer_PhoneNumber = dto.PhoneNumber,
             };
+
+            // Insert the new customer DTO into the database and save changes
             DataContext.Customers.InsertOnSubmit(cus);
             DataContext.SubmitChanges();
         }
 
+        // Delete a customer from the database
         public void DeleteCustomer(ICustomer dto)
         {
+            // Find the customer DTO in the database by ID and delete it
             var targetCustomer = DataContext.Customers.FirstOrDefault(i => i.CustomerId == dto.Id);
-
             DataContext.Customers.DeleteOnSubmit(targetCustomer);
 
+            // Save the changes to the database
             DataContext.SubmitChanges();
         }
 
-        public void EditCustomer(ICustomer customer) 
+        // Update a customer in the database
+        public void EditCustomer(ICustomer customer)
         {
-            var targetCustomer = DataContext.Customers.FirstOrDefault(c =>  c.CustomerId == customer.Id);
+            // Find the customer DTO in the database by ID
+            var targetCustomer = DataContext.Customers.FirstOrDefault(c => c.CustomerId == customer.Id);
             if (targetCustomer != null)
             {
-                // Update the customer object with the new values.
+                // Update the customer DTO with the new values from the customer model object
                 targetCustomer.Customer_Address = customer.Address;
                 targetCustomer.Customer_PhoneNumber = customer.PhoneNumber;
                 targetCustomer.Customer_FirstName = customer.FirstName;
@@ -89,7 +99,7 @@ namespace DAL.Repository
                 targetCustomer.Customer_Password = customer.Password;
                 targetCustomer.Customer_Login = customer.Login;
 
-                // Save the changes to the database.
+                // Save the changes to the database
                 DataContext.SubmitChanges();
             }
         }
