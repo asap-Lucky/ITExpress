@@ -33,9 +33,9 @@ namespace DAL.Database
     partial void InsertAdmin(Admin instance);
     partial void UpdateAdmin(Admin instance);
     partial void DeleteAdmin(Admin instance);
-    partial void InsertMessage(Message instance);
-    partial void UpdateMessage(Message instance);
-    partial void DeleteMessage(Message instance);
+    partial void InsertSpecialization(Specialization instance);
+    partial void UpdateSpecialization(Specialization instance);
+    partial void DeleteSpecialization(Specialization instance);
     partial void InsertConsultant(Consultant instance);
     partial void UpdateConsultant(Consultant instance);
     partial void DeleteConsultant(Consultant instance);
@@ -45,12 +45,12 @@ namespace DAL.Database
     partial void InsertInvitation(Invitation instance);
     partial void UpdateInvitation(Invitation instance);
     partial void DeleteInvitation(Invitation instance);
+    partial void InsertMessage(Message instance);
+    partial void UpdateMessage(Message instance);
+    partial void DeleteMessage(Message instance);
     partial void InsertProject(Project instance);
     partial void UpdateProject(Project instance);
     partial void DeleteProject(Project instance);
-    partial void InsertSpecialization(Specialization instance);
-    partial void UpdateSpecialization(Specialization instance);
-    partial void DeleteSpecialization(Specialization instance);
     #endregion
 		
 		public ITExpressDataClassesDataContext() : 
@@ -91,11 +91,11 @@ namespace DAL.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Message> Messages
+		public System.Data.Linq.Table<Specialization> Specializations
 		{
 			get
 			{
-				return this.GetTable<Message>();
+				return this.GetTable<Specialization>();
 			}
 		}
 		
@@ -123,19 +123,19 @@ namespace DAL.Database
 			}
 		}
 		
+		public System.Data.Linq.Table<Message> Messages
+		{
+			get
+			{
+				return this.GetTable<Message>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Project> Projects
 		{
 			get
 			{
 				return this.GetTable<Project>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Specialization> Specializations
-		{
-			get
-			{
-				return this.GetTable<Specialization>();
 			}
 		}
 	}
@@ -250,198 +250,132 @@ namespace DAL.Database
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Message")]
-	public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Specialization")]
+	public partial class Specialization : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _MessageId;
+		private int _SpecializationId;
 		
-		private string _Message_content;
+		private string _Specialization_CodeLanguage;
 		
-		private int _Message_CustomerId;
+		private string _Specialization_EndType;
 		
-		private int _Message_ConsultantId;
+		private string _Specialization_Description;
 		
-		private EntityRef<Consultant> _Consultant;
-		
-		private EntityRef<Customer> _Customer;
+		private EntitySet<Consultant> _Consultants;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMessageIdChanging(int value);
-    partial void OnMessageIdChanged();
-    partial void OnMessage_contentChanging(string value);
-    partial void OnMessage_contentChanged();
-    partial void OnMessage_CustomerIdChanging(int value);
-    partial void OnMessage_CustomerIdChanged();
-    partial void OnMessage_ConsultantIdChanging(int value);
-    partial void OnMessage_ConsultantIdChanged();
+    partial void OnSpecializationIdChanging(int value);
+    partial void OnSpecializationIdChanged();
+    partial void OnSpecialization_CodeLanguageChanging(string value);
+    partial void OnSpecialization_CodeLanguageChanged();
+    partial void OnSpecialization_EndTypeChanging(string value);
+    partial void OnSpecialization_EndTypeChanged();
+    partial void OnSpecialization_DescriptionChanging(string value);
+    partial void OnSpecialization_DescriptionChanged();
     #endregion
 		
-		public Message()
+		public Specialization()
 		{
-			this._Consultant = default(EntityRef<Consultant>);
-			this._Customer = default(EntityRef<Customer>);
+			this._Consultants = new EntitySet<Consultant>(new Action<Consultant>(this.attach_Consultants), new Action<Consultant>(this.detach_Consultants));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MessageId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecializationId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int SpecializationId
 		{
 			get
 			{
-				return this._MessageId;
+				return this._SpecializationId;
 			}
 			set
 			{
-				if ((this._MessageId != value))
+				if ((this._SpecializationId != value))
 				{
-					this.OnMessageIdChanging(value);
+					this.OnSpecializationIdChanging(value);
 					this.SendPropertyChanging();
-					this._MessageId = value;
-					this.SendPropertyChanged("MessageId");
-					this.OnMessageIdChanged();
+					this._SpecializationId = value;
+					this.SendPropertyChanged("SpecializationId");
+					this.OnSpecializationIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message_content", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Message_content
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_CodeLanguage", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Specialization_CodeLanguage
 		{
 			get
 			{
-				return this._Message_content;
+				return this._Specialization_CodeLanguage;
 			}
 			set
 			{
-				if ((this._Message_content != value))
+				if ((this._Specialization_CodeLanguage != value))
 				{
-					this.OnMessage_contentChanging(value);
+					this.OnSpecialization_CodeLanguageChanging(value);
 					this.SendPropertyChanging();
-					this._Message_content = value;
-					this.SendPropertyChanged("Message_content");
-					this.OnMessage_contentChanged();
+					this._Specialization_CodeLanguage = value;
+					this.SendPropertyChanged("Specialization_CodeLanguage");
+					this.OnSpecialization_CodeLanguageChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message_CustomerId", DbType="Int NOT NULL")]
-		public int Message_CustomerId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_EndType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Specialization_EndType
 		{
 			get
 			{
-				return this._Message_CustomerId;
+				return this._Specialization_EndType;
 			}
 			set
 			{
-				if ((this._Message_CustomerId != value))
+				if ((this._Specialization_EndType != value))
 				{
-					if (this._Customer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMessage_CustomerIdChanging(value);
+					this.OnSpecialization_EndTypeChanging(value);
 					this.SendPropertyChanging();
-					this._Message_CustomerId = value;
-					this.SendPropertyChanged("Message_CustomerId");
-					this.OnMessage_CustomerIdChanged();
+					this._Specialization_EndType = value;
+					this.SendPropertyChanged("Specialization_EndType");
+					this.OnSpecialization_EndTypeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message_ConsultantId", DbType="Int NOT NULL")]
-		public int Message_ConsultantId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_Description", DbType="VarChar(255)")]
+		public string Specialization_Description
 		{
 			get
 			{
-				return this._Message_ConsultantId;
+				return this._Specialization_Description;
 			}
 			set
 			{
-				if ((this._Message_ConsultantId != value))
+				if ((this._Specialization_Description != value))
 				{
-					if (this._Consultant.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMessage_ConsultantIdChanging(value);
+					this.OnSpecialization_DescriptionChanging(value);
 					this.SendPropertyChanging();
-					this._Message_ConsultantId = value;
-					this.SendPropertyChanged("Message_ConsultantId");
-					this.OnMessage_ConsultantIdChanged();
+					this._Specialization_Description = value;
+					this.SendPropertyChanged("Specialization_Description");
+					this.OnSpecialization_DescriptionChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Message", Storage="_Consultant", ThisKey="Message_ConsultantId", OtherKey="ConsultantId", IsForeignKey=true)]
-		public Consultant Consultant
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Specialization_Consultant", Storage="_Consultants", ThisKey="SpecializationId", OtherKey="Consultant_SpecializationId")]
+		public EntitySet<Consultant> Consultants
 		{
 			get
 			{
-				return this._Consultant.Entity;
+				return this._Consultants;
 			}
 			set
 			{
-				Consultant previousValue = this._Consultant.Entity;
-				if (((previousValue != value) 
-							|| (this._Consultant.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Consultant.Entity = null;
-						previousValue.Messages.Remove(this);
-					}
-					this._Consultant.Entity = value;
-					if ((value != null))
-					{
-						value.Messages.Add(this);
-						this._Message_ConsultantId = value.ConsultantId;
-					}
-					else
-					{
-						this._Message_ConsultantId = default(int);
-					}
-					this.SendPropertyChanged("Consultant");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Message", Storage="_Customer", ThisKey="Message_CustomerId", OtherKey="CustomerId", IsForeignKey=true)]
-		public Customer Customer
-		{
-			get
-			{
-				return this._Customer.Entity;
-			}
-			set
-			{
-				Customer previousValue = this._Customer.Entity;
-				if (((previousValue != value) 
-							|| (this._Customer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Customer.Entity = null;
-						previousValue.Messages.Remove(this);
-					}
-					this._Customer.Entity = value;
-					if ((value != null))
-					{
-						value.Messages.Add(this);
-						this._Message_CustomerId = value.CustomerId;
-					}
-					else
-					{
-						this._Message_CustomerId = default(int);
-					}
-					this.SendPropertyChanged("Customer");
-				}
+				this._Consultants.Assign(value);
 			}
 		}
 		
@@ -463,6 +397,18 @@ namespace DAL.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Consultants(Consultant entity)
+		{
+			this.SendPropertyChanging();
+			entity.Specialization = this;
+		}
+		
+		private void detach_Consultants(Consultant entity)
+		{
+			this.SendPropertyChanging();
+			entity.Specialization = null;
 		}
 	}
 	
@@ -494,9 +440,9 @@ namespace DAL.Database
 		
 		private int _Consultant_SpecializationId;
 		
-		private EntitySet<Message> _Messages;
-		
 		private EntitySet<Invitation> _Invitations;
+		
+		private EntitySet<Message> _Messages;
 		
 		private EntitySet<Project> _Projects;
 		
@@ -532,8 +478,8 @@ namespace DAL.Database
 		
 		public Consultant()
 		{
-			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
 			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
+			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
 			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._Specialization = default(EntityRef<Specialization>);
 			OnCreated();
@@ -763,19 +709,6 @@ namespace DAL.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Message", Storage="_Messages", ThisKey="ConsultantId", OtherKey="Message_ConsultantId")]
-		public EntitySet<Message> Messages
-		{
-			get
-			{
-				return this._Messages;
-			}
-			set
-			{
-				this._Messages.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Invitation", Storage="_Invitations", ThisKey="ConsultantId", OtherKey="Invitaiton_ConsultantId")]
 		public EntitySet<Invitation> Invitations
 		{
@@ -786,6 +719,19 @@ namespace DAL.Database
 			set
 			{
 				this._Invitations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Message", Storage="_Messages", ThisKey="ConsultantId", OtherKey="Message_ConsultantId")]
+		public EntitySet<Message> Messages
+		{
+			get
+			{
+				return this._Messages;
+			}
+			set
+			{
+				this._Messages.Assign(value);
 			}
 		}
 		
@@ -856,18 +802,6 @@ namespace DAL.Database
 			}
 		}
 		
-		private void attach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = this;
-		}
-		
-		private void detach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = null;
-		}
-		
 		private void attach_Invitations(Invitation entity)
 		{
 			this.SendPropertyChanging();
@@ -875,6 +809,18 @@ namespace DAL.Database
 		}
 		
 		private void detach_Invitations(Invitation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = null;
+		}
+		
+		private void attach_Messages(Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = this;
+		}
+		
+		private void detach_Messages(Message entity)
 		{
 			this.SendPropertyChanging();
 			entity.Consultant = null;
@@ -919,9 +865,9 @@ namespace DAL.Database
 		
 		private int _Customer_PhoneNumber;
 		
-		private EntitySet<Message> _Messages;
-		
 		private EntitySet<Invitation> _Invitations;
+		
+		private EntitySet<Message> _Messages;
 		
 		private EntitySet<Project> _Projects;
 		
@@ -953,8 +899,8 @@ namespace DAL.Database
 		
 		public Customer()
 		{
-			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
 			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
+			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
 			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			OnCreated();
 		}
@@ -1159,19 +1105,6 @@ namespace DAL.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Message", Storage="_Messages", ThisKey="CustomerId", OtherKey="Message_CustomerId")]
-		public EntitySet<Message> Messages
-		{
-			get
-			{
-				return this._Messages;
-			}
-			set
-			{
-				this._Messages.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Invitation", Storage="_Invitations", ThisKey="CustomerId", OtherKey="Invitation_CustomerId")]
 		public EntitySet<Invitation> Invitations
 		{
@@ -1182,6 +1115,19 @@ namespace DAL.Database
 			set
 			{
 				this._Invitations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Message", Storage="_Messages", ThisKey="CustomerId", OtherKey="Message_CustomerId")]
+		public EntitySet<Message> Messages
+		{
+			get
+			{
+				return this._Messages;
+			}
+			set
+			{
+				this._Messages.Assign(value);
 			}
 		}
 		
@@ -1218,18 +1164,6 @@ namespace DAL.Database
 			}
 		}
 		
-		private void attach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = this;
-		}
-		
-		private void detach_Messages(Message entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = null;
-		}
-		
 		private void attach_Invitations(Invitation entity)
 		{
 			this.SendPropertyChanging();
@@ -1237,6 +1171,18 @@ namespace DAL.Database
 		}
 		
 		private void detach_Invitations(Invitation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = null;
+		}
+		
+		private void attach_Messages(Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = this;
+		}
+		
+		private void detach_Messages(Message entity)
 		{
 			this.SendPropertyChanging();
 			entity.Customer = null;
@@ -1444,6 +1390,222 @@ namespace DAL.Database
 					else
 					{
 						this._Invitaiton_ConsultantId = default(int);
+					}
+					this.SendPropertyChanged("Consultant");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Message")]
+	public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MessageId;
+		
+		private string _Message_content;
+		
+		private int _Message_CustomerId;
+		
+		private int _Message_ConsultantId;
+		
+		private EntityRef<Customer> _Customer;
+		
+		private EntityRef<Consultant> _Consultant;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMessageIdChanging(int value);
+    partial void OnMessageIdChanged();
+    partial void OnMessage_contentChanging(string value);
+    partial void OnMessage_contentChanged();
+    partial void OnMessage_CustomerIdChanging(int value);
+    partial void OnMessage_CustomerIdChanged();
+    partial void OnMessage_ConsultantIdChanging(int value);
+    partial void OnMessage_ConsultantIdChanged();
+    #endregion
+		
+		public Message()
+		{
+			this._Customer = default(EntityRef<Customer>);
+			this._Consultant = default(EntityRef<Consultant>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MessageId
+		{
+			get
+			{
+				return this._MessageId;
+			}
+			set
+			{
+				if ((this._MessageId != value))
+				{
+					this.OnMessageIdChanging(value);
+					this.SendPropertyChanging();
+					this._MessageId = value;
+					this.SendPropertyChanged("MessageId");
+					this.OnMessageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message_content", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Message_content
+		{
+			get
+			{
+				return this._Message_content;
+			}
+			set
+			{
+				if ((this._Message_content != value))
+				{
+					this.OnMessage_contentChanging(value);
+					this.SendPropertyChanging();
+					this._Message_content = value;
+					this.SendPropertyChanged("Message_content");
+					this.OnMessage_contentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message_CustomerId", DbType="Int NOT NULL")]
+		public int Message_CustomerId
+		{
+			get
+			{
+				return this._Message_CustomerId;
+			}
+			set
+			{
+				if ((this._Message_CustomerId != value))
+				{
+					if (this._Customer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMessage_CustomerIdChanging(value);
+					this.SendPropertyChanging();
+					this._Message_CustomerId = value;
+					this.SendPropertyChanged("Message_CustomerId");
+					this.OnMessage_CustomerIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message_ConsultantId", DbType="Int NOT NULL")]
+		public int Message_ConsultantId
+		{
+			get
+			{
+				return this._Message_ConsultantId;
+			}
+			set
+			{
+				if ((this._Message_ConsultantId != value))
+				{
+					if (this._Consultant.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMessage_ConsultantIdChanging(value);
+					this.SendPropertyChanging();
+					this._Message_ConsultantId = value;
+					this.SendPropertyChanged("Message_ConsultantId");
+					this.OnMessage_ConsultantIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Message", Storage="_Customer", ThisKey="Message_CustomerId", OtherKey="CustomerId", IsForeignKey=true)]
+		public Customer Customer
+		{
+			get
+			{
+				return this._Customer.Entity;
+			}
+			set
+			{
+				Customer previousValue = this._Customer.Entity;
+				if (((previousValue != value) 
+							|| (this._Customer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Customer.Entity = null;
+						previousValue.Messages.Remove(this);
+					}
+					this._Customer.Entity = value;
+					if ((value != null))
+					{
+						value.Messages.Add(this);
+						this._Message_CustomerId = value.CustomerId;
+					}
+					else
+					{
+						this._Message_CustomerId = default(int);
+					}
+					this.SendPropertyChanged("Customer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Message", Storage="_Consultant", ThisKey="Message_ConsultantId", OtherKey="ConsultantId", IsForeignKey=true)]
+		public Consultant Consultant
+		{
+			get
+			{
+				return this._Consultant.Entity;
+			}
+			set
+			{
+				Consultant previousValue = this._Consultant.Entity;
+				if (((previousValue != value) 
+							|| (this._Consultant.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Consultant.Entity = null;
+						previousValue.Messages.Remove(this);
+					}
+					this._Consultant.Entity = value;
+					if ((value != null))
+					{
+						value.Messages.Add(this);
+						this._Message_ConsultantId = value.ConsultantId;
+					}
+					else
+					{
+						this._Message_ConsultantId = default(int);
 					}
 					this.SendPropertyChanged("Consultant");
 				}
@@ -1876,168 +2038,6 @@ namespace DAL.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Specialization")]
-	public partial class Specialization : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _SpecializationId;
-		
-		private string _Specialization_CodeLanguage;
-		
-		private string _Specialization_EndType;
-		
-		private string _Specialization_Description;
-		
-		private EntitySet<Consultant> _Consultants;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSpecializationIdChanging(int value);
-    partial void OnSpecializationIdChanged();
-    partial void OnSpecialization_CodeLanguageChanging(string value);
-    partial void OnSpecialization_CodeLanguageChanged();
-    partial void OnSpecialization_EndTypeChanging(string value);
-    partial void OnSpecialization_EndTypeChanged();
-    partial void OnSpecialization_DescriptionChanging(string value);
-    partial void OnSpecialization_DescriptionChanged();
-    #endregion
-		
-		public Specialization()
-		{
-			this._Consultants = new EntitySet<Consultant>(new Action<Consultant>(this.attach_Consultants), new Action<Consultant>(this.detach_Consultants));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecializationId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int SpecializationId
-		{
-			get
-			{
-				return this._SpecializationId;
-			}
-			set
-			{
-				if ((this._SpecializationId != value))
-				{
-					this.OnSpecializationIdChanging(value);
-					this.SendPropertyChanging();
-					this._SpecializationId = value;
-					this.SendPropertyChanged("SpecializationId");
-					this.OnSpecializationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_CodeLanguage", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Specialization_CodeLanguage
-		{
-			get
-			{
-				return this._Specialization_CodeLanguage;
-			}
-			set
-			{
-				if ((this._Specialization_CodeLanguage != value))
-				{
-					this.OnSpecialization_CodeLanguageChanging(value);
-					this.SendPropertyChanging();
-					this._Specialization_CodeLanguage = value;
-					this.SendPropertyChanged("Specialization_CodeLanguage");
-					this.OnSpecialization_CodeLanguageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_EndType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Specialization_EndType
-		{
-			get
-			{
-				return this._Specialization_EndType;
-			}
-			set
-			{
-				if ((this._Specialization_EndType != value))
-				{
-					this.OnSpecialization_EndTypeChanging(value);
-					this.SendPropertyChanging();
-					this._Specialization_EndType = value;
-					this.SendPropertyChanged("Specialization_EndType");
-					this.OnSpecialization_EndTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_Description", DbType="VarChar(255)")]
-		public string Specialization_Description
-		{
-			get
-			{
-				return this._Specialization_Description;
-			}
-			set
-			{
-				if ((this._Specialization_Description != value))
-				{
-					this.OnSpecialization_DescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Specialization_Description = value;
-					this.SendPropertyChanged("Specialization_Description");
-					this.OnSpecialization_DescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Specialization_Consultant", Storage="_Consultants", ThisKey="SpecializationId", OtherKey="Consultant_SpecializationId")]
-		public EntitySet<Consultant> Consultants
-		{
-			get
-			{
-				return this._Consultants;
-			}
-			set
-			{
-				this._Consultants.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Consultants(Consultant entity)
-		{
-			this.SendPropertyChanging();
-			entity.Specialization = this;
-		}
-		
-		private void detach_Consultants(Consultant entity)
-		{
-			this.SendPropertyChanging();
-			entity.Specialization = null;
 		}
 	}
 }
