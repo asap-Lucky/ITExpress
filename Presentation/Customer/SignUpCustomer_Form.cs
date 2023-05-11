@@ -7,24 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Abstraction.Interfaces;
 using BLL.Models;
 
 namespace UI.Costumer
 {
     public partial class SignUpCustomer_Form : Form
     {
-        // Create an interface of type ICustomer.
-        public Abstraction.Interfaces.ICustomer MyCustomer { get; set; }
+       
 
         // Create an instance of the CustomerService class to use its methods.
-        BLL.Services.CustomerService CustomerService = new BLL.Services.CustomerService();
+        ICustomerService customerService = new BLL.Services.CustomerService();
+         BLL.Facader.CustomerService FacadeService;
 
         public SignUpCustomer_Form()
         {
             InitializeComponent();
 
+             FacadeService = new BLL.Facader.CustomerService(customerService);
             // Initialize MyCustomer with a new instance of the Customer class.
-            MyCustomer = new Customer();
+            
         }
 
         private void bt_GoBack_Click(object sender, EventArgs e)
@@ -59,21 +61,12 @@ namespace UI.Costumer
             {
                 MessageBox.Show("The passwords did not match, please type it out again", "Password didnt match!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            // If all checks are passed, set the values of MyCustomer properties and add it to the database.
+            // If all checks are passed,calls the Facade.
             else
             {
-                MyCustomer.FirstName = tb_firstName.Text;
-                MyCustomer.LastName = tb_lastName.Text;
-                MyCustomer.Address = tb_address.Text;
-                MyCustomer.ZipCode = zipcode;
-                MyCustomer.PhoneNumber = phonenumber;
-                MyCustomer.Email = tb_email.Text;
-                MyCustomer.Login = tb_userName.Text;
-                MyCustomer.Password = tb_passWord.Text;
-                MyCustomer.City = tb_City.Text;
-
-                // Call the AddCustomer method of the CustomerService object and pass in MyCustomer object.
-                CustomerService.AddCustomer(MyCustomer);
+         
+                // Call the Facade.
+                FacadeService.RegisterCustomer(tb_firstName.Text,tb_lastName.Text, tb_address.Text, zipcode,phonenumber,tb_email.Text,tb_userName.Text,tb_passWord.Text,tb_City.Text);
             }
         }
 
@@ -82,6 +75,11 @@ namespace UI.Costumer
             // Call the RegisterCustomer method and close the current window.
             RegisterCustomer();
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 
