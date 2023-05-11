@@ -38,9 +38,9 @@
             // 
             this.dgv_existingProjectsCustomer.BackgroundColor = System.Drawing.Color.White;
             this.dgv_existingProjectsCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_existingProjectsCustomer.Location = new System.Drawing.Point(253, 12);
+            this.dgv_existingProjectsCustomer.Location = new System.Drawing.Point(12, 12);
             this.dgv_existingProjectsCustomer.Name = "dgv_existingProjectsCustomer";
-            this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(810, 533);
+            this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1051, 460);
             this.dgv_existingProjectsCustomer.TabIndex = 18;
             // 
             // bt_Refresh
@@ -51,7 +51,7 @@
             this.bt_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Refresh.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_Refresh.Location = new System.Drawing.Point(17, 361);
+            this.bt_Refresh.Location = new System.Drawing.Point(12, 502);
             this.bt_Refresh.Name = "bt_Refresh";
             this.bt_Refresh.Size = new System.Drawing.Size(205, 30);
             this.bt_Refresh.TabIndex = 16;
@@ -66,7 +66,7 @@
             this.bt_OpenProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_OpenProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_OpenProject.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_OpenProject.Location = new System.Drawing.Point(17, 165);
+            this.bt_OpenProject.Location = new System.Drawing.Point(858, 502);
             this.bt_OpenProject.Name = "bt_OpenProject";
             this.bt_OpenProject.Size = new System.Drawing.Size(205, 30);
             this.bt_OpenProject.TabIndex = 15;

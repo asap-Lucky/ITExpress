@@ -43,7 +43,7 @@
             this.bt_OpenProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_OpenProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_OpenProject.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_OpenProject.Location = new System.Drawing.Point(22, 75);
+            this.bt_OpenProject.Location = new System.Drawing.Point(863, 503);
             this.bt_OpenProject.Name = "bt_OpenProject";
             this.bt_OpenProject.Size = new System.Drawing.Size(205, 30);
             this.bt_OpenProject.TabIndex = 10;
@@ -58,7 +58,7 @@
             this.bt_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Refresh.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_Refresh.Location = new System.Drawing.Point(22, 391);
+            this.bt_Refresh.Location = new System.Drawing.Point(12, 503);
             this.bt_Refresh.Name = "bt_Refresh";
             this.bt_Refresh.Size = new System.Drawing.Size(205, 30);
             this.bt_Refresh.TabIndex = 12;
@@ -73,7 +73,7 @@
             this.bt_EditProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_EditProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_EditProject.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_EditProject.Location = new System.Drawing.Point(22, 235);
+            this.bt_EditProject.Location = new System.Drawing.Point(427, 503);
             this.bt_EditProject.Name = "bt_EditProject";
             this.bt_EditProject.Size = new System.Drawing.Size(205, 30);
             this.bt_EditProject.TabIndex = 13;
@@ -84,9 +84,9 @@
             // 
             this.dgv_existingProjectsCustomer.BackgroundColor = System.Drawing.Color.White;
             this.dgv_existingProjectsCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_existingProjectsCustomer.Location = new System.Drawing.Point(258, 12);
+            this.dgv_existingProjectsCustomer.Location = new System.Drawing.Point(12, 12);
             this.dgv_existingProjectsCustomer.Name = "dgv_existingProjectsCustomer";
-            this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(810, 533);
+            this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1056, 466);
             this.dgv_existingProjectsCustomer.TabIndex = 14;
             // 
             // ExistingProject_Form

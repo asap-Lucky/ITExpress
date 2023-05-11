@@ -44,12 +44,6 @@
             this.tb_currentFirstName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.tb_CurrentPassWord = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tb_currentUserName = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tb_repeatNewPassword = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,7 +55,6 @@
             this.bt_saveChangesOnProfile = new System.Windows.Forms.Button();
             this.bt_DiscardProfileChanges = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,66 +213,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Personal information";
             // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.tb_CurrentPassWord);
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.tb_currentUserName);
-            this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Location = new System.Drawing.Point(505, 20);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(502, 163);
-            this.panel3.TabIndex = 10;
-            // 
-            // tb_CurrentPassWord
-            // 
-            this.tb_CurrentPassWord.Location = new System.Drawing.Point(214, 118);
-            this.tb_CurrentPassWord.Name = "tb_CurrentPassWord";
-            this.tb_CurrentPassWord.Size = new System.Drawing.Size(203, 20);
-            this.tb_CurrentPassWord.TabIndex = 4;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label14.Location = new System.Drawing.Point(23, 118);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 20);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Password:";
-            // 
-            // tb_currentUserName
-            // 
-            this.tb_currentUserName.Location = new System.Drawing.Point(214, 55);
-            this.tb_currentUserName.Name = "tb_currentUserName";
-            this.tb_currentUserName.Size = new System.Drawing.Size(203, 20);
-            this.tb_currentUserName.TabIndex = 2;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label15.Location = new System.Drawing.Point(23, 53);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(87, 20);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Username:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label16.Location = new System.Drawing.Point(168, 6);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(160, 24);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Log-in information";
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -401,7 +334,6 @@
             this.Controls.Add(this.bt_saveChangesOnProfile);
             this.Controls.Add(this.bt_DiscardProfileChanges);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditProfileCustomer";
@@ -409,8 +341,6 @@
             this.Text = "CreateNewProject_Form";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -435,12 +365,6 @@
         private System.Windows.Forms.TextBox tb_currentFirstName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox tb_CurrentPassWord;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tb_currentUserName;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tb_repeatNewPassword;
         private System.Windows.Forms.Label label10;
