@@ -1,5 +1,5 @@
 ﻿using BLL.Services;
-using Presentation.Costumer;
+using Presentation.Customer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +44,7 @@ namespace UI.All
                 Abstraction.Interfaces.ICustomer customer = (Abstraction.Interfaces.ICustomer) customerService.GetCustomer(tb_userNameCustomer.Text, tb_passWordCustomer.Text);
 
                 this.Hide();
-                OverViewWindow_Form overViewWindow_Form = new OverViewWindow_Form(customer);
+                CustomerOverviewWindow_Form overViewWindow_Form = new CustomerOverviewWindow_Form(customer);
                 overViewWindow_Form.ShowDialog();
                 this.Show();
             }
