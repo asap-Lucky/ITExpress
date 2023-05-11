@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="All\Message_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="All\Message_Form.Designer.cs">
+      <DependentUpon>Message_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultant\LogInConsultant_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,12 @@
     </Compile>
     <Compile Include="Consultant\SignUpConsultant_Form.Designer.cs">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\InvitationSend_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\InvitationSend_Form.Designer.cs">
+      <DependentUpon>InvitationSend_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\SearchConsultant_Form.cs">
       <SubType>Form</SubType>
@@ -120,11 +132,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="All\Message_Form.resx">
+      <DependentUpon>Message_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultant\LogInConsultant_Form.resx">
       <DependentUpon>LogInConsultant_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\SignUpConsultant_Form.resx">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\InvitationSend_Form.resx">
+      <DependentUpon>InvitationSend_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\SearchConsultant_Form.resx">
       <DependentUpon>SearchConsultant_Form.cs</DependentUpon>
