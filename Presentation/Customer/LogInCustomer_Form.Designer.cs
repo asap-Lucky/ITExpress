@@ -32,9 +32,9 @@
             this.bt_LogInAsCostumer = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
             this.ll_SignUpAsCostumer = new System.Windows.Forms.LinkLabel();
-            this.tb_passWordCostumer = new System.Windows.Forms.TextBox();
+            this.tb_passWordCustomer = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tb_userNameCostumer = new System.Windows.Forms.TextBox();
+            this.tb_userNameCustomer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_LogInSign = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -47,13 +47,13 @@
             this.panel1.Controls.Add(this.bt_LogInAsCostumer);
             this.panel1.Controls.Add(this.bt_GoBack);
             this.panel1.Controls.Add(this.ll_SignUpAsCostumer);
-            this.panel1.Controls.Add(this.tb_passWordCostumer);
+            this.panel1.Controls.Add(this.tb_passWordCustomer);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.tb_userNameCostumer);
+            this.panel1.Controls.Add(this.tb_userNameCustomer);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lb_LogInSign);
             this.panel1.Location = new System.Drawing.Point(107, 74);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(565, 542);
             this.panel1.TabIndex = 7;
@@ -67,12 +67,13 @@
             this.bt_LogInAsCostumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_LogInAsCostumer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.bt_LogInAsCostumer.Location = new System.Drawing.Point(377, 434);
-            this.bt_LogInAsCostumer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_LogInAsCostumer.Margin = new System.Windows.Forms.Padding(4);
             this.bt_LogInAsCostumer.Name = "bt_LogInAsCostumer";
             this.bt_LogInAsCostumer.Size = new System.Drawing.Size(139, 37);
             this.bt_LogInAsCostumer.TabIndex = 7;
             this.bt_LogInAsCostumer.Text = "Log in";
             this.bt_LogInAsCostumer.UseVisualStyleBackColor = false;
+            this.bt_LogInAsCostumer.Click += new System.EventHandler(this.bt_LogInAsCostumer_Click);
             // 
             // bt_GoBack
             // 
@@ -83,7 +84,7 @@
             this.bt_GoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_GoBack.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.bt_GoBack.Location = new System.Drawing.Point(53, 434);
-            this.bt_GoBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_GoBack.Margin = new System.Windows.Forms.Padding(4);
             this.bt_GoBack.Name = "bt_GoBack";
             this.bt_GoBack.Size = new System.Drawing.Size(139, 37);
             this.bt_GoBack.TabIndex = 6;
@@ -105,15 +106,15 @@
             this.ll_SignUpAsCostumer.Text = "Sign-up as a costumer";
             this.ll_SignUpAsCostumer.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_SignUpAsCostumer_LinkClicked);
             // 
-            // tb_passWordCostumer
+            // tb_passWordCustomer
             // 
-            this.tb_passWordCostumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tb_passWordCostumer.Location = new System.Drawing.Point(141, 297);
-            this.tb_passWordCostumer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tb_passWordCostumer.Name = "tb_passWordCostumer";
-            this.tb_passWordCostumer.PasswordChar = '*';
-            this.tb_passWordCostumer.Size = new System.Drawing.Size(304, 24);
-            this.tb_passWordCostumer.TabIndex = 4;
+            this.tb_passWordCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.tb_passWordCustomer.Location = new System.Drawing.Point(141, 297);
+            this.tb_passWordCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_passWordCustomer.Name = "tb_passWordCustomer";
+            this.tb_passWordCustomer.PasswordChar = '*';
+            this.tb_passWordCustomer.Size = new System.Drawing.Size(304, 24);
+            this.tb_passWordCustomer.TabIndex = 4;
             // 
             // label2
             // 
@@ -125,14 +126,14 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Password:";
             // 
-            // tb_userNameCostumer
+            // tb_userNameCustomer
             // 
-            this.tb_userNameCostumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tb_userNameCostumer.Location = new System.Drawing.Point(141, 188);
-            this.tb_userNameCostumer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tb_userNameCostumer.Name = "tb_userNameCostumer";
-            this.tb_userNameCostumer.Size = new System.Drawing.Size(304, 24);
-            this.tb_userNameCostumer.TabIndex = 2;
+            this.tb_userNameCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.tb_userNameCustomer.Location = new System.Drawing.Point(141, 188);
+            this.tb_userNameCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_userNameCustomer.Name = "tb_userNameCustomer";
+            this.tb_userNameCustomer.Size = new System.Drawing.Size(304, 24);
+            this.tb_userNameCustomer.TabIndex = 2;
             // 
             // label1
             // 
@@ -158,17 +159,17 @@
             this.lb_LogInSign.Text = "Costumer login";
             this.lb_LogInSign.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LogInCostumer_Form
+            // LogInCustomer_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(776, 681);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(794, 728);
             this.MinimumSize = new System.Drawing.Size(794, 728);
-            this.Name = "LogInCostumer_Form";
+            this.Name = "LogInCustomer_Form";
             this.Text = "Log in";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -179,9 +180,9 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lb_LogInSign;
-        private System.Windows.Forms.TextBox tb_passWordCostumer;
+        private System.Windows.Forms.TextBox tb_passWordCustomer;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tb_userNameCostumer;
+        private System.Windows.Forms.TextBox tb_userNameCustomer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel ll_SignUpAsCostumer;
         private System.Windows.Forms.Button bt_LogInAsCostumer;

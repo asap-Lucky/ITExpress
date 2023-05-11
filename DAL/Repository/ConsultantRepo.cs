@@ -136,6 +136,7 @@ namespace DAL.Repository
         /// <param name="login">The login of the consultant to retrieve.</param>
         /// <param name="password">The password of the consultant to retrieve.</param>
         /// <returns>Returns the consultant object if found, otherwise returns null.</returns>
+
         public IConsultant GetConsultant(string login, string password)
         {
             var dataConsultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login && c.Consultant_Password == password);

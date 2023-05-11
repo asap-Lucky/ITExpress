@@ -1,4 +1,5 @@
 ﻿using Abstraction.Interfaces;
+using DAL.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,11 @@ namespace BLL.Services
         public List<ICustomer> GetAllCustomers()
         {
             return _customerRepo.GetAllCustomers();
+        }
+
+        public ICustomer GetCustomer(string login, string password)
+        {
+            return _customerRepo.GetCustomer(login, password);
         }
 
         /// <summary>

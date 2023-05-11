@@ -37,7 +37,7 @@ namespace UI.Consultant
         {
             if (consultantService.IsValidConsultant(tb_userNameConsultant.Text, tb_passWordConsultant.Text))
             {
-                BLL.Models.Consultant consultant = (BLL.Models.Consultant)consultantService.GetConsultant(tb_userNameConsultant.Text, tb_passWordConsultant.Text);
+                Abstraction.Interfaces.IConsultant consultant = (Abstraction.Interfaces.IConsultant)consultantService.GetConsultant(tb_userNameConsultant.Text, tb_passWordConsultant.Text);
                 //Send consultant til næste formular
             }
             else
