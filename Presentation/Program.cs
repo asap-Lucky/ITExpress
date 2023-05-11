@@ -7,7 +7,8 @@ using System.Windows.Forms;
 using Presentation;
 using UI.Consultant;
 using UI.Costumer;
-using Presentation.Costumer;
+using Presentation.Customer;
+using Presentation.Consultant;
 using Presentation.All;
 
 namespace UI
@@ -22,7 +23,7 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Message_Form());
+            Application.Run(new CustomerOverviewWindow_Form());
         }
     }
 }

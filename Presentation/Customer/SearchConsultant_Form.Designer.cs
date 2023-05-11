@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Presentation.Costumer
+namespace Presentation.Customer
 {
     partial class SearchConsultant
     {

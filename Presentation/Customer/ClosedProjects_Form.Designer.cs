@@ -1,4 +1,4 @@
-﻿namespace Presentation.Costumer
+﻿namespace Presentation.Customer
 {
     partial class ClosedProjects
     {

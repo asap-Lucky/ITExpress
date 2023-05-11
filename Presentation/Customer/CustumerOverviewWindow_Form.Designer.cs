@@ -1,6 +1,6 @@
-﻿namespace Presentation.Costumer
+﻿namespace Presentation.Customer
 {
-    partial class OverViewWindow_Form
+    partial class CustomerOverviewWindow_Form
     {
         /// <summary>
         /// Required designer variable.

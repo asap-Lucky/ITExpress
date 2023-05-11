@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentation.Costumer
+namespace Presentation.Customer
 {
     public partial class EditProfileCustomer : Form
     {

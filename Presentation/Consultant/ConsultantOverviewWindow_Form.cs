@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Presentation;
 
-namespace Presentation.Costumer
+namespace Presentation.Consultant
 {
-    public partial class OverViewWindow_Form : Form
+    public partial class ConsultantOverviewWindow_Form : Form
     {
         Button lastClickedButton = null;
         private Form currentChildForm;
 
-        public OverViewWindow_Form()
+        public ConsultantOverviewWindow_Form()
         {
             InitializeComponent();
             IsMdiContainer = true;
@@ -36,15 +36,6 @@ namespace Presentation.Costumer
             Color customDefaultColor = Color.FromArgb(50, 51, 76);
 
             Button clickedButton = (Button)sender;
-
-            if (lastClickedButton != null && lastClickedButton != clickedButton)
-            {
-                lastClickedButton.BackColor = customDefaultColor; // change the color of the last clicked button back to default
-            }
-
-            clickedButton.BackColor = customClickColor; // change the color of the clicked button to the custom color
-
-            lastClickedButton = clickedButton; // remember the current clicked button
         }
 
 
@@ -65,7 +56,7 @@ namespace Presentation.Costumer
             childform.Show();
         }
 
-        
+
 
         private void bt_createNewProject_Click(object sender, EventArgs e)
         {
@@ -74,15 +65,15 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new CreateNewProject_Form());
+            //OpenChildForm(new CreateNewProject_Form());
         }
-     
+
         private void bt_existingProjects_Click(object sender, EventArgs e)
         {
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new ExistingProject_Form());
+            //OpenChildForm(new ExistingProject_Form());
         }
 
         private void bt_closedProjects_Click(object sender, EventArgs e)
@@ -90,7 +81,7 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new ClosedProjects());
+            //OpenChildForm(new ClosedProjects());
         }
 
         private void bt_searchConsultant_Click(object sender, EventArgs e)
@@ -98,7 +89,7 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new SearchConsultant());
+            //OpenChildForm(new SearchConsultant());
         }
 
         private void bt_editProfile_Click(object sender, EventArgs e)
@@ -106,7 +97,7 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new EditProfileCustomer());
+            //OpenChildForm(new EditProfileCustomer());
         }
 
         private void bt_Messages_Click(object sender, EventArgs e)
@@ -114,7 +105,7 @@ namespace Presentation.Costumer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new MessageBoxCustumer());
+            //OpenChildForm(new MessageBoxCustumer());
         }
 
         private void bt_LogOut_Click(object sender, EventArgs e)
@@ -125,8 +116,7 @@ namespace Presentation.Costumer
             this.Show();
         }
 
-  
 
     }
-   
 }
+
