@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Models
+namespace DAL.Models
 {
-    public class Project : Abstraction.Interfaces.IProject
+    public class Project : IProject
     {
         public int Id { get; set; }
         public string Name { get; set; }

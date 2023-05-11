@@ -109,7 +109,6 @@ namespace DAL.Repository
                 targetConsultant.Consultant_FirstName = consultant.FirstName;
                 targetConsultant.Consultant_LastName = consultant.LastName;
                 targetConsultant.Consultant_Address = consultant.Address;
-                targetConsultant.Consultant_City = consultant.City;
                 targetConsultant.Consultant_ZipCode = consultant.ZipCode;
                 targetConsultant.Consultant_Password = consultant.Password;
                 targetConsultant.Consultant_Login = consultant.Login;
