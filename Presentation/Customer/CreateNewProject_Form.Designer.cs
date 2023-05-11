@@ -1,4 +1,4 @@
-﻿namespace Presentation.Costumer
+namespace Presentation.Costumer
 {
     partial class CreateNewProject_Form
     {

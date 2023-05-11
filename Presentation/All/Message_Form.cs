@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentation.Costumer
+namespace Presentation.All
 {
-    public partial class CreateNewProject_Form : Form
+    public partial class Message_Form : Form
     {
-        public CreateNewProject_Form()
+        public Message_Form()
         {
             InitializeComponent();
         }
