@@ -1,4 +1,5 @@
 ﻿using BLL.Services;
+using Presentation.Costumer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,6 @@ namespace UI.All
     public partial class LogInCustomer_Form : Form
     {
         private BLL.Services.CustomerService customerService = new BLL.Services.CustomerService();
-
-        public Abstraction.Interfaces.ICustomer MyCustomer { get; set; }
 
         public LogInCustomer_Form()
         {
@@ -44,7 +43,10 @@ namespace UI.All
             {
                 Abstraction.Interfaces.ICustomer customer = (Abstraction.Interfaces.ICustomer) customerService.GetCustomer(tb_userNameCustomer.Text, tb_passWordCustomer.Text);
 
-                
+                this.Hide();
+                OverViewWindow_Form overViewWindow_Form = new OverViewWindow_Form(customer);
+                overViewWindow_Form.ShowDialog();
+                this.Show();
             }
             else
             {
