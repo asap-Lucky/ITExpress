@@ -52,6 +52,24 @@
     <Compile Include="All\Message_Form.Designer.cs">
       <DependentUpon>Message_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultant\ConsultantClosedProjects_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultant\ConsultantClosedProjects_Form.Designer.cs">
+      <DependentUpon>ConsultantClosedProjects_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultant\CurrentProjects_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultant\CurrentProjects_Form.Designer.cs">
+      <DependentUpon>CurrentProjects_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultant\EditProfileConsultant_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultant\EditProfileConsultant_Form.Designer.cs">
+      <DependentUpon>EditProfileConsultant_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultant\LogInConsultant_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +81,18 @@
     </Compile>
     <Compile Include="Consultant\ConsultantOverviewWindow_Form.Designer.cs">
       <DependentUpon>ConsultantOverviewWindow_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultant\MessageBoxConsultant_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultant\MessageBoxConsultant_Form.Designer.cs">
+      <DependentUpon>MessageBoxConsultant_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultant\SearchProjects_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultant\SearchProjects_Form.Designer.cs">
+      <DependentUpon>SearchProjects_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Consultant\SignUpConsultant_Form.cs">
       <SubType>Form</SubType>
@@ -88,11 +118,11 @@
     <Compile Include="Customer\EditProfileCustomer_Form.Designer.cs">
       <DependentUpon>EditProfileCustomer_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\MessageBoxCustumer_Form.cs">
+    <Compile Include="Customer\MessageBoxCustomer_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\MessageBoxCustumer_Form.Designer.cs">
-      <DependentUpon>MessageBoxCustumer_Form.cs</DependentUpon>
+    <Compile Include="Customer\MessageBoxCustomer_Form.Designer.cs">
+      <DependentUpon>MessageBoxCustomer_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\ClosedProjects_Form.cs">
       <SubType>Form</SubType>
@@ -124,11 +154,11 @@
     <Compile Include="All\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\CustumerOverviewWindow_Form.cs">
+    <Compile Include="Customer\CustomerOverviewWindow_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\CustumerOverviewWindow_Form.Designer.cs">
-      <DependentUpon>CustumerOverviewWindow_Form.cs</DependentUpon>
+    <Compile Include="Customer\CustomerOverviewWindow_Form.Designer.cs">
+      <DependentUpon>CustomerOverviewWindow_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\SignUpCustomer_Form.cs">
       <SubType>Form</SubType>
@@ -141,11 +171,26 @@
     <EmbeddedResource Include="All\Message_Form.resx">
       <DependentUpon>Message_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultant\ConsultantClosedProjects_Form.resx">
+      <DependentUpon>ConsultantClosedProjects_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultant\CurrentProjects_Form.resx">
+      <DependentUpon>CurrentProjects_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultant\EditProfileConsultant_Form.resx">
+      <DependentUpon>EditProfileConsultant_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultant\LogInConsultant_Form.resx">
       <DependentUpon>LogInConsultant_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\ConsultantOverviewWindow_Form.resx">
       <DependentUpon>ConsultantOverviewWindow_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultant\MessageBoxConsultant_Form.resx">
+      <DependentUpon>MessageBoxConsultant_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultant\SearchProjects_Form.resx">
+      <DependentUpon>SearchProjects_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\SignUpConsultant_Form.resx">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
@@ -159,8 +204,8 @@
     <EmbeddedResource Include="Customer\EditProfileCustomer_Form.resx">
       <DependentUpon>EditProfileCustomer_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\MessageBoxCustumer_Form.resx">
-      <DependentUpon>MessageBoxCustumer_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Customer\MessageBoxCustomer_Form.resx">
+      <DependentUpon>MessageBoxCustomer_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\ClosedProjects_Form.resx">
       <DependentUpon>ClosedProjects_Form.cs</DependentUpon>
@@ -177,8 +222,8 @@
     <EmbeddedResource Include="All\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\CustumerOverviewWindow_Form.resx">
-      <DependentUpon>CustumerOverviewWindow_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Customer\CustomerOverviewWindow_Form.resx">
+      <DependentUpon>CustomerOverviewWindow_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\SignUpCustomer_Form.resx">
       <DependentUpon>SignUpCustomer_Form.cs</DependentUpon>

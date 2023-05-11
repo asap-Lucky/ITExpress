@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.bt_Messages = new System.Windows.Forms.Button();
             this.bt_LogOut = new System.Windows.Forms.Button();
             this.bt_editProfile = new System.Windows.Forms.Button();
             this.bt_closedProjects = new System.Windows.Forms.Button();
-            this.bt_existingProjects = new System.Windows.Forms.Button();
-            this.bt_createNewProject = new System.Windows.Forms.Button();
+            this.bt_currentProjects = new System.Windows.Forms.Button();
+            this.bt_searchProject = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -49,18 +50,33 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.bt_Messages);
             this.panelMenu.Controls.Add(this.bt_LogOut);
             this.panelMenu.Controls.Add(this.bt_editProfile);
             this.panelMenu.Controls.Add(this.bt_closedProjects);
-            this.panelMenu.Controls.Add(this.bt_existingProjects);
-            this.panelMenu.Controls.Add(this.bt_createNewProject);
+            this.panelMenu.Controls.Add(this.bt_currentProjects);
+            this.panelMenu.Controls.Add(this.bt_searchProject);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(200, 661);
             this.panelMenu.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(0, 400);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 60);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Invitations";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // bt_Messages
             // 
@@ -123,35 +139,35 @@
             this.bt_closedProjects.UseVisualStyleBackColor = true;
             this.bt_closedProjects.Click += new System.EventHandler(this.bt_closedProjects_Click);
             // 
-            // bt_existingProjects
+            // bt_currentProjects
             // 
-            this.bt_existingProjects.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_existingProjects.FlatAppearance.BorderSize = 0;
-            this.bt_existingProjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_existingProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.bt_existingProjects.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bt_existingProjects.Location = new System.Drawing.Point(0, 160);
-            this.bt_existingProjects.Name = "bt_existingProjects";
-            this.bt_existingProjects.Size = new System.Drawing.Size(200, 60);
-            this.bt_existingProjects.TabIndex = 2;
-            this.bt_existingProjects.Text = "Current projects";
-            this.bt_existingProjects.UseVisualStyleBackColor = true;
-            this.bt_existingProjects.Click += new System.EventHandler(this.bt_existingProjects_Click);
+            this.bt_currentProjects.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_currentProjects.FlatAppearance.BorderSize = 0;
+            this.bt_currentProjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_currentProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.bt_currentProjects.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_currentProjects.Location = new System.Drawing.Point(0, 160);
+            this.bt_currentProjects.Name = "bt_currentProjects";
+            this.bt_currentProjects.Size = new System.Drawing.Size(200, 60);
+            this.bt_currentProjects.TabIndex = 2;
+            this.bt_currentProjects.Text = "Current projects";
+            this.bt_currentProjects.UseVisualStyleBackColor = true;
+            this.bt_currentProjects.Click += new System.EventHandler(this.bt_currentProjects_Click);
             // 
-            // bt_createNewProject
+            // bt_searchProject
             // 
-            this.bt_createNewProject.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_createNewProject.FlatAppearance.BorderSize = 0;
-            this.bt_createNewProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_createNewProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.bt_createNewProject.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.bt_createNewProject.Location = new System.Drawing.Point(0, 100);
-            this.bt_createNewProject.Name = "bt_createNewProject";
-            this.bt_createNewProject.Size = new System.Drawing.Size(200, 60);
-            this.bt_createNewProject.TabIndex = 1;
-            this.bt_createNewProject.Text = "Search project";
-            this.bt_createNewProject.UseVisualStyleBackColor = true;
-            this.bt_createNewProject.Click += new System.EventHandler(this.bt_createNewProject_Click);
+            this.bt_searchProject.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_searchProject.FlatAppearance.BorderSize = 0;
+            this.bt_searchProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_searchProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.bt_searchProject.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.bt_searchProject.Location = new System.Drawing.Point(0, 100);
+            this.bt_searchProject.Name = "bt_searchProject";
+            this.bt_searchProject.Size = new System.Drawing.Size(200, 60);
+            this.bt_searchProject.TabIndex = 1;
+            this.bt_searchProject.Text = "Search project";
+            this.bt_searchProject.UseVisualStyleBackColor = true;
+            this.bt_searchProject.Click += new System.EventHandler(this.bt_searchProject_Click);
             // 
             // panel1
             // 
@@ -188,9 +204,9 @@
             this.lb_firstNameOfCustomer.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lb_firstNameOfCustomer.Location = new System.Drawing.Point(503, 35);
             this.lb_firstNameOfCustomer.Name = "lb_firstNameOfCustomer";
-            this.lb_firstNameOfCustomer.Size = new System.Drawing.Size(344, 39);
+            this.lb_firstNameOfCustomer.Size = new System.Drawing.Size(360, 39);
             this.lb_firstNameOfCustomer.TabIndex = 1;
-            this.lb_firstNameOfCustomer.Text = "firstNameOfCustomer";
+            this.lb_firstNameOfCustomer.Text = "firstNameOfConsultant";
             this.lb_firstNameOfCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
@@ -236,11 +252,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button bt_createNewProject;
+        private System.Windows.Forms.Button bt_searchProject;
         private System.Windows.Forms.Button bt_LogOut;
         private System.Windows.Forms.Button bt_editProfile;
         private System.Windows.Forms.Button bt_closedProjects;
-        private System.Windows.Forms.Button bt_existingProjects;
+        private System.Windows.Forms.Button bt_currentProjects;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lb_firstNameOfCustomer;
         private System.Windows.Forms.Label label1;
@@ -248,5 +264,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panelDesktop;
+        private System.Windows.Forms.Button button1;
     }
 }

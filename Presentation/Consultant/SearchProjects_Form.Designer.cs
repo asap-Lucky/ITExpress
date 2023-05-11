@@ -2,7 +2,7 @@
 
 namespace Presentation.Customer
 {
-    partial class SearchConsultant
+    partial class SearchProjects
     {
         /// <summary>
         /// Required designer variable.
@@ -40,17 +40,12 @@ namespace Presentation.Customer
             this.tb_projectRequierements = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.bt_OpenProject = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,14 +63,14 @@ namespace Presentation.Customer
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(529, 220);
+            this.panel1.Size = new System.Drawing.Size(529, 488);
             this.panel1.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.label6.Location = new System.Drawing.Point(90, 153);
+            this.label6.Location = new System.Drawing.Point(97, 253);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 20);
             this.label6.TabIndex = 34;
@@ -95,7 +90,7 @@ namespace Presentation.Customer
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.button1.Location = new System.Drawing.Point(386, 187);
+            this.button1.Location = new System.Drawing.Point(391, 448);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 24);
             this.button1.TabIndex = 32;
@@ -105,7 +100,7 @@ namespace Presentation.Customer
             // Search
             // 
             this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.Search.Location = new System.Drawing.Point(16, 187);
+            this.Search.Location = new System.Drawing.Point(15, 448);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(125, 24);
             this.Search.TabIndex = 31;
@@ -114,7 +109,7 @@ namespace Presentation.Customer
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(206, 153);
+            this.textBox1.Location = new System.Drawing.Point(206, 256);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(278, 20);
             this.textBox1.TabIndex = 30;
@@ -124,7 +119,7 @@ namespace Presentation.Customer
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(12, 153);
+            this.label7.Location = new System.Drawing.Point(11, 253);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 20);
             this.label7.TabIndex = 29;
@@ -155,22 +150,10 @@ namespace Presentation.Customer
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(95, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(298, 39);
+            this.label1.Size = new System.Drawing.Size(262, 39);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Search consultant:";
+            this.label1.Text = "Search projects:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 61);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(529, 179);
-            this.dataGridView1.TabIndex = 2;
             // 
             // dataGridView2
             // 
@@ -181,28 +164,6 @@ namespace Presentation.Customer
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(492, 415);
             this.dataGridView2.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(12, 260);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(529, 240);
-            this.panel2.TabIndex = 31;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(118, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(292, 39);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Matching projects:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
             // 
@@ -221,9 +182,9 @@ namespace Presentation.Customer
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(81, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(345, 39);
+            this.label4.Size = new System.Drawing.Size(292, 39);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Matching consultants:";
+            this.label4.Text = "Matching projects:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bt_OpenProject
@@ -241,27 +202,23 @@ namespace Presentation.Customer
             this.bt_OpenProject.Text = "Send invitation";
             this.bt_OpenProject.UseVisualStyleBackColor = false;
             // 
-            // SearchConsultant
+            // SearchProjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
-            this.ClientSize = new System.Drawing.Size(1084, 557);
+            this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
             this.Controls.Add(this.bt_OpenProject);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "SearchConsultant";
+            this.Name = "SearchProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -276,10 +233,7 @@ namespace Presentation.Customer
         private System.Windows.Forms.TextBox tb_projectRequierements;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button bt_OpenProject;

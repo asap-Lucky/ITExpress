@@ -119,10 +119,11 @@ namespace Presentation.Customer
 
         private void bt_LogOut_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             UI.Main_Form main_Form = new UI.Main_Form();
             main_Form.ShowDialog();
-            this.Show();
+            this.Close();
+            
         }
 
   
