@@ -11,15 +11,28 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
+    /// <summary>
+    /// Implementation of IConsultantRepo using LINQ to SQL.
+    /// </summary>
     public class ConsultantRepo : IConsultantRepo
     {
+        /// <summary>
+        /// The data context used to access the database.
+        /// </summary>
         private ITExpressDataClassesDataContext DataContext { get; set; }
 
+        /// <summary>
+        /// Constructs a new instance of ConsultantRepo.
+        /// </summary>
         public ConsultantRepo()
         {
             DataContext = new ITExpressDataClassesDataContext();
         }
 
+        /// <summary>
+        /// Gets all consultants from the database.
+        /// </summary>
+        /// <returns>A list of all consultants.</returns>
         public List<IConsultant> GetAllConsultants()
         {
             var result = new List<IConsultant>();
@@ -45,6 +58,10 @@ namespace DAL.Repository
             return result;
         }
 
+        /// <summary>
+        /// Adds a new consultant to the database.
+        /// </summary>
+        /// <param name="dto">The consultant to add.</param>
         public void AddConsultant(IConsultant dto)
         {
             var con = new Database.Consultant()
@@ -56,6 +73,7 @@ namespace DAL.Repository
                 Consultant_Password = dto.Password,
                 Consultant_Email = dto.Email,
                 Consultant_Address = dto.Address,
+                Consultant_City = dto.City,
                 Consultant_ZipCode = dto.ZipCode,
                 Consultant_PhoneNumber = dto.PhoneNumber,
             };
@@ -63,6 +81,10 @@ namespace DAL.Repository
             DataContext.SubmitChanges();
         }
 
+        /// <summary>
+        /// Deletes a consultant from the database.
+        /// </summary>
+        /// <param name="dto">The consultant to delete.</param>
         public void DeleteConsultant(IConsultant dto)
         {
             var targetConsultant = DataContext.Consultants.FirstOrDefault(i => i.ConsultantId == dto.Id);
@@ -72,6 +94,10 @@ namespace DAL.Repository
             DataContext.SubmitChanges();
         }
 
+        /// <summary>
+        /// Updates a consultant in the database.
+        /// </summary>
+        /// <param name="consultant">The consultant to update.</param>
         public void EditConsultant(IConsultant consultant)
         {
             var targetConsultant = DataContext.Consultants.FirstOrDefault(c => c.ConsultantId == consultant.Id);
@@ -83,6 +109,7 @@ namespace DAL.Repository
                 targetConsultant.Consultant_FirstName = consultant.FirstName;
                 targetConsultant.Consultant_LastName = consultant.LastName;
                 targetConsultant.Consultant_Address = consultant.Address;
+                targetConsultant.Consultant_City = consultant.City;
                 targetConsultant.Consultant_ZipCode = consultant.ZipCode;
                 targetConsultant.Consultant_Password = consultant.Password;
                 targetConsultant.Consultant_Login = consultant.Login;
@@ -92,12 +119,24 @@ namespace DAL.Repository
             }
         }
 
+        /// <summary>
+        /// Validates if the consultant with the given login and password exists in the data context.
+        /// </summary>
+        /// <param name="login">The login of the consultant to validate.</param>
+        /// <param name="password">The password of the consultant to validate.</param>
+        /// <returns>Returns true if the consultant exists, otherwise false.</returns>
         public bool IsValidConsultant(string login, string password)
         {
             var consultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login &&  c.Consultant_Password == password);
             return consultant != null;
         }
 
+        /// <summary>
+        /// Retrieves the consultant with the given login and password from the data context.
+        /// </summary>
+        /// <param name="login">The login of the consultant to retrieve.</param>
+        /// <param name="password">The password of the consultant to retrieve.</param>
+        /// <returns>Returns the consultant object if found, otherwise returns null.</returns>
         public IConsultant GetConsultant(string login, string password)
         {
             var dataConsultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login && c.Consultant_Password == password);

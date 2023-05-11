@@ -8,36 +8,61 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
+    /// <summary>
+    /// This class provides the implementation of ICustomerService interface
+    /// </summary>
     public class CustomerService : ICustomerService
     {
         ICustomerRepo _customerRepo;
 
-        public CustomerService() 
+        public CustomerService()
         {
-            //Inversion of Control is the correct way to solve the independancy of the repository
-            _customerRepo = new DAL.Repository.CustomerRepo();   
+            // Inversion of Control is used to solve the dependency of the repository
+            _customerRepo = new DAL.Repository.CustomerRepo();
         }
 
+        /// <summary>
+        /// Adds a new customer
+        /// </summary>
+        /// <param name="customer">The customer object to add</param>
         public void AddCustomer(ICustomer customer)
         {
             _customerRepo.AddCustomer(customer);
         }
 
+        /// <summary>
+        /// Deletes a customer
+        /// </summary>
+        /// <param name="customer">The customer object to delete</param>
         public void DeleteCustomer(ICustomer customer)
         {
             _customerRepo.DeleteCustomer(customer);
         }
 
+        /// <summary>
+        /// Retrieves a list of all customers
+        /// </summary>
+        /// <returns>A list of ICustomer objects</returns>
         public List<ICustomer> GetAllCustomers()
         {
             return _customerRepo.GetAllCustomers();
         }
 
+        /// <summary>
+        /// Validates if a customer with the provided login and password exists
+        /// </summary>
+        /// <param name="login">The customer login</param>
+        /// <param name="password">The customer password</param>
+        /// <returns>True if a matching customer exists, false otherwise</returns>
         public bool IsValidCustomer(string login, string password)
         {
             return _customerRepo.IsValidCustomer(login, password);
         }
 
+        /// <summary>
+        /// Updates an existing customer
+        /// </summary>
+        /// <param name="customer">The customer object to update</param>
         public void UpdateCustomer(ICustomer customer)
         {
             _customerRepo.EditCustomer(customer);
