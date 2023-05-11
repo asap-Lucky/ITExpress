@@ -8,8 +8,6 @@ namespace Abstraction.Interfaces
 {
     public interface IProject
     {
-
-
         int Id { get; set; }
         string Name { get; set; }
         string Description { get; set; }
@@ -22,6 +20,5 @@ namespace Abstraction.Interfaces
         int Status { get; set; }
         int CustomerId { get; set; }
         int ConsultantId { get; set; }
-
     }
 }
