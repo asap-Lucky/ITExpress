@@ -94,7 +94,7 @@ namespace DAL.Repository
                 targetCustomer.Customer_FirstName = customer.FirstName;
                 targetCustomer.Customer_LastName = customer.LastName;
                 targetCustomer.Customer_Address = customer.Address;
-                targetCustomer.Customer_ZipCodee = customer.ZipCode;
+                targetCustomer.Customer_ZipCode = customer.ZipCode;
                 targetCustomer.Customer_Password = customer.Password;
                 targetCustomer.Customer_Login = customer.Login;
 
