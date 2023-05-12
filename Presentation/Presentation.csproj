@@ -70,6 +70,12 @@
     <Compile Include="Consultant\EditProfileConsultant_Form.Designer.cs">
       <DependentUpon>EditProfileConsultant_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultant\InvitationReceive_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultant\InvitationReceive_Form.Designer.cs">
+      <DependentUpon>InvitationReceive_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultant\LogInConsultant_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     <Compile Include="Consultant\MessageBoxConsultant_Form.Designer.cs">
       <DependentUpon>MessageBoxConsultant_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultant\InvitationBox_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultant\InvitationBox_Form.Designer.cs">
+      <DependentUpon>InvitationBox_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultant\SearchProjects_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +111,12 @@
     </Compile>
     <Compile Include="Consultant\SignUpConsultant_Form.Designer.cs">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\ExistingProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\ExistingProject.Designer.cs">
+      <DependentUpon>ExistingProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\InvitationSend_Form.cs">
       <SubType>Form</SubType>
@@ -130,11 +148,11 @@
     <Compile Include="Customer\ClosedProjects_Form.Designer.cs">
       <DependentUpon>ClosedProjects_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer\ExistingProject_Form.cs">
+    <Compile Include="Customer\ExistingProjectOverview_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer\ExistingProject_Form.Designer.cs">
-      <DependentUpon>ExistingProject_Form.cs</DependentUpon>
+    <Compile Include="Customer\ExistingProjectOverview_Form.Designer.cs">
+      <DependentUpon>ExistingProjectOverview_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\CreateNewProject_Form.cs">
       <SubType>Form</SubType>
@@ -180,6 +198,9 @@
     <EmbeddedResource Include="Consultant\EditProfileConsultant_Form.resx">
       <DependentUpon>EditProfileConsultant_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultant\InvitationReceive_Form.resx">
+      <DependentUpon>InvitationReceive_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultant\LogInConsultant_Form.resx">
       <DependentUpon>LogInConsultant_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,11 +210,17 @@
     <EmbeddedResource Include="Consultant\MessageBoxConsultant_Form.resx">
       <DependentUpon>MessageBoxConsultant_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultant\InvitationBox_Form.resx">
+      <DependentUpon>InvitationBox_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultant\SearchProjects_Form.resx">
       <DependentUpon>SearchProjects_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\SignUpConsultant_Form.resx">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\ExistingProject.resx">
+      <DependentUpon>ExistingProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\InvitationSend_Form.resx">
       <DependentUpon>InvitationSend_Form.cs</DependentUpon>
@@ -210,8 +237,8 @@
     <EmbeddedResource Include="Customer\ClosedProjects_Form.resx">
       <DependentUpon>ClosedProjects_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer\ExistingProject_Form.resx">
-      <DependentUpon>ExistingProject_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Customer\ExistingProjectOverview_Form.resx">
+      <DependentUpon>ExistingProjectOverview_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\CreateNewProject_Form.resx">
       <DependentUpon>CreateNewProject_Form.cs</DependentUpon>

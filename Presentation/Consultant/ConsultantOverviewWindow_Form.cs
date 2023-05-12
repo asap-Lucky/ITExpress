@@ -105,15 +105,19 @@ namespace Presentation.Consultant
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new MessageBoxCustumer());
+            OpenChildForm(new MessageBoxConsultant());
         }
 
         private void bt_LogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-            UI.Main_Form main_Form = new UI.Main_Form();
-            main_Form.ShowDialog();
-            this.Show();
+        }
+
+        private void bt_InvitationBox_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            buttonColorChange_Click(button);
+            OpenChildForm(new InvitationBox_Form());
         }
     }
 }

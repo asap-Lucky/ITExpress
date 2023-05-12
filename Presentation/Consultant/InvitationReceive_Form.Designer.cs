@@ -1,6 +1,6 @@
 ﻿namespace Presentation.All
 {
-    partial class InvitationSend_Form
+    partial class InvitationReceive_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
-            this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -44,6 +38,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.bt_DiscardProject = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -69,57 +69,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(773, 250);
             this.panel1.TabIndex = 0;
-            // 
-            // dtp_endDate
-            // 
-            this.dtp_endDate.Location = new System.Drawing.Point(234, 219);
-            this.dtp_endDate.Name = "dtp_endDate";
-            this.dtp_endDate.Size = new System.Drawing.Size(215, 20);
-            this.dtp_endDate.TabIndex = 32;
-            // 
-            // dtp_startDate
-            // 
-            this.dtp_startDate.Location = new System.Drawing.Point(234, 179);
-            this.dtp_startDate.Name = "dtp_startDate";
-            this.dtp_startDate.Size = new System.Drawing.Size(215, 20);
-            this.dtp_startDate.TabIndex = 31;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label6.Location = new System.Drawing.Point(10, 219);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 15);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "End date:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label7.Location = new System.Drawing.Point(10, 179);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 15);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Start date:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(234, 129);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(501, 20);
-            this.textBox5.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.Location = new System.Drawing.Point(10, 134);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "From:";
             // 
             // textBox4
             // 
@@ -201,6 +150,57 @@
             this.textBox1.Size = new System.Drawing.Size(748, 82);
             this.textBox1.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label5.Location = new System.Drawing.Point(10, 134);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 15);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "From:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(234, 129);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(501, 20);
+            this.textBox5.TabIndex = 9;
+            // 
+            // dtp_endDate
+            // 
+            this.dtp_endDate.Location = new System.Drawing.Point(234, 219);
+            this.dtp_endDate.Name = "dtp_endDate";
+            this.dtp_endDate.Size = new System.Drawing.Size(215, 20);
+            this.dtp_endDate.TabIndex = 32;
+            // 
+            // dtp_startDate
+            // 
+            this.dtp_startDate.Location = new System.Drawing.Point(234, 179);
+            this.dtp_startDate.Name = "dtp_startDate";
+            this.dtp_startDate.Size = new System.Drawing.Size(215, 20);
+            this.dtp_startDate.TabIndex = 31;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label6.Location = new System.Drawing.Point(10, 219);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 15);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "End date:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label7.Location = new System.Drawing.Point(10, 179);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 15);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Start date:";
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(200)))), ((int)(((byte)(56)))));
@@ -214,7 +214,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(195, 28);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Send invitation";
+            this.button1.Text = "Accept project";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // bt_DiscardProject
@@ -230,7 +230,7 @@
             this.bt_DiscardProject.Name = "bt_DiscardProject";
             this.bt_DiscardProject.Size = new System.Drawing.Size(195, 28);
             this.bt_DiscardProject.TabIndex = 4;
-            this.bt_DiscardProject.Text = "Go back";
+            this.bt_DiscardProject.Text = "Decline invitation";
             this.bt_DiscardProject.UseVisualStyleBackColor = false;
             // 
             // InvitationSend_Form

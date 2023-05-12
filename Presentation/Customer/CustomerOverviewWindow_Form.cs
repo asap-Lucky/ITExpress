@@ -87,7 +87,7 @@ namespace Presentation.Customer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new ExistingProject_Form());
+            OpenChildForm(new ExistingProjectOverview_Form());
         }
 
         private void bt_closedProjects_Click(object sender, EventArgs e)
@@ -119,7 +119,7 @@ namespace Presentation.Customer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new MessageBoxCustumer());
+            OpenChildForm(new MessageBoxCustomer());
         }
 
         private void bt_LogOut_Click(object sender, EventArgs e)

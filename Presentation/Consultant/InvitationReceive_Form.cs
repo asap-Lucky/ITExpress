@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentation.Customer
+namespace Presentation.All
 {
-    public partial class MessageBoxCustomer : Form
+    public partial class InvitationReceive_Form : Form
     {
-        public MessageBoxCustomer()
+        public InvitationReceive_Form()
         {
             InitializeComponent();
         }

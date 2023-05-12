@@ -1,6 +1,6 @@
 ﻿namespace Presentation.Customer
 {
-    partial class MessageBoxCustumer
+    partial class MessageBoxCustomer
     {
         /// <summary>
         /// Required designer variable.

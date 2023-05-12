@@ -42,10 +42,9 @@
             this.lb_LogInSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.lb_LogInSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F);
             this.lb_LogInSign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_LogInSign.Location = new System.Drawing.Point(44, 22);
-            this.lb_LogInSign.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_LogInSign.Location = new System.Drawing.Point(33, 18);
             this.lb_LogInSign.Name = "lb_LogInSign";
-            this.lb_LogInSign.Size = new System.Drawing.Size(464, 85);
+            this.lb_LogInSign.Size = new System.Drawing.Size(367, 69);
             this.lb_LogInSign.TabIndex = 0;
             this.lb_LogInSign.Text = "Choose user";
             this.lb_LogInSign.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -58,12 +57,11 @@
             this.bt_LogInAsCostumer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_LogInAsCostumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.bt_LogInAsCostumer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.bt_LogInAsCostumer.Location = new System.Drawing.Point(267, 246);
-            this.bt_LogInAsCostumer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_LogInAsCostumer.Location = new System.Drawing.Point(200, 200);
             this.bt_LogInAsCostumer.Name = "bt_LogInAsCostumer";
-            this.bt_LogInAsCostumer.Size = new System.Drawing.Size(267, 62);
+            this.bt_LogInAsCostumer.Size = new System.Drawing.Size(200, 50);
             this.bt_LogInAsCostumer.TabIndex = 1;
-            this.bt_LogInAsCostumer.Text = "Costumer";
+            this.bt_LogInAsCostumer.Text = "Customer";
             this.bt_LogInAsCostumer.UseVisualStyleBackColor = false;
             this.bt_LogInAsCostumer.Click += new System.EventHandler(this.bt_LogInAsCostumer_Click);
             // 
@@ -75,10 +73,9 @@
             this.bt_LogInAsConsultant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_LogInAsConsultant.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.bt_LogInAsConsultant.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.bt_LogInAsConsultant.Location = new System.Drawing.Point(267, 374);
-            this.bt_LogInAsConsultant.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_LogInAsConsultant.Location = new System.Drawing.Point(200, 304);
             this.bt_LogInAsConsultant.Name = "bt_LogInAsConsultant";
-            this.bt_LogInAsConsultant.Size = new System.Drawing.Size(267, 62);
+            this.bt_LogInAsConsultant.Size = new System.Drawing.Size(200, 50);
             this.bt_LogInAsConsultant.TabIndex = 2;
             this.bt_LogInAsConsultant.Text = "Consultant";
             this.bt_LogInAsConsultant.UseVisualStyleBackColor = false;
@@ -92,10 +89,9 @@
             this.bt_LogInAsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_LogInAsAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_LogInAsAdmin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.bt_LogInAsAdmin.Location = new System.Drawing.Point(16, 639);
-            this.bt_LogInAsAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_LogInAsAdmin.Location = new System.Drawing.Point(12, 519);
             this.bt_LogInAsAdmin.Name = "bt_LogInAsAdmin";
-            this.bt_LogInAsAdmin.Size = new System.Drawing.Size(139, 37);
+            this.bt_LogInAsAdmin.Size = new System.Drawing.Size(104, 30);
             this.bt_LogInAsAdmin.TabIndex = 3;
             this.bt_LogInAsAdmin.Text = "Admin";
             this.bt_LogInAsAdmin.UseVisualStyleBackColor = false;
@@ -105,25 +101,23 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.lb_LogInSign);
-            this.panel1.Location = new System.Drawing.Point(117, 39);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(88, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(565, 542);
+            this.panel1.Size = new System.Drawing.Size(424, 440);
             this.panel1.TabIndex = 4;
             // 
             // Main_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(776, 681);
+            this.ClientSize = new System.Drawing.Size(584, 560);
             this.Controls.Add(this.bt_LogInAsConsultant);
             this.Controls.Add(this.bt_LogInAsCostumer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bt_LogInAsAdmin);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(794, 728);
-            this.MinimumSize = new System.Drawing.Size(794, 728);
+            this.MaximumSize = new System.Drawing.Size(600, 599);
+            this.MinimumSize = new System.Drawing.Size(600, 599);
             this.Name = "Main_Form";
             this.Text = "Main";
             this.panel1.ResumeLayout(false);

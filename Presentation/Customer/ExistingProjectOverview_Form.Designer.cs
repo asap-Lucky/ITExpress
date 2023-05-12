@@ -1,6 +1,6 @@
 ﻿namespace Presentation.Customer
 {
-    partial class ExistingProject_Form
+    partial class ExistingProjectOverview_Form
     {
         /// <summary>
         /// Required designer variable.

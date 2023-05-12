@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bt_InvitationBox = new System.Windows.Forms.Button();
             this.bt_Messages = new System.Windows.Forms.Button();
             this.bt_LogOut = new System.Windows.Forms.Button();
             this.bt_editProfile = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panelMenu.Controls.Add(this.button1);
+            this.panelMenu.Controls.Add(this.bt_InvitationBox);
             this.panelMenu.Controls.Add(this.bt_Messages);
             this.panelMenu.Controls.Add(this.bt_LogOut);
             this.panelMenu.Controls.Add(this.bt_editProfile);
@@ -64,19 +64,20 @@
             this.panelMenu.Size = new System.Drawing.Size(200, 661);
             this.panelMenu.TabIndex = 0;
             // 
-            // button1
+            // bt_InvitationBox
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(0, 400);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 60);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Invitations";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bt_InvitationBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_InvitationBox.FlatAppearance.BorderSize = 0;
+            this.bt_InvitationBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_InvitationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.bt_InvitationBox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_InvitationBox.Location = new System.Drawing.Point(0, 400);
+            this.bt_InvitationBox.Name = "bt_InvitationBox";
+            this.bt_InvitationBox.Size = new System.Drawing.Size(200, 60);
+            this.bt_InvitationBox.TabIndex = 9;
+            this.bt_InvitationBox.Text = "Invitations";
+            this.bt_InvitationBox.UseVisualStyleBackColor = true;
+            this.bt_InvitationBox.Click += new System.EventHandler(this.bt_InvitationBox_Click);
             // 
             // bt_Messages
             // 
@@ -264,6 +265,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panelDesktop;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bt_InvitationBox;
     }
 }

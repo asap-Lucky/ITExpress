@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
-    public partial class MessageBoxCustomer : Form
+    public partial class ExistingProjectOverview_Form : Form
     {
-        public MessageBoxCustomer()
+        public ExistingProjectOverview_Form()
         {
             InitializeComponent();
         }
