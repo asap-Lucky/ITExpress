@@ -10,22 +10,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Presentation;
 using Presentation.Customer;
+using Presentation.All;
 
-namespace Presentation.Customer
+namespace Presentation.Consultant
 {
-    public partial class CustomerOverviewWindow_Form : Form
+    public partial class AdminsOverviewWindow_Form : Form
     {
         Button lastClickedButton = null;
         private Form currentChildForm;
-        private Abstraction.Interfaces.ICustomer loggedInCustomer;
 
-        public CustomerOverviewWindow_Form(Abstraction.Interfaces.ICustomer customer)
+        public AdminsOverviewWindow_Form()
         {
             InitializeComponent();
             IsMdiContainer = true;
-            this.loggedInCustomer = customer;
-            lb_firstNameOfCustomer.Text = loggedInCustomer.FirstName;
-
         }
 
         /// <summary>
@@ -69,57 +66,31 @@ namespace Presentation.Customer
             childform.Show();
         }
 
-        private void bt_createNewProject_Click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            buttonColorChange_Click(button);
-            OpenChildForm(new CreateNewProject_Form());
-        }
-
-        private void bt_closedProjects_Click(object sender, EventArgs e)
-        {
-            // Logic behind the button color change
-            Button button = (Button)sender;
-            buttonColorChange_Click(button);
-            OpenChildForm(new ClosedProjects());
-        }
-
-        private void bt_existingProjects_Click(object sender, EventArgs e)
-        {
-            // Logic behind the button color change
-            Button button = (Button)sender;
-            buttonColorChange_Click(button);
-            OpenChildForm(new ExistingProjectOverview_Forn());
-        }
-
-        private void bt_searchConsultant_Click(object sender, EventArgs e)
-        {
-            // Logic behind the button color change
-            Button button = (Button)sender;
-            buttonColorChange_Click(button);
-            OpenChildForm(new SearchConsultant());
-        }
-
-        private void bt_editProfile_Click(object sender, EventArgs e)
-        {
-            // Logic behind the button color change
-            Button button = (Button)sender;
-            buttonColorChange_Click(button);
-            OpenChildForm(new EditProfileCustomer(loggedInCustomer));
-        }
-
-        private void bt_Messages_Click(object sender, EventArgs e)
-        {
-            // Logic behind the button color change
-            Button button = (Button)sender;
-            buttonColorChange_Click(button);
-            OpenChildForm(new MessageBoxCustomer());
-        }
-
         private void bt_LogOut_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void bt_CustomerList_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            buttonColorChange_Click(button);
+            OpenChildForm(new AllCustomerOverview_Form());
+        }
+
+        private void bt_ConsultantList_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            buttonColorChange_Click(button);
+            OpenChildForm(new AllCustomerOverview_Form());
+        }
+
+        private void bt_SpecializationList_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            buttonColorChange_Click(button);
+            OpenChildForm(new AllCustomerOverview_Form());
+        }
     }
-   
 }
+

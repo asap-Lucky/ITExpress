@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminsOverviewWindow_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminsOverviewWindow_Form.Designer.cs">
+      <DependentUpon>AdminsOverviewWindow_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AllCustomerOverview_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AllCustomerOverview_Form.Designer.cs">
+      <DependentUpon>AllCustomerOverview_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CustomerInfo_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\CustomerInfo_Form.Designer.cs">
+      <DependentUpon>CustomerInfo_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="All\Message_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +204,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\AdminsOverviewWindow_Form.resx">
+      <DependentUpon>AdminsOverviewWindow_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AllCustomerOverview_Form.resx">
+      <DependentUpon>AllCustomerOverview_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\CustomerInfo_Form.resx">
+      <DependentUpon>CustomerInfo_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="All\Message_Form.resx">
       <DependentUpon>Message_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,9 +305,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Abstraction\Abstraction.csproj">
       <Project>{05090193-6da4-4694-b83f-2aadce37be5e}</Project>
