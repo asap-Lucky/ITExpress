@@ -8,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Presentation;
+using Presentation.Consultant;
+using Presentation.All;
 using Presentation.Customer;
 
 namespace Presentation.Consultant
@@ -68,9 +69,6 @@ namespace Presentation.Consultant
 
         private void bt_searchProject_Click(object sender, EventArgs e)
         {
-            //Logic that creats the child form (createNewProject_Form) in the parent form (overViewWindow_Form)
-            //Logic that prevents the forms from creating more than one instance of the child form.
-            // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
             OpenChildForm(new SearchProjects());

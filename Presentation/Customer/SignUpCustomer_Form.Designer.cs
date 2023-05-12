@@ -215,7 +215,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(23, 97);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(654, 564);
+            this.panel2.Size = new System.Drawing.Size(521, 564);
             this.panel2.TabIndex = 6;
             // 
             // tb_City

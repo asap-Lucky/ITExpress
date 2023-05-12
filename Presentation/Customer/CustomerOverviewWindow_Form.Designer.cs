@@ -231,7 +231,7 @@
             this.panelDesktop.Size = new System.Drawing.Size(1084, 561);
             this.panelDesktop.TabIndex = 2;
             // 
-            // OverViewWindow_Form
+            // CustomerOverviewWindow_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -240,7 +240,7 @@
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMenu);
-            this.Name = "OverViewWindow_Form";
+            this.Name = "CustomerOverviewWindow_Form";
             this.Text = "OverViewWindow_Form";
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
