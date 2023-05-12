@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tb_currentCity = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,6 +55,8 @@
             this.label17 = new System.Windows.Forms.Label();
             this.bt_saveChangesOnProfile = new System.Windows.Forms.Button();
             this.bt_DiscardProfileChanges = new System.Windows.Forms.Button();
+            this.tb_ID = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +83,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(107, 25);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(504, 576);
             this.panel2.TabIndex = 8;
@@ -88,7 +91,7 @@
             // tb_currentCity
             // 
             this.tb_currentCity.Location = new System.Drawing.Point(197, 374);
-            this.tb_currentCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_currentCity.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentCity.Name = "tb_currentCity";
             this.tb_currentCity.Size = new System.Drawing.Size(269, 22);
             this.tb_currentCity.TabIndex = 16;
@@ -107,7 +110,7 @@
             // tb_currentEmail
             // 
             this.tb_currentEmail.Location = new System.Drawing.Point(197, 524);
-            this.tb_currentEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_currentEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentEmail.Name = "tb_currentEmail";
             this.tb_currentEmail.Size = new System.Drawing.Size(269, 22);
             this.tb_currentEmail.TabIndex = 12;
@@ -126,7 +129,7 @@
             // tb_currentPhoneNumber
             // 
             this.tb_currentPhoneNumber.Location = new System.Drawing.Point(197, 453);
-            this.tb_currentPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_currentPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentPhoneNumber.Name = "tb_currentPhoneNumber";
             this.tb_currentPhoneNumber.Size = new System.Drawing.Size(269, 22);
             this.tb_currentPhoneNumber.TabIndex = 10;
@@ -145,7 +148,7 @@
             // tb_currentZipCode
             // 
             this.tb_currentZipCode.Location = new System.Drawing.Point(197, 289);
-            this.tb_currentZipCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_currentZipCode.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentZipCode.Name = "tb_currentZipCode";
             this.tb_currentZipCode.Size = new System.Drawing.Size(269, 22);
             this.tb_currentZipCode.TabIndex = 8;
@@ -164,7 +167,7 @@
             // tb_currentAddress
             // 
             this.tb_currentAddress.Location = new System.Drawing.Point(197, 212);
-            this.tb_currentAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_currentAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentAddress.Name = "tb_currentAddress";
             this.tb_currentAddress.Size = new System.Drawing.Size(269, 22);
             this.tb_currentAddress.TabIndex = 6;
@@ -183,7 +186,7 @@
             // tb_currrentLastName
             // 
             this.tb_currrentLastName.Location = new System.Drawing.Point(197, 133);
-            this.tb_currrentLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_currrentLastName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currrentLastName.Name = "tb_currrentLastName";
             this.tb_currrentLastName.Size = new System.Drawing.Size(269, 22);
             this.tb_currrentLastName.TabIndex = 4;
@@ -202,7 +205,7 @@
             // tb_currentFirstName
             // 
             this.tb_currentFirstName.Location = new System.Drawing.Point(197, 55);
-            this.tb_currentFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_currentFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentFirstName.Name = "tb_currentFirstName";
             this.tb_currentFirstName.Size = new System.Drawing.Size(269, 22);
             this.tb_currentFirstName.TabIndex = 2;
@@ -243,7 +246,7 @@
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Location = new System.Drawing.Point(673, 302);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(669, 299);
             this.panel1.TabIndex = 11;
@@ -251,7 +254,7 @@
             // tb_repeatNewPassword
             // 
             this.tb_repeatNewPassword.Location = new System.Drawing.Point(285, 254);
-            this.tb_repeatNewPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_repeatNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tb_repeatNewPassword.Name = "tb_repeatNewPassword";
             this.tb_repeatNewPassword.Size = new System.Drawing.Size(269, 22);
             this.tb_repeatNewPassword.TabIndex = 6;
@@ -270,7 +273,7 @@
             // tb_newPassWord
             // 
             this.tb_newPassWord.Location = new System.Drawing.Point(285, 159);
-            this.tb_newPassWord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_newPassWord.Margin = new System.Windows.Forms.Padding(4);
             this.tb_newPassWord.Name = "tb_newPassWord";
             this.tb_newPassWord.Size = new System.Drawing.Size(269, 22);
             this.tb_newPassWord.TabIndex = 4;
@@ -289,7 +292,7 @@
             // tb_newUserName
             // 
             this.tb_newUserName.Location = new System.Drawing.Point(285, 68);
-            this.tb_newUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_newUserName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_newUserName.Name = "tb_newUserName";
             this.tb_newUserName.Size = new System.Drawing.Size(269, 22);
             this.tb_newUserName.TabIndex = 2;
@@ -350,6 +353,20 @@
             this.bt_DiscardProfileChanges.UseVisualStyleBackColor = false;
             this.bt_DiscardProfileChanges.Click += new System.EventHandler(this.bt_DiscardProfileChanges_Click);
             // 
+            // tb_ID
+            // 
+            this.tb_ID.Location = new System.Drawing.Point(749, 129);
+            this.tb_ID.Name = "tb_ID";
+            this.tb_ID.Size = new System.Drawing.Size(100, 22);
+            this.tb_ID.TabIndex = 14;
+            this.tb_ID.Visible = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // EditProfileCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -357,12 +374,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1440, 686);
             this.ControlBox = false;
+            this.Controls.Add(this.tb_ID);
             this.Controls.Add(this.bt_saveChangesOnProfile);
             this.Controls.Add(this.bt_DiscardProfileChanges);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditProfileCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
@@ -372,6 +390,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -403,5 +422,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button bt_saveChangesOnProfile;
         private System.Windows.Forms.Button bt_DiscardProfileChanges;
+        private System.Windows.Forms.TextBox tb_ID;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

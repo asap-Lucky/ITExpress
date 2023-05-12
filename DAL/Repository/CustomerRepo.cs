@@ -13,7 +13,7 @@ namespace DAL.Repository
     public class CustomerRepo : ICustomerRepo
     {
         private ITExpressDataClassesDataContext DataContext { get; set; }
-
+         
         public CustomerRepo()
         {
             DataContext = new ITExpressDataClassesDataContext();
@@ -86,21 +86,21 @@ namespace DAL.Repository
         {
             // Find the customer DTO in the database by ID
             var targetCustomer = DataContext.Customers.FirstOrDefault(c => c.CustomerId == customer.Id);
-            if (targetCustomer != null)
-            {
-                // Update the customer DTO with the new values from the customer model object
+
+            // Update the customer DTO with the new values from the customer model object
                 targetCustomer.Customer_Address = customer.Address;
                 targetCustomer.Customer_PhoneNumber = customer.PhoneNumber;
                 targetCustomer.Customer_FirstName = customer.FirstName;
                 targetCustomer.Customer_LastName = customer.LastName;
                 targetCustomer.Customer_Address = customer.Address;
+                targetCustomer.Customer_City = customer.City;
                 targetCustomer.Customer_ZipCode = customer.ZipCode;
                 targetCustomer.Customer_Password = customer.Password;
                 targetCustomer.Customer_Login = customer.Login;
 
-                // Save the changes to the database
-                DataContext.SubmitChanges();
-            }
+            // Save the changes to the database
+            DataContext.SubmitChanges();
+            
         }
 
         //Checks the the customer table for the login and password information

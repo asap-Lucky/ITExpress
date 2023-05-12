@@ -12,6 +12,8 @@ namespace Abstraction.Interfaces
 
         void AddCustomer(ICustomer customer);
 
+        void EditCustomer(ICustomer customer);
+
         void UpdateCustomer(ICustomer customer);
 
         void DeleteCustomer(ICustomer customer);
