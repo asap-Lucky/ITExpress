@@ -47,6 +47,8 @@ namespace UI.All
                 CustomerOverviewWindow_Form overViewWindow_Form = new CustomerOverviewWindow_Form(customer);
                 overViewWindow_Form.ShowDialog();
                 this.Show();
+                tb_passWordCustomer.Clear();
+                tb_userNameCustomer.Clear();
             }
             else
             {

@@ -17,11 +17,15 @@ namespace Presentation.Customer
     {
         Button lastClickedButton = null;
         private Form currentChildForm;
+        private Abstraction.Interfaces.ICustomer loggedInCustomer;
 
-        public CustomerOverviewWindow_Form()
+        public CustomerOverviewWindow_Form(Abstraction.Interfaces.ICustomer customer)
         {
             InitializeComponent();
             IsMdiContainer = true;
+            this.loggedInCustomer = customer;
+            lb_firstNameOfCustomer.Text = loggedInCustomer.FirstName;
+
         }
 
         /// <summary>
@@ -107,7 +111,7 @@ namespace Presentation.Customer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new EditProfileCustomer());
+            OpenChildForm(new EditProfileCustomer(loggedInCustomer));
         }
 
         private void bt_Messages_Click(object sender, EventArgs e)
@@ -121,10 +125,6 @@ namespace Presentation.Customer
         private void bt_LogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-            UI.Main_Form main_Form = new UI.Main_Form();
-            main_Form.ShowDialog();
-            this.Close();
-            
         }
 
   
