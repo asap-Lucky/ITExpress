@@ -20,6 +20,7 @@ namespace DAL.Repository
         /// The data context used to access the database.
         /// </summary>
         private ITExpressDataClassesDataContext DataContext { get; set; }
+        private ISpecializationRepo SpecializationRepo { get; set; }
 
         /// <summary>
         /// Constructs a new instance of ConsultantRepo.
@@ -27,6 +28,7 @@ namespace DAL.Repository
         public ConsultantRepo()
         {
             DataContext = new ITExpressDataClassesDataContext();
+            SpecializationRepo = new SpecializationRepo();
         }
 
         /// <summary>
@@ -151,8 +153,10 @@ namespace DAL.Repository
                 ZipCode = dataConsultant.Consultant_ZipCode,
                 City = dataConsultant.Consultant_City,
                 Address = dataConsultant.Consultant_Address,
-                PhoneNumber = dataConsultant.Consultant_PhoneNumber
+                PhoneNumber = dataConsultant.Consultant_PhoneNumber,
+                Specialization = SpecializationRepo.GetSpecialization(dataConsultant.SpecializationID)
             };
+
             return consultant;
         }
     }

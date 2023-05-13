@@ -40,6 +40,11 @@ namespace BLL.Services
             _customerRepo.DeleteCustomer(customer);
         }
 
+        public void EditCustomer(ICustomer customer)
+        {
+            _customerRepo.EditCustomer(customer);
+        }
+
         /// <summary>
         /// Retrieves a list of all customers
         /// </summary>
@@ -47,6 +52,11 @@ namespace BLL.Services
         public List<ICustomer> GetAllCustomers()
         {
             return _customerRepo.GetAllCustomers();
+        }
+
+        public ICustomer GetCustomer(int id)
+        {
+            return _customerRepo.GetCustomer(id);
         }
 
         public ICustomer GetCustomer(string login, string password)

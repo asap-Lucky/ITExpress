@@ -16,8 +16,8 @@ namespace UI.Costumer
     {
        
 
-        // Create an instance of the CustomerService class to use its methods.
-        ICustomerService customerService = new BLL.Services.CustomerService();
+         // Create an instance of the CustomerService class to use its methods.
+         ICustomerService customerService = new BLL.Services.CustomerService();
          BLL.Facader.CustomerService FacadeService;
 
         public SignUpCustomer_Form()

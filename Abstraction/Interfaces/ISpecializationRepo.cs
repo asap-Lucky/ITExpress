@@ -12,8 +12,6 @@ namespace Abstraction.Interfaces
 
         ISpecialization GetSpecialization(int specializationId);
 
-        ISpecialization GetSpecializationsByConsultantId(int consultantId);
-
         void AddSpecialization(ISpecialization specialization);
 
         void EditSpecialization(ISpecialization specialization);

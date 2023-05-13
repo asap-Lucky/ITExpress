@@ -18,6 +18,6 @@ namespace Abstraction.Interfaces
         string City { get; set; }
         string Address { get; set; }
         int PhoneNumber { get; set; }
-        int SpecializationID { get; set; }
+        ISpecialization Specialization { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace DAL.Repository
     public class CustomerRepo : ICustomerRepo
     {
         private ITExpressDataClassesDataContext DataContext { get; set; }
-
+         
         public CustomerRepo()
         {
             DataContext = new ITExpressDataClassesDataContext();
@@ -25,10 +25,10 @@ namespace DAL.Repository
             var result = new List<ICustomer>();
 
             // Retrieve all customer data transfer objects (DTOs) from the database
-            var AllDtoItem = DataContext.Customers;
+            var AllDToCustomer = DataContext.Customers;
 
             // Convert each customer DTO to a customer model object and add to the result list
-            foreach (var dto in AllDtoItem)
+            foreach (var dto in AllDToCustomer)
             {
                 Models.Customer customer = new Models.Customer();
 
@@ -86,21 +86,21 @@ namespace DAL.Repository
         {
             // Find the customer DTO in the database by ID
             var targetCustomer = DataContext.Customers.FirstOrDefault(c => c.CustomerId == customer.Id);
-            if (targetCustomer != null)
-            {
-                // Update the customer DTO with the new values from the customer model object
+
+            // Update the customer DTO with the new values from the customer model object
                 targetCustomer.Customer_Address = customer.Address;
                 targetCustomer.Customer_PhoneNumber = customer.PhoneNumber;
                 targetCustomer.Customer_FirstName = customer.FirstName;
                 targetCustomer.Customer_LastName = customer.LastName;
                 targetCustomer.Customer_Address = customer.Address;
+                targetCustomer.Customer_City = customer.City;
                 targetCustomer.Customer_ZipCode = customer.ZipCode;
                 targetCustomer.Customer_Password = customer.Password;
                 targetCustomer.Customer_Login = customer.Login;
 
-                // Save the changes to the database
-                DataContext.SubmitChanges();
-            }
+            // Save the changes to the database
+            DataContext.SubmitChanges();
+            
         }
 
         //Checks the the customer table for the login and password information
@@ -110,6 +110,24 @@ namespace DAL.Repository
             return customer != null;
         }
 
+        public ICustomer GetCustomer(int id)
+        {
+            var dataCustomer = DataContext.Customers.FirstOrDefault(c => c.CustomerId == id);
+            Models.Customer customer = new Models.Customer()
+            {
+                Id = dataCustomer.CustomerId,
+                FirstName = dataCustomer.Customer_FirstName,
+                LastName = dataCustomer.Customer_LastName,
+                Login = dataCustomer.Customer_Login,
+                Password = dataCustomer.Customer_Password,
+                Email = dataCustomer.Customer_Email,
+                ZipCode = dataCustomer.Customer_ZipCode,
+                City = dataCustomer.Customer_City,
+                Address = dataCustomer.Customer_Address,
+                PhoneNumber = dataCustomer.Customer_PhoneNumber
+            };
+            return customer;
+        }
         public ICustomer GetCustomer(string login, string password)
         {
             var dataCustomer = DataContext.Customers.FirstOrDefault(c => c.Customer_Login == login && c.Customer_Password == password);

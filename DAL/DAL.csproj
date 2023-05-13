@@ -85,6 +85,7 @@
     <Compile Include="Repository\ConsultantRepo.cs" />
     <Compile Include="Repository\CustomerRepo.cs" />
     <Compile Include="Repository\ProjectRepo.cs" />
+    <Compile Include="Repository\SpecializationRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

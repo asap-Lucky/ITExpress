@@ -1,4 +1,6 @@
 ﻿
+using Abstraction.Interfaces;
+
 namespace BLL.Models
 {
     //Represents a consultant.
@@ -14,6 +16,6 @@ namespace BLL.Models
         public string City { get; set; }
         public int ZipCode { get; set; }
         public int PhoneNumber { get; set; }
-        public int SpecializationID { get; set; }
+        public ISpecialization Specialization { get; set; }
     }
 }

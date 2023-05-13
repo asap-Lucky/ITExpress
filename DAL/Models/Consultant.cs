@@ -19,6 +19,6 @@ namespace DAL.Models
         public string City { get; set; }
         public string Address { get; set; }
         public int PhoneNumber { get; set; }
-        public int SpecializationID { get; set; }
+        public ISpecialization Specialization { get; set; }
     }
 }
