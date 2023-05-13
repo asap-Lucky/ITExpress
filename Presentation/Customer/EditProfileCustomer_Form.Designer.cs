@@ -55,7 +55,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.bt_saveChangesOnProfile = new System.Windows.Forms.Button();
             this.bt_DiscardProfileChanges = new System.Windows.Forms.Button();
-            this.tb_ID = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -353,14 +352,6 @@
             this.bt_DiscardProfileChanges.UseVisualStyleBackColor = false;
             this.bt_DiscardProfileChanges.Click += new System.EventHandler(this.bt_DiscardProfileChanges_Click);
             // 
-            // tb_ID
-            // 
-            this.tb_ID.Location = new System.Drawing.Point(749, 129);
-            this.tb_ID.Name = "tb_ID";
-            this.tb_ID.Size = new System.Drawing.Size(100, 22);
-            this.tb_ID.TabIndex = 14;
-            this.tb_ID.Visible = false;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -374,7 +365,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1440, 686);
             this.ControlBox = false;
-            this.Controls.Add(this.tb_ID);
             this.Controls.Add(this.bt_saveChangesOnProfile);
             this.Controls.Add(this.bt_DiscardProfileChanges);
             this.Controls.Add(this.panel1);
@@ -390,7 +380,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -422,7 +411,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button bt_saveChangesOnProfile;
         private System.Windows.Forms.Button bt_DiscardProfileChanges;
-        private System.Windows.Forms.TextBox tb_ID;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

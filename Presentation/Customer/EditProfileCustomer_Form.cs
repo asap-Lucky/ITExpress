@@ -34,7 +34,10 @@ namespace Presentation.Customer
             DialogResult result = MessageBox.Show("Are you sure you want to discard changes? All changes WILL BE LOST!", "DISCARD CHANGES?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             { 
-              LoadCustomerData();
+                LoadCustomerData();
+                tb_newUserName.Text = null;
+                tb_newPassWord.Text = null;
+                tb_repeatNewPassword.Text = null;
             }
         }
 
@@ -45,9 +48,8 @@ namespace Presentation.Customer
 
         private void LoadCustomerData() 
         {
-            int.TryParse(tb_ID.Text, out int id);
+            loggedInCustomer = FacadeService.GetCustomer(loggedInCustomer.Id);
 
-            id = loggedInCustomer.Id;
             tb_currentFirstName.Text = loggedInCustomer.FirstName;
             tb_currrentLastName.Text = loggedInCustomer.LastName;
             tb_currentAddress.Text = loggedInCustomer.Address;
@@ -81,7 +83,23 @@ namespace Presentation.Customer
             }
             else
             {
-                FacadeService.EditCustomer(tb_currentFirstName.Text, tb_currrentLastName.Text, tb_currentAddress.Text, zipcode, phonenumber, tb_currentEmail.Text, tb_newUserName.Text, tb_newPassWord.Text, tb_currentCity.Text);
+                // Check if username and password textboxes are empty
+                if (string.IsNullOrEmpty(tb_newUserName.Text) && string.IsNullOrEmpty(tb_newPassWord.Text) && string.IsNullOrEmpty(tb_repeatNewPassword.Text))
+                {
+                    FacadeService.EditCustomer(loggedInCustomer.Id, tb_currentFirstName.Text, tb_currrentLastName.Text, tb_currentAddress.Text, zipcode, phonenumber, tb_currentEmail.Text, tb_currentCity.Text);
+                }
+                else
+                {
+                    FacadeService.EditCustomer(loggedInCustomer.Id, tb_currentFirstName.Text, tb_currrentLastName.Text, tb_currentAddress.Text, zipcode, phonenumber, tb_currentEmail.Text, tb_currentCity.Text);
+
+                    // Check if the new username and password are not empty before updating them.
+                    if (!string.IsNullOrEmpty(tb_newUserName.Text) && !string.IsNullOrEmpty(tb_newPassWord.Text))
+                    {
+                        FacadeService.EditCustomerLoginInfo(loggedInCustomer.Id, tb_newUserName.Text, tb_newPassWord.Text);
+                    }
+                }
+
+                loggedInCustomer = FacadeService.GetCustomer(loggedInCustomer.Id);
             }
         }
 

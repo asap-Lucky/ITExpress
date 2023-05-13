@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="2-sem-gr-1" Class="ITExpressDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=ucl-jtm-sqlserver.database.windows.net;Initial Catalog=2-sem-gr-1;Persist Security Info=True;User ID=2-sem-gr-1-login" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="_2_sem_gr_1ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
-	  <Type Name="Admin">
-		  <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-		  <Column Name="Admin_UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-		  <Column Name="Admin_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-	  </Type>
+    <Type Name="Admin">
+      <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Admin_UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Admin_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
   </Table>
   <Table Name="dbo.Specialization" Member="Specializations">
     <Type Name="Specialization">
@@ -13,6 +13,7 @@
       <Column Name="Specialization_CodeLanguage" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Specialization_EndType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Specialization_Description" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="Specialization_ConsultantSpecialization" Member="ConsultantSpecializations" ThisKey="SpecializationId" OtherKey="SpecializationId" Type="ConsultantSpecialization" />
     </Type>
   </Table>
   <Table Name="dbo.Consultant" Member="Consultants">
@@ -24,12 +25,23 @@
       <Column Name="Consultant_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Consultant_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Consultant_ZipCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Consultant_City" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Consultant_City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Consultant_Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Consultant_PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SpecializationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Consultant_ConsultantSpecialization" Member="ConsultantSpecializations" ThisKey="ConsultantId" OtherKey="ConsultantId" Type="ConsultantSpecialization" />
       <Association Name="Consultant_Invitation" Member="Invitations" ThisKey="ConsultantId" OtherKey="Invitaiton_ConsultantId" Type="Invitation" />
       <Association Name="Consultant_Message" Member="Messages" ThisKey="ConsultantId" OtherKey="Message_ConsultantId" Type="Message" />
       <Association Name="Consultant_Project" Member="Projects" ThisKey="ConsultantId" OtherKey="Project_ConsultantId" Type="Project" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConsultantSpecialization" Member="ConsultantSpecializations">
+    <Type Name="ConsultantSpecialization">
+      <Column Name="ConsultantSpecializationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SpecializationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ConsultantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Consultant_ConsultantSpecialization" Member="Consultant" ThisKey="ConsultantId" OtherKey="ConsultantId" Type="Consultant" IsForeignKey="true" />
+      <Association Name="Specialization_ConsultantSpecialization" Member="Specialization" ThisKey="SpecializationId" OtherKey="SpecializationId" Type="Specialization" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Customer" Member="Customers">

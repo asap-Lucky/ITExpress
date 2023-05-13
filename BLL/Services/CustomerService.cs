@@ -54,6 +54,11 @@ namespace BLL.Services
             return _customerRepo.GetAllCustomers();
         }
 
+        public ICustomer GetCustomer(int id)
+        {
+            return _customerRepo.GetCustomer(id);
+        }
+
         public ICustomer GetCustomer(string login, string password)
         {
             return _customerRepo.GetCustomer(login, password);

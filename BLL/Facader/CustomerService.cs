@@ -39,10 +39,21 @@ namespace BLL.Facader
             customerService.AddCustomer(MyCustomer);
         }
 
-        public void EditCustomer(string FirstName, string LastName, string Adress, int Zipcode, int Phonenumber, string Email, string Login, string Password, string City)
+        public void EditCustomerLoginInfo(int Id, string Login, string Password)
         {
             // Initialize MyCustomer with a new instance of the Customer class.
-            MyCustomer = new Customer();
+            MyCustomer = customerService.GetCustomer(Id);
+            MyCustomer.Login = Login;
+            MyCustomer.Password = Password;
+
+            // Call the EditCustomer method of the CustomerService object and pass in MyCustomer object.
+            customerService.EditCustomer(MyCustomer);
+
+        }
+            public void EditCustomer(int Id, string FirstName, string LastName, string Adress, int Zipcode, int Phonenumber, string Email, string City)
+        {
+            // Initialize MyCustomer with a new instance of the Customer class.
+            MyCustomer = customerService.GetCustomer(Id);
 
             MyCustomer.FirstName = FirstName;
             MyCustomer.LastName = LastName;
@@ -50,12 +61,16 @@ namespace BLL.Facader
             MyCustomer.ZipCode = Zipcode;
             MyCustomer.PhoneNumber = Phonenumber;
             MyCustomer.Email = Email;
-            MyCustomer.Login = Login;
-            MyCustomer.Password = Password;
             MyCustomer.City = City;
 
             // Call the EditCustomer method of the CustomerService object and pass in MyCustomer object.
             customerService.EditCustomer(MyCustomer);
         }
+
+        public ICustomer GetCustomer(int Id) 
+        { 
+            return customerService.GetCustomer(Id);
+        }
+
     }
 }

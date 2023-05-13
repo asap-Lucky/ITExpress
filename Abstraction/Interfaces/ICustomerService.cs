@@ -21,5 +21,7 @@ namespace Abstraction.Interfaces
         bool IsValidCustomer(string login, string password);
 
         ICustomer GetCustomer(string login, string password);
+
+        ICustomer GetCustomer(int id);
     }
 }

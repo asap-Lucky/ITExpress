@@ -25,10 +25,10 @@ namespace DAL.Repository
             var result = new List<ICustomer>();
 
             // Retrieve all customer data transfer objects (DTOs) from the database
-            var AllDtoItem = DataContext.Customers;
+            var AllDToCustomer = DataContext.Customers;
 
             // Convert each customer DTO to a customer model object and add to the result list
-            foreach (var dto in AllDtoItem)
+            foreach (var dto in AllDToCustomer)
             {
                 Models.Customer customer = new Models.Customer();
 
@@ -110,6 +110,24 @@ namespace DAL.Repository
             return customer != null;
         }
 
+        public ICustomer GetCustomer(int id)
+        {
+            var dataCustomer = DataContext.Customers.FirstOrDefault(c => c.CustomerId == id);
+            Models.Customer customer = new Models.Customer()
+            {
+                Id = dataCustomer.CustomerId,
+                FirstName = dataCustomer.Customer_FirstName,
+                LastName = dataCustomer.Customer_LastName,
+                Login = dataCustomer.Customer_Login,
+                Password = dataCustomer.Customer_Password,
+                Email = dataCustomer.Customer_Email,
+                ZipCode = dataCustomer.Customer_ZipCode,
+                City = dataCustomer.Customer_City,
+                Address = dataCustomer.Customer_Address,
+                PhoneNumber = dataCustomer.Customer_PhoneNumber
+            };
+            return customer;
+        }
         public ICustomer GetCustomer(string login, string password)
         {
             var dataCustomer = DataContext.Customers.FirstOrDefault(c => c.Customer_Login == login && c.Customer_Password == password);
