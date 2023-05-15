@@ -1,6 +1,6 @@
 ﻿namespace UI.All
 {
-    partial class LogInCustomer_Form
+    partial class LogInAdmin_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.bt_LogInAsCostumer = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
-            this.ll_SignUpAsCostumer = new System.Windows.Forms.LinkLabel();
             this.tb_passWordCustomer = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_userNameCustomer = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.bt_LogInAsCostumer);
             this.panel1.Controls.Add(this.bt_GoBack);
-            this.panel1.Controls.Add(this.ll_SignUpAsCostumer);
             this.panel1.Controls.Add(this.tb_passWordCustomer);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.tb_userNameCustomer);
@@ -71,7 +69,6 @@
             this.bt_LogInAsCostumer.TabIndex = 7;
             this.bt_LogInAsCostumer.Text = "Log in";
             this.bt_LogInAsCostumer.UseVisualStyleBackColor = false;
-            this.bt_LogInAsCostumer.Click += new System.EventHandler(this.bt_LogInAsCostumer_Click);
             // 
             // bt_GoBack
             // 
@@ -87,20 +84,6 @@
             this.bt_GoBack.TabIndex = 6;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
-            this.bt_GoBack.Click += new System.EventHandler(this.bt_GoBack_Click);
-            // 
-            // ll_SignUpAsCostumer
-            // 
-            this.ll_SignUpAsCostumer.AutoSize = true;
-            this.ll_SignUpAsCostumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.ll_SignUpAsCostumer.LinkColor = System.Drawing.Color.Blue;
-            this.ll_SignUpAsCostumer.Location = new System.Drawing.Point(103, 265);
-            this.ll_SignUpAsCostumer.Name = "ll_SignUpAsCostumer";
-            this.ll_SignUpAsCostumer.Size = new System.Drawing.Size(130, 15);
-            this.ll_SignUpAsCostumer.TabIndex = 5;
-            this.ll_SignUpAsCostumer.TabStop = true;
-            this.ll_SignUpAsCostumer.Text = "Sign-up as a customer";
-            this.ll_SignUpAsCostumer.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ll_SignUpAsCostumer_LinkClicked);
             // 
             // tb_passWordCustomer
             // 
@@ -143,14 +126,14 @@
             this.lb_LogInSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.lb_LogInSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
             this.lb_LogInSign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_LogInSign.Location = new System.Drawing.Point(50, 38);
+            this.lb_LogInSign.Location = new System.Drawing.Point(87, 35);
             this.lb_LogInSign.Name = "lb_LogInSign";
-            this.lb_LogInSign.Size = new System.Drawing.Size(337, 54);
+            this.lb_LogInSign.Size = new System.Drawing.Size(265, 54);
             this.lb_LogInSign.TabIndex = 0;
-            this.lb_LogInSign.Text = "Customer login";
+            this.lb_LogInSign.Text = "Admin login";
             this.lb_LogInSign.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LogInCustomer_Form
+            // LogInAdmin_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,7 +142,7 @@
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(600, 599);
             this.MinimumSize = new System.Drawing.Size(600, 599);
-            this.Name = "LogInCustomer_Form";
+            this.Name = "LogInAdmin_Form";
             this.Text = "Log in";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -174,7 +157,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_userNameCustomer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel ll_SignUpAsCostumer;
         private System.Windows.Forms.Button bt_LogInAsCostumer;
         private System.Windows.Forms.Button bt_GoBack;
     }

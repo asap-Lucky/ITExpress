@@ -141,6 +141,8 @@
             this.Controls.Add(this.bt_GoBack);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.MaximumSize = new System.Drawing.Size(334, 312);
+            this.MinimumSize = new System.Drawing.Size(334, 312);
             this.Name = "Specialization_Form";
             this.Text = "Specialization_Form";
             this.panel1.ResumeLayout(false);

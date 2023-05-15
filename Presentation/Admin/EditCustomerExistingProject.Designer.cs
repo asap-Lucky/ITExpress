@@ -71,7 +71,7 @@ namespace Presentation.Customer
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 474);
+            this.panel1.Size = new System.Drawing.Size(500, 479);
             this.panel1.TabIndex = 0;
             // 
             // textBox1
@@ -94,14 +94,14 @@ namespace Presentation.Customer
             // 
             // dtp_endDate
             // 
-            this.dtp_endDate.Location = new System.Drawing.Point(143, 420);
+            this.dtp_endDate.Location = new System.Drawing.Point(143, 432);
             this.dtp_endDate.Name = "dtp_endDate";
             this.dtp_endDate.Size = new System.Drawing.Size(215, 20);
             this.dtp_endDate.TabIndex = 28;
             // 
             // dtp_startDate
             // 
-            this.dtp_startDate.Location = new System.Drawing.Point(143, 366);
+            this.dtp_startDate.Location = new System.Drawing.Point(143, 378);
             this.dtp_startDate.Name = "dtp_startDate";
             this.dtp_startDate.Size = new System.Drawing.Size(215, 20);
             this.dtp_startDate.TabIndex = 27;
@@ -110,7 +110,7 @@ namespace Presentation.Customer
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(31, 421);
+            this.label6.Location = new System.Drawing.Point(31, 433);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 20);
             this.label6.TabIndex = 25;
@@ -120,7 +120,7 @@ namespace Presentation.Customer
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(31, 367);
+            this.label5.Location = new System.Drawing.Point(31, 379);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 20);
             this.label5.TabIndex = 23;
@@ -199,7 +199,7 @@ namespace Presentation.Customer
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(568, 13);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(500, 474);
+            this.panel2.Size = new System.Drawing.Size(500, 479);
             this.panel2.TabIndex = 1;
             // 
             // tb_projectDescription
@@ -207,7 +207,7 @@ namespace Presentation.Customer
             this.tb_projectDescription.Location = new System.Drawing.Point(31, 78);
             this.tb_projectDescription.Multiline = true;
             this.tb_projectDescription.Name = "tb_projectDescription";
-            this.tb_projectDescription.Size = new System.Drawing.Size(441, 355);
+            this.tb_projectDescription.Size = new System.Drawing.Size(441, 375);
             this.tb_projectDescription.TabIndex = 3;
             this.tb_projectDescription.Text = "Here you can write additional informations that would help the consultant to unde" +
     "rstand the project";

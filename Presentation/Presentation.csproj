@@ -106,6 +106,12 @@
     <Compile Include="Admin\EditSpecialization_Form - Copy.Designer.cs">
       <DependentUpon>EditSpecialization_Form - Copy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\LogInAdmin_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\LogInAdmin_Form.Designer.cs">
+      <DependentUpon>LogInAdmin_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Specialization_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditSpecialization_Form - Copy.resx">
       <DependentUpon>EditSpecialization_Form - Copy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\LogInAdmin_Form.resx">
+      <DependentUpon>LogInAdmin_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Specialization_Form.resx">
       <DependentUpon>Specialization_Form.cs</DependentUpon>
