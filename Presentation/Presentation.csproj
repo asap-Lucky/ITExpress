@@ -100,6 +100,18 @@
     <Compile Include="Admin\EditConsultantOpenProject_Form.Designer.cs">
       <DependentUpon>EditConsultantOpenProject_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditSpecialization_Form - Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditSpecialization_Form - Copy.Designer.cs">
+      <DependentUpon>EditSpecialization_Form - Copy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Specialization_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Specialization_Form.Designer.cs">
+      <DependentUpon>Specialization_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="All\Message_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +284,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditConsultantOpenProject_Form.resx">
       <DependentUpon>EditConsultantOpenProject_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditSpecialization_Form - Copy.resx">
+      <DependentUpon>EditSpecialization_Form - Copy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Specialization_Form.resx">
+      <DependentUpon>Specialization_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All\Message_Form.resx">
       <DependentUpon>Message_Form.cs</DependentUpon>
