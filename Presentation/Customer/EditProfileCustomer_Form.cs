@@ -20,8 +20,6 @@ namespace Presentation.Customer
 
         BLL.Facader.CustomerService FacadeService;
 
-        private BLL.Services.CustomerService cccustomerService = new BLL.Services.CustomerService();
-
         public EditProfileCustomer(Abstraction.Interfaces.ICustomer loggedInCustomer)
         {
             InitializeComponent();

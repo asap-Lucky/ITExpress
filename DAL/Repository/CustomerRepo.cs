@@ -128,6 +128,7 @@ namespace DAL.Repository
             };
             return customer;
         }
+
         public ICustomer GetCustomer(string login, string password)
         {
             var dataCustomer = DataContext.Customers.FirstOrDefault(c => c.Customer_Login == login && c.Customer_Password == password);

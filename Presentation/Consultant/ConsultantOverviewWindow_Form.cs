@@ -18,11 +18,14 @@ namespace Presentation.Consultant
     {
         Button lastClickedButton = null;
         private Form currentChildForm;
+        private Abstraction.Interfaces.IConsultant loggedInConsultant;
 
-        public ConsultantOverviewWindow_Form()
+        public ConsultantOverviewWindow_Form(Abstraction.Interfaces.IConsultant consultant)
         {
             InitializeComponent();
             IsMdiContainer = true;
+            this.loggedInConsultant = consultant;
+            lb_firstNameOfCustomer.Text = loggedInConsultant.FirstName;
         }
 
         /// <summary>
@@ -95,7 +98,7 @@ namespace Presentation.Consultant
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new EditProfileConsultant());
+            OpenChildForm(new EditProfileConsultant(loggedInConsultant));
         }
 
         private void bt_Messages_Click(object sender, EventArgs e)

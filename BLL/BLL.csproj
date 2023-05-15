@@ -69,7 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Facader\ConsultantService.cs" />
     <Compile Include="Facader\CustomerService.cs" />
+    <Compile Include="Facader\SpecializationService.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Consultant.cs" />
     <Compile Include="Models\Customer.cs" />

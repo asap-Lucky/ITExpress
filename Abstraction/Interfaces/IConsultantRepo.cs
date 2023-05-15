@@ -12,6 +12,8 @@ namespace Abstraction.Interfaces
 
         IConsultant GetConsultant(string login, string password);
 
+        IConsultant GetConsultant(int id);
+
         void AddConsultant(IConsultant dto);
 
         void DeleteConsultant(IConsultant dto);

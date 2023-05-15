@@ -72,7 +72,7 @@ namespace BLL.Services
         }
 
         /// <summary>
-        /// Gets a consultant.
+        /// Gets a consultant by login.
         /// </summary>
         /// <param name="login">The consultant's login.</param>
         /// <param name="password">The consultant's password.</param>
@@ -80,6 +80,16 @@ namespace BLL.Services
         public IConsultant GetConsultant(string login, string password)
         {
             return _consultantRepo.GetConsultant(login, password);
+        }
+
+        /// <summary>
+        /// Gets a consultant by id.
+        /// </summary>
+        /// <param name="id">The consultant's id.</param>
+        /// <returns>The consultant.</returns>
+        public IConsultant GetConsultant(int id)
+        {
+            return _consultantRepo.GetConsultant(id);
         }
     }
 }
