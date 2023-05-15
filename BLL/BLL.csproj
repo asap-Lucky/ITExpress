@@ -81,6 +81,7 @@
     <Compile Include="Services\ConsultantService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\ProjectService.cs" />
+    <Compile Include="Services\SpecializationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -53,6 +53,7 @@
     <Compile Include="Interfaces\IProjectService.cs" />
     <Compile Include="Interfaces\ISpecialization.cs" />
     <Compile Include="Interfaces\ISpecializationRepo.cs" />
+    <Compile Include="Interfaces\ISpecializationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
