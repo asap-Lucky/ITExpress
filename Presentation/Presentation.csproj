@@ -52,11 +52,29 @@
     <Compile Include="Admin\AdminsOverviewWindow_Form.Designer.cs">
       <DependentUpon>AdminsOverviewWindow_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AllConsultantOverview_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AllConsultantOverview_Form.Designer.cs">
+      <DependentUpon>AllConsultantOverview_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AllCustomerOverview_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\AllCustomerOverview_Form.Designer.cs">
       <DependentUpon>AllCustomerOverview_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ConsultantInfo_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ConsultantInfo_Form.Designer.cs">
+      <DependentUpon>ConsultantInfo_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditConsultantInfo_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditConsultantInfo_Form.Designer.cs">
+      <DependentUpon>EditConsultantInfo_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditCustomerInfo_Form.cs">
       <SubType>Form</SubType>
@@ -75,6 +93,12 @@
     </Compile>
     <Compile Include="Admin\EditCustomerExistingProject.Designer.cs">
       <DependentUpon>EditCustomerExistingProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditConsultantOpenProject_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditConsultantOpenProject_Form.Designer.cs">
+      <DependentUpon>EditConsultantOpenProject_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="All\Message_Form.cs">
       <SubType>Form</SubType>
@@ -99,6 +123,12 @@
     </Compile>
     <Compile Include="Consultant\EditProfileConsultant_Form.Designer.cs">
       <DependentUpon>EditProfileConsultant_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultant\EditProjectConsultant_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultant\EditProjectConsultant_Form.Designer.cs">
+      <DependentUpon>EditProjectConsultant_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Consultant\InvitationReceive_Form.cs">
       <SubType>Form</SubType>
@@ -219,8 +249,17 @@
     <EmbeddedResource Include="Admin\AdminsOverviewWindow_Form.resx">
       <DependentUpon>AdminsOverviewWindow_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AllConsultantOverview_Form.resx">
+      <DependentUpon>AllConsultantOverview_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\AllCustomerOverview_Form.resx">
       <DependentUpon>AllCustomerOverview_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ConsultantInfo_Form.resx">
+      <DependentUpon>ConsultantInfo_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditConsultantInfo_Form.resx">
+      <DependentUpon>EditConsultantInfo_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditCustomerInfo_Form.resx">
       <DependentUpon>EditCustomerInfo_Form.cs</DependentUpon>
@@ -230,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditCustomerExistingProject.resx">
       <DependentUpon>EditCustomerExistingProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditConsultantOpenProject_Form.resx">
+      <DependentUpon>EditConsultantOpenProject_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All\Message_Form.resx">
       <DependentUpon>Message_Form.cs</DependentUpon>
@@ -242,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\EditProfileConsultant_Form.resx">
       <DependentUpon>EditProfileConsultant_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultant\EditProjectConsultant_Form.resx">
+      <DependentUpon>EditProjectConsultant_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\InvitationReceive_Form.resx">
       <DependentUpon>InvitationReceive_Form.cs</DependentUpon>

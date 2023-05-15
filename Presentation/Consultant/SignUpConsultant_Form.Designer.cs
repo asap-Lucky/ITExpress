@@ -159,9 +159,9 @@
             this.label19.Location = new System.Drawing.Point(17, 55);
             this.label19.Name = "label19";
             this.label19.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label19.Size = new System.Drawing.Size(107, 20);
+            this.label19.Size = new System.Drawing.Size(81, 20);
             this.label19.TabIndex = 1;
-            this.label19.Text = "Language #1:";
+            this.label19.Text = "Language";
             // 
             // label20
             // 
@@ -476,18 +476,18 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(21, 89);
+            this.comboBox1.Location = new System.Drawing.Point(21, 84);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(210, 21);
-            this.comboBox1.TabIndex = 7;
+            this.comboBox1.TabIndex = 14;
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(21, 160);
+            this.comboBox2.Location = new System.Drawing.Point(21, 147);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(210, 21);
-            this.comboBox2.TabIndex = 8;
+            this.comboBox2.TabIndex = 15;
             // 
             // SignUpConsultant_Form
             // 
