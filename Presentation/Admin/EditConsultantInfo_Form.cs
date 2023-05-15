@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
-    public partial class ExistingProject: Form
+    public partial class EditConsultantInfo : Form
     {
-        public ExistingProject()
+        public EditConsultantInfo()
         {
             InitializeComponent();
         }

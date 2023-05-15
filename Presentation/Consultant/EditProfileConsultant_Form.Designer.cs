@@ -56,13 +56,13 @@
             this.bt_saveChangesOnProfile = new System.Windows.Forms.Button();
             this.bt_DiscardProfileChanges = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tb_languageDescript_1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -352,10 +352,21 @@
             this.panel3.Size = new System.Drawing.Size(502, 243);
             this.panel3.TabIndex = 12;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.Location = new System.Drawing.Point(23, 96);
+            this.label13.Name = "label13";
+            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label13.Size = new System.Drawing.Size(72, 20);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Endtype:";
+            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(168, 93);
+            this.comboBox2.Location = new System.Drawing.Point(180, 95);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(210, 21);
             this.comboBox2.TabIndex = 14;
@@ -363,7 +374,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(168, 43);
+            this.comboBox1.Location = new System.Drawing.Point(180, 48);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(210, 21);
             this.comboBox1.TabIndex = 13;
@@ -383,7 +394,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(27, 136);
+            this.label8.Location = new System.Drawing.Point(23, 136);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(192, 20);
             this.label8.TabIndex = 11;
@@ -393,7 +404,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label19.Location = new System.Drawing.Point(27, 43);
+            this.label19.Location = new System.Drawing.Point(23, 46);
             this.label19.Name = "label19";
             this.label19.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label19.Size = new System.Drawing.Size(85, 20);
@@ -409,17 +420,6 @@
             this.label20.Size = new System.Drawing.Size(227, 24);
             this.label20.TabIndex = 9;
             this.label20.Text = "Specialization information:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label13.Location = new System.Drawing.Point(27, 93);
-            this.label13.Name = "label13";
-            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(72, 20);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Endtype:";
             // 
             // EditProfileConsultant
             // 
