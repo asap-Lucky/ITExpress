@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditProfileConsultant));
             this.panel2 = new System.Windows.Forms.Panel();
             this.tb_currentCity = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,14 +55,23 @@
             this.label17 = new System.Windows.Forms.Label();
             this.bt_saveChangesOnProfile = new System.Windows.Forms.Button();
             this.bt_DiscardProfileChanges = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tb_languageDescript_1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.tb_currentCity);
@@ -215,8 +225,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.tb_repeatNewPassword);
@@ -226,23 +236,23 @@
             this.panel1.Controls.Add(this.tb_newUserName);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label17);
-            this.panel1.Location = new System.Drawing.Point(505, 245);
+            this.panel1.Location = new System.Drawing.Point(538, 281);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(502, 243);
+            this.panel1.Size = new System.Drawing.Size(502, 207);
             this.panel1.TabIndex = 11;
             // 
             // tb_repeatNewPassword
             // 
-            this.tb_repeatNewPassword.Location = new System.Drawing.Point(214, 206);
+            this.tb_repeatNewPassword.Location = new System.Drawing.Point(227, 169);
             this.tb_repeatNewPassword.Name = "tb_repeatNewPassword";
-            this.tb_repeatNewPassword.Size = new System.Drawing.Size(203, 20);
+            this.tb_repeatNewPassword.Size = new System.Drawing.Size(242, 20);
             this.tb_repeatNewPassword.TabIndex = 6;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label10.Location = new System.Drawing.Point(23, 204);
+            this.label10.Location = new System.Drawing.Point(23, 167);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(171, 20);
             this.label10.TabIndex = 5;
@@ -250,16 +260,16 @@
             // 
             // tb_newPassWord
             // 
-            this.tb_newPassWord.Location = new System.Drawing.Point(214, 129);
+            this.tb_newPassWord.Location = new System.Drawing.Point(227, 113);
             this.tb_newPassWord.Name = "tb_newPassWord";
-            this.tb_newPassWord.Size = new System.Drawing.Size(203, 20);
+            this.tb_newPassWord.Size = new System.Drawing.Size(242, 20);
             this.tb_newPassWord.TabIndex = 4;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label11.Location = new System.Drawing.Point(23, 127);
+            this.label11.Location = new System.Drawing.Point(23, 113);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(116, 20);
             this.label11.TabIndex = 3;
@@ -267,9 +277,9 @@
             // 
             // tb_newUserName
             // 
-            this.tb_newUserName.Location = new System.Drawing.Point(214, 55);
+            this.tb_newUserName.Location = new System.Drawing.Point(226, 55);
             this.tb_newUserName.Name = "tb_newUserName";
-            this.tb_newUserName.Size = new System.Drawing.Size(203, 20);
+            this.tb_newUserName.Size = new System.Drawing.Size(242, 20);
             this.tb_newUserName.TabIndex = 2;
             // 
             // label12
@@ -324,25 +334,115 @@
             this.bt_DiscardProfileChanges.Text = "Discard changes";
             this.bt_DiscardProfileChanges.UseVisualStyleBackColor = false;
             // 
-            // EditProfileCustomer
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.comboBox2);
+            this.panel3.Controls.Add(this.comboBox1);
+            this.panel3.Controls.Add(this.tb_languageDescript_1);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.label19);
+            this.panel3.Controls.Add(this.label20);
+            this.panel3.Location = new System.Drawing.Point(538, 20);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(502, 243);
+            this.panel3.TabIndex = 12;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(168, 93);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(210, 21);
+            this.comboBox2.TabIndex = 14;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(168, 43);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(210, 21);
+            this.comboBox1.TabIndex = 13;
+            // 
+            // tb_languageDescript_1
+            // 
+            this.tb_languageDescript_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.tb_languageDescript_1.Location = new System.Drawing.Point(27, 159);
+            this.tb_languageDescript_1.Multiline = true;
+            this.tb_languageDescript_1.Name = "tb_languageDescript_1";
+            this.tb_languageDescript_1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_languageDescript_1.Size = new System.Drawing.Size(454, 71);
+            this.tb_languageDescript_1.TabIndex = 12;
+            this.tb_languageDescript_1.Text = resources.GetString("tb_languageDescript_1.Text");
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(27, 136);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(192, 20);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Description of experience:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label19.Location = new System.Drawing.Point(27, 43);
+            this.label19.Name = "label19";
+            this.label19.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label19.Size = new System.Drawing.Size(85, 20);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Language:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label20.Location = new System.Drawing.Point(151, 6);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(227, 24);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Specialization information:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label13.Location = new System.Drawing.Point(27, 93);
+            this.label13.Name = "label13";
+            this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label13.Size = new System.Drawing.Size(72, 20);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Endtype:";
+            // 
+            // EditProfileConsultant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.bt_saveChangesOnProfile);
             this.Controls.Add(this.bt_DiscardProfileChanges);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EditProfileCustomer";
+            this.Name = "EditProfileConsultant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -375,5 +475,13 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button bt_saveChangesOnProfile;
         private System.Windows.Forms.Button bt_DiscardProfileChanges;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tb_languageDescript_1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
     }
 }
