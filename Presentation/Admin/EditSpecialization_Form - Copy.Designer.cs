@@ -159,6 +159,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.bt_GoBack);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(775, 489);
+            this.MinimumSize = new System.Drawing.Size(775, 489);
             this.Name = "EditSpecialization_Form";
             this.Text = "Specialization_Form";
             this.panel1.ResumeLayout(false);
