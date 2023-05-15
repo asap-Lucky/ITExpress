@@ -74,14 +74,5 @@ namespace BLL.Services
         {
             return _customerRepo.IsValidCustomer(login, password);
         }
-
-        /// <summary>
-        /// Updates an existing customer
-        /// </summary>
-        /// <param name="customer">The customer object to update</param>
-        public void UpdateCustomer(ICustomer customer)
-        {
-            _customerRepo.EditCustomer(customer);
-        }
     }
 }

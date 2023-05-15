@@ -25,7 +25,6 @@ namespace UI.Costumer
             InitializeComponent();
 
              FacadeService = new BLL.Facader.CustomerService(customerService);
-            // Initialize MyCustomer with a new instance of the Customer class.
             
         }
 
@@ -77,10 +76,6 @@ namespace UI.Costumer
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 
 }

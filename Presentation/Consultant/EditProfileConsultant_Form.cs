@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abstraction.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,18 @@ namespace Presentation.Customer
 {
     public partial class EditProfileConsultant : Form
     {
-        public EditProfileConsultant()
+        private Abstraction.Interfaces.IConsultant loggedInConsultant;
+
+        IConsultantService consultantService = new BLL.Services.ConsultantService();
+
+        BLL.Facader.CustomerService FacadeService;
+
+
+        public EditProfileConsultant(Abstraction.Interfaces.IConsultant loggedInConsultant)
         {
             InitializeComponent();
+            this.loggedInConsultant = loggedInConsultant;
+            //FacadeService = new BLL.Facader.ConsultantService(consultantService);
         }
     }
 }

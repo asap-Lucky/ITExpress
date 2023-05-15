@@ -55,6 +55,8 @@ namespace DAL.Repository
                 consultant.Address = dto.Consultant_Address;
                 consultant.PhoneNumber = dto.Consultant_PhoneNumber;
 
+                List<Models.Specialization> specialization = new List<Models.Specialization>();
+
                 result.Add(consultant);
             }
             return result;
@@ -132,13 +134,33 @@ namespace DAL.Repository
             return consultant != null;
         }
 
+        public IConsultant GetConsultant(int id)
+        {
+            var dataConsultant = DataContext.Consultants.FirstOrDefault(c => c.ConsultantId == id);
+            Models.Consultant consultant = new Models.Consultant()
+            {
+                Id = dataConsultant.ConsultantId,
+                FirstName = dataConsultant.Consultant_FirstName,
+                LastName = dataConsultant.Consultant_LastName,
+                Login = dataConsultant.Consultant_Login,
+                Password = dataConsultant.Consultant_Password,
+                Email = dataConsultant.Consultant_Email,
+                ZipCode = dataConsultant.Consultant_ZipCode,
+                City = dataConsultant.Consultant_City,
+                Address = dataConsultant.Consultant_Address,
+                PhoneNumber = dataConsultant.Consultant_PhoneNumber,
+                Specialization = SpecializationRepo.GetSpecialization(dataConsultant.SpecializationID)
+            };
+
+            return consultant;
+        }
+
         /// <summary>
         /// Retrieves the consultant with the given login and password from the data context.
         /// </summary>
         /// <param name="login">The login of the consultant to retrieve.</param>
         /// <param name="password">The password of the consultant to retrieve.</param>
         /// <returns>Returns the consultant object if found, otherwise returns null.</returns>
-
         public IConsultant GetConsultant(string login, string password)
         {
             var dataConsultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login && c.Consultant_Password == password);
