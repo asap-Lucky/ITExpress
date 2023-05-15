@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Presentation.Consultant;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,7 +39,13 @@ namespace UI.Consultant
             if (consultantService.IsValidConsultant(tb_userNameConsultant.Text, tb_passWordConsultant.Text))
             {
                 Abstraction.Interfaces.IConsultant consultant = (Abstraction.Interfaces.IConsultant)consultantService.GetConsultant(tb_userNameConsultant.Text, tb_passWordConsultant.Text);
-                //Send consultant til næste formular
+
+                this.Hide();
+                ConsultantOverviewWindow_Form consultantOverviewWindow = new ConsultantOverviewWindow_Form(consultant);
+                consultantOverviewWindow.ShowDialog();
+                this.Show();
+                tb_userNameConsultant.Clear();
+                tb_passWordConsultant.Clear();
             }
             else
             {

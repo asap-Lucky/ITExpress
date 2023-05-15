@@ -14,8 +14,6 @@ namespace Abstraction.Interfaces
 
         void EditCustomer(ICustomer customer);
 
-        void UpdateCustomer(ICustomer customer);
-
         void DeleteCustomer(ICustomer customer);
 
         bool IsValidCustomer(string login, string password);

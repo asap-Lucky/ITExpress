@@ -48,24 +48,24 @@ namespace BLL.Facader
 
             // Call the EditCustomer method of the CustomerService object and pass in MyCustomer object.
             customerService.EditCustomer(MyCustomer);
-
         }
+
             public void EditCustomer(int Id, string FirstName, string LastName, string Adress, int Zipcode, int Phonenumber, string Email, string City)
-        {
-            // Initialize MyCustomer with a new instance of the Customer class.
-            MyCustomer = customerService.GetCustomer(Id);
+            {
+                // Initialize MyCustomer with a new instance of the Customer class.
+                MyCustomer = customerService.GetCustomer(Id);
 
-            MyCustomer.FirstName = FirstName;
-            MyCustomer.LastName = LastName;
-            MyCustomer.Address = Adress;
-            MyCustomer.ZipCode = Zipcode;
-            MyCustomer.PhoneNumber = Phonenumber;
-            MyCustomer.Email = Email;
-            MyCustomer.City = City;
+                MyCustomer.FirstName = FirstName;
+                MyCustomer.LastName = LastName;
+                MyCustomer.Address = Adress;
+                MyCustomer.ZipCode = Zipcode;
+                MyCustomer.PhoneNumber = Phonenumber;
+                MyCustomer.Email = Email;
+                MyCustomer.City = City;
 
-            // Call the EditCustomer method of the CustomerService object and pass in MyCustomer object.
-            customerService.EditCustomer(MyCustomer);
-        }
+                // Call the EditCustomer method of the CustomerService object and pass in MyCustomer object.
+                customerService.EditCustomer(MyCustomer);
+            }
 
         public ICustomer GetCustomer(int Id) 
         { 
