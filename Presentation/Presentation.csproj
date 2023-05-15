@@ -58,11 +58,23 @@
     <Compile Include="Admin\AllCustomerOverview_Form.Designer.cs">
       <DependentUpon>AllCustomerOverview_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditCustomerInfo_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditCustomerInfo_Form.Designer.cs">
+      <DependentUpon>EditCustomerInfo_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\CustomerInfo_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\CustomerInfo_Form.Designer.cs">
       <DependentUpon>CustomerInfo_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditCustomerExistingProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditCustomerExistingProject.Designer.cs">
+      <DependentUpon>EditCustomerExistingProject.cs</DependentUpon>
     </Compile>
     <Compile Include="All\Message_Form.cs">
       <SubType>Form</SubType>
@@ -210,8 +222,14 @@
     <EmbeddedResource Include="Admin\AllCustomerOverview_Form.resx">
       <DependentUpon>AllCustomerOverview_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditCustomerInfo_Form.resx">
+      <DependentUpon>EditCustomerInfo_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\CustomerInfo_Form.resx">
       <DependentUpon>CustomerInfo_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditCustomerExistingProject.resx">
+      <DependentUpon>EditCustomerExistingProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All\Message_Form.resx">
       <DependentUpon>Message_Form.cs</DependentUpon>
