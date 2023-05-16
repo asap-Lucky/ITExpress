@@ -10,6 +10,6 @@ namespace BLL.Models
     public class EndType : IEndType
     {
         public int Id { get; set; }
-        string IEndType.EndType { get; set; }
+        public string EndType1 { get; set; }
     }
 }

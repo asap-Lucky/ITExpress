@@ -13,27 +13,36 @@ namespace BLL.Facader
     {
         public IConsultantService consultantService { get; set; }
 
+        public ICodeLangaugeService codeLanguageService { get; set; }
+
+        public IEndtypeService endtypeService { get; set; }
+
         public Abstraction.Interfaces.IConsultant MyConsultant { get; set; }
 
-        public ConsultantService(IConsultantService consultantService) 
+        public ConsultantService(IConsultantService consultantService, ICodeLangaugeService codeLanguageService, IEndtypeService endtypeService)
         { 
             this.consultantService = consultantService;
+            this.codeLanguageService = codeLanguageService;
+            this.endtypeService = endtypeService;
         }
 
-        public void RegisterConsultant(string FirstName, string LastName, string Adress, int Zipcode, int Phonenumber, string Email, string Login, string Password, string City)
+        public void RegisterConsultant(string FirstName, string LastName, string Adress, int Zipcode, int Phonenumber, string Email, string Login, string Password, string City, int CodeLanguage, int Endtype)
         {
-            MyConsultant = new Consultant();
+            MyConsultant = new Consultant
+            {
+                FirstName = FirstName,
+                LastName = LastName,
+                Address = Adress,
+                ZipCode = Zipcode,
+                PhoneNumber = Phonenumber,
+                Email = Email,
+                Login = Login,
+                Password = Password,
+                City = City,
 
-
-            MyConsultant.FirstName = FirstName;
-            MyConsultant.LastName = LastName;
-            MyConsultant.Address = Adress;
-            MyConsultant.ZipCode = Zipcode;
-            MyConsultant.PhoneNumber = Phonenumber;
-            MyConsultant.Email = Email;
-            MyConsultant.Login = Login;
-            MyConsultant.Password = Password;
-            MyConsultant.City = City;
+                Language = codeLanguageService.GetCodeLanguage(CodeLanguage),
+                EndType = endtypeService.GetEndtype(Endtype)
+            };
 
             // Call the AddConsultant method of the ConsultantService object and pass in MyConsultant object.
             consultantService.AddConsultant(MyConsultant);
