@@ -95,6 +95,7 @@
             this.bt_LogInAsAdmin.TabIndex = 3;
             this.bt_LogInAsAdmin.Text = "Admin";
             this.bt_LogInAsAdmin.UseVisualStyleBackColor = false;
+            this.bt_LogInAsAdmin.Click += new System.EventHandler(this.bt_LogInAsAdmin_Click);
             // 
             // panel1
             // 
