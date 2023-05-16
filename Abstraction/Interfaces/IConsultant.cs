@@ -18,5 +18,7 @@ namespace Abstraction.Interfaces
         string City { get; set; }
         string Address { get; set; }
         int PhoneNumber { get; set; }
+        ICodeLanguage Language { get; set; }
+        IEndType EndType { get; set; }
     }
 }

@@ -72,8 +72,10 @@
     <Compile Include="Facader\ConsultantService.cs" />
     <Compile Include="Facader\CustomerService.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\CodeLanguage.cs" />
     <Compile Include="Models\Consultant.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\EndType.cs" />
     <Compile Include="Models\Invitation.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Project.cs" />
