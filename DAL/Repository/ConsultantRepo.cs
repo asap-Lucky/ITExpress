@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,22 +41,8 @@ namespace DAL.Repository
             var AllDtoItem = DataContext.Consultants;
 
             foreach (var dto in AllDtoItem) 
-            { 
-                Models.Consultant consultant = new Models.Consultant();
-
-                consultant.Id = dto.ConsultantId;
-                consultant.FirstName = dto.Consultant_FirstName;
-                consultant.LastName = dto.Consultant_LastName;
-                consultant.Login = dto.Consultant_Login;
-                consultant.Password = dto.Consultant_Password;
-                consultant.Email = dto.Consultant_Email;
-                consultant.ZipCode = dto.Consultant_ZipCode;
-                consultant.Address = dto.Consultant_Address;
-                consultant.PhoneNumber = dto.Consultant_PhoneNumber;
-
-                List<Models.Specialization> specialization = new List<Models.Specialization>();
-
-                result.Add(consultant);
+            {               
+                result.Add(MapToModel(dto));
             }
             return result;
         }
@@ -135,19 +122,7 @@ namespace DAL.Repository
         public IConsultant GetConsultant(int id)
         {
             var dataConsultant = DataContext.Consultants.FirstOrDefault(c => c.ConsultantId == id);
-            Models.Consultant consultant = new Models.Consultant()
-            {
-                Id = dataConsultant.ConsultantId,
-                FirstName = dataConsultant.Consultant_FirstName,
-                LastName = dataConsultant.Consultant_LastName,
-                Login = dataConsultant.Consultant_Login,
-                Password = dataConsultant.Consultant_Password,
-                Email = dataConsultant.Consultant_Email,
-                ZipCode = dataConsultant.Consultant_ZipCode,
-                City = dataConsultant.Consultant_City,
-                Address = dataConsultant.Consultant_Address,
-                PhoneNumber = dataConsultant.Consultant_PhoneNumber,
-            };
+            Models.Consultant consultant = MapToModel(dataConsultant);
 
             return consultant;
         }
@@ -161,21 +136,56 @@ namespace DAL.Repository
         public IConsultant GetConsultant(string login, string password)
         {
             var dataConsultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login && c.Consultant_Password == password);
-            Models.Consultant consultant = new Models.Consultant()
-            {
-                Id = dataConsultant.ConsultantId,
-                FirstName = dataConsultant.Consultant_FirstName,
-                LastName = dataConsultant.Consultant_LastName,
-                Login = dataConsultant.Consultant_Login,
-                Password = dataConsultant.Consultant_Password,
-                Email = dataConsultant.Consultant_Email,
-                ZipCode = dataConsultant.Consultant_ZipCode,
-                City = dataConsultant.Consultant_City,
-                Address = dataConsultant.Consultant_Address,
-                PhoneNumber = dataConsultant.Consultant_PhoneNumber
-            };
+            Models.Consultant consultant = MapToModel(dataConsultant);
 
             return consultant;
+        }
+
+        private Models.Consultant MapToModel(Database.Consultant dataConsultant)
+        {
+            Models.Consultant consultantModel = new Models.Consultant();
+
+            consultantModel.Id = dataConsultant.ConsultantId;
+            consultantModel.FirstName = dataConsultant.Consultant_FirstName;
+            consultantModel.LastName = dataConsultant.Consultant_LastName;
+            consultantModel.Login = dataConsultant.Consultant_Login;
+            consultantModel.Password = dataConsultant.Consultant_Password;
+            consultantModel.Email = dataConsultant.Consultant_Email;
+            consultantModel.ZipCode = dataConsultant.Consultant_ZipCode;
+            consultantModel.Address = dataConsultant.Consultant_Address;
+            consultantModel.PhoneNumber = dataConsultant.Consultant_PhoneNumber;
+
+            consultantModel.EndType = new Models.EndType();
+            consultantModel.EndType.Id = dataConsultant.EndType.Id;
+            consultantModel.EndType.EndType = dataConsultant.EndType.EndType1;
+
+            consultantModel.Language = new Models.CodeLanguage();
+            consultantModel.Language.Id = dataConsultant.CodeLanguage.Id;
+            consultantModel.Language.Language = dataConsultant.CodeLanguage.LanguageName;
+
+            return consultantModel;
+        }
+
+        private Database.Consultant MapToData(Models.Consultant consultantModel)
+        {
+            Database.Consultant dataConsultant = new Database.Consultant();
+
+            dataConsultant.Consultant_FirstName = consultantModel.FirstName;
+            dataConsultant.Consultant_LastName = consultantModel.LastName;
+            dataConsultant.Consultant_Login = consultantModel.Login;
+            dataConsultant.Consultant_Password = consultantModel.Password;
+            dataConsultant.Consultant_Email = consultantModel.Email;
+            dataConsultant.Consultant_ZipCode = consultantModel.ZipCode;
+            dataConsultant.Consultant_Address = consultantModel.Address;
+            dataConsultant.Consultant_PhoneNumber = consultantModel.PhoneNumber;
+
+            dataConsultant.EndType.Id = consultantModel.EndType.Id;
+            dataConsultant.EndType.EndType1 = consultantModel.EndType.EndType;
+
+            dataConsultant.CodeLanguage.Id = consultantModel.Language.Id;
+            dataConsultant.CodeLanguage.LanguageName = consultantModel.Language.Language;
+
+            return dataConsultant;
         }
     }
 }
