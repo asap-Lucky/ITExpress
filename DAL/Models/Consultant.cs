@@ -20,6 +20,6 @@ namespace DAL.Models
         public string Address { get; set; }
         public int PhoneNumber { get; set; }
         public ICodeLanguage Language { get; set; }
-        public IEndType EndType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IEndType EndType { get; set; }
     }
 }

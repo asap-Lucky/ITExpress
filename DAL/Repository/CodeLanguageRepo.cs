@@ -59,7 +59,7 @@ namespace DAL.Repository
             // Convert each code language DTO to a code language model object and add to the result list
             foreach (var dto in AllDToCodeLanguage)
             {
-                Models.CodeLanguage codeLanguage = new Models.CodeLanguage();
+                ICodeLanguage codeLanguage = new Models.CodeLanguage();
 
                 codeLanguage.Id = dto.Id;
                 codeLanguage.Language = dto.LanguageName;
@@ -72,7 +72,7 @@ namespace DAL.Repository
         public ICodeLanguage GetCodeLanguage(int id)
         {
             var dataCodeLanguage = DataContext.CodeLanguages.FirstOrDefault(x => x.Id == id);
-            Models.CodeLanguage codeLanguage = new Models.CodeLanguage()
+            ICodeLanguage codeLanguage = new Models.CodeLanguage()
             {
                 Id = dataCodeLanguage.Id,
                 Language = dataCodeLanguage.LanguageName
