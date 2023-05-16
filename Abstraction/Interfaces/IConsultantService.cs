@@ -21,5 +21,7 @@ namespace Abstraction.Interfaces
         void DeleteConsultant(IConsultant consultant);
 
         bool IsValidConsultant(string login, string password);
+
+        List<IConsultant> CodeLangaugeBinarySearch(List<IConsultant> consultants, string searchTerm);
     }
 }
