@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Abstraction.Interfaces;
 using BLL.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentation.Customer
 {
@@ -15,6 +17,10 @@ namespace Presentation.Customer
     {
         public Abstraction.Interfaces.IProject MyProject { get; set; }
         BLL.Services.ProjectService ProjectService = new BLL.Services.ProjectService();
+        private BLL.Services.CodeLanguageService codelanguageService;
+        private List<ICodeLanguage> codelanguages;
+        public Abstraction.Interfaces.ICodeLanguage Language { get; set; }
+        
 
 
         public CreateNewProject_Form()
@@ -23,8 +29,18 @@ namespace Presentation.Customer
 
             MyProject = new Project();
 
-           
-        }
+            codelanguageService = new BLL.Services.CodeLanguageService();
+            codelanguages = codelanguageService.GetAllCodeLanguages();
+
+            foreach (var codelanguage in codelanguages)
+            {
+                cb_projectRequierements.Items.Add(codelanguage.Language);
+            }
+
+            
+        
+
+    }
 
 
 
@@ -44,12 +60,16 @@ namespace Presentation.Customer
                 MyProject.HourWage = hourWage;
                 MyProject.StartDate = dtp_startDate.Value;
                 MyProject.EndDate = dtp_endDate.Value;
+                MyProject.Requirements = cb_projectRequierements.Text;
+
 
 
                 ProjectService.AddProject(MyProject);
             }
         }
 
+
+       
         private void btn_registerProject_Click(object sender, EventArgs e)
         {
             RegisterProject();
@@ -58,6 +78,11 @@ namespace Presentation.Customer
 
         private void CreateNewProject_Form_Load(object sender, EventArgs e)
         {
+        }
+
+        private void CreateNewProject_Form_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
