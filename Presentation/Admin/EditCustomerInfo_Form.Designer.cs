@@ -1,6 +1,6 @@
 ﻿namespace Presentation.Customer
 {
-    partial class CustomerInfo
+    partial class EditCustomerInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -71,7 +71,7 @@
             // 
             // bt_EditCustomerInfo
             // 
-            this.bt_EditCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.bt_EditCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
             this.bt_EditCustomerInfo.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.bt_EditCustomerInfo.FlatAppearance.BorderSize = 0;
             this.bt_EditCustomerInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -81,7 +81,7 @@
             this.bt_EditCustomerInfo.Name = "bt_EditCustomerInfo";
             this.bt_EditCustomerInfo.Size = new System.Drawing.Size(205, 30);
             this.bt_EditCustomerInfo.TabIndex = 16;
-            this.bt_EditCustomerInfo.Text = "Edit customer info";
+            this.bt_EditCustomerInfo.Text = "Discard changes";
             this.bt_EditCustomerInfo.UseVisualStyleBackColor = false;
             // 
             // panel1
@@ -108,6 +108,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(305, 467);
             this.panel1.TabIndex = 17;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label8
             // 
@@ -121,10 +122,10 @@
             // 
             // textBox6
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.textBox6.Location = new System.Drawing.Point(20, 433);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(239, 21);
+            this.textBox6.Size = new System.Drawing.Size(239, 18);
             this.textBox6.TabIndex = 44;
             // 
             // label9
@@ -139,10 +140,10 @@
             // 
             // textBox5
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.textBox5.Location = new System.Drawing.Point(20, 378);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(239, 21);
+            this.textBox5.Size = new System.Drawing.Size(239, 18);
             this.textBox5.TabIndex = 42;
             // 
             // label5
@@ -157,10 +158,10 @@
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.textBox4.Location = new System.Drawing.Point(20, 320);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(239, 21);
+            this.textBox4.Size = new System.Drawing.Size(239, 18);
             this.textBox4.TabIndex = 40;
             // 
             // label4
@@ -175,11 +176,12 @@
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.textBox3.Location = new System.Drawing.Point(20, 264);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(239, 21);
+            this.textBox3.Size = new System.Drawing.Size(239, 18);
             this.textBox3.TabIndex = 38;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label3
             // 
@@ -190,13 +192,14 @@
             this.label3.Size = new System.Drawing.Size(54, 15);
             this.label3.TabIndex = 37;
             this.label3.Text = "Zipcode:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.textBox2.Location = new System.Drawing.Point(20, 199);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(239, 21);
+            this.textBox2.Size = new System.Drawing.Size(239, 18);
             this.textBox2.TabIndex = 36;
             // 
             // label11
@@ -211,10 +214,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.textBox1.Location = new System.Drawing.Point(20, 137);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 21);
+            this.textBox1.Size = new System.Drawing.Size(239, 18);
             this.textBox1.TabIndex = 34;
             // 
             // label10
@@ -236,10 +239,10 @@
             // 
             // tb_firstName
             // 
-            this.tb_firstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_firstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.tb_firstName.Location = new System.Drawing.Point(20, 76);
             this.tb_firstName.Name = "tb_firstName";
-            this.tb_firstName.Size = new System.Drawing.Size(239, 21);
+            this.tb_firstName.Size = new System.Drawing.Size(239, 18);
             this.tb_firstName.TabIndex = 19;
             // 
             // label2
@@ -270,7 +273,6 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label17);
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.panel2.Location = new System.Drawing.Point(345, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(330, 155);
@@ -380,7 +382,7 @@
             // 
             // bt_DeleteCustomer
             // 
-            this.bt_DeleteCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.bt_DeleteCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
             this.bt_DeleteCustomer.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.bt_DeleteCustomer.FlatAppearance.BorderSize = 0;
             this.bt_DeleteCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -390,7 +392,7 @@
             this.bt_DeleteCustomer.Name = "bt_DeleteCustomer";
             this.bt_DeleteCustomer.Size = new System.Drawing.Size(205, 30);
             this.bt_DeleteCustomer.TabIndex = 22;
-            this.bt_DeleteCustomer.Text = "Delete customer";
+            this.bt_DeleteCustomer.Text = "Save changes";
             this.bt_DeleteCustomer.UseVisualStyleBackColor = false;
             // 
             // bt_GoBack
@@ -408,7 +410,7 @@
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
             // 
-            // CustomerInfo
+            // EditCustomerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -423,7 +425,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bt_EditCustomerInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CustomerInfo";
+            this.Name = "EditCustomerInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             this.panel1.ResumeLayout(false);

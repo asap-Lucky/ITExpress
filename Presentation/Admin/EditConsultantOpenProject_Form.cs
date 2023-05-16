@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
-    public partial class ExistingProject: Form
+    public partial class EditConsultantOpenProject_Form : Form
     {
-        public ExistingProject()
+        public EditConsultantOpenProject_Form()
         {
             InitializeComponent();
         }

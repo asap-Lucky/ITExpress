@@ -1,6 +1,6 @@
 ﻿namespace Presentation.Customer
 {
-    partial class CustomerInfo
+    partial class EditConsultantInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bt_EditCustomerInfo = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditConsultantInfo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -59,30 +59,25 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tb_languageDescript_1 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.bt_DeleteCustomer = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
+            this.bt_EditCustomerInfo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // bt_EditCustomerInfo
-            // 
-            this.bt_EditCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
-            this.bt_EditCustomerInfo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_EditCustomerInfo.FlatAppearance.BorderSize = 0;
-            this.bt_EditCustomerInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_EditCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_EditCustomerInfo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_EditCustomerInfo.Location = new System.Drawing.Point(244, 504);
-            this.bt_EditCustomerInfo.Name = "bt_EditCustomerInfo";
-            this.bt_EditCustomerInfo.Size = new System.Drawing.Size(205, 30);
-            this.bt_EditCustomerInfo.TabIndex = 16;
-            this.bt_EditCustomerInfo.Text = "Edit customer info";
-            this.bt_EditCustomerInfo.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -270,7 +265,6 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label17);
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.panel2.Location = new System.Drawing.Point(345, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(330, 155);
@@ -278,37 +272,37 @@
             // 
             // textBox8
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(134, 69);
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.textBox8.Location = new System.Drawing.Point(106, 69);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(184, 20);
+            this.textBox8.Size = new System.Drawing.Size(184, 21);
             this.textBox8.TabIndex = 15;
             // 
             // textBox7
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(134, 113);
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.textBox7.Location = new System.Drawing.Point(106, 113);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(184, 20);
+            this.textBox7.Size = new System.Drawing.Size(184, 21);
             this.textBox7.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label7.Location = new System.Drawing.Point(14, 115);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.Size = new System.Drawing.Size(64, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "Password:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label12.Location = new System.Drawing.Point(13, 72);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 13);
+            this.label12.Size = new System.Drawing.Size(68, 15);
             this.label12.TabIndex = 8;
             this.label12.Text = "Username:";
             // 
@@ -318,25 +312,25 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label17.Location = new System.Drawing.Point(65, 13);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(198, 24);
+            this.label17.Size = new System.Drawing.Size(160, 24);
             this.label17.TabIndex = 7;
-            this.label17.Text = "New log-in information";
+            this.label17.Text = "Log-in information";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(345, 187);
+            this.panel3.Location = new System.Drawing.Point(715, 215);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(330, 292);
+            this.panel3.Size = new System.Drawing.Size(348, 264);
             this.panel3.TabIndex = 19;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label6.Location = new System.Drawing.Point(91, 10);
+            this.label6.Location = new System.Drawing.Point(111, 11);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 24);
             this.label6.TabIndex = 8;
@@ -347,7 +341,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 46);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(330, 246);
+            this.dataGridView1.Size = new System.Drawing.Size(353, 218);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel4
@@ -357,15 +351,18 @@
             this.panel4.Controls.Add(this.label13);
             this.panel4.Location = new System.Drawing.Point(715, 12);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(348, 467);
+            this.panel4.Size = new System.Drawing.Size(348, 190);
             this.panel4.TabIndex = 21;
             // 
             // dataGridView2
             // 
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(0, 58);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(348, 409);
+            this.dataGridView2.Size = new System.Drawing.Size(348, 132);
             this.dataGridView2.TabIndex = 9;
             // 
             // label13
@@ -378,19 +375,108 @@
             this.label13.TabIndex = 9;
             this.label13.Text = "Open projects";
             // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.comboBox2);
+            this.panel5.Controls.Add(this.label14);
+            this.panel5.Controls.Add(this.comboBox1);
+            this.panel5.Controls.Add(this.tb_languageDescript_1);
+            this.panel5.Controls.Add(this.label15);
+            this.panel5.Controls.Add(this.label19);
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Location = new System.Drawing.Point(345, 215);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(330, 264);
+            this.panel5.TabIndex = 23;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(113, 90);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(177, 23);
+            this.comboBox2.TabIndex = 16;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(23, 96);
+            this.label14.Name = "label14";
+            this.label14.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label14.Size = new System.Drawing.Size(54, 15);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Endtype:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(113, 43);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(177, 23);
+            this.comboBox1.TabIndex = 13;
+            // 
+            // tb_languageDescript_1
+            // 
+            this.tb_languageDescript_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_languageDescript_1.Location = new System.Drawing.Point(27, 159);
+            this.tb_languageDescript_1.Multiline = true;
+            this.tb_languageDescript_1.Name = "tb_languageDescript_1";
+            this.tb_languageDescript_1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_languageDescript_1.Size = new System.Drawing.Size(291, 71);
+            this.tb_languageDescript_1.TabIndex = 12;
+            this.tb_languageDescript_1.Text = resources.GetString("tb_languageDescript_1.Text");
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(23, 136);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(149, 15);
+            this.label15.TabIndex = 11;
+            this.label15.Text = "Description of experience:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(23, 46);
+            this.label19.Name = "label19";
+            this.label19.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label19.Size = new System.Drawing.Size(66, 15);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Language:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.label20.Location = new System.Drawing.Point(90, 11);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(125, 24);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Specialization";
+            // 
             // bt_DeleteCustomer
             // 
-            this.bt_DeleteCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.bt_DeleteCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
             this.bt_DeleteCustomer.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.bt_DeleteCustomer.FlatAppearance.BorderSize = 0;
             this.bt_DeleteCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_DeleteCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_DeleteCustomer.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_DeleteCustomer.Location = new System.Drawing.Point(858, 504);
+            this.bt_DeleteCustomer.Location = new System.Drawing.Point(858, 507);
             this.bt_DeleteCustomer.Name = "bt_DeleteCustomer";
             this.bt_DeleteCustomer.Size = new System.Drawing.Size(205, 30);
-            this.bt_DeleteCustomer.TabIndex = 22;
-            this.bt_DeleteCustomer.Text = "Delete customer";
+            this.bt_DeleteCustomer.TabIndex = 25;
+            this.bt_DeleteCustomer.Text = "Save changes";
             this.bt_DeleteCustomer.UseVisualStyleBackColor = false;
             // 
             // bt_GoBack
@@ -401,14 +487,29 @@
             this.bt_GoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_GoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_GoBack.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_GoBack.Location = new System.Drawing.Point(12, 504);
+            this.bt_GoBack.Location = new System.Drawing.Point(12, 507);
             this.bt_GoBack.Name = "bt_GoBack";
             this.bt_GoBack.Size = new System.Drawing.Size(205, 30);
-            this.bt_GoBack.TabIndex = 20;
+            this.bt_GoBack.TabIndex = 24;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
             // 
-            // CustomerInfo
+            // bt_EditCustomerInfo
+            // 
+            this.bt_EditCustomerInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.bt_EditCustomerInfo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_EditCustomerInfo.FlatAppearance.BorderSize = 0;
+            this.bt_EditCustomerInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_EditCustomerInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_EditCustomerInfo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_EditCustomerInfo.Location = new System.Drawing.Point(244, 507);
+            this.bt_EditCustomerInfo.Name = "bt_EditCustomerInfo";
+            this.bt_EditCustomerInfo.Size = new System.Drawing.Size(205, 30);
+            this.bt_EditCustomerInfo.TabIndex = 23;
+            this.bt_EditCustomerInfo.Text = "Discard changes";
+            this.bt_EditCustomerInfo.UseVisualStyleBackColor = false;
+            // 
+            // EditConsultantInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -416,14 +517,15 @@
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
             this.Controls.Add(this.bt_DeleteCustomer);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.bt_GoBack);
+            this.Controls.Add(this.bt_EditCustomerInfo);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.bt_GoBack);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.bt_EditCustomerInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CustomerInfo";
+            this.Name = "EditConsultantInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             this.panel1.ResumeLayout(false);
@@ -436,12 +538,13 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button bt_EditCustomerInfo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tb_repeatEmail;
@@ -472,7 +575,16 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tb_languageDescript_1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button bt_DeleteCustomer;
         private System.Windows.Forms.Button bt_GoBack;
+        private System.Windows.Forms.Button bt_EditCustomerInfo;
     }
 }
