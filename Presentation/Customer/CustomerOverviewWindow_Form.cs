@@ -16,7 +16,7 @@ namespace Presentation.Customer
     public partial class CustomerOverviewWindow_Form : Form
     {
         Button lastClickedButton = null;
-        private Form currentChildForm;
+        public Form currentChildForm { get; set; }
         private Abstraction.Interfaces.ICustomer loggedInCustomer;
 
         public CustomerOverviewWindow_Form(Abstraction.Interfaces.ICustomer customer)

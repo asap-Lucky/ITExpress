@@ -38,7 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lb_firstNameOfAdmin = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelDesktop = new System.Windows.Forms.Panel();
+            this.panelAdminDesktop = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -171,14 +171,14 @@
             this.label1.Text = "Welcome,";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelDesktop
+            // panelAdminDesktop
             // 
-            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
-            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(200, 100);
-            this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1084, 561);
-            this.panelDesktop.TabIndex = 2;
+            this.panelAdminDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
+            this.panelAdminDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAdminDesktop.Location = new System.Drawing.Point(200, 100);
+            this.panelAdminDesktop.Name = "panelAdminDesktop";
+            this.panelAdminDesktop.Size = new System.Drawing.Size(1084, 561);
+            this.panelAdminDesktop.TabIndex = 2;
             // 
             // AdminsOverviewWindow_Form
             // 
@@ -186,7 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1284, 661);
-            this.Controls.Add(this.panelDesktop);
+            this.Controls.Add(this.panelAdminDesktop);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMenu);
             this.Name = "AdminsOverviewWindow_Form";
@@ -211,6 +211,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panelDesktop;
+        private System.Windows.Forms.Panel panelAdminDesktop;
     }
 }

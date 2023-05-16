@@ -53,7 +53,7 @@ namespace DAL.Repository
                 consultant.Address = dto.Consultant_Address;
                 consultant.PhoneNumber = dto.Consultant_PhoneNumber;
 
-                List<Models.Specialization> specialization = new List<Models.Specialization>();
+                //List<Models.Specialization> specialization = new List<Models.Specialization>();
 
                 result.Add(consultant);
             }
