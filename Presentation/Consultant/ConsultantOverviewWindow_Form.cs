@@ -17,7 +17,9 @@ namespace Presentation.Consultant
     public partial class ConsultantOverviewWindow_Form : Form
     {
         Button lastClickedButton = null;
-        private Form currentChildForm;
+
+        public Form currentChildForm { get; set; }
+
         private Abstraction.Interfaces.IConsultant loggedInConsultant;
 
         public ConsultantOverviewWindow_Form(Abstraction.Interfaces.IConsultant consultant)
@@ -35,7 +37,7 @@ namespace Presentation.Consultant
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonColorChange_Click(object sender)
+        public void buttonColorChange_Click(object sender)
         {
             Color customClickColor = Color.FromArgb(26, 177, 136);
             Color customDefaultColor = Color.FromArgb(50, 51, 76);
@@ -53,7 +55,7 @@ namespace Presentation.Consultant
         }
 
 
-        private void OpenChildForm(Form childform)
+        public void OpenChildForm(Form childform)
         {
             if (currentChildForm != null)
             {

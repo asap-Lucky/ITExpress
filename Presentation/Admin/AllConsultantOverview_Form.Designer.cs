@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bt_AddCustomer = new System.Windows.Forms.Button();
+            this.bt_AddConsultant = new System.Windows.Forms.Button();
             this.bt_Refresh = new System.Windows.Forms.Button();
-            this.bt_ViewCustomer = new System.Windows.Forms.Button();
+            this.bt_ViewConsultant = new System.Windows.Forms.Button();
             this.dgv_existingProjectsCustomer = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).BeginInit();
             this.SuspendLayout();
             // 
-            // bt_AddCustomer
+            // bt_AddConsultant
             // 
-            this.bt_AddCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
-            this.bt_AddCustomer.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_AddCustomer.FlatAppearance.BorderSize = 0;
-            this.bt_AddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_AddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_AddCustomer.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_AddCustomer.Location = new System.Drawing.Point(863, 503);
-            this.bt_AddCustomer.Name = "bt_AddCustomer";
-            this.bt_AddCustomer.Size = new System.Drawing.Size(205, 30);
-            this.bt_AddCustomer.TabIndex = 10;
-            this.bt_AddCustomer.Text = "Add new consultant";
-            this.bt_AddCustomer.UseVisualStyleBackColor = false;
+            this.bt_AddConsultant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.bt_AddConsultant.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_AddConsultant.FlatAppearance.BorderSize = 0;
+            this.bt_AddConsultant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_AddConsultant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_AddConsultant.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_AddConsultant.Location = new System.Drawing.Point(863, 503);
+            this.bt_AddConsultant.Name = "bt_AddConsultant";
+            this.bt_AddConsultant.Size = new System.Drawing.Size(205, 30);
+            this.bt_AddConsultant.TabIndex = 10;
+            this.bt_AddConsultant.Text = "Add new consultant";
+            this.bt_AddConsultant.UseVisualStyleBackColor = false;
+            this.bt_AddConsultant.Click += new System.EventHandler(this.bt_AddConsultant_Click);
             // 
             // bt_Refresh
             // 
@@ -65,20 +66,21 @@
             this.bt_Refresh.Text = "Refresh";
             this.bt_Refresh.UseVisualStyleBackColor = false;
             // 
-            // bt_ViewCustomer
+            // bt_ViewConsultant
             // 
-            this.bt_ViewCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
-            this.bt_ViewCustomer.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_ViewCustomer.FlatAppearance.BorderSize = 0;
-            this.bt_ViewCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_ViewCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_ViewCustomer.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_ViewCustomer.Location = new System.Drawing.Point(427, 503);
-            this.bt_ViewCustomer.Name = "bt_ViewCustomer";
-            this.bt_ViewCustomer.Size = new System.Drawing.Size(205, 30);
-            this.bt_ViewCustomer.TabIndex = 13;
-            this.bt_ViewCustomer.Text = "View consultant";
-            this.bt_ViewCustomer.UseVisualStyleBackColor = false;
+            this.bt_ViewConsultant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.bt_ViewConsultant.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_ViewConsultant.FlatAppearance.BorderSize = 0;
+            this.bt_ViewConsultant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_ViewConsultant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_ViewConsultant.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_ViewConsultant.Location = new System.Drawing.Point(427, 503);
+            this.bt_ViewConsultant.Name = "bt_ViewConsultant";
+            this.bt_ViewConsultant.Size = new System.Drawing.Size(205, 30);
+            this.bt_ViewConsultant.TabIndex = 13;
+            this.bt_ViewConsultant.Text = "View consultant";
+            this.bt_ViewConsultant.UseVisualStyleBackColor = false;
+            this.bt_ViewConsultant.Click += new System.EventHandler(this.bt_ViewConsultant_Click);
             // 
             // dgv_existingProjectsCustomer
             // 
@@ -97,9 +99,9 @@
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
             this.Controls.Add(this.dgv_existingProjectsCustomer);
-            this.Controls.Add(this.bt_ViewCustomer);
+            this.Controls.Add(this.bt_ViewConsultant);
             this.Controls.Add(this.bt_Refresh);
-            this.Controls.Add(this.bt_AddCustomer);
+            this.Controls.Add(this.bt_AddConsultant);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AllConsultantOverview_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -110,9 +112,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button bt_AddCustomer;
+        private System.Windows.Forms.Button bt_AddConsultant;
         private System.Windows.Forms.Button bt_Refresh;
-        private System.Windows.Forms.Button bt_ViewCustomer;
+        private System.Windows.Forms.Button bt_ViewConsultant;
         private System.Windows.Forms.DataGridView dgv_existingProjectsCustomer;
     }
 }

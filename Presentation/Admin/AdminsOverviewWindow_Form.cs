@@ -11,13 +11,15 @@ using System.Windows.Forms;
 using Presentation;
 using Presentation.Customer;
 using Presentation.All;
+using Presentation.Admin;
 
 namespace Presentation.Consultant
 {
     public partial class AdminsOverviewWindow_Form : Form
     {
         Button lastClickedButton = null;
-        private Form currentChildForm;
+
+        public Form currentChildForm;
 
         public AdminsOverviewWindow_Form()
         {
@@ -32,7 +34,7 @@ namespace Presentation.Consultant
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonColorChange_Click(object sender)
+        public void buttonColorChange_Click(object sender)
         {
             Color customClickColor = Color.FromArgb(26, 177, 136);
             Color customDefaultColor = Color.FromArgb(50, 51, 76);
@@ -49,7 +51,7 @@ namespace Presentation.Consultant
             lastClickedButton = clickedButton; // remember the current clicked button
         }
 
-        private void OpenChildForm(Form childform)
+        public void OpenChildForm(Form childform)
         {
             if (currentChildForm != null)
             {
@@ -60,8 +62,8 @@ namespace Presentation.Consultant
             childform.TopLevel = false;
             childform.FormBorderStyle = FormBorderStyle.None;
             childform.Dock = DockStyle.Fill;
-            panelDesktop.Controls.Add(childform);
-            panelDesktop.Tag = childform;
+            panelAdminDesktop.Controls.Add(childform);
+            panelAdminDesktop.Tag = childform;
             childform.BringToFront();
             childform.Show();
         }
@@ -82,14 +84,14 @@ namespace Presentation.Consultant
         {
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new AllCustomerOverview_Form());
+            OpenChildForm(new AllConsultantOverview_Form());
         }
 
         private void bt_SpecializationList_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new AllCustomerOverview_Form());
+            OpenChildForm(new Specialization_Form());
         }
     }
 }

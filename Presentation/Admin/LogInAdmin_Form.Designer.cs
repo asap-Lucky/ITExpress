@@ -1,4 +1,4 @@
-﻿namespace UI.All
+namespace UI.All
 {
     partial class LogInAdmin_Form
     {
