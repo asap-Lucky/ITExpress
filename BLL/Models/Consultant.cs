@@ -16,6 +16,5 @@ namespace BLL.Models
         public string City { get; set; }
         public int ZipCode { get; set; }
         public int PhoneNumber { get; set; }
-        public ISpecialization Specialization { get; set; }
     }
 }
