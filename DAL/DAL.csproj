@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -72,20 +72,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ITExpressDataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\CodeLanguage.cs" />
+    <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Consultant.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\EndType.cs" />
     <Compile Include="Models\Project.cs" />
-    <Compile Include="Models\Specialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Repository\CodeLanguageRepo.cs" />
+    <Compile Include="Repository\AdminRepo.cs" />
     <Compile Include="Repository\ConsultantRepo.cs" />
     <Compile Include="Repository\CustomerRepo.cs" />
     <Compile Include="Repository\ProjectRepo.cs" />
-    <Compile Include="Repository\SpecializationRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

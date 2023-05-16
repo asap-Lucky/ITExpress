@@ -14,5 +14,9 @@ BLL/obj/
 
 BLL/bin/
 
+ITExpressUnitTest/obj/
+
+ITExpressUnitTest/bin/
+
 .vs/
 

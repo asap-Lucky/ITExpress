@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -42,18 +42,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IAdmin.cs" />
+    <Compile Include="Interfaces\IAdminRepo.cs" />
+    <Compile Include="Interfaces\IAdminService.cs" />
+    <Compile Include="Interfaces\ICodeLangaugeService.cs" />
+    <Compile Include="Interfaces\ICodeLanguage.cs" />
+    <Compile Include="Interfaces\ICodeLanguageRepo.cs" />
     <Compile Include="Interfaces\IConsultant.cs" />
     <Compile Include="Interfaces\IConsultantRepo.cs" />
     <Compile Include="Interfaces\IConsultantService.cs" />
     <Compile Include="Interfaces\ICustomer.cs" />
     <Compile Include="Interfaces\ICustomerRepo.cs" />
     <Compile Include="Interfaces\ICustomerService.cs" />
+    <Compile Include="Interfaces\IEndType.cs" />
     <Compile Include="Interfaces\IProject.cs" />
     <Compile Include="Interfaces\IProjectRepo.cs" />
     <Compile Include="Interfaces\IProjectService.cs" />
-    <Compile Include="Interfaces\ISpecialization.cs" />
-    <Compile Include="Interfaces\ISpecializationRepo.cs" />
-    <Compile Include="Interfaces\ISpecializationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

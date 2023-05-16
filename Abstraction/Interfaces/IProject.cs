@@ -10,7 +10,6 @@ namespace Abstraction.Interfaces
     {
         int Id { get; set; }
         string Name { get; set; }
-        string Description { get; set; }
         string Requirements { get; set; }
         decimal TotalSum { get; set; }
         decimal HourWage { get; set; }

@@ -36,5 +36,13 @@ namespace UI
             logInConsultant.ShowDialog();
             this.Show();
         }
+
+        private void bt_LogInAsAdmin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LogInAdmin_Form logInConsultant = new LogInAdmin_Form();
+            logInConsultant.ShowDialog();
+            this.Show();
+        }
     }
 }

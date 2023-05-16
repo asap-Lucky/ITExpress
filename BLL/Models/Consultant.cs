@@ -4,7 +4,7 @@ using Abstraction.Interfaces;
 namespace BLL.Models
 {
     //Represents a consultant.
-    public class Consultant : Abstraction.Interfaces.IConsultant
+    public class Consultant : IConsultant
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -16,6 +16,7 @@ namespace BLL.Models
         public string City { get; set; }
         public int ZipCode { get; set; }
         public int PhoneNumber { get; set; }
-        public ISpecialization Specialization { get; set; }
+        public ICodeLanguage Language { get; set; }
+        public IEndType EndType { get; set; }
     }
 }

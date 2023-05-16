@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+using BLL.Services;
+using Presentation.Consultant;
 using Presentation.Customer;
 using System;
 using System.Collections.Generic;
@@ -17,45 +18,36 @@ namespace UI.All
     public partial class LogInAdmin_Form : Form
     {
         
-        private BLL.Services.CustomerService customerService = new BLL.Services.CustomerService();
+        private BLL.Services.AdminService adminService = new BLL.Services.AdminService();
 
         public LogInAdmin_Form()
         {
             InitializeComponent();
         }
-        /*
+
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void ll_SignUpAsCostumer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void bt_LogInAsAdmin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            SignUpCustomer_Form signInCostumer_Form = new SignUpCustomer_Form();
-            signInCostumer_Form.ShowDialog();
-            this.Show();
-        }
-
-        private void bt_LogInAsCostumer_Click(object sender, EventArgs e)
-        {
-            This method of verifying logins is vulnerable to SQL Injections, could be fixed with parameterized queries or an ORM framework like Entity Framework.
-            if (customerService.IsValidCustomer(tb_userNameCustomer.Text, tb_passWordCustomer.Text))
+            if (adminService.IsValidAdmin(tb_userNameAdmin.Text, tb_passWordAdmin.Text))
             {
-                Abstraction.Interfaces.ICustomer customer = (Abstraction.Interfaces.ICustomer) customerService.GetCustomer(tb_userNameCustomer.Text, tb_passWordCustomer.Text);
+                Abstraction.Interfaces.IAdmin admin = (Abstraction.Interfaces.IAdmin)adminService.GetAdmin(tb_userNameAdmin.Text, tb_passWordAdmin.Text);
 
                 this.Hide();
-                CustomerOverviewWindow_Form overViewWindow_Form = new CustomerOverviewWindow_Form(customer);
+                AdminsOverviewWindow_Form overViewWindow_Form = new AdminsOverviewWindow_Form();
                 overViewWindow_Form.ShowDialog();
                 this.Show();
-                tb_passWordCustomer.Clear();
-                tb_userNameCustomer.Clear();
+                tb_passWordAdmin.Clear();
+                tb_userNameAdmin.Clear();
             }
             else
             {
-                MessageBox.Show("The credentials entered does not match any Customer, try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The credentials entered does not match any admin, try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        */
+        }
     }
 }
 
