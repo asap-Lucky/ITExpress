@@ -157,7 +157,7 @@ namespace DAL.Repository
 
             consultantModel.EndType = new Models.EndType();
             consultantModel.EndType.Id = dataConsultant.EndType.Id;
-            consultantModel.EndType.EndType = dataConsultant.EndType.EndType1;
+            consultantModel.EndType.EndType1 = dataConsultant.EndType.EndType1;
 
             consultantModel.Language = new Models.CodeLanguage();
             consultantModel.Language.Id = dataConsultant.CodeLanguage.Id;
@@ -180,7 +180,7 @@ namespace DAL.Repository
             dataConsultant.Consultant_PhoneNumber = consultantModel.PhoneNumber;
 
             dataConsultant.EndType.Id = consultantModel.EndType.Id;
-            dataConsultant.EndType.EndType1 = consultantModel.EndType.EndType;
+            dataConsultant.EndType.EndType1 = consultantModel.EndType.EndType1;
 
             dataConsultant.CodeLanguage.Id = consultantModel.Language.Id;
             dataConsultant.CodeLanguage.LanguageName = consultantModel.Language.Language;

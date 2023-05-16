@@ -16,12 +16,17 @@ namespace UI.Consultant
     {
         IConsultantService consultantService = new BLL.Services.ConsultantService();
 
+        ICodeLangaugeService codeLanguageService = new BLL.Services.CodeLanguageService();
+
+        IEndtypeService endtypeService = new BLL.Services.EndtypeService();
+
         BLL.Facader.ConsultantService FacadeService;
 
         public SignUpConsultant_Form()
         {
+            FacadeService = new BLL.Facader.ConsultantService(consultantService, codeLanguageService, endtypeService);
             InitializeComponent();
-            FacadeService = new BLL.Facader.ConsultantService(consultantService);
+            InitializeCombobox();
         }
 
         private void bt_GoBack_Click(object sender, EventArgs e)
@@ -58,14 +63,27 @@ namespace UI.Consultant
             // If all checks are passed, set the values of MyConsultant properties and add it to the database.
             else
             {
-                FacadeService.RegisterConsultant(tb_firstName.Text, tb_lastName.Text, tb_address.Text, zipcode, phonenumber, tb_email.Text, tb_userName.Text, tb_passWord.Text, tb_City.Text);
+                FacadeService.RegisterConsultant(tb_firstName.Text, tb_lastName.Text, tb_address.Text, zipcode, phonenumber, tb_email.Text, tb_userName.Text, tb_passWord.Text, tb_City.Text, cb_language_1.SelectedIndex, cb_endType_1.SelectedIndex);
             }
         }
    
         private void bt_SignUpAsCostumer_Click(object sender, EventArgs e)
         {
-            this.Close();
             RegisterConsultant();
+            this.Close();
+        }
+
+        private void InitializeCombobox()
+        {
+            cb_language_1.DataSource = codeLanguageService.GetAllCodeLanguages();
+            cb_language_1.DisplayMember = "Language";
+            //cb_language_1.ValueMember = "Id";
+            cb_language_1.SelectedIndex = -1;
+
+            cb_endType_1.DataSource = endtypeService.GetAllEndTypes();
+            cb_endType_1.DisplayMember = "EndType1";
+            //cb_endType_1.ValueMember = "Id";
+            cb_endType_1.SelectedIndex = -1;
         }
     }
 }

@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Abstraction.Interfaces
 {
-    public interface IEndType
+    public interface IEndtypeRepo
     {
-        int Id { get; set; }
-        string EndType1 { get; set; }
+        void AddEndtype(IEndType endtype);
+
+        IEndType GetEndtype(int id);
+
+        List<IEndType> GetAllEndTypes();
     }
 }
