@@ -12,8 +12,7 @@
       <Column Name="SpecializationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Specialization_CodeLanguage" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Specialization_EndType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Specialization_Description" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Association Name="Specialization_ConsultantSpecialization" Member="ConsultantSpecializations" ThisKey="SpecializationId" OtherKey="SpecializationId" Type="ConsultantSpecialization" />
+      <Association Name="Specialization_Consultant" Member="Consultants" ThisKey="SpecializationId" OtherKey="Consultant_SpecializationId" Type="Consultant" />
     </Type>
   </Table>
   <Table Name="dbo.Consultant" Member="Consultants">
@@ -28,20 +27,11 @@
       <Column Name="Consultant_City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Consultant_Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Consultant_PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SpecializationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Consultant_ConsultantSpecialization" Member="ConsultantSpecializations" ThisKey="ConsultantId" OtherKey="ConsultantId" Type="ConsultantSpecialization" />
+      <Column Name="Consultant_SpecializationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Consultant_Invitation" Member="Invitations" ThisKey="ConsultantId" OtherKey="Invitaiton_ConsultantId" Type="Invitation" />
       <Association Name="Consultant_Message" Member="Messages" ThisKey="ConsultantId" OtherKey="Message_ConsultantId" Type="Message" />
       <Association Name="Consultant_Project" Member="Projects" ThisKey="ConsultantId" OtherKey="Project_ConsultantId" Type="Project" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ConsultantSpecialization" Member="ConsultantSpecializations">
-    <Type Name="ConsultantSpecialization">
-      <Column Name="ConsultantSpecializationId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SpecializationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ConsultantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Consultant_ConsultantSpecialization" Member="Consultant" ThisKey="ConsultantId" OtherKey="ConsultantId" Type="Consultant" IsForeignKey="true" />
-      <Association Name="Specialization_ConsultantSpecialization" Member="Specialization" ThisKey="SpecializationId" OtherKey="SpecializationId" Type="Specialization" IsForeignKey="true" />
+      <Association Name="Specialization_Consultant" Member="Specialization" ThisKey="Consultant_SpecializationId" OtherKey="SpecializationId" Type="Specialization" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Customer" Member="Customers">

@@ -31,7 +31,6 @@ namespace DAL.Repository
 
                 project.Id = dto.ProjectId;
                 project.Name = dto.Project_Name;
-                project.Description = dto.Project_Description;
                 project.CustomerId = dto.Project_CustomerId;
                 project.ConsultantId = dto.Project_ConsultantId;
                 project.StartDate = dto.Project_StartDate;
@@ -49,7 +48,6 @@ namespace DAL.Repository
             {
                 ProjectId = dto.Id,
                 Project_Name = dto.Name,
-                Project_Description = dto.Description,
                 Project_CustomerId = dto.CustomerId,
                 Project_ConsultantId = dto.ConsultantId,
                 Project_StartDate = dto.StartDate,
@@ -76,7 +74,6 @@ namespace DAL.Repository
             {
                 // Update the Project object with the new values.
                 targetProject.Project_Name = project.Name;
-                targetProject.Project_Description = project.Description;
                 targetProject.Project_CustomerId = project.CustomerId;
                 targetProject.Project_ConsultantId = project.ConsultantId;
                 targetProject.Project_StartDate = project.StartDate;
