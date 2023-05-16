@@ -7,20 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Abstraction.Interfaces;
 using BLL.Models;
 
 namespace UI.Consultant
 {
     public partial class SignUpConsultant_Form : Form
     {
-        public Abstraction.Interfaces.IConsultant MyConsultant { get; set; }
+        IConsultantService consultantService = new BLL.Services.ConsultantService();
 
-        BLL.Services.ConsultantService ConsultantService = new BLL.Services.ConsultantService();
+        BLL.Facader.ConsultantService FacadeService;
 
         public SignUpConsultant_Form()
         {
             InitializeComponent();
-            MyConsultant = new BLL.Models.Consultant();
+            FacadeService = new BLL.Facader.ConsultantService(consultantService);
         }
 
         private void bt_GoBack_Click(object sender, EventArgs e)
@@ -57,18 +58,7 @@ namespace UI.Consultant
             // If all checks are passed, set the values of MyConsultant properties and add it to the database.
             else
             {
-                MyConsultant.FirstName = tb_firstName.Text;
-                MyConsultant.LastName = tb_lastName.Text;
-                MyConsultant.Address = tb_address.Text;
-                MyConsultant.ZipCode = zipcode;
-                MyConsultant.PhoneNumber = phonenumber;
-                MyConsultant.Email = tb_email.Text;
-                MyConsultant.Login = tb_userName.Text;
-                MyConsultant.Password = tb_passWord.Text;
-                MyConsultant.City = tb_City.Text;
-
-                // Call the AddCustomer method of the CustomerService object and pass in MyConsultant object.
-                ConsultantService.AddConsultant(MyConsultant);
+                FacadeService.RegisterConsultant(tb_firstName.Text, tb_lastName.Text, tb_address.Text, zipcode, phonenumber, tb_email.Text, tb_userName.Text, tb_passWord.Text, tb_City.Text);
             }
         }
    

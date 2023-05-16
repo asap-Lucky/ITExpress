@@ -39,9 +39,6 @@ namespace DAL.Database
     partial void InsertConsultant(Consultant instance);
     partial void UpdateConsultant(Consultant instance);
     partial void DeleteConsultant(Consultant instance);
-    partial void InsertConsultantSpecialization(ConsultantSpecialization instance);
-    partial void UpdateConsultantSpecialization(ConsultantSpecialization instance);
-    partial void DeleteConsultantSpecialization(ConsultantSpecialization instance);
     partial void InsertCustomer(Customer instance);
     partial void UpdateCustomer(Customer instance);
     partial void DeleteCustomer(Customer instance);
@@ -107,14 +104,6 @@ namespace DAL.Database
 			get
 			{
 				return this.GetTable<Consultant>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ConsultantSpecialization> ConsultantSpecializations
-		{
-			get
-			{
-				return this.GetTable<ConsultantSpecialization>();
 			}
 		}
 		
@@ -273,9 +262,7 @@ namespace DAL.Database
 		
 		private string _Specialization_EndType;
 		
-		private string _Specialization_Description;
-		
-		private EntitySet<ConsultantSpecialization> _ConsultantSpecializations;
+		private EntitySet<Consultant> _Consultants;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -287,13 +274,11 @@ namespace DAL.Database
     partial void OnSpecialization_CodeLanguageChanged();
     partial void OnSpecialization_EndTypeChanging(string value);
     partial void OnSpecialization_EndTypeChanged();
-    partial void OnSpecialization_DescriptionChanging(string value);
-    partial void OnSpecialization_DescriptionChanged();
     #endregion
 		
 		public Specialization()
 		{
-			this._ConsultantSpecializations = new EntitySet<ConsultantSpecialization>(new Action<ConsultantSpecialization>(this.attach_ConsultantSpecializations), new Action<ConsultantSpecialization>(this.detach_ConsultantSpecializations));
+			this._Consultants = new EntitySet<Consultant>(new Action<Consultant>(this.attach_Consultants), new Action<Consultant>(this.detach_Consultants));
 			OnCreated();
 		}
 		
@@ -357,36 +342,16 @@ namespace DAL.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Specialization_Description", DbType="VarChar(255)")]
-		public string Specialization_Description
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Specialization_Consultant", Storage="_Consultants", ThisKey="SpecializationId", OtherKey="Consultant_SpecializationId")]
+		public EntitySet<Consultant> Consultants
 		{
 			get
 			{
-				return this._Specialization_Description;
+				return this._Consultants;
 			}
 			set
 			{
-				if ((this._Specialization_Description != value))
-				{
-					this.OnSpecialization_DescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Specialization_Description = value;
-					this.SendPropertyChanged("Specialization_Description");
-					this.OnSpecialization_DescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Specialization_ConsultantSpecialization", Storage="_ConsultantSpecializations", ThisKey="SpecializationId", OtherKey="SpecializationId")]
-		public EntitySet<ConsultantSpecialization> ConsultantSpecializations
-		{
-			get
-			{
-				return this._ConsultantSpecializations;
-			}
-			set
-			{
-				this._ConsultantSpecializations.Assign(value);
+				this._Consultants.Assign(value);
 			}
 		}
 		
@@ -410,13 +375,13 @@ namespace DAL.Database
 			}
 		}
 		
-		private void attach_ConsultantSpecializations(ConsultantSpecialization entity)
+		private void attach_Consultants(Consultant entity)
 		{
 			this.SendPropertyChanging();
 			entity.Specialization = this;
 		}
 		
-		private void detach_ConsultantSpecializations(ConsultantSpecialization entity)
+		private void detach_Consultants(Consultant entity)
 		{
 			this.SendPropertyChanging();
 			entity.Specialization = null;
@@ -449,15 +414,15 @@ namespace DAL.Database
 		
 		private int _Consultant_PhoneNumber;
 		
-		private int _SpecializationID;
-		
-		private EntitySet<ConsultantSpecialization> _ConsultantSpecializations;
+		private int _Consultant_SpecializationId;
 		
 		private EntitySet<Invitation> _Invitations;
 		
 		private EntitySet<Message> _Messages;
 		
 		private EntitySet<Project> _Projects;
+		
+		private EntityRef<Specialization> _Specialization;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -483,16 +448,16 @@ namespace DAL.Database
     partial void OnConsultant_AddressChanged();
     partial void OnConsultant_PhoneNumberChanging(int value);
     partial void OnConsultant_PhoneNumberChanged();
-    partial void OnSpecializationIDChanging(int value);
-    partial void OnSpecializationIDChanged();
+    partial void OnConsultant_SpecializationIdChanging(int value);
+    partial void OnConsultant_SpecializationIdChanged();
     #endregion
 		
 		public Consultant()
 		{
-			this._ConsultantSpecializations = new EntitySet<ConsultantSpecialization>(new Action<ConsultantSpecialization>(this.attach_ConsultantSpecializations), new Action<ConsultantSpecialization>(this.detach_ConsultantSpecializations));
 			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
 			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
 			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
+			this._Specialization = default(EntityRef<Specialization>);
 			OnCreated();
 		}
 		
@@ -696,36 +661,27 @@ namespace DAL.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecializationID", DbType="Int NOT NULL")]
-		public int SpecializationID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Consultant_SpecializationId", DbType="Int NOT NULL")]
+		public int Consultant_SpecializationId
 		{
 			get
 			{
-				return this._SpecializationID;
+				return this._Consultant_SpecializationId;
 			}
 			set
 			{
-				if ((this._SpecializationID != value))
+				if ((this._Consultant_SpecializationId != value))
 				{
-					this.OnSpecializationIDChanging(value);
+					if (this._Specialization.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnConsultant_SpecializationIdChanging(value);
 					this.SendPropertyChanging();
-					this._SpecializationID = value;
-					this.SendPropertyChanged("SpecializationID");
-					this.OnSpecializationIDChanged();
+					this._Consultant_SpecializationId = value;
+					this.SendPropertyChanged("Consultant_SpecializationId");
+					this.OnConsultant_SpecializationIdChanged();
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_ConsultantSpecialization", Storage="_ConsultantSpecializations", ThisKey="ConsultantId", OtherKey="ConsultantId")]
-		public EntitySet<ConsultantSpecialization> ConsultantSpecializations
-		{
-			get
-			{
-				return this._ConsultantSpecializations;
-			}
-			set
-			{
-				this._ConsultantSpecializations.Assign(value);
 			}
 		}
 		
@@ -768,6 +724,40 @@ namespace DAL.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Specialization_Consultant", Storage="_Specialization", ThisKey="Consultant_SpecializationId", OtherKey="SpecializationId", IsForeignKey=true)]
+		public Specialization Specialization
+		{
+			get
+			{
+				return this._Specialization.Entity;
+			}
+			set
+			{
+				Specialization previousValue = this._Specialization.Entity;
+				if (((previousValue != value) 
+							|| (this._Specialization.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Specialization.Entity = null;
+						previousValue.Consultants.Remove(this);
+					}
+					this._Specialization.Entity = value;
+					if ((value != null))
+					{
+						value.Consultants.Add(this);
+						this._Consultant_SpecializationId = value.SpecializationId;
+					}
+					else
+					{
+						this._Consultant_SpecializationId = default(int);
+					}
+					this.SendPropertyChanged("Specialization");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -786,18 +776,6 @@ namespace DAL.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_ConsultantSpecializations(ConsultantSpecialization entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = this;
-		}
-		
-		private void detach_ConsultantSpecializations(ConsultantSpecialization entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = null;
 		}
 		
 		private void attach_Invitations(Invitation entity)
@@ -834,198 +812,6 @@ namespace DAL.Database
 		{
 			this.SendPropertyChanging();
 			entity.Consultant = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ConsultantSpecialization")]
-	public partial class ConsultantSpecialization : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ConsultantSpecializationId;
-		
-		private int _SpecializationId;
-		
-		private int _ConsultantId;
-		
-		private EntityRef<Consultant> _Consultant;
-		
-		private EntityRef<Specialization> _Specialization;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnConsultantSpecializationIdChanging(int value);
-    partial void OnConsultantSpecializationIdChanged();
-    partial void OnSpecializationIdChanging(int value);
-    partial void OnSpecializationIdChanged();
-    partial void OnConsultantIdChanging(int value);
-    partial void OnConsultantIdChanged();
-    #endregion
-		
-		public ConsultantSpecialization()
-		{
-			this._Consultant = default(EntityRef<Consultant>);
-			this._Specialization = default(EntityRef<Specialization>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConsultantSpecializationId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ConsultantSpecializationId
-		{
-			get
-			{
-				return this._ConsultantSpecializationId;
-			}
-			set
-			{
-				if ((this._ConsultantSpecializationId != value))
-				{
-					this.OnConsultantSpecializationIdChanging(value);
-					this.SendPropertyChanging();
-					this._ConsultantSpecializationId = value;
-					this.SendPropertyChanged("ConsultantSpecializationId");
-					this.OnConsultantSpecializationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SpecializationId", DbType="Int NOT NULL")]
-		public int SpecializationId
-		{
-			get
-			{
-				return this._SpecializationId;
-			}
-			set
-			{
-				if ((this._SpecializationId != value))
-				{
-					if (this._Specialization.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSpecializationIdChanging(value);
-					this.SendPropertyChanging();
-					this._SpecializationId = value;
-					this.SendPropertyChanged("SpecializationId");
-					this.OnSpecializationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConsultantId", DbType="Int NOT NULL")]
-		public int ConsultantId
-		{
-			get
-			{
-				return this._ConsultantId;
-			}
-			set
-			{
-				if ((this._ConsultantId != value))
-				{
-					if (this._Consultant.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnConsultantIdChanging(value);
-					this.SendPropertyChanging();
-					this._ConsultantId = value;
-					this.SendPropertyChanged("ConsultantId");
-					this.OnConsultantIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_ConsultantSpecialization", Storage="_Consultant", ThisKey="ConsultantId", OtherKey="ConsultantId", IsForeignKey=true)]
-		public Consultant Consultant
-		{
-			get
-			{
-				return this._Consultant.Entity;
-			}
-			set
-			{
-				Consultant previousValue = this._Consultant.Entity;
-				if (((previousValue != value) 
-							|| (this._Consultant.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Consultant.Entity = null;
-						previousValue.ConsultantSpecializations.Remove(this);
-					}
-					this._Consultant.Entity = value;
-					if ((value != null))
-					{
-						value.ConsultantSpecializations.Add(this);
-						this._ConsultantId = value.ConsultantId;
-					}
-					else
-					{
-						this._ConsultantId = default(int);
-					}
-					this.SendPropertyChanged("Consultant");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Specialization_ConsultantSpecialization", Storage="_Specialization", ThisKey="SpecializationId", OtherKey="SpecializationId", IsForeignKey=true)]
-		public Specialization Specialization
-		{
-			get
-			{
-				return this._Specialization.Entity;
-			}
-			set
-			{
-				Specialization previousValue = this._Specialization.Entity;
-				if (((previousValue != value) 
-							|| (this._Specialization.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Specialization.Entity = null;
-						previousValue.ConsultantSpecializations.Remove(this);
-					}
-					this._Specialization.Entity = value;
-					if ((value != null))
-					{
-						value.ConsultantSpecializations.Add(this);
-						this._SpecializationId = value.SpecializationId;
-					}
-					else
-					{
-						this._SpecializationId = default(int);
-					}
-					this.SendPropertyChanged("Specialization");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	

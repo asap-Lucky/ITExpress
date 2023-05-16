@@ -20,7 +20,6 @@ namespace DAL.Repository
         /// The data context used to access the database.
         /// </summary>
         private ITExpressDataClassesDataContext DataContext { get; set; }
-        private ISpecializationRepo SpecializationRepo { get; set; }
 
         /// <summary>
         /// Constructs a new instance of ConsultantRepo.
@@ -28,7 +27,6 @@ namespace DAL.Repository
         public ConsultantRepo()
         {
             DataContext = new ITExpressDataClassesDataContext();
-            SpecializationRepo = new SpecializationRepo();
         }
 
         /// <summary>
@@ -132,13 +130,32 @@ namespace DAL.Repository
             return consultant != null;
         }
 
+        public IConsultant GetConsultant(int id)
+        {
+            var dataConsultant = DataContext.Consultants.FirstOrDefault(c => c.ConsultantId == id);
+            Models.Consultant consultant = new Models.Consultant()
+            {
+                Id = dataConsultant.ConsultantId,
+                FirstName = dataConsultant.Consultant_FirstName,
+                LastName = dataConsultant.Consultant_LastName,
+                Login = dataConsultant.Consultant_Login,
+                Password = dataConsultant.Consultant_Password,
+                Email = dataConsultant.Consultant_Email,
+                ZipCode = dataConsultant.Consultant_ZipCode,
+                City = dataConsultant.Consultant_City,
+                Address = dataConsultant.Consultant_Address,
+                PhoneNumber = dataConsultant.Consultant_PhoneNumber,
+            };
+
+            return consultant;
+        }
+
         /// <summary>
         /// Retrieves the consultant with the given login and password from the data context.
         /// </summary>
         /// <param name="login">The login of the consultant to retrieve.</param>
         /// <param name="password">The password of the consultant to retrieve.</param>
         /// <returns>Returns the consultant object if found, otherwise returns null.</returns>
-
         public IConsultant GetConsultant(string login, string password)
         {
             var dataConsultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login && c.Consultant_Password == password);
@@ -153,8 +170,7 @@ namespace DAL.Repository
                 ZipCode = dataConsultant.Consultant_ZipCode,
                 City = dataConsultant.Consultant_City,
                 Address = dataConsultant.Consultant_Address,
-                PhoneNumber = dataConsultant.Consultant_PhoneNumber,
-                Specialization = SpecializationRepo.GetSpecialization(dataConsultant.SpecializationID)
+                PhoneNumber = dataConsultant.Consultant_PhoneNumber
             };
 
             return consultant;
