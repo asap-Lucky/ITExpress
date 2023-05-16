@@ -83,6 +83,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Repository\CodeLanguageRepo.cs" />
     <Compile Include="Repository\ConsultantRepo.cs" />
     <Compile Include="Repository\CustomerRepo.cs" />
     <Compile Include="Repository\ProjectRepo.cs" />

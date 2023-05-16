@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IAdmin.cs" />
+    <Compile Include="Interfaces\ICodeLangaugeService.cs" />
     <Compile Include="Interfaces\ICodeLanguage.cs" />
+    <Compile Include="Interfaces\ICodeLanguageRepo.cs" />
     <Compile Include="Interfaces\IConsultant.cs" />
     <Compile Include="Interfaces\IConsultantRepo.cs" />
     <Compile Include="Interfaces\IConsultantService.cs" />
