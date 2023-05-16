@@ -8,6 +8,8 @@ namespace Abstraction.Interfaces
 {
     public interface IAdmin
     {
-
+        int Id { get; set; }
+        string Login { get; set; }
+        string Password { get; set; }
     }
 }

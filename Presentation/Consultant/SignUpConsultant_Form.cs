@@ -62,7 +62,6 @@ namespace UI.Consultant
             }
         }
    
-
         private void bt_SignUpAsCostumer_Click(object sender, EventArgs e)
         {
             this.Close();

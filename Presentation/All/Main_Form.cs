@@ -24,8 +24,8 @@ namespace UI
         private void bt_LogInAsCostumer_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LogInCustomer_Form logInCostumer_Form = new LogInCustomer_Form();
-            logInCostumer_Form.ShowDialog();
+            LogInCustomer_Form logInCustumer_Form = new LogInCustomer_Form();
+            logInCustumer_Form.ShowDialog();
             this.Show();
         }
 
@@ -33,6 +33,14 @@ namespace UI
         {
             this.Hide();
             LogInConsultant_Form logInConsultant = new LogInConsultant_Form();
+            logInConsultant.ShowDialog();
+            this.Show();
+        }
+
+        private void bt_LogInAsAdmin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LogInAdmin_Form logInConsultant = new LogInAdmin_Form();
             logInConsultant.ShowDialog();
             this.Show();
         }

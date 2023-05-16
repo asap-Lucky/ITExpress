@@ -15,6 +15,7 @@ namespace Abstraction.Interfaces
         decimal HourWage { get; set; }
         DateTime StartDate { get; set; }
         DateTime EndDate { get; set; }
+       string Description { get; set; }
         int TimeUsed { get; set; }
         int Status { get; set; }
         int CustomerId { get; set; }

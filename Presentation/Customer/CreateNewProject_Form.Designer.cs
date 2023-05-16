@@ -30,13 +30,15 @@ namespace Presentation.Customer
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cb_projectEndtype = new System.Windows.Forms.ComboBox();
+            this.cb_projectRequierements = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
             this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_projectHourWage = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tb_projectRequierements = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_projectName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@ namespace Presentation.Customer
             this.bt_DiscardProject = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +56,8 @@ namespace Presentation.Customer
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.cb_projectEndtype);
+            this.panel1.Controls.Add(this.cb_projectRequierements);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dtp_endDate);
             this.panel1.Controls.Add(this.dtp_startDate);
@@ -64,7 +65,6 @@ namespace Presentation.Customer
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.tb_projectHourWage);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.tb_projectRequierements);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.tb_projectName);
             this.panel1.Controls.Add(this.label10);
@@ -73,6 +73,34 @@ namespace Presentation.Customer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 484);
             this.panel1.TabIndex = 0;
+            // 
+            // cb_projectEndtype
+            // 
+            this.cb_projectEndtype.FormattingEnabled = true;
+            this.cb_projectEndtype.Location = new System.Drawing.Point(199, 210);
+            this.cb_projectEndtype.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_projectEndtype.Name = "cb_projectEndtype";
+            this.cb_projectEndtype.Size = new System.Drawing.Size(278, 21);
+            this.cb_projectEndtype.TabIndex = 32;
+            // 
+            // cb_projectRequierements
+            // 
+            this.cb_projectRequierements.FormattingEnabled = true;
+            this.cb_projectRequierements.Location = new System.Drawing.Point(199, 145);
+            this.cb_projectRequierements.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_projectRequierements.Name = "cb_projectRequierements";
+            this.cb_projectRequierements.Size = new System.Drawing.Size(278, 21);
+            this.cb_projectRequierements.TabIndex = 31;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(12, 207);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 20);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "End type:";
             // 
             // dtp_endDate
             // 
@@ -126,23 +154,15 @@ namespace Presentation.Customer
             this.label4.TabIndex = 21;
             this.label4.Text = "Hour wage:";
             // 
-            // tb_projectRequierements
-            // 
-            this.tb_projectRequierements.Location = new System.Drawing.Point(199, 144);
-            this.tb_projectRequierements.Name = "tb_projectRequierements";
-            this.tb_projectRequierements.Size = new System.Drawing.Size(278, 20);
-            this.tb_projectRequierements.TabIndex = 20;
-            this.tb_projectRequierements.Text = "Coding language requierements";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label3.Location = new System.Drawing.Point(11, 142);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 20);
+            this.label3.Size = new System.Drawing.Size(183, 20);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Project requierements:";
+            this.label3.Text = "Code language required:";
             // 
             // tb_projectName
             // 
@@ -240,26 +260,9 @@ namespace Presentation.Customer
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(200, 209);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 20);
-            this.textBox1.TabIndex = 30;
-            this.textBox1.Text = "Coding language requierements";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(12, 207);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 20);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "End type:";
             // 
             // CreateNewProject_Form
             // 
@@ -276,6 +279,7 @@ namespace Presentation.Customer
             this.Name = "CreateNewProject_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
+            this.Load += new System.EventHandler(this.CreateNewProject_Form_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -295,7 +299,6 @@ namespace Presentation.Customer
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_projectName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tb_projectRequierements;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_projectHourWage;
         private System.Windows.Forms.Label label4;
@@ -304,7 +307,8 @@ namespace Presentation.Customer
         private System.Windows.Forms.DateTimePicker dtp_endDate;
         private System.Windows.Forms.DateTimePicker dtp_startDate;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cb_projectEndtype;
+        private System.Windows.Forms.ComboBox cb_projectRequierements;
     }
 }
