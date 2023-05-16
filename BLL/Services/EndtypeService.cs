@@ -26,9 +26,9 @@ namespace BLL.Services
             return _endtypeRepo.GetAllEndTypes();
         }
 
-        public IEndType GetEndtype(int id)
+        public IEndType GetEndtype(IEndType endType)
         {
-            return _endtypeRepo.GetEndtype(id);
+            return _endtypeRepo.GetEndtype(endType);
         }
 
 

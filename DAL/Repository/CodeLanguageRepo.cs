@@ -69,16 +69,16 @@ namespace DAL.Repository
             return result;
         }
 
-        public ICodeLanguage GetCodeLanguage(int id)
+        public ICodeLanguage GetCodeLanguage(ICodeLanguage codeLanguage)
         {
-            var dataCodeLanguage = DataContext.CodeLanguages.FirstOrDefault(x => x.Id == id);
-            ICodeLanguage codeLanguage = new Models.CodeLanguage()
+            CodeLanguage dataCodeLanguage = DataContext.CodeLanguages.FirstOrDefault(x => x.Id == codeLanguage.Id);
+            ICodeLanguage codeLanguageModel = new Models.CodeLanguage()
             {
                 Id = dataCodeLanguage.Id,
                 Language = dataCodeLanguage.LanguageName
 
             };
-            return codeLanguage;
+            return codeLanguageModel;
         }
     }
 }

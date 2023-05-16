@@ -29,10 +29,10 @@ namespace DAL.Repository
             DataContext.SubmitChanges();
         }
 
-        public IEndType GetEndtype(int id)
+        public IEndType GetEndtype(IEndType endType)
         {
-            var dataEndtype = DataContext.EndTypes.FirstOrDefault(e => e.Id == id);
-            IEndType endType = new Models.EndType()
+            var dataEndtype = DataContext.EndTypes.FirstOrDefault(e => e.Id == endType.Id);
+            IEndType endTypeModel = new Models.EndType()
             {
                 Id = dataEndtype.Id,
                 EndType1 = dataEndtype.EndType1

@@ -65,6 +65,8 @@ namespace DAL.Repository
                 Consultant_City = dto.City,
                 Consultant_ZipCode = dto.ZipCode,
                 Consultant_PhoneNumber = dto.PhoneNumber,
+                Consultant_CodeLangaugeId = dto.Language.Id,
+                Contsultant_EndType = dto.EndType.Id
             };
             DataContext.Consultants.InsertOnSubmit(con);
             DataContext.SubmitChanges();

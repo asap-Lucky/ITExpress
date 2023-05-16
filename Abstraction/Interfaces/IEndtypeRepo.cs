@@ -10,7 +10,7 @@ namespace Abstraction.Interfaces
     {
         void AddEndtype(IEndType endtype);
 
-        IEndType GetEndtype(int id);
+        IEndType GetEndtype(IEndType endType);
 
         List<IEndType> GetAllEndTypes();
     }
