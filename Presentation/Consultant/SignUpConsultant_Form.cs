@@ -24,7 +24,7 @@ namespace UI.Consultant
 
         public SignUpConsultant_Form()
         {
-            FacadeService = new BLL.Facader.ConsultantService(consultantService, codeLanguageService, endtypeService);
+            FacadeService = new BLL.Facader.ConsultantService(consultantService);
             InitializeComponent();
             InitializeCombobox();
         }
@@ -77,12 +77,10 @@ namespace UI.Consultant
         {
             cb_language_1.DataSource = codeLanguageService.GetAllCodeLanguages();
             cb_language_1.DisplayMember = "Language";
-            //cb_language_1.ValueMember = "Id";
             cb_language_1.SelectedIndex = -1;
 
             cb_endType_1.DataSource = endtypeService.GetAllEndTypes();
             cb_endType_1.DisplayMember = "EndType1";
-            //cb_endType_1.ValueMember = "Id";
             cb_endType_1.SelectedIndex = -1;
         }
     }
