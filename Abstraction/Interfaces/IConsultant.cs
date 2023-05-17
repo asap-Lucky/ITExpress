@@ -19,6 +19,10 @@ namespace Abstraction.Interfaces
         string Address { get; set; }
         int PhoneNumber { get; set; }
         ICodeLanguage Language { get; set; }
+        //This is here because datagrid
+        string GetLanguage { get; }
         IEndType EndType { get; set; }
+        //This is here because datagrid
+        string GetEndType { get; }
     }
 }

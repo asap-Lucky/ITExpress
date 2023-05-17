@@ -96,11 +96,11 @@ namespace BLL.Services
         public List<IConsultant> CodeLangaugeBinarySearch(List<IConsultant> consultants, string searchTerm)
         {
             List<IConsultant> result = new List<IConsultant> ();
-            for(int i = 0; i < consultants.Count; i++)
+            foreach(var consultant in consultants )
             {
-                if (consultants[i].Language.Language.StartsWith(searchTerm, StringComparison.OrdinalIgnoreCase))
+                if (consultant.Language.Language.StartsWith(searchTerm, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.Add(consultants[i]);
+                    result.Add(consultant);
                 }
             }
             return result;

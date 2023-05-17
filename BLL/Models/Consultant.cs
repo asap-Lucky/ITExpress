@@ -16,7 +16,9 @@ namespace BLL.Models
         public string City { get; set; }
         public int ZipCode { get; set; }
         public int PhoneNumber { get; set; }
-        public ICodeLanguage Language { get; set; }
+        public ICodeLanguage Language { get; set;}
+        public string GetLanguage { get { return Language.Language; } }
         public IEndType EndType { get; set; }
+        public string GetEndType { get { return EndType.EndType1; } }
     }
 }
