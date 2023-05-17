@@ -23,7 +23,7 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CustomerInfo());
+            Application.Run(new AdminsOverviewWindow_Form());
         }
     }
 }
