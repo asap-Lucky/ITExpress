@@ -100,11 +100,16 @@ namespace DAL.Repository
                 targetConsultant.Consultant_FirstName = consultant.FirstName;
                 targetConsultant.Consultant_LastName = consultant.LastName;
                 targetConsultant.Consultant_Address = consultant.Address;
+                targetConsultant.Consultant_City = consultant.City;
                 targetConsultant.Consultant_ZipCode = consultant.ZipCode;
                 targetConsultant.Consultant_Password = consultant.Password;
                 targetConsultant.Consultant_Login = consultant.Login;
 
-                // Save the changes to the database.
+                // Update the relationships with CodeLanguage and EndType
+                targetConsultant.CodeLanguage = DataContext.CodeLanguages.FirstOrDefault(cl => cl.Id == consultant.Language.Id);
+                targetConsultant.EndType = DataContext.EndTypes.FirstOrDefault(et => et.Id == consultant.EndType.Id);
+
+                // Save the changes to the database. 
                 DataContext.SubmitChanges();
             }
         }
@@ -153,6 +158,7 @@ namespace DAL.Repository
             consultantModel.Login = dataConsultant.Consultant_Login;
             consultantModel.Password = dataConsultant.Consultant_Password;
             consultantModel.Email = dataConsultant.Consultant_Email;
+            consultantModel.City = dataConsultant.Consultant_City;
             consultantModel.ZipCode = dataConsultant.Consultant_ZipCode;
             consultantModel.Address = dataConsultant.Consultant_Address;
             consultantModel.PhoneNumber = dataConsultant.Consultant_PhoneNumber;
@@ -177,6 +183,7 @@ namespace DAL.Repository
             dataConsultant.Consultant_Login = consultantModel.Login;
             dataConsultant.Consultant_Password = consultantModel.Password;
             dataConsultant.Consultant_Email = consultantModel.Email;
+            dataConsultant.Consultant_City = consultantModel.City;
             dataConsultant.Consultant_ZipCode = consultantModel.ZipCode;
             dataConsultant.Consultant_Address = consultantModel.Address;
             dataConsultant.Consultant_PhoneNumber = consultantModel.PhoneNumber;

@@ -19,11 +19,12 @@ namespace BLL.Facader
 
         public Abstraction.Interfaces.IConsultant MyConsultant { get; set; }
 
-        public ConsultantService(IConsultantService consultantService, ICodeLangaugeService codeLanguageService, IEndtypeService endtypeService)
+
+        public ConsultantService(IConsultantService consultantService)
         { 
             this.consultantService = consultantService;
-            this.codeLanguageService = codeLanguageService;
-            this.endtypeService = endtypeService;
+            this.codeLanguageService = new CodeLanguageService();
+            this.endtypeService = new EndtypeService();
         }
 
         public void RegisterConsultant(string FirstName, string LastName, string Adress, int Zipcode, int Phonenumber, string Email, string Login, string Password, string City, ICodeLanguage CodeLanguage, IEndType Endtype)
@@ -73,6 +74,16 @@ namespace BLL.Facader
             MyConsultant.City = City;
 
             // Call the EditConsultant method of the ConsultantService object and pass in MyConsultant object.
+            consultantService.EditConsultant(MyConsultant);
+        }
+
+        public void EditConsultantSpecialization(int id, ICodeLanguage language, IEndType endType)
+        {
+            MyConsultant = consultantService.GetConsultant(id);
+
+            MyConsultant.Language = language;
+            MyConsultant.EndType = endType;
+
             consultantService.EditConsultant(MyConsultant);
         }
 
