@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abstraction.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace Presentation.Customer
 {
     public partial class CustomerInfo : Form
     {
-        public CustomerInfo()
+
+        public ICustomer customerId { get; set; }
+
+        public CustomerInfo(BLL.Models.Customer customerId)
         {
             InitializeComponent();
+            this.customerId = customerId;
         }
     }
 }
