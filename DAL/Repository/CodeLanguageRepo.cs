@@ -1,4 +1,4 @@
-﻿using Abstraction.Interfaces;
+using Abstraction.Interfaces;
 using DAL.Database;
 using System;
 using System.Collections.Generic;
