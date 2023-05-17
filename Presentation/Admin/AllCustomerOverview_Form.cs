@@ -48,7 +48,8 @@ namespace Presentation.Customer
                 DataGridViewRow selectedRow = dgv_AllCustomersOverview.SelectedRows[0];
                 BLL.Models.Customer customerId = (BLL.Models.Customer)selectedRow.DataBoundItem;
 
-                CustomerInfo customerInfo = new CustomerInfo(customerId);
+                //Put argument in constructor
+                CustomerInfo customerInfo = new CustomerInfo();
                 customerInfo.Show();
                 this.Hide();
             }
