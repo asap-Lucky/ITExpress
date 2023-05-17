@@ -1,18 +1,8 @@
-﻿using DAL.Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Sql;
-using BLL.Facader;
-using System.Runtime.Remoting;
-using BLL.Services;
 using Abstraction.Interfaces;
+using BLL.Models;
 
 namespace Presentation.Customer
 {
@@ -46,10 +36,13 @@ namespace Presentation.Customer
             if (dgv_AllCustomersOverview.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dgv_AllCustomersOverview.SelectedRows[0];
-                BLL.Models.Customer customerId = (BLL.Models.Customer)selectedRow.DataBoundItem;
+                var selectedCustomer = selectedRow.DataBoundItem;
+                BLL.Models.Customer newCustomer = new BLL.Models.Customer();
+                newCustomer.FirstName = selectedCustomer.FirstName;
+                
 
                 //Put argument in constructor
-                CustomerInfo customerInfo = new CustomerInfo();
+                CustomerInfo customerInfo = new CustomerInfo(selectedCustomer);
                 customerInfo.Show();
                 this.Hide();
             }
