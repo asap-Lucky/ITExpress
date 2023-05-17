@@ -14,7 +14,7 @@ namespace Presentation.Customer
     public partial class CustomerInfo : Form
     {
         // Remember to put "BLL.Models.Customer customerId" in the constructor 
-        public CustomerInfo(BLL.Models.Customer selectedCustomer)
+        public CustomerInfo()
         {
             InitializeComponent();
         }

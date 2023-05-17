@@ -38,11 +38,10 @@ namespace Presentation.Customer
                 DataGridViewRow selectedRow = dgv_AllCustomersOverview.SelectedRows[0];
                 var selectedCustomer = selectedRow.DataBoundItem;
                 BLL.Models.Customer newCustomer = new BLL.Models.Customer();
-                newCustomer.FirstName = selectedCustomer.FirstName;
                 
 
                 //Put argument in constructor
-                CustomerInfo customerInfo = new CustomerInfo(selectedCustomer);
+                CustomerInfo customerInfo = new CustomerInfo();
                 customerInfo.Show();
                 this.Hide();
             }
