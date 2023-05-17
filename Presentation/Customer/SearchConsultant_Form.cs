@@ -9,30 +9,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace Presentation.Customer
 {
     public partial class SearchConsultant : Form
     {
-        private BLL.Facader.ConsultantService ConsultantService;
-        private List<IConsultant> DataGridConsultants { get; set; }
+        private BLL.Services.ConsultantService ConsultantService;
+        private List<IConsultant> DefaultConsultantList { get; set; }
+        private List<IConsultant> SortedConsultantsList { get; set; }
         public SearchConsultant()
         {
             InitializeComponent();
             IntializeDataGridView2();
-            this.ConsultantService = new BLL.Facader.ConsultantService(new BLL.Services.ConsultantService(), new BLL.Services.CodeLanguageService(), new BLL.Services.EndtypeService());
-            DataGridConsultants = new List<IConsultant>();
-            dataGridView2.DataSource = this.ConsultantService.GetAllConsultants();
-
-            BLL.Models.Consultant consultant = (BLL.Models.Consultant)this.ConsultantService.GetConsultant(1);
-            string test = consultant.Language.Language;
+            this.ConsultantService = new BLL.Services.ConsultantService();
+            DefaultConsultantList = this.ConsultantService.GetAllConsultants();
+            dataGridView2.DataSource = DefaultConsultantList;
         }
 
         //Search Button Functionality
         private void button1_Click(object sender, EventArgs e)
-        {
-            string seatchTeam = tb_projectRequierements.Text;
-
+        {             
+            if(tb_projectRequierements.Text == string.Empty) 
+            {
+                dataGridView2.DataSource = DefaultConsultantList;
+            }
+            else
+            {
+                dataGridView2.DataSource = ConsultantService.CodeLangaugeBinarySearch(DefaultConsultantList, tb_projectRequierements.Text);
+            }
         }
 
         public void IntializeDataGridView2()
@@ -50,9 +55,14 @@ namespace Presentation.Customer
             dataGridView2.Columns.Add(lastNameColumn);
 
             DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();
-            languageColumn.DataPropertyName = "Language.Language";
+            languageColumn.DataPropertyName = "GetLanguage";
             languageColumn.HeaderText = "Specialization";
             dataGridView2.Columns.Add(languageColumn);
+
+            DataGridViewTextBoxColumn endTypeColumn = new DataGridViewTextBoxColumn();
+            endTypeColumn.DataPropertyName = "GetEndType";
+            endTypeColumn.HeaderText = "EndType";
+            dataGridView2.Columns.Add(endTypeColumn);
 
             DataGridViewTextBoxColumn emailColumn = new DataGridViewTextBoxColumn();
             emailColumn.DataPropertyName= "Email";
