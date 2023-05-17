@@ -75,5 +75,7 @@ namespace BLL.Facader
             return customerService.GetCustomer(Id);
         }
 
+        public List<ICustomer> GetAllCustomers() { return customerService.GetAllCustomers(); }
+
     }
 }

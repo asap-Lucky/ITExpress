@@ -9,36 +9,50 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
+using BLL.Facader;
+using System.Runtime.Remoting;
+using BLL.Services;
+using Abstraction.Interfaces;
 
 namespace Presentation.Customer
 {
     public partial class AllCustomerOverview_Form : Form
     {
-        private ITExpressDataClassesDataContext DataContext { get; set; }
+        private BLL.Facader.CustomerService customerService { get; set; }
 
         public AllCustomerOverview_Form()
         {
             InitializeComponent();
+            this.customerService = new BLL.Facader.CustomerService(new BLL.Services.CustomerService());
+            UpdateCustomerOnUI();
+            LoadCustomerData();
+            
         }
 
-        private void GetAllCustomers()
+        private void LoadCustomerData()
         {
-            var query = from customer in DataContext.Customers
-                        select new
-                        {
-                            customer.Customer_FirstName,
-                            customer.Customer_LastName,
-                            customer.Customer_Address,
-                            customer.Customer_City,
-                            customer.CustomerId,
-                            customer.Customer_Email,
-                            customer.Customer_ZipCode,
-                            customer.Customer_PhoneNumber
-                        };
-
-            dgv_AllCustomersOverview.DataSource = query.ToList();
+            List<ICustomer> customers = this.customerService.GetAllCustomers();
+            dgv_AllCustomersOverview.DataSource = customers;
         }
 
-      
+        private void UpdateCustomerOnUI()
+        {
+            dgv_AllCustomersOverview.DataSource = customerService.GetAllCustomers();
+            dgv_AllCustomersOverview.Refresh();
+        }
+        
+        private void bt_ViewCustomer_Click(object sender, EventArgs e)
+        {   
+            if (dgv_AllCustomersOverview.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgv_AllCustomersOverview.SelectedRows[0];
+                BLL.Models.Customer customerId = (BLL.Models.Customer)selectedRow.DataBoundItem;
+
+                //Put argument in constructor
+                CustomerInfo customerInfo = new CustomerInfo();
+                customerInfo.Show();
+                this.Hide();
+            }
+        }
     }
 }

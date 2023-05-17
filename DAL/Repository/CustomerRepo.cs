@@ -41,6 +41,7 @@ namespace DAL.Repository
                 customer.PhoneNumber = dto.Customer_PhoneNumber;
                 customer.Login = dto.Customer_Login;
                 customer.Password = dto.Customer_Password;
+                customer.City = dto.Customer_City;
 
                 result.Add(customer);
             }

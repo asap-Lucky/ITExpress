@@ -119,6 +119,12 @@
     <Compile Include="Admin\Specialization_Form.Designer.cs">
       <DependentUpon>Specialization_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="All\OpenProject_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="All\OpenProject_Form.Designer.cs">
+      <DependentUpon>OpenProject_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="All\Message_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,12 +148,6 @@
     </Compile>
     <Compile Include="Consultant\EditProfileConsultant_Form.Designer.cs">
       <DependentUpon>EditProfileConsultant_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Consultant\EditProjectConsultant_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Consultant\EditProjectConsultant_Form.Designer.cs">
-      <DependentUpon>EditProjectConsultant_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Consultant\InvitationReceive_Form.cs">
       <SubType>Form</SubType>
@@ -301,6 +301,9 @@
     <EmbeddedResource Include="Admin\Specialization_Form.resx">
       <DependentUpon>Specialization_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="All\OpenProject_Form.resx">
+      <DependentUpon>OpenProject_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="All\Message_Form.resx">
       <DependentUpon>Message_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,9 +315,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\EditProfileConsultant_Form.resx">
       <DependentUpon>EditProfileConsultant_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Consultant\EditProjectConsultant_Form.resx">
-      <DependentUpon>EditProjectConsultant_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\InvitationReceive_Form.resx">
       <DependentUpon>InvitationReceive_Form.cs</DependentUpon>
