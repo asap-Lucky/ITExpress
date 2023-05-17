@@ -12,7 +12,6 @@
       <Column Name="ProjectId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Project_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Project_Description" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Project_Requirements" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="Project_TotalSum" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="Project_HourWage" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Project_StartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
@@ -21,14 +20,19 @@
       <Column Name="Project_Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Project_CustomerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Project_ConsultantId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Project_CodeLanguageId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Project_EndType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CodeLanguage_Project" Member="CodeLanguage" ThisKey="Project_CodeLanguageId" OtherKey="Id" Type="CodeLanguage" IsForeignKey="true" />
       <Association Name="Consultant_Project" Member="Consultant" ThisKey="Project_ConsultantId" OtherKey="ConsultantId" Type="Consultant" IsForeignKey="true" />
       <Association Name="Customer_Project" Member="Customer" ThisKey="Project_CustomerId" OtherKey="CustomerId" Type="Customer" IsForeignKey="true" />
+      <Association Name="EndType_Project" Member="EndType" ThisKey="Project_EndType" OtherKey="Id" Type="EndType" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CodeLanguage" Member="CodeLanguages">
     <Type Name="CodeLanguage">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="LanguageName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CodeLanguage_Project" Member="Projects" ThisKey="Id" OtherKey="Project_CodeLanguageId" Type="Project" />
       <Association Name="CodeLanguage_Consultant" Member="Consultants" ThisKey="Id" OtherKey="Consultant_CodeLangaugeId" Type="Consultant" />
     </Type>
   </Table>
@@ -74,6 +78,7 @@
     <Type Name="EndType">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="EndType" Member="EndType1" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+      <Association Name="EndType_Project" Member="Projects" ThisKey="Id" OtherKey="Project_EndType" Type="Project" />
       <Association Name="EndType_Consultant" Member="Consultants" ThisKey="Id" OtherKey="Contsultant_EndType" Type="Consultant" />
     </Type>
   </Table>

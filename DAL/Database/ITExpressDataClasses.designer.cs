@@ -273,8 +273,6 @@ namespace DAL.Database
 		
 		private string _Project_Description;
 		
-		private string _Project_Requirements;
-		
 		private System.Nullable<decimal> _Project_TotalSum;
 		
 		private decimal _Project_HourWage;
@@ -291,9 +289,17 @@ namespace DAL.Database
 		
 		private int _Project_ConsultantId;
 		
+		private int _Project_CodeLanguageId;
+		
+		private System.Nullable<int> _Project_EndType;
+		
+		private EntityRef<CodeLanguage> _CodeLanguage;
+		
 		private EntityRef<Consultant> _Consultant;
 		
 		private EntityRef<Customer> _Customer;
+		
+		private EntityRef<EndType> _EndType;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -305,8 +311,6 @@ namespace DAL.Database
     partial void OnProject_NameChanged();
     partial void OnProject_DescriptionChanging(string value);
     partial void OnProject_DescriptionChanged();
-    partial void OnProject_RequirementsChanging(string value);
-    partial void OnProject_RequirementsChanged();
     partial void OnProject_TotalSumChanging(System.Nullable<decimal> value);
     partial void OnProject_TotalSumChanged();
     partial void OnProject_HourWageChanging(decimal value);
@@ -323,12 +327,18 @@ namespace DAL.Database
     partial void OnProject_CustomerIdChanged();
     partial void OnProject_ConsultantIdChanging(int value);
     partial void OnProject_ConsultantIdChanged();
+    partial void OnProject_CodeLanguageIdChanging(int value);
+    partial void OnProject_CodeLanguageIdChanged();
+    partial void OnProject_EndTypeChanging(System.Nullable<int> value);
+    partial void OnProject_EndTypeChanged();
     #endregion
 		
 		public Project()
 		{
+			this._CodeLanguage = default(EntityRef<CodeLanguage>);
 			this._Consultant = default(EntityRef<Consultant>);
 			this._Customer = default(EntityRef<Customer>);
+			this._EndType = default(EntityRef<EndType>);
 			OnCreated();
 		}
 		
@@ -388,26 +398,6 @@ namespace DAL.Database
 					this._Project_Description = value;
 					this.SendPropertyChanged("Project_Description");
 					this.OnProject_DescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_Requirements", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Project_Requirements
-		{
-			get
-			{
-				return this._Project_Requirements;
-			}
-			set
-			{
-				if ((this._Project_Requirements != value))
-				{
-					this.OnProject_RequirementsChanging(value);
-					this.SendPropertyChanging();
-					this._Project_Requirements = value;
-					this.SendPropertyChanged("Project_Requirements");
-					this.OnProject_RequirementsChanged();
 				}
 			}
 		}
@@ -580,6 +570,88 @@ namespace DAL.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_CodeLanguageId", DbType="Int NOT NULL")]
+		public int Project_CodeLanguageId
+		{
+			get
+			{
+				return this._Project_CodeLanguageId;
+			}
+			set
+			{
+				if ((this._Project_CodeLanguageId != value))
+				{
+					if (this._CodeLanguage.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProject_CodeLanguageIdChanging(value);
+					this.SendPropertyChanging();
+					this._Project_CodeLanguageId = value;
+					this.SendPropertyChanged("Project_CodeLanguageId");
+					this.OnProject_CodeLanguageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_EndType", DbType="Int")]
+		public System.Nullable<int> Project_EndType
+		{
+			get
+			{
+				return this._Project_EndType;
+			}
+			set
+			{
+				if ((this._Project_EndType != value))
+				{
+					if (this._EndType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProject_EndTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Project_EndType = value;
+					this.SendPropertyChanged("Project_EndType");
+					this.OnProject_EndTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Project", Storage="_CodeLanguage", ThisKey="Project_CodeLanguageId", OtherKey="Id", IsForeignKey=true)]
+		public CodeLanguage CodeLanguage
+		{
+			get
+			{
+				return this._CodeLanguage.Entity;
+			}
+			set
+			{
+				CodeLanguage previousValue = this._CodeLanguage.Entity;
+				if (((previousValue != value) 
+							|| (this._CodeLanguage.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CodeLanguage.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._CodeLanguage.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._Project_CodeLanguageId = value.Id;
+					}
+					else
+					{
+						this._Project_CodeLanguageId = default(int);
+					}
+					this.SendPropertyChanged("CodeLanguage");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Project", Storage="_Consultant", ThisKey="Project_ConsultantId", OtherKey="ConsultantId", IsForeignKey=true)]
 		public Consultant Consultant
 		{
@@ -648,6 +720,40 @@ namespace DAL.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EndType_Project", Storage="_EndType", ThisKey="Project_EndType", OtherKey="Id", IsForeignKey=true)]
+		public EndType EndType
+		{
+			get
+			{
+				return this._EndType.Entity;
+			}
+			set
+			{
+				EndType previousValue = this._EndType.Entity;
+				if (((previousValue != value) 
+							|| (this._EndType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EndType.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._EndType.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._Project_EndType = value.Id;
+					}
+					else
+					{
+						this._Project_EndType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EndType");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -679,6 +785,8 @@ namespace DAL.Database
 		
 		private string _LanguageName;
 		
+		private EntitySet<Project> _Projects;
+		
 		private EntitySet<Consultant> _Consultants;
 		
     #region Extensibility Method Definitions
@@ -693,6 +801,7 @@ namespace DAL.Database
 		
 		public CodeLanguage()
 		{
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._Consultants = new EntitySet<Consultant>(new Action<Consultant>(this.attach_Consultants), new Action<Consultant>(this.detach_Consultants));
 			OnCreated();
 		}
@@ -737,6 +846,19 @@ namespace DAL.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Project", Storage="_Projects", ThisKey="Id", OtherKey="Project_CodeLanguageId")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Consultant", Storage="_Consultants", ThisKey="Id", OtherKey="Consultant_CodeLangaugeId")]
 		public EntitySet<Consultant> Consultants
 		{
@@ -768,6 +890,18 @@ namespace DAL.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.CodeLanguage = this;
+		}
+		
+		private void detach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.CodeLanguage = null;
 		}
 		
 		private void attach_Consultants(Consultant entity)
@@ -1647,6 +1781,8 @@ namespace DAL.Database
 		
 		private string _EndType1;
 		
+		private EntitySet<Project> _Projects;
+		
 		private EntitySet<Consultant> _Consultants;
 		
     #region Extensibility Method Definitions
@@ -1661,6 +1797,7 @@ namespace DAL.Database
 		
 		public EndType()
 		{
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._Consultants = new EntitySet<Consultant>(new Action<Consultant>(this.attach_Consultants), new Action<Consultant>(this.detach_Consultants));
 			OnCreated();
 		}
@@ -1705,6 +1842,19 @@ namespace DAL.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EndType_Project", Storage="_Projects", ThisKey="Id", OtherKey="Project_EndType")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EndType_Consultant", Storage="_Consultants", ThisKey="Id", OtherKey="Contsultant_EndType")]
 		public EntitySet<Consultant> Consultants
 		{
@@ -1736,6 +1886,18 @@ namespace DAL.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.EndType = this;
+		}
+		
+		private void detach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.EndType = null;
 		}
 		
 		private void attach_Consultants(Consultant entity)
