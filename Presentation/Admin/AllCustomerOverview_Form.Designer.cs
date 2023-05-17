@@ -29,26 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bt_AddCustomer = new System.Windows.Forms.Button();
             this.bt_Refresh = new System.Windows.Forms.Button();
             this.bt_ViewCustomer = new System.Windows.Forms.Button();
             this.dgv_existingProjectsCustomer = new System.Windows.Forms.DataGridView();
-            this.dgv_AllCustomersOverview = new System.Windows.Forms.DataGridView();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerLoginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerPasswordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerZipCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerCityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerPhoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dgv_AllCustomersOverview = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllCustomersOverview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllCustomersOverview)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_AddCustomer
@@ -95,6 +86,7 @@
             this.bt_ViewCustomer.TabIndex = 13;
             this.bt_ViewCustomer.Text = "View customer";
             this.bt_ViewCustomer.UseVisualStyleBackColor = false;
+            this.bt_ViewCustomer.Click += new System.EventHandler(this.bt_ViewCustomer_Click);
             // 
             // dgv_existingProjectsCustomer
             // 
@@ -107,108 +99,16 @@
             // 
             // dgv_AllCustomersOverview
             // 
-            this.dgv_AllCustomersOverview.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.IndianRed;
-            this.dgv_AllCustomersOverview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_AllCustomersOverview.AutoGenerateColumns = false;
-            this.dgv_AllCustomersOverview.BackgroundColor = System.Drawing.Color.White;
             this.dgv_AllCustomersOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_AllCustomersOverview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerIdDataGridViewTextBoxColumn,
-            this.customerFirstNameDataGridViewTextBoxColumn,
-            this.customerLastNameDataGridViewTextBoxColumn,
-            this.customerLoginDataGridViewTextBoxColumn,
-            this.customerPasswordDataGridViewTextBoxColumn,
-            this.customerEmailDataGridViewTextBoxColumn,
-            this.customerZipCodeDataGridViewTextBoxColumn,
-            this.customerCityDataGridViewTextBoxColumn,
-            this.customerAddressDataGridViewTextBoxColumn,
-            this.customerPhoneNumberDataGridViewTextBoxColumn});
-            this.dgv_AllCustomersOverview.DataSource = this.customerBindingSource;
             this.dgv_AllCustomersOverview.Location = new System.Drawing.Point(12, 12);
             this.dgv_AllCustomersOverview.MultiSelect = false;
             this.dgv_AllCustomersOverview.Name = "dgv_AllCustomersOverview";
             this.dgv_AllCustomersOverview.ReadOnly = true;
-            this.dgv_AllCustomersOverview.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dgv_AllCustomersOverview.RowHeadersWidth = 40;
+            this.dgv_AllCustomersOverview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv_AllCustomersOverview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_AllCustomersOverview.Size = new System.Drawing.Size(1056, 465);
+            this.dgv_AllCustomersOverview.Size = new System.Drawing.Size(1056, 466);
             this.dgv_AllCustomersOverview.TabIndex = 15;
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(DAL.Database.Customer);
-            // 
-            // customerIdDataGridViewTextBoxColumn
-            // 
-            this.customerIdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
-            this.customerIdDataGridViewTextBoxColumn.FillWeight = 75F;
-            this.customerIdDataGridViewTextBoxColumn.HeaderText = "CustomerId";
-            this.customerIdDataGridViewTextBoxColumn.Name = "customerIdDataGridViewTextBoxColumn";
-            this.customerIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerFirstNameDataGridViewTextBoxColumn
-            // 
-            this.customerFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Customer_FirstName";
-            this.customerFirstNameDataGridViewTextBoxColumn.HeaderText = "Customer_FirstName";
-            this.customerFirstNameDataGridViewTextBoxColumn.Name = "customerFirstNameDataGridViewTextBoxColumn";
-            this.customerFirstNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerLastNameDataGridViewTextBoxColumn
-            // 
-            this.customerLastNameDataGridViewTextBoxColumn.DataPropertyName = "Customer_LastName";
-            this.customerLastNameDataGridViewTextBoxColumn.HeaderText = "Customer_LastName";
-            this.customerLastNameDataGridViewTextBoxColumn.Name = "customerLastNameDataGridViewTextBoxColumn";
-            this.customerLastNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerLoginDataGridViewTextBoxColumn
-            // 
-            this.customerLoginDataGridViewTextBoxColumn.DataPropertyName = "Customer_Login";
-            this.customerLoginDataGridViewTextBoxColumn.HeaderText = "Customer_Login";
-            this.customerLoginDataGridViewTextBoxColumn.Name = "customerLoginDataGridViewTextBoxColumn";
-            this.customerLoginDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerPasswordDataGridViewTextBoxColumn
-            // 
-            this.customerPasswordDataGridViewTextBoxColumn.DataPropertyName = "Customer_Password";
-            this.customerPasswordDataGridViewTextBoxColumn.HeaderText = "Customer_Password";
-            this.customerPasswordDataGridViewTextBoxColumn.Name = "customerPasswordDataGridViewTextBoxColumn";
-            this.customerPasswordDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerEmailDataGridViewTextBoxColumn
-            // 
-            this.customerEmailDataGridViewTextBoxColumn.DataPropertyName = "Customer_Email";
-            this.customerEmailDataGridViewTextBoxColumn.HeaderText = "Customer_Email";
-            this.customerEmailDataGridViewTextBoxColumn.Name = "customerEmailDataGridViewTextBoxColumn";
-            this.customerEmailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerZipCodeDataGridViewTextBoxColumn
-            // 
-            this.customerZipCodeDataGridViewTextBoxColumn.DataPropertyName = "Customer_ZipCode";
-            this.customerZipCodeDataGridViewTextBoxColumn.HeaderText = "Customer_ZipCode";
-            this.customerZipCodeDataGridViewTextBoxColumn.Name = "customerZipCodeDataGridViewTextBoxColumn";
-            this.customerZipCodeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerCityDataGridViewTextBoxColumn
-            // 
-            this.customerCityDataGridViewTextBoxColumn.DataPropertyName = "Customer_City";
-            this.customerCityDataGridViewTextBoxColumn.HeaderText = "Customer_City";
-            this.customerCityDataGridViewTextBoxColumn.Name = "customerCityDataGridViewTextBoxColumn";
-            this.customerCityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerAddressDataGridViewTextBoxColumn
-            // 
-            this.customerAddressDataGridViewTextBoxColumn.DataPropertyName = "Customer_Address";
-            this.customerAddressDataGridViewTextBoxColumn.HeaderText = "Customer_Address";
-            this.customerAddressDataGridViewTextBoxColumn.Name = "customerAddressDataGridViewTextBoxColumn";
-            this.customerAddressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // customerPhoneNumberDataGridViewTextBoxColumn
-            // 
-            this.customerPhoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Customer_PhoneNumber";
-            this.customerPhoneNumberDataGridViewTextBoxColumn.HeaderText = "Customer_PhoneNumber";
-            this.customerPhoneNumberDataGridViewTextBoxColumn.Name = "customerPhoneNumberDataGridViewTextBoxColumn";
-            this.customerPhoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // AllCustomerOverview_Form
             // 
@@ -227,8 +127,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllCustomersOverview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllCustomersOverview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -238,17 +139,8 @@
         private System.Windows.Forms.Button bt_Refresh;
         private System.Windows.Forms.Button bt_ViewCustomer;
         private System.Windows.Forms.DataGridView dgv_existingProjectsCustomer;
-        private System.Windows.Forms.DataGridView dgv_AllCustomersOverview;
         private System.Windows.Forms.BindingSource customerBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerFirstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerLastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerLoginDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerPasswordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerEmailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerZipCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerCityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerPhoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource customerBindingSource1;
+        private System.Windows.Forms.DataGridView dgv_AllCustomersOverview;
     }
 }

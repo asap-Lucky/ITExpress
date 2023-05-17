@@ -12,13 +12,16 @@ namespace BLL.Facader
     {
         //Create an Interface of type ICustomerService
         public ICustomerService customerService { get; set; }
+
         // Create an interface of type ICustomer
         public Abstraction.Interfaces.ICustomer MyCustomer { get; set; }
         //Uses Customersevice and ICustomerService to create a new instance of customerservice
+
         public CustomerService(ICustomerService customerService) 
         { 
-        this.customerService = customerService;
+            this.customerService = customerService;
         }
+
         public void RegisterCustomer(string FirstName,string LastName,string Adress, int Zipcode,int Phonenumber,string Email,string Login,string Password,string City)
         {
             // Initialize MyCustomer with a new instance of the Customer class.
@@ -70,6 +73,12 @@ namespace BLL.Facader
         public ICustomer GetCustomer(int Id) 
         { 
             return customerService.GetCustomer(Id);
+        }
+
+
+        public List<ICustomer> GetAllCustomers() 
+        { 
+            return customerService.GetAllCustomers(); 
         }
 
     }

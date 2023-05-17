@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditProfileConsultant));
             this.panel2 = new System.Windows.Forms.Panel();
             this.tb_currentCity = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,10 +56,8 @@
             this.bt_DiscardProfileChanges = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tb_languageDescript_1 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.cb_Endtype = new System.Windows.Forms.ComboBox();
+            this.cb_Language = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
@@ -89,127 +86,142 @@
             this.panel2.Controls.Add(this.tb_currentFirstName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(80, 20);
+            this.panel2.Location = new System.Drawing.Point(107, 25);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(378, 468);
+            this.panel2.Size = new System.Drawing.Size(504, 576);
             this.panel2.TabIndex = 8;
             // 
             // tb_currentCity
             // 
-            this.tb_currentCity.Location = new System.Drawing.Point(148, 304);
+            this.tb_currentCity.Location = new System.Drawing.Point(197, 374);
+            this.tb_currentCity.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentCity.Name = "tb_currentCity";
-            this.tb_currentCity.Size = new System.Drawing.Size(203, 20);
+            this.tb_currentCity.Size = new System.Drawing.Size(269, 22);
             this.tb_currentCity.TabIndex = 16;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label9.Location = new System.Drawing.Point(17, 302);
+            this.label9.Location = new System.Drawing.Point(23, 372);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 20);
+            this.label9.Size = new System.Drawing.Size(52, 25);
             this.label9.TabIndex = 15;
             this.label9.Text = "City:";
             // 
             // tb_currentEmail
             // 
-            this.tb_currentEmail.Location = new System.Drawing.Point(148, 426);
+            this.tb_currentEmail.Location = new System.Drawing.Point(197, 524);
+            this.tb_currentEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentEmail.Name = "tb_currentEmail";
-            this.tb_currentEmail.Size = new System.Drawing.Size(203, 20);
+            this.tb_currentEmail.Size = new System.Drawing.Size(269, 22);
             this.tb_currentEmail.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(17, 424);
+            this.label7.Location = new System.Drawing.Point(23, 522);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 20);
+            this.label7.Size = new System.Drawing.Size(66, 25);
             this.label7.TabIndex = 11;
             this.label7.Text = "Email:";
             // 
             // tb_currentPhoneNumber
             // 
-            this.tb_currentPhoneNumber.Location = new System.Drawing.Point(148, 368);
+            this.tb_currentPhoneNumber.Location = new System.Drawing.Point(197, 453);
+            this.tb_currentPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentPhoneNumber.Name = "tb_currentPhoneNumber";
-            this.tb_currentPhoneNumber.Size = new System.Drawing.Size(203, 20);
+            this.tb_currentPhoneNumber.Size = new System.Drawing.Size(269, 22);
             this.tb_currentPhoneNumber.TabIndex = 10;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(17, 368);
+            this.label6.Location = new System.Drawing.Point(23, 453);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 20);
+            this.label6.Size = new System.Drawing.Size(146, 25);
             this.label6.TabIndex = 9;
             this.label6.Text = "Phone number:";
             // 
             // tb_currentZipCode
             // 
-            this.tb_currentZipCode.Location = new System.Drawing.Point(148, 235);
+            this.tb_currentZipCode.Location = new System.Drawing.Point(197, 289);
+            this.tb_currentZipCode.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentZipCode.Name = "tb_currentZipCode";
-            this.tb_currentZipCode.Size = new System.Drawing.Size(203, 20);
+            this.tb_currentZipCode.Size = new System.Drawing.Size(269, 22);
             this.tb_currentZipCode.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(17, 235);
+            this.label4.Location = new System.Drawing.Point(23, 289);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(82, 25);
             this.label4.TabIndex = 7;
             this.label4.Text = "Zipcode";
             // 
             // tb_currentAddress
             // 
-            this.tb_currentAddress.Location = new System.Drawing.Point(148, 172);
+            this.tb_currentAddress.Location = new System.Drawing.Point(197, 212);
+            this.tb_currentAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentAddress.Name = "tb_currentAddress";
-            this.tb_currentAddress.Size = new System.Drawing.Size(203, 20);
+            this.tb_currentAddress.Size = new System.Drawing.Size(269, 22);
             this.tb_currentAddress.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(17, 170);
+            this.label5.Location = new System.Drawing.Point(23, 209);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 20);
+            this.label5.Size = new System.Drawing.Size(91, 25);
             this.label5.TabIndex = 5;
             this.label5.Text = "Address:";
             // 
             // tb_currrentLastName
             // 
-            this.tb_currrentLastName.Location = new System.Drawing.Point(148, 108);
+            this.tb_currrentLastName.Location = new System.Drawing.Point(197, 133);
+            this.tb_currrentLastName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currrentLastName.Name = "tb_currrentLastName";
-            this.tb_currrentLastName.Size = new System.Drawing.Size(203, 20);
+            this.tb_currrentLastName.Size = new System.Drawing.Size(269, 22);
             this.tb_currrentLastName.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(17, 108);
+            this.label3.Location = new System.Drawing.Point(23, 133);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
+            this.label3.Size = new System.Drawing.Size(104, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Lastname:";
             // 
             // tb_currentFirstName
             // 
-            this.tb_currentFirstName.Location = new System.Drawing.Point(148, 45);
+            this.tb_currentFirstName.Location = new System.Drawing.Point(197, 55);
+            this.tb_currentFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_currentFirstName.Name = "tb_currentFirstName";
-            this.tb_currentFirstName.Size = new System.Drawing.Size(203, 20);
+            this.tb_currentFirstName.Size = new System.Drawing.Size(269, 22);
             this.tb_currentFirstName.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(17, 43);
+            this.label2.Location = new System.Drawing.Point(23, 53);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 20);
+            this.label2.Size = new System.Drawing.Size(104, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Firstname:";
             // 
@@ -217,9 +229,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label1.Location = new System.Drawing.Point(84, 6);
+            this.label1.Location = new System.Drawing.Point(112, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 24);
+            this.label1.Size = new System.Drawing.Size(234, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Personal information";
             // 
@@ -236,59 +249,66 @@
             this.panel1.Controls.Add(this.tb_newUserName);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label17);
-            this.panel1.Location = new System.Drawing.Point(538, 281);
+            this.panel1.Location = new System.Drawing.Point(717, 346);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(502, 207);
+            this.panel1.Size = new System.Drawing.Size(669, 255);
             this.panel1.TabIndex = 11;
             // 
             // tb_repeatNewPassword
             // 
-            this.tb_repeatNewPassword.Location = new System.Drawing.Point(227, 169);
+            this.tb_repeatNewPassword.Location = new System.Drawing.Point(303, 208);
+            this.tb_repeatNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tb_repeatNewPassword.Name = "tb_repeatNewPassword";
-            this.tb_repeatNewPassword.Size = new System.Drawing.Size(242, 20);
+            this.tb_repeatNewPassword.Size = new System.Drawing.Size(321, 22);
             this.tb_repeatNewPassword.TabIndex = 6;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label10.Location = new System.Drawing.Point(23, 167);
+            this.label10.Location = new System.Drawing.Point(31, 206);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(171, 20);
+            this.label10.Size = new System.Drawing.Size(210, 25);
             this.label10.TabIndex = 5;
             this.label10.Text = "Repeat new password:";
             // 
             // tb_newPassWord
             // 
-            this.tb_newPassWord.Location = new System.Drawing.Point(227, 113);
+            this.tb_newPassWord.Location = new System.Drawing.Point(303, 139);
+            this.tb_newPassWord.Margin = new System.Windows.Forms.Padding(4);
             this.tb_newPassWord.Name = "tb_newPassWord";
-            this.tb_newPassWord.Size = new System.Drawing.Size(242, 20);
+            this.tb_newPassWord.Size = new System.Drawing.Size(321, 22);
             this.tb_newPassWord.TabIndex = 4;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label11.Location = new System.Drawing.Point(23, 113);
+            this.label11.Location = new System.Drawing.Point(31, 139);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(116, 20);
+            this.label11.Size = new System.Drawing.Size(146, 25);
             this.label11.TabIndex = 3;
             this.label11.Text = "New password:";
             // 
             // tb_newUserName
             // 
-            this.tb_newUserName.Location = new System.Drawing.Point(226, 55);
+            this.tb_newUserName.Location = new System.Drawing.Point(301, 68);
+            this.tb_newUserName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_newUserName.Name = "tb_newUserName";
-            this.tb_newUserName.Size = new System.Drawing.Size(242, 20);
+            this.tb_newUserName.Size = new System.Drawing.Size(321, 22);
             this.tb_newUserName.TabIndex = 2;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label12.Location = new System.Drawing.Point(23, 53);
+            this.label12.Location = new System.Drawing.Point(31, 65);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 20);
+            this.label12.Size = new System.Drawing.Size(149, 25);
             this.label12.TabIndex = 1;
             this.label12.Text = "New username:";
             // 
@@ -296,9 +316,10 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label17.Location = new System.Drawing.Point(151, 10);
+            this.label17.Location = new System.Drawing.Point(201, 12);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(198, 24);
+            this.label17.Size = new System.Drawing.Size(255, 29);
             this.label17.TabIndex = 0;
             this.label17.Text = "New log-in information";
             // 
@@ -310,13 +331,14 @@
             this.bt_saveChangesOnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_saveChangesOnProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.bt_saveChangesOnProfile.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.bt_saveChangesOnProfile.Location = new System.Drawing.Point(812, 510);
+            this.bt_saveChangesOnProfile.Location = new System.Drawing.Point(1083, 628);
             this.bt_saveChangesOnProfile.Margin = new System.Windows.Forms.Padding(0);
             this.bt_saveChangesOnProfile.Name = "bt_saveChangesOnProfile";
-            this.bt_saveChangesOnProfile.Size = new System.Drawing.Size(195, 28);
+            this.bt_saveChangesOnProfile.Size = new System.Drawing.Size(260, 34);
             this.bt_saveChangesOnProfile.TabIndex = 13;
             this.bt_saveChangesOnProfile.Text = "Save changes";
             this.bt_saveChangesOnProfile.UseVisualStyleBackColor = false;
+            this.bt_saveChangesOnProfile.Click += new System.EventHandler(this.bt_saveChangesOnProfile_Click);
             // 
             // bt_DiscardProfileChanges
             // 
@@ -326,13 +348,14 @@
             this.bt_DiscardProfileChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_DiscardProfileChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.bt_DiscardProfileChanges.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.bt_DiscardProfileChanges.Location = new System.Drawing.Point(80, 510);
+            this.bt_DiscardProfileChanges.Location = new System.Drawing.Point(107, 628);
             this.bt_DiscardProfileChanges.Margin = new System.Windows.Forms.Padding(0);
             this.bt_DiscardProfileChanges.Name = "bt_DiscardProfileChanges";
-            this.bt_DiscardProfileChanges.Size = new System.Drawing.Size(195, 28);
+            this.bt_DiscardProfileChanges.Size = new System.Drawing.Size(260, 34);
             this.bt_DiscardProfileChanges.TabIndex = 12;
             this.bt_DiscardProfileChanges.Text = "Discard changes";
             this.bt_DiscardProfileChanges.UseVisualStyleBackColor = false;
+            this.bt_DiscardProfileChanges.Click += new System.EventHandler(this.bt_DiscardProfileChanges_Click);
             // 
             // panel3
             // 
@@ -341,73 +364,55 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.comboBox2);
-            this.panel3.Controls.Add(this.comboBox1);
-            this.panel3.Controls.Add(this.tb_languageDescript_1);
-            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.cb_Endtype);
+            this.panel3.Controls.Add(this.cb_Language);
             this.panel3.Controls.Add(this.label19);
             this.panel3.Controls.Add(this.label20);
-            this.panel3.Location = new System.Drawing.Point(538, 20);
+            this.panel3.Location = new System.Drawing.Point(717, 25);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(502, 243);
+            this.panel3.Size = new System.Drawing.Size(669, 169);
             this.panel3.TabIndex = 12;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label13.Location = new System.Drawing.Point(23, 96);
+            this.label13.Location = new System.Drawing.Point(31, 118);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(72, 20);
+            this.label13.Size = new System.Drawing.Size(90, 25);
             this.label13.TabIndex = 15;
             this.label13.Text = "Endtype:";
             // 
-            // comboBox2
+            // cb_Endtype
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(180, 95);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(210, 21);
-            this.comboBox2.TabIndex = 14;
+            this.cb_Endtype.FormattingEnabled = true;
+            this.cb_Endtype.Location = new System.Drawing.Point(240, 117);
+            this.cb_Endtype.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_Endtype.Name = "cb_Endtype";
+            this.cb_Endtype.Size = new System.Drawing.Size(279, 24);
+            this.cb_Endtype.TabIndex = 14;
             // 
-            // comboBox1
+            // cb_Language
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(180, 48);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(210, 21);
-            this.comboBox1.TabIndex = 13;
-            // 
-            // tb_languageDescript_1
-            // 
-            this.tb_languageDescript_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.tb_languageDescript_1.Location = new System.Drawing.Point(27, 159);
-            this.tb_languageDescript_1.Multiline = true;
-            this.tb_languageDescript_1.Name = "tb_languageDescript_1";
-            this.tb_languageDescript_1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_languageDescript_1.Size = new System.Drawing.Size(454, 71);
-            this.tb_languageDescript_1.TabIndex = 12;
-            this.tb_languageDescript_1.Text = resources.GetString("tb_languageDescript_1.Text");
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(23, 136);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(192, 20);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Description of experience:";
+            this.cb_Language.FormattingEnabled = true;
+            this.cb_Language.Location = new System.Drawing.Point(240, 59);
+            this.cb_Language.Margin = new System.Windows.Forms.Padding(4);
+            this.cb_Language.Name = "cb_Language";
+            this.cb_Language.Size = new System.Drawing.Size(279, 24);
+            this.cb_Language.TabIndex = 13;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label19.Location = new System.Drawing.Point(23, 46);
+            this.label19.Location = new System.Drawing.Point(31, 57);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label19.Size = new System.Drawing.Size(85, 20);
+            this.label19.Size = new System.Drawing.Size(106, 25);
             this.label19.TabIndex = 10;
             this.label19.Text = "Language:";
             // 
@@ -415,18 +420,19 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label20.Location = new System.Drawing.Point(151, 6);
+            this.label20.Location = new System.Drawing.Point(201, 7);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(227, 24);
+            this.label20.Size = new System.Drawing.Size(294, 29);
             this.label20.TabIndex = 9;
             this.label20.Text = "Specialization information:";
             // 
             // EditProfileConsultant
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
-            this.ClientSize = new System.Drawing.Size(1080, 557);
+            this.ClientSize = new System.Drawing.Size(1440, 686);
             this.ControlBox = false;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.bt_saveChangesOnProfile);
@@ -434,9 +440,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditProfileConsultant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
+            this.Load += new System.EventHandler(this.EditProfileConsultant_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -477,10 +485,8 @@
         private System.Windows.Forms.Button bt_DiscardProfileChanges;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox tb_languageDescript_1;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cb_Endtype;
+        private System.Windows.Forms.ComboBox cb_Language;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
     }

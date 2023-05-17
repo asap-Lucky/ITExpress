@@ -104,6 +104,7 @@ namespace Presentation.Customer
         private void bt_saveChangesOnProfile_Click(object sender, EventArgs e)
         {
             SaveChanges();
+            MessageBox.Show("Changes have been saved succesfully, you may now close this window safely!", "Saved succesfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
