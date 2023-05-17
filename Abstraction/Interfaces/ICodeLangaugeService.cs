@@ -16,6 +16,6 @@ namespace Abstraction.Interfaces
 
         void EditCodeLanguage(ICodeLanguage dto);
 
-        ICodeLanguage GetCodeLanguage(int id);
+        ICodeLanguage GetCodeLanguage(ICodeLanguage codeLanguage);
     }
 }

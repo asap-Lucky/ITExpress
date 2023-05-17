@@ -37,9 +37,9 @@ namespace BLL.Services
             return _codeLanguageRepo.GetAllCodeLanguages();
         }
 
-        public ICodeLanguage GetCodeLanguage(int id)
+        public ICodeLanguage GetCodeLanguage(ICodeLanguage codeLanguage)
         {
-            return _codeLanguageRepo.GetCodeLanguage(id);
+            return _codeLanguageRepo.GetCodeLanguage(codeLanguage);
         }
 
     }

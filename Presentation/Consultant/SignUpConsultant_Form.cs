@@ -63,7 +63,7 @@ namespace UI.Consultant
             // If all checks are passed, set the values of MyConsultant properties and add it to the database.
             else
             {
-                FacadeService.RegisterConsultant(tb_firstName.Text, tb_lastName.Text, tb_address.Text, zipcode, phonenumber, tb_email.Text, tb_userName.Text, tb_passWord.Text, tb_City.Text, cb_language_1.SelectedIndex, cb_endType_1.SelectedIndex);
+                FacadeService.RegisterConsultant(tb_firstName.Text, tb_lastName.Text, tb_address.Text, zipcode, phonenumber, tb_email.Text, tb_userName.Text, tb_passWord.Text, tb_City.Text, (ICodeLanguage)cb_language_1.SelectedItem, (IEndType)cb_endType_1.SelectedItem);
             }
         }
    
