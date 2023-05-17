@@ -97,14 +97,6 @@
             this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1056, 466);
             this.dgv_existingProjectsCustomer.TabIndex = 14;
             // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(DAL.Database.Customer);
-            // 
-            // customerBindingSource1
-            // 
-            this.customerBindingSource1.DataSource = typeof(DAL.Database.Customer);
-            // 
             // dgv_AllCustomersOverview
             // 
             this.dgv_AllCustomersOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
