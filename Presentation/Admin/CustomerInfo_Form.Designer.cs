@@ -31,25 +31,25 @@
             this.bt_EditCustomerInfo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tb_phoneNumber = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tb_email = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_city = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_zipCode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_address = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_lastName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_repeatEmail = new System.Windows.Forms.TextBox();
             this.tb_firstName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tb_userName = new System.Windows.Forms.TextBox();
+            this.tb_passWord = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -88,17 +88,17 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.tb_phoneNumber);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.tb_email);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.tb_city);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.tb_zipCode);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.tb_address);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tb_lastName);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.tb_repeatEmail);
             this.panel1.Controls.Add(this.tb_firstName);
@@ -113,19 +113,19 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label8.Location = new System.Drawing.Point(39, 13);
+            this.label8.Location = new System.Drawing.Point(61, 13);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(198, 24);
+            this.label8.Size = new System.Drawing.Size(160, 24);
             this.label8.TabIndex = 45;
-            this.label8.Text = "New log-in information";
+            this.label8.Text = "Log-in information";
             // 
-            // textBox6
+            // tb_phoneNumber
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(20, 433);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(239, 21);
-            this.textBox6.TabIndex = 44;
+            this.tb_phoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_phoneNumber.Location = new System.Drawing.Point(20, 433);
+            this.tb_phoneNumber.Name = "tb_phoneNumber";
+            this.tb_phoneNumber.Size = new System.Drawing.Size(239, 21);
+            this.tb_phoneNumber.TabIndex = 44;
             // 
             // label9
             // 
@@ -137,13 +137,13 @@
             this.label9.TabIndex = 43;
             this.label9.Text = "Phonenumber:";
             // 
-            // textBox5
+            // tb_email
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(20, 378);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(239, 21);
-            this.textBox5.TabIndex = 42;
+            this.tb_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_email.Location = new System.Drawing.Point(20, 378);
+            this.tb_email.Name = "tb_email";
+            this.tb_email.Size = new System.Drawing.Size(239, 21);
+            this.tb_email.TabIndex = 42;
             // 
             // label5
             // 
@@ -155,13 +155,13 @@
             this.label5.TabIndex = 41;
             this.label5.Text = "Email:";
             // 
-            // textBox4
+            // tb_city
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(20, 320);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(239, 21);
-            this.textBox4.TabIndex = 40;
+            this.tb_city.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_city.Location = new System.Drawing.Point(20, 320);
+            this.tb_city.Name = "tb_city";
+            this.tb_city.Size = new System.Drawing.Size(239, 21);
+            this.tb_city.TabIndex = 40;
             // 
             // label4
             // 
@@ -173,13 +173,13 @@
             this.label4.TabIndex = 39;
             this.label4.Text = "City:";
             // 
-            // textBox3
+            // tb_zipCode
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(20, 264);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(239, 21);
-            this.textBox3.TabIndex = 38;
+            this.tb_zipCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_zipCode.Location = new System.Drawing.Point(20, 264);
+            this.tb_zipCode.Name = "tb_zipCode";
+            this.tb_zipCode.Size = new System.Drawing.Size(239, 21);
+            this.tb_zipCode.TabIndex = 38;
             // 
             // label3
             // 
@@ -191,13 +191,13 @@
             this.label3.TabIndex = 37;
             this.label3.Text = "Zipcode:";
             // 
-            // textBox2
+            // tb_address
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(20, 199);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(239, 21);
-            this.textBox2.TabIndex = 36;
+            this.tb_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_address.Location = new System.Drawing.Point(20, 199);
+            this.tb_address.Name = "tb_address";
+            this.tb_address.Size = new System.Drawing.Size(239, 21);
+            this.tb_address.TabIndex = 36;
             // 
             // label11
             // 
@@ -209,13 +209,13 @@
             this.label11.TabIndex = 35;
             this.label11.Text = "Address:";
             // 
-            // textBox1
+            // tb_lastName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(20, 137);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 21);
-            this.textBox1.TabIndex = 34;
+            this.tb_lastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_lastName.Location = new System.Drawing.Point(20, 137);
+            this.tb_lastName.Name = "tb_lastName";
+            this.tb_lastName.Size = new System.Drawing.Size(239, 21);
+            this.tb_lastName.TabIndex = 34;
             // 
             // label10
             // 
@@ -265,8 +265,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.textBox8);
-            this.panel2.Controls.Add(this.textBox7);
+            this.panel2.Controls.Add(this.tb_userName);
+            this.panel2.Controls.Add(this.tb_passWord);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label17);
@@ -276,21 +276,21 @@
             this.panel2.Size = new System.Drawing.Size(330, 155);
             this.panel2.TabIndex = 18;
             // 
-            // textBox8
+            // tb_userName
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(134, 69);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(184, 20);
-            this.textBox8.TabIndex = 15;
+            this.tb_userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_userName.Location = new System.Drawing.Point(134, 69);
+            this.tb_userName.Name = "tb_userName";
+            this.tb_userName.Size = new System.Drawing.Size(184, 20);
+            this.tb_userName.TabIndex = 15;
             // 
-            // textBox7
+            // tb_passWord
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(134, 113);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(184, 20);
-            this.textBox7.TabIndex = 14;
+            this.tb_passWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_passWord.Location = new System.Drawing.Point(134, 113);
+            this.tb_passWord.Name = "tb_passWord";
+            this.tb_passWord.Size = new System.Drawing.Size(184, 20);
+            this.tb_passWord.TabIndex = 14;
             // 
             // label7
             // 
@@ -316,11 +316,11 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label17.Location = new System.Drawing.Point(65, 13);
+            this.label17.Location = new System.Drawing.Point(91, 13);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(198, 24);
+            this.label17.Size = new System.Drawing.Size(160, 24);
             this.label17.TabIndex = 7;
-            this.label17.Text = "New log-in information";
+            this.label17.Text = "Log-in information";
             // 
             // panel3
             // 
@@ -392,6 +392,7 @@
             this.bt_DeleteCustomer.TabIndex = 22;
             this.bt_DeleteCustomer.Text = "Delete customer";
             this.bt_DeleteCustomer.UseVisualStyleBackColor = false;
+            this.bt_DeleteCustomer.Click += new System.EventHandler(this.bt_DeleteCustomer_Click);
             // 
             // bt_GoBack
             // 
@@ -448,23 +449,23 @@
         private System.Windows.Forms.TextBox tb_firstName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_zipCode;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_address;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_lastName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tb_phoneNumber;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tb_email;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tb_city;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tb_userName;
+        private System.Windows.Forms.TextBox tb_passWord;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label17;
