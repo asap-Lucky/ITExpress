@@ -119,17 +119,23 @@
     <Compile Include="Admin\Specialization_Form.Designer.cs">
       <DependentUpon>Specialization_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="All\SendMessage_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="All\SendMessage_Form.Designer.cs">
+      <DependentUpon>SendMessage_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="All\OpenProject_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="All\OpenProject_Form.Designer.cs">
       <DependentUpon>OpenProject_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="All\Message_Form.cs">
+    <Compile Include="All\RecieveMessage_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="All\Message_Form.Designer.cs">
-      <DependentUpon>Message_Form.cs</DependentUpon>
+    <Compile Include="All\RecieveMessage_Form.Designer.cs">
+      <DependentUpon>RecieveMessage_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Consultant\ConsultantClosedProjects_Form.cs">
       <SubType>Form</SubType>
@@ -190,12 +196,6 @@
     </Compile>
     <Compile Include="Consultant\SignUpConsultant_Form.Designer.cs">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\InvitationSend_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Customer\InvitationSend_Form.Designer.cs">
-      <DependentUpon>InvitationSend_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\SearchConsultant_Form.cs">
       <SubType>Form</SubType>
@@ -295,11 +295,14 @@
     <EmbeddedResource Include="Admin\Specialization_Form.resx">
       <DependentUpon>Specialization_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="All\SendMessage_Form.resx">
+      <DependentUpon>SendMessage_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="All\OpenProject_Form.resx">
       <DependentUpon>OpenProject_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="All\Message_Form.resx">
-      <DependentUpon>Message_Form.cs</DependentUpon>
+    <EmbeddedResource Include="All\RecieveMessage_Form.resx">
+      <DependentUpon>RecieveMessage_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\ConsultantClosedProjects_Form.resx">
       <DependentUpon>ConsultantClosedProjects_Form.cs</DependentUpon>
@@ -330,9 +333,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\SignUpConsultant_Form.resx">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Customer\InvitationSend_Form.resx">
-      <DependentUpon>InvitationSend_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\SearchConsultant_Form.resx">
       <DependentUpon>SearchConsultant_Form.cs</DependentUpon>

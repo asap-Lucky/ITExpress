@@ -1,6 +1,6 @@
 ﻿namespace Presentation.All
 {
-    partial class Message_Form
+    partial class RecieveMessage_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.bt_GoBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -114,7 +115,7 @@
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Location = new System.Drawing.Point(13, 147);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(557, 291);
+            this.panel2.Size = new System.Drawing.Size(557, 250);
             this.panel2.TabIndex = 1;
             // 
             // label1
@@ -132,8 +133,23 @@
             this.textBox1.Location = new System.Drawing.Point(9, 24);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(540, 258);
+            this.textBox1.Size = new System.Drawing.Size(540, 218);
             this.textBox1.TabIndex = 0;
+            // 
+            // bt_GoBack
+            // 
+            this.bt_GoBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.bt_GoBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_GoBack.FlatAppearance.BorderSize = 0;
+            this.bt_GoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_GoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_GoBack.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_GoBack.Location = new System.Drawing.Point(13, 408);
+            this.bt_GoBack.Name = "bt_GoBack";
+            this.bt_GoBack.Size = new System.Drawing.Size(105, 30);
+            this.bt_GoBack.TabIndex = 31;
+            this.bt_GoBack.Text = "Back";
+            this.bt_GoBack.UseVisualStyleBackColor = false;
             // 
             // Message_Form
             // 
@@ -141,6 +157,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(583, 450);
+            this.Controls.Add(this.bt_GoBack);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(599, 489);
@@ -167,5 +184,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button bt_GoBack;
     }
 }

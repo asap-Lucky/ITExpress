@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tb_languageDescript_1.Text" xml:space="preserve">
+  <data name="tb_languageDescript.Text" xml:space="preserve">
     <value>Write about your experience with the selected language and describe your skills with it.
 For example how well do you know the language? In what context did you use it? 
 Was it used under front-end or back-end development?

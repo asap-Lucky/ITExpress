@@ -29,7 +29,7 @@ namespace Presentation.Customer
         } 
 
         // This method retrieves the data for the customer choosen in the "AllCustomerOverview_Form"
-        private void GetCustomerData()
+        public void GetCustomerData()
         {
             tb_firstName.Text = selectedCustomer.FirstName;
             tb_lastName.Text = selectedCustomer.LastName;
@@ -70,7 +70,7 @@ namespace Presentation.Customer
         private void bt_EditCustomerInfo_Click(object sender, EventArgs e)
         {
             //Hides this childform and opens another one on top of this
-            EditCustomerInfo editCustomerInfo = new EditCustomerInfo();//<-- Remember to take the selectedCustomer variable and put it in the constructor on the EditCustomerInfo_Form.
+            EditCustomerInfo editCustomerInfo = new EditCustomerInfo(selectedCustomer);//<-- Remember to take the selectedCustomer variable and put it in the constructor on the EditCustomerInfo_Form.
             editCustomerInfo.Show();
             this.Hide();
         }

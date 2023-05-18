@@ -32,7 +32,9 @@
             this.bt_Refresh = new System.Windows.Forms.Button();
             this.bt_ViewConsultant = new System.Windows.Forms.Button();
             this.dgv_existingProjectsCustomer = new System.Windows.Forms.DataGridView();
+            this.dgv_AllConsultantsOverview = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllConsultantsOverview)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_AddConsultant
@@ -91,6 +93,20 @@
             this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1056, 466);
             this.dgv_existingProjectsCustomer.TabIndex = 14;
             // 
+            // dgv_AllConsultantsOverview
+            // 
+            this.dgv_AllConsultantsOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_AllConsultantsOverview.Location = new System.Drawing.Point(12, 12);
+            this.dgv_AllConsultantsOverview.MultiSelect = false;
+            this.dgv_AllConsultantsOverview.Name = "dgv_AllConsultantsOverview";
+            this.dgv_AllConsultantsOverview.ReadOnly = true;
+            this.dgv_AllConsultantsOverview.RowHeadersVisible = false;
+            this.dgv_AllConsultantsOverview.RowHeadersWidth = 40;
+            this.dgv_AllConsultantsOverview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgv_AllConsultantsOverview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_AllConsultantsOverview.Size = new System.Drawing.Size(1056, 466);
+            this.dgv_AllConsultantsOverview.TabIndex = 16;
+            // 
             // AllConsultantOverview_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -98,6 +114,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
+            this.Controls.Add(this.dgv_AllConsultantsOverview);
             this.Controls.Add(this.dgv_existingProjectsCustomer);
             this.Controls.Add(this.bt_ViewConsultant);
             this.Controls.Add(this.bt_Refresh);
@@ -107,6 +124,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllConsultantsOverview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -116,5 +134,6 @@
         private System.Windows.Forms.Button bt_Refresh;
         private System.Windows.Forms.Button bt_ViewConsultant;
         private System.Windows.Forms.DataGridView dgv_existingProjectsCustomer;
+        private System.Windows.Forms.DataGridView dgv_AllConsultantsOverview;
     }
 }
