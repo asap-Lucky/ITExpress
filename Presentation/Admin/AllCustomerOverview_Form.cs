@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Abstraction.Interfaces;
 using BLL.Models;
 using Presentation.Consultant;
+using UI.Costumer;
 
 namespace Presentation.Customer
 {
@@ -47,13 +48,18 @@ namespace Presentation.Customer
 
                 //Hides this childform and opens another one on top of this. 
                 CustomerInfo customerInfo = new CustomerInfo(selectedCustomer);
-                this.Hide();
                 customerInfo.Show();
+                this.Hide();
             }
 
         }
 
-
+        private void bt_AddCustomer_Click(object sender, EventArgs e)
+        {
+            SignUpCustomer_Form sign = new SignUpCustomer_Form();
+            sign.Show();
+            this.Hide();
+        }
     }
 
 }

@@ -9,16 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Presentation.Admin;
+using BLL.Services;
 
 namespace Presentation.Customer
 {
     public partial class CustomerInfo : Form
     {
-        public Form currentChildForm;
-        
-        private AdminsOverviewWindow_Form parentForm;
 
-        private ICustomer selectedCustomer { get; set; }
+        private Abstraction.Interfaces.ICustomer selectedCustomer { get; set; }
+
+        private BLL.Services.CustomerService customerService { get; set; }
 
         public CustomerInfo(ICustomer selectedCustomer)
         {
@@ -51,7 +52,9 @@ namespace Presentation.Customer
 
             if (result == DialogResult.Yes)
             {
-                // User clicked Yes, perform the desired action
+                customerService = new BLL.Services.CustomerService();
+                customerService.DeleteCustomer(selectedCustomer);
+                this.Hide();
             }
             else if (result == DialogResult.No)
             {
@@ -61,26 +64,15 @@ namespace Presentation.Customer
 
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
-            
             this.Hide();
-            OpenChildForm(new AllCustomerOverview_Form());
         }
 
-        public void OpenChildForm(Form childform)
+        private void bt_EditCustomerInfo_Click(object sender, EventArgs e)
         {
-            if (currentChildForm != null)
-            {
-                // Opems only one instance of the form
-                currentChildForm.Close();
-            }
-            currentChildForm = childform;
-            childform.TopLevel = false;
-            childform.FormBorderStyle = FormBorderStyle.None;
-            childform.Dock = DockStyle.Fill;
-            //ParentForm.panelAdminDesktop.Controls.Add(childform);
-            //ParentForm.panelAdminDesktop.Tag = childform;
-            childform.BringToFront();
-            childform.Show();
+            //Hides this childform and opens another one on top of this
+            EditCustomerInfo editCustomerInfo = new EditCustomerInfo();//<-- Remember to take the selectedCustomer variable and put it in the constructor on the EditCustomerInfo_Form.
+            editCustomerInfo.Show();
+            this.Hide();
         }
     }
 }

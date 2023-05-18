@@ -73,6 +73,11 @@ namespace Presentation.Consultant
             this.Close();
         }
 
+        public Panel PanelAdminDesktop
+        {
+            get { return panelAdminDesktop; }
+        }
+
         private void bt_CustomerList_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
