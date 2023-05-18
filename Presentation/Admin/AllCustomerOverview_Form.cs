@@ -47,8 +47,8 @@ namespace Presentation.Customer
 
                 //Hides this childform and opens another one on top of this. 
                 CustomerInfo customerInfo = new CustomerInfo(selectedCustomer);
-                this.Hide();
                 customerInfo.Show();
+                this.Hide();
             }
 
         }
