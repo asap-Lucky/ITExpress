@@ -7,27 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Abstraction.Interfaces;
 
 namespace Presentation.Customer
 {
     public partial class EditCustomerInfo : Form
     {
-        public EditCustomerInfo()
+        private ICustomer SelectedCustomer { get; set; }
+
+        public EditCustomerInfo(ICustomer selectedCustomer)
         {
             InitializeComponent();
+            SelectedCustomer = selectedCustomer;
+            InitialiseControl();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+
+        public void InitialiseControl()
         {
+            tb_firstName.Text = SelectedCustomer.FirstName;
+            tb_lastName.Text = SelectedCustomer.LastName;
+            tb_address.Text = SelectedCustomer.Address;
+            tb_city.Text = SelectedCustomer.City;
+            tb_phoneNumber.Text = SelectedCustomer.PhoneNumber.ToString();
+            tb_zipCode.Text = SelectedCustomer.ZipCode.ToString();
+            tb_userName.Text = SelectedCustomer.Login;
+            tb_passWord.Text = SelectedCustomer.Password;
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void bt_EditCustomerInfo_Click(object sender, EventArgs e)
         {
 
         }
