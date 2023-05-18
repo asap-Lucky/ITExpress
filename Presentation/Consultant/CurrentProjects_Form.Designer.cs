@@ -30,7 +30,6 @@
         {
             this.bt_OpenProject = new System.Windows.Forms.Button();
             this.bt_Refresh = new System.Windows.Forms.Button();
-            this.bt_EditProject = new System.Windows.Forms.Button();
             this.dgv_existingProjectsCustomer = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).BeginInit();
             this.SuspendLayout();
@@ -65,21 +64,6 @@
             this.bt_Refresh.Text = "Refresh";
             this.bt_Refresh.UseVisualStyleBackColor = false;
             // 
-            // bt_EditProject
-            // 
-            this.bt_EditProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
-            this.bt_EditProject.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_EditProject.FlatAppearance.BorderSize = 0;
-            this.bt_EditProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_EditProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_EditProject.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_EditProject.Location = new System.Drawing.Point(427, 503);
-            this.bt_EditProject.Name = "bt_EditProject";
-            this.bt_EditProject.Size = new System.Drawing.Size(205, 30);
-            this.bt_EditProject.TabIndex = 13;
-            this.bt_EditProject.Text = "Edit project";
-            this.bt_EditProject.UseVisualStyleBackColor = false;
-            // 
             // dgv_existingProjectsCustomer
             // 
             this.dgv_existingProjectsCustomer.BackgroundColor = System.Drawing.Color.White;
@@ -89,7 +73,7 @@
             this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1056, 466);
             this.dgv_existingProjectsCustomer.TabIndex = 14;
             // 
-            // ExistingProject_Form
+            // CurrentProjects_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -97,11 +81,10 @@
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
             this.Controls.Add(this.dgv_existingProjectsCustomer);
-            this.Controls.Add(this.bt_EditProject);
             this.Controls.Add(this.bt_Refresh);
             this.Controls.Add(this.bt_OpenProject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ExistingProject_Form";
+            this.Name = "CurrentProjects_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).EndInit();
@@ -112,7 +95,6 @@
         #endregion
         private System.Windows.Forms.Button bt_OpenProject;
         private System.Windows.Forms.Button bt_Refresh;
-        private System.Windows.Forms.Button bt_EditProject;
         private System.Windows.Forms.DataGridView dgv_existingProjectsCustomer;
     }
 }

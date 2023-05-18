@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Windows.Forms;
 using Abstraction.Interfaces;
 using BLL.Models;
+using Presentation.Consultant;
 
 namespace Presentation.Customer
 {
     public partial class AllCustomerOverview_Form : Form
     {
+
+        //Fields
         private BLL.Facader.CustomerService customerService { get; set; }
 
         public AllCustomerOverview_Form()
@@ -16,7 +20,7 @@ namespace Presentation.Customer
             this.customerService = new BLL.Facader.CustomerService(new BLL.Services.CustomerService());
             UpdateCustomerOnUI();
             LoadCustomerData();
-            
+
         }
 
         private void LoadCustomerData()
@@ -30,21 +34,27 @@ namespace Presentation.Customer
             dgv_AllCustomersOverview.DataSource = customerService.GetAllCustomers();
             dgv_AllCustomersOverview.Refresh();
         }
-        
+
+
         private void bt_ViewCustomer_Click(object sender, EventArgs e)
-        {   
+        {
             if (dgv_AllCustomersOverview.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dgv_AllCustomersOverview.SelectedRows[0];
-                var selectedCustomer = selectedRow.DataBoundItem;
-                BLL.Models.Customer newCustomer = new BLL.Models.Customer();
-                
+                var customer = selectedRow.DataBoundItem;
+                ICustomer selectedCustomer = (ICustomer)customer;
 
-                //Put argument in constructor
-                CustomerInfo customerInfo = new CustomerInfo();
-                customerInfo.Show();
+
+                //Hides this childform and opens another one on top of this. 
+                CustomerInfo customerInfo = new CustomerInfo(selectedCustomer);
                 this.Hide();
+                customerInfo.Show();
             }
+
         }
+
+
     }
+
 }
+

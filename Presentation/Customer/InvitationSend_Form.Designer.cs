@@ -33,19 +33,19 @@
             this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tb_CustomerSenderName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_HourWage = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tb_ProjectDescription = new System.Windows.Forms.TextBox();
+            this.bt_SendInvitation = new System.Windows.Forms.Button();
             this.bt_DiscardProject = new System.Windows.Forms.Button();
+            this.cb_ProjectTitle = new System.Windows.Forms.ComboBox();
+            this.cb_ProjectRequierements = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,17 +53,17 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.cb_ProjectRequierements);
+            this.panel1.Controls.Add(this.cb_ProjectTitle);
             this.panel1.Controls.Add(this.dtp_endDate);
             this.panel1.Controls.Add(this.dtp_startDate);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.tb_CustomerSenderName);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.tb_HourWage);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
@@ -104,12 +104,12 @@
             this.label7.TabIndex = 29;
             this.label7.Text = "Start date:";
             // 
-            // textBox5
+            // tb_CustomerSenderName
             // 
-            this.textBox5.Location = new System.Drawing.Point(234, 129);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(501, 20);
-            this.textBox5.TabIndex = 9;
+            this.tb_CustomerSenderName.Location = new System.Drawing.Point(234, 129);
+            this.tb_CustomerSenderName.Name = "tb_CustomerSenderName";
+            this.tb_CustomerSenderName.Size = new System.Drawing.Size(501, 20);
+            this.tb_CustomerSenderName.TabIndex = 9;
             // 
             // label5
             // 
@@ -121,12 +121,12 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "From:";
             // 
-            // textBox4
+            // tb_HourWage
             // 
-            this.textBox4.Location = new System.Drawing.Point(234, 94);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(501, 20);
-            this.textBox4.TabIndex = 7;
+            this.tb_HourWage.Location = new System.Drawing.Point(234, 94);
+            this.tb_HourWage.Name = "tb_HourWage";
+            this.tb_HourWage.Size = new System.Drawing.Size(501, 20);
+            this.tb_HourWage.TabIndex = 7;
             // 
             // label4
             // 
@@ -138,13 +138,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Hour wage:";
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(234, 54);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(501, 20);
-            this.textBox3.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -154,13 +147,6 @@
             this.label3.Size = new System.Drawing.Size(131, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Project requierements:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(234, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(501, 20);
-            this.textBox2.TabIndex = 3;
             // 
             // label2
             // 
@@ -176,7 +162,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tb_ProjectDescription);
             this.panel2.Location = new System.Drawing.Point(13, 291);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(773, 118);
@@ -192,30 +178,30 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Project description:";
             // 
-            // textBox1
+            // tb_ProjectDescription
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 24);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(748, 82);
-            this.textBox1.TabIndex = 0;
+            this.tb_ProjectDescription.Location = new System.Drawing.Point(13, 24);
+            this.tb_ProjectDescription.Multiline = true;
+            this.tb_ProjectDescription.Name = "tb_ProjectDescription";
+            this.tb_ProjectDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_ProjectDescription.Size = new System.Drawing.Size(748, 82);
+            this.tb_ProjectDescription.TabIndex = 0;
             // 
-            // button1
+            // bt_SendInvitation
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(200)))), ((int)(((byte)(56)))));
-            this.button1.CausesValidation = false;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(594, 437);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 28);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Send invitation";
-            this.button1.UseVisualStyleBackColor = false;
+            this.bt_SendInvitation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(200)))), ((int)(((byte)(56)))));
+            this.bt_SendInvitation.CausesValidation = false;
+            this.bt_SendInvitation.FlatAppearance.BorderSize = 0;
+            this.bt_SendInvitation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_SendInvitation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.bt_SendInvitation.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.bt_SendInvitation.Location = new System.Drawing.Point(594, 437);
+            this.bt_SendInvitation.Margin = new System.Windows.Forms.Padding(0);
+            this.bt_SendInvitation.Name = "bt_SendInvitation";
+            this.bt_SendInvitation.Size = new System.Drawing.Size(195, 28);
+            this.bt_SendInvitation.TabIndex = 5;
+            this.bt_SendInvitation.Text = "Send invitation";
+            this.bt_SendInvitation.UseVisualStyleBackColor = false;
             // 
             // bt_DiscardProject
             // 
@@ -233,13 +219,29 @@
             this.bt_DiscardProject.Text = "Go back";
             this.bt_DiscardProject.UseVisualStyleBackColor = false;
             // 
+            // cb_ProjectTitle
+            // 
+            this.cb_ProjectTitle.FormattingEnabled = true;
+            this.cb_ProjectTitle.Location = new System.Drawing.Point(234, 14);
+            this.cb_ProjectTitle.Name = "cb_ProjectTitle";
+            this.cb_ProjectTitle.Size = new System.Drawing.Size(501, 21);
+            this.cb_ProjectTitle.TabIndex = 33;
+            // 
+            // cb_ProjectRequierements
+            // 
+            this.cb_ProjectRequierements.FormattingEnabled = true;
+            this.cb_ProjectRequierements.Location = new System.Drawing.Point(234, 53);
+            this.cb_ProjectRequierements.Name = "cb_ProjectRequierements";
+            this.cb_ProjectRequierements.Size = new System.Drawing.Size(501, 21);
+            this.cb_ProjectRequierements.TabIndex = 34;
+            // 
             // InvitationSend_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(798, 479);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bt_SendInvitation);
             this.Controls.Add(this.bt_DiscardProject);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -258,22 +260,22 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tb_HourWage;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tb_ProjectDescription;
+        private System.Windows.Forms.TextBox tb_CustomerSenderName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtp_endDate;
         private System.Windows.Forms.DateTimePicker dtp_startDate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bt_SendInvitation;
         private System.Windows.Forms.Button bt_DiscardProject;
+        private System.Windows.Forms.ComboBox cb_ProjectRequierements;
+        private System.Windows.Forms.ComboBox cb_ProjectTitle;
     }
 }
