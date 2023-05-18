@@ -90,7 +90,19 @@ namespace Presentation.Customer
 
                     customerService.EditCustomer(SelectedCustomer);
                 }
+            }
+        }
 
+        private void bt_DiscardChanges_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you wish to discard your changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                InitialiseControl();
+            }
+            else if (result == DialogResult.No)
+            {
 
             }
         }

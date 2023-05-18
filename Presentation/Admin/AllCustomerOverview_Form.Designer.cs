@@ -100,6 +100,10 @@
             // 
             // dgv_AllCustomersOverview
             // 
+            this.dgv_AllCustomersOverview.AllowUserToAddRows = false;
+            this.dgv_AllCustomersOverview.AllowUserToDeleteRows = false;
+            this.dgv_AllCustomersOverview.AllowUserToResizeColumns = false;
+            this.dgv_AllCustomersOverview.AllowUserToResizeRows = false;
             this.dgv_AllCustomersOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_AllCustomersOverview.Location = new System.Drawing.Point(12, 12);
             this.dgv_AllCustomersOverview.MultiSelect = false;
@@ -110,7 +114,7 @@
             this.dgv_AllCustomersOverview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv_AllCustomersOverview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_AllCustomersOverview.Size = new System.Drawing.Size(1056, 466);
-            this.dgv_AllCustomersOverview.TabIndex = 15;
+            this.dgv_AllCustomersOverview.TabIndex = 16;
             // 
             // AllCustomerOverview_Form
             // 
