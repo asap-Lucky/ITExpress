@@ -97,7 +97,7 @@ namespace Presentation.Customer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new SearchConsultant());
+            OpenChildForm(new SearchConsultant(loggedInCustomer));
         }
 
         private void bt_editProfile_Click(object sender, EventArgs e)
