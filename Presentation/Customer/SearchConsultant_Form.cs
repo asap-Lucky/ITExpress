@@ -18,46 +18,45 @@ namespace Presentation.Customer
     {
         private ICustomer CustomerUser { get; set; }
         private ProjectService ProjectService { get; set; }
-        private BLL.Services.ConsultantService ConsultantService;
+        private BLL.Services.ConsultantService ConsultantService { get; set; }
         private List<IProject> DefaultProjectList { get; set; }
         private List<IConsultant> DefaultConsultantList { get; set; }
         private List<IConsultant> SortedConsultantsList { get; set; }
         public SearchConsultant(ICustomer customerUser)
         {
             InitializeComponent();
+            IntializeDataGridView1();
             IntializeDataGridView2();
             this.CustomerUser = customerUser;
             this.ProjectService = new ProjectService();
             this.ConsultantService = new BLL.Services.ConsultantService();
-            DefaultConsultantList = this.ConsultantService.GetAllConsultants();
-            
+            DefaultProjectList = ProjectService.GetProjectsByCostumer(CustomerUser);
+            DefaultConsultantList = this.ConsultantService.GetAllConsultants(); 
+            dataGridView1.DataSource = DefaultProjectList;
+            dataGridView2.DataSource = DefaultConsultantList;
         }
-
-        //Search Button Functionality
-       /* private void button1_Click(object sender, EventArgs e)
-        {
-            SortedConsultantsList = DefaultConsultantList;
-            if(tb_projectRequierements.Text == string.Empty) 
-            {
-                dataGridView2.DataSource = DefaultConsultantList;
-            }
-            else
-            {
-                SortedConsultantsList = ConsultantService.CodeLangaugeBinarySearch(DefaultConsultantList, tb_projectRequierements.Text);
-                dataGridView2.DataSource = SortedConsultantsList;
-            }
-
-            if (ConsultantService.EndTypeBinarySearch(SortedConsultantsList, tb_EndType.Text).Count > 0)
-            {
-                SortedConsultantsList = ConsultantService.EndTypeBinarySearch(SortedConsultantsList, tb_EndType.Text);
-                dataGridView2.DataSource = SortedConsultantsList;
-            }
-        }*/
 
         //Intialize the project related datagrid
         public void IntializeDataGridView1()
         {
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
+            nameColumn.DataPropertyName = "Name";
+            nameColumn.HeaderText = "Project Name";
+            dataGridView1.Columns.Add(nameColumn);
+
+            DataGridViewTextBoxColumn totalSumColumn = new DataGridViewTextBoxColumn();
+            totalSumColumn.DataPropertyName = "TotalSum";
+            totalSumColumn.Name = "Total Sum";
+            dataGridView1.Columns.Add(totalSumColumn);
+
+            DataGridViewTextBoxColumn startDateColumn = new DataGridViewTextBoxColumn();
+            startDateColumn.DataPropertyName = "GetStartDate";
+            startDateColumn.HeaderText = "Start Date";
+            dataGridView1.Columns.Add(startDateColumn);
         }
 
         //Intialize the consultant related datagrid
@@ -65,7 +64,7 @@ namespace Presentation.Customer
         {
             dataGridView2.AutoGenerateColumns = false;
             dataGridView2.RowHeadersVisible = false;
-            dataGridView2.MultiSelect = false;
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             DataGridViewTextBoxColumn firstNameColumn = new DataGridViewTextBoxColumn();
             firstNameColumn.DataPropertyName = "FirstName";
@@ -91,6 +90,17 @@ namespace Presentation.Customer
             emailColumn.DataPropertyName= "Email";
             emailColumn.HeaderText = "Email";
             dataGridView2.Columns.Add(emailColumn);
+        }
+
+        private void bt_SearchMatchingConsultant_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                IProject selectedProject = (IProject)dataGridView1.SelectedRows[0];
+                List<IConsultant> targetConsultants = ConsultantService.CodeLangaugeBinarySearch(DefaultConsultantList, selectedProject.Language.Language);
+                targetConsultants = ConsultantService.EndTypeBinarySearch(targetConsultants, selectedProject.EndType.EndType1);
+                dataGridView2.DataSource = targetConsultants;
+            }
         }
     }
 }

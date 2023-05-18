@@ -53,21 +53,8 @@ namespace DAL.Repository
         /// <param name="dto">The consultant to add.</param>
         public void AddConsultant(IConsultant dto)
         {
-            var con = new Database.Consultant()
-            {
-                ConsultantId = dto.Id,
-                Consultant_FirstName = dto.FirstName,
-                Consultant_LastName = dto.LastName,
-                Consultant_Login = dto.Login,
-                Consultant_Password = dto.Password,
-                Consultant_Email = dto.Email,
-                Consultant_Address = dto.Address,
-                Consultant_City = dto.City,
-                Consultant_ZipCode = dto.ZipCode,
-                Consultant_PhoneNumber = dto.PhoneNumber,
-                Consultant_CodeLangaugeId = dto.Language.Id,
-                Contsultant_EndType = dto.EndType.Id
-            };
+            var con = MapToData(dto);
+            
             DataContext.Consultants.InsertOnSubmit(con);
             DataContext.SubmitChanges();
         }
@@ -174,7 +161,7 @@ namespace DAL.Repository
             return consultantModel;
         }
 
-        private Database.Consultant MapToData(Models.Consultant consultantModel)
+        private Database.Consultant MapToData(IConsultant consultantModel)
         {
             Database.Consultant dataConsultant = new Database.Consultant();
 

@@ -37,5 +37,9 @@ namespace BLL.Services
             _ProjectRepo.EditProject(project);
         }
 
+        public List<IProject> GetProjectsByCostumer(ICustomer customer)
+        {
+            return _ProjectRepo.GetProjectsByCostumer(customer);
+        }
     }
 }
