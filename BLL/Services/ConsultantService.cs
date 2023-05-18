@@ -105,5 +105,18 @@ namespace BLL.Services
             }
             return result;
         }
+
+        public List<IConsultant> EndTypeBinarySearch(List<IConsultant> consultants, string searchTerm)
+        {
+            List<IConsultant> result = new List<IConsultant>();
+            foreach (var consultant in consultants)
+            {
+                if (consultant.EndType.EndType1.StartsWith(searchTerm, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(consultant);
+                }
+            }
+            return result;
+        }
     }
 }

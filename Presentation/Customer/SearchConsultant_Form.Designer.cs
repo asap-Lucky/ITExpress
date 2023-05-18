@@ -35,7 +35,7 @@ namespace Presentation.Customer
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.Search = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_EndType = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tb_projectRequierements = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@ namespace Presentation.Customer
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.Search);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tb_EndType);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.tb_projectRequierements);
             this.panel1.Controls.Add(this.label3);
@@ -113,13 +113,13 @@ namespace Presentation.Customer
             this.Search.Text = "Reset search";
             this.Search.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tb_EndType
             // 
-            this.textBox1.Location = new System.Drawing.Point(206, 153);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 20);
-            this.textBox1.TabIndex = 30;
-            this.textBox1.Text = "Coding language requierements";
+            this.tb_EndType.Location = new System.Drawing.Point(206, 153);
+            this.tb_EndType.Name = "tb_EndType";
+            this.tb_EndType.Size = new System.Drawing.Size(278, 20);
+            this.tb_EndType.TabIndex = 30;
+            this.tb_EndType.Text = "Coding language requierements";
             // 
             // label7
             // 
@@ -272,7 +272,7 @@ namespace Presentation.Customer
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_EndType;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tb_projectRequierements;
         private System.Windows.Forms.Label label3;

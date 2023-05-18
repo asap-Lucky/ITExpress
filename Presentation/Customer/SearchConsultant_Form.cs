@@ -29,14 +29,22 @@ namespace Presentation.Customer
 
         //Search Button Functionality
         private void button1_Click(object sender, EventArgs e)
-        {             
+        {
+            SortedConsultantsList = DefaultConsultantList;
             if(tb_projectRequierements.Text == string.Empty) 
             {
                 dataGridView2.DataSource = DefaultConsultantList;
             }
             else
             {
-                dataGridView2.DataSource = ConsultantService.CodeLangaugeBinarySearch(DefaultConsultantList, tb_projectRequierements.Text);
+                SortedConsultantsList = ConsultantService.CodeLangaugeBinarySearch(DefaultConsultantList, tb_projectRequierements.Text);
+                dataGridView2.DataSource = SortedConsultantsList;
+            }
+
+            if (ConsultantService.EndTypeBinarySearch(SortedConsultantsList, tb_EndType.Text).Count > 0)
+            {
+                SortedConsultantsList = ConsultantService.EndTypeBinarySearch(SortedConsultantsList, tb_EndType.Text);
+                dataGridView2.DataSource = SortedConsultantsList;
             }
         }
 
