@@ -21,6 +21,8 @@ namespace Abstraction.Interfaces
         ICustomer Customer { get; set; }
         IConsultant Consultant { get; set; }
         ICodeLanguage Language { get; set; }
+        string GetLangauge { get; }
         IEndType EndType { get; set; }
+        string GetEndType { get; }
     }
 }

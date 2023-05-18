@@ -67,6 +67,14 @@ namespace DAL.Repository
                 project.Status = dto.Project_Status;
                 project.Description = dto.Project_Description;
 
+                project.Language = new Models.CodeLanguage();
+                project.Language.Id = dto.CodeLanguage.Id;
+                project.Language.Language = dto.CodeLanguage.LanguageName;
+
+                project.EndType = new Models.EndType();
+                project.EndType.Id = dto.EndType.Id;
+                project.EndType.EndType1 = dto.EndType.EndType1;
+
                 result.Add(project);
             }
             return result;

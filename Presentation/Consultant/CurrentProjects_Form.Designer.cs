@@ -70,8 +70,10 @@
             this.dgv_existingProjectsCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_existingProjectsCustomer.Location = new System.Drawing.Point(12, 12);
             this.dgv_existingProjectsCustomer.Name = "dgv_existingProjectsCustomer";
+            this.dgv_existingProjectsCustomer.RowHeadersVisible = false;
             this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1056, 466);
             this.dgv_existingProjectsCustomer.TabIndex = 14;
+            this.dgv_existingProjectsCustomer.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_existingProjectsCustomer_DataError);
             // 
             // CurrentProjects_Form
             // 
