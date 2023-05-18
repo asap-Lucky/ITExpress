@@ -83,6 +83,7 @@
             this.bt_DiscardChanges.TabIndex = 16;
             this.bt_DiscardChanges.Text = "Discard changes";
             this.bt_DiscardChanges.UseVisualStyleBackColor = false;
+            this.bt_DiscardChanges.Click += new System.EventHandler(this.bt_DiscardChanges_Click);
             // 
             // panel1
             // 
