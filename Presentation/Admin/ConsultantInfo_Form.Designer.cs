@@ -63,13 +63,13 @@
             this.bt_DeleteCustomer = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tb_languageDescript_1 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -438,6 +438,15 @@
             this.panel5.Size = new System.Drawing.Size(330, 264);
             this.panel5.TabIndex = 23;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(113, 90);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(177, 23);
+            this.comboBox2.TabIndex = 16;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -499,15 +508,6 @@
             this.label20.Size = new System.Drawing.Size(125, 24);
             this.label20.TabIndex = 9;
             this.label20.Text = "Specialization";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(113, 90);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(177, 23);
-            this.comboBox2.TabIndex = 16;
             // 
             // ConsultantInfo
             // 
