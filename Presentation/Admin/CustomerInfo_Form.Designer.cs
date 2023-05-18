@@ -83,6 +83,7 @@
             this.bt_EditCustomerInfo.TabIndex = 16;
             this.bt_EditCustomerInfo.Text = "Edit customer info";
             this.bt_EditCustomerInfo.UseVisualStyleBackColor = false;
+            this.bt_EditCustomerInfo.Click += new System.EventHandler(this.bt_EditCustomerInfo_Click);
             // 
             // panel1
             // 

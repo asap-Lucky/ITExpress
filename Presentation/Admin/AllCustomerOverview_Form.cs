@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Abstraction.Interfaces;
 using BLL.Models;
 using Presentation.Consultant;
+using UI.Costumer;
 
 namespace Presentation.Customer
 {
@@ -53,7 +54,12 @@ namespace Presentation.Customer
 
         }
 
-
+        private void bt_AddCustomer_Click(object sender, EventArgs e)
+        {
+            SignUpCustomer_Form sign = new SignUpCustomer_Form();
+            sign.Show();
+            this.Hide();
+        }
     }
 
 }
