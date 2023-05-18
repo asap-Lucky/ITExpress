@@ -29,7 +29,7 @@ namespace Presentation.Customer
         } 
 
         // This method retrieves the data for the customer choosen in the "AllCustomerOverview_Form"
-        private void GetCustomerData()
+        public void GetCustomerData()
         {
             tb_firstName.Text = selectedCustomer.FirstName;
             tb_lastName.Text = selectedCustomer.LastName;
