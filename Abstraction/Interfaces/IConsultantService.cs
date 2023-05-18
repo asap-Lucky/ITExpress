@@ -23,5 +23,7 @@ namespace Abstraction.Interfaces
         bool IsValidConsultant(string login, string password);
 
         List<IConsultant> CodeLangaugeBinarySearch(List<IConsultant> consultants, string searchTerm);
+
+        List<IConsultant> EndTypeBinarySearch(List<IConsultant> consultants, string searchTerm);
     }
 }
