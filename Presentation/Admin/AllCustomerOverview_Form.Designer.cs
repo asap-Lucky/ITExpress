@@ -104,6 +104,7 @@
             this.dgv_AllCustomersOverview.MultiSelect = false;
             this.dgv_AllCustomersOverview.Name = "dgv_AllCustomersOverview";
             this.dgv_AllCustomersOverview.ReadOnly = true;
+            this.dgv_AllCustomersOverview.RowHeadersVisible = false;
             this.dgv_AllCustomersOverview.RowHeadersWidth = 40;
             this.dgv_AllCustomersOverview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv_AllCustomersOverview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
