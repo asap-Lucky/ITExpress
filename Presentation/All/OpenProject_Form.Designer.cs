@@ -30,7 +30,6 @@ namespace Presentation.Customer
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
             this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
@@ -38,7 +37,6 @@ namespace Presentation.Customer
             this.label5 = new System.Windows.Forms.Label();
             this.tb_projectHourWage = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tb_projectRequierements = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tb_projectName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -50,6 +48,8 @@ namespace Presentation.Customer
             this.bt_SaveChanges = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
             this.cb_ProjectStatus = new System.Windows.Forms.ComboBox();
+            this.cb_CodeLanguage = new System.Windows.Forms.ComboBox();
+            this.cb_EndType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,8 @@ namespace Presentation.Customer
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.cb_EndType);
+            this.panel1.Controls.Add(this.cb_CodeLanguage);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dtp_endDate);
             this.panel1.Controls.Add(this.dtp_startDate);
@@ -65,7 +66,6 @@ namespace Presentation.Customer
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.tb_projectHourWage);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.tb_projectRequierements);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.tb_projectName);
             this.panel1.Controls.Add(this.label10);
@@ -74,14 +74,6 @@ namespace Presentation.Customer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 479);
             this.panel1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(200, 236);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 20);
-            this.textBox1.TabIndex = 30;
-            this.textBox1.Text = "Coding language requierements";
             // 
             // label7
             // 
@@ -145,23 +137,15 @@ namespace Presentation.Customer
             this.label4.TabIndex = 21;
             this.label4.Text = "Hour wage:";
             // 
-            // tb_projectRequierements
-            // 
-            this.tb_projectRequierements.Location = new System.Drawing.Point(199, 171);
-            this.tb_projectRequierements.Name = "tb_projectRequierements";
-            this.tb_projectRequierements.Size = new System.Drawing.Size(278, 20);
-            this.tb_projectRequierements.TabIndex = 20;
-            this.tb_projectRequierements.Text = "Coding language requierements";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label3.Location = new System.Drawing.Point(11, 169);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 20);
+            this.label3.Size = new System.Drawing.Size(183, 20);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Project requierements:";
+            this.label3.Text = "Code language required:";
             // 
             // tb_projectName
             // 
@@ -270,7 +254,23 @@ namespace Presentation.Customer
             this.cb_ProjectStatus.TabIndex = 28;
             this.cb_ProjectStatus.Text = "Project status";
             // 
-            // EditProjectConsultant
+            // cb_CodeLanguage
+            // 
+            this.cb_CodeLanguage.FormattingEnabled = true;
+            this.cb_CodeLanguage.Location = new System.Drawing.Point(199, 171);
+            this.cb_CodeLanguage.Name = "cb_CodeLanguage";
+            this.cb_CodeLanguage.Size = new System.Drawing.Size(279, 21);
+            this.cb_CodeLanguage.TabIndex = 31;
+            // 
+            // cb_EndType
+            // 
+            this.cb_EndType.FormattingEnabled = true;
+            this.cb_EndType.Location = new System.Drawing.Point(198, 236);
+            this.cb_EndType.Name = "cb_EndType";
+            this.cb_EndType.Size = new System.Drawing.Size(279, 21);
+            this.cb_EndType.TabIndex = 32;
+            // 
+            // EditProjectConsultant_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -283,7 +283,7 @@ namespace Presentation.Customer
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EditProjectConsultant";
+            this.Name = "EditProjectConsultant_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             this.panel1.ResumeLayout(false);
@@ -303,7 +303,6 @@ namespace Presentation.Customer
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_projectName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox tb_projectRequierements;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_projectHourWage;
         private System.Windows.Forms.Label label4;
@@ -312,10 +311,11 @@ namespace Presentation.Customer
         private System.Windows.Forms.DateTimePicker dtp_endDate;
         private System.Windows.Forms.DateTimePicker dtp_startDate;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button bt_SaveChanges;
         private System.Windows.Forms.Button bt_GoBack;
         private System.Windows.Forms.ComboBox cb_ProjectStatus;
+        private System.Windows.Forms.ComboBox cb_EndType;
+        private System.Windows.Forms.ComboBox cb_CodeLanguage;
     }
 }

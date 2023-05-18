@@ -85,6 +85,8 @@ namespace DAL.Repository
                 targetProject.Project_StartDate = project.StartDate;
                 targetProject.Project_EndDate = project.EndDate;
                 targetProject.Project_Status = project.Status;
+                targetProject.Project_EndType = project.EndType.Id;
+                targetProject.Project_CodeLanguageId = project.Language.Id;
 
                 // Save the changes to the database.
                 DataContext.SubmitChanges();
