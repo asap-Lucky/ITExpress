@@ -73,7 +73,7 @@ namespace Presentation.Customer
         {
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new CreateNewProject_Form());
+            OpenChildForm(new CreateNewProject_Form(loggedInCustomer));
         }
 
         private void bt_closedProjects_Click(object sender, EventArgs e)
