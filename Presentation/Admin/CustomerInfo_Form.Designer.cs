@@ -125,6 +125,7 @@
             this.tb_phoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_phoneNumber.Location = new System.Drawing.Point(20, 433);
             this.tb_phoneNumber.Name = "tb_phoneNumber";
+            this.tb_phoneNumber.ReadOnly = true;
             this.tb_phoneNumber.Size = new System.Drawing.Size(239, 21);
             this.tb_phoneNumber.TabIndex = 44;
             // 
@@ -143,6 +144,7 @@
             this.tb_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_email.Location = new System.Drawing.Point(20, 378);
             this.tb_email.Name = "tb_email";
+            this.tb_email.ReadOnly = true;
             this.tb_email.Size = new System.Drawing.Size(239, 21);
             this.tb_email.TabIndex = 42;
             // 
@@ -161,6 +163,7 @@
             this.tb_city.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_city.Location = new System.Drawing.Point(20, 320);
             this.tb_city.Name = "tb_city";
+            this.tb_city.ReadOnly = true;
             this.tb_city.Size = new System.Drawing.Size(239, 21);
             this.tb_city.TabIndex = 40;
             // 
@@ -179,6 +182,7 @@
             this.tb_zipCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_zipCode.Location = new System.Drawing.Point(20, 264);
             this.tb_zipCode.Name = "tb_zipCode";
+            this.tb_zipCode.ReadOnly = true;
             this.tb_zipCode.Size = new System.Drawing.Size(239, 21);
             this.tb_zipCode.TabIndex = 38;
             // 
@@ -197,6 +201,7 @@
             this.tb_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_address.Location = new System.Drawing.Point(20, 199);
             this.tb_address.Name = "tb_address";
+            this.tb_address.ReadOnly = true;
             this.tb_address.Size = new System.Drawing.Size(239, 21);
             this.tb_address.TabIndex = 36;
             // 
@@ -215,6 +220,7 @@
             this.tb_lastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_lastName.Location = new System.Drawing.Point(20, 137);
             this.tb_lastName.Name = "tb_lastName";
+            this.tb_lastName.ReadOnly = true;
             this.tb_lastName.Size = new System.Drawing.Size(239, 21);
             this.tb_lastName.TabIndex = 34;
             // 
@@ -240,6 +246,7 @@
             this.tb_firstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_firstName.Location = new System.Drawing.Point(20, 76);
             this.tb_firstName.Name = "tb_firstName";
+            this.tb_firstName.ReadOnly = true;
             this.tb_firstName.Size = new System.Drawing.Size(239, 21);
             this.tb_firstName.TabIndex = 19;
             // 
@@ -282,6 +289,7 @@
             this.tb_userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_userName.Location = new System.Drawing.Point(134, 69);
             this.tb_userName.Name = "tb_userName";
+            this.tb_userName.ReadOnly = true;
             this.tb_userName.Size = new System.Drawing.Size(184, 20);
             this.tb_userName.TabIndex = 15;
             // 
@@ -290,6 +298,7 @@
             this.tb_passWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_passWord.Location = new System.Drawing.Point(134, 113);
             this.tb_passWord.Name = "tb_passWord";
+            this.tb_passWord.ReadOnly = true;
             this.tb_passWord.Size = new System.Drawing.Size(184, 20);
             this.tb_passWord.TabIndex = 14;
             // 
@@ -348,6 +357,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(0, 46);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(330, 246);
             this.dataGridView1.TabIndex = 0;
             // 
