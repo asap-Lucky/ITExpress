@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Facader\ConsultantService.cs" />
     <Compile Include="Facader\CustomerService.cs" />
+    <Compile Include="Facader\ProjectService.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\CodeLanguage.cs" />
     <Compile Include="Models\Consultant.cs" />

@@ -10,6 +10,8 @@ namespace Abstraction.Interfaces
     {
         List<IProject> GetAllProjects();
 
+        List<IProject> GetProjectsByConsultant(int consultantId);
+
         void AddProject(IProject dto);
 
         void DeleteProject(IProject dto);

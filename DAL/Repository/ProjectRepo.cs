@@ -49,6 +49,29 @@ namespace DAL.Repository
             return result;
         }
 
+        public List<IProject> GetProjectsByConsultant(int consultantId)
+        {
+            var result = new List<IProject>();
+
+            var consultantProjects = DataContext.Projects.Where(p => p.Project_ConsultantId == consultantId);
+
+            foreach (var dto in consultantProjects)
+            {
+                Models.Project project = new Models.Project();
+
+                project.Id = dto.ProjectId;
+                project.Name = dto.Project_Name;
+                project.CustomerId = dto.Project_CustomerId;
+                project.StartDate = dto.Project_StartDate;
+                project.EndDate = dto.Project_EndDate;
+                project.Status = dto.Project_Status;
+                project.Description = dto.Project_Description;
+
+                result.Add(project);
+            }
+            return result;
+        }
+
         public void AddProject(IProject dto)
         {
             Database.Project projectData = MapToData(dto);            

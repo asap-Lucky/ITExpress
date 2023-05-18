@@ -17,6 +17,11 @@ namespace BLL.Services
             _ProjectRepo = new DAL.Repository.ProjectRepo();
         }
 
+        public List<IProject> GetProjectsByConsultant(int consultantId)
+        {
+            return _ProjectRepo.GetProjectsByConsultant(consultantId);
+        }
+
         public void AddProject(IProject project)
         {
             _ProjectRepo.AddProject(project);
