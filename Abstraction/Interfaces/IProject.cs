@@ -10,7 +10,6 @@ namespace Abstraction.Interfaces
     {
         int Id { get; set; }
         string Name { get; set; }
-        string Requirements { get; set; }
         decimal TotalSum { get; set; }
         decimal HourWage { get; set; }
         DateTime StartDate { get; set; }
@@ -20,5 +19,8 @@ namespace Abstraction.Interfaces
         int Status { get; set; }
         int CustomerId { get; set; }
         int ConsultantId { get; set; }
+
+      ICodeLanguage Language { get; set; }
+         IEndType EndType { get; set; }
     }
 }

@@ -32,10 +32,13 @@ namespace DAL.Repository
                 project.Id = dto.ProjectId;
                 project.Name = dto.Project_Name;
                 project.CustomerId = dto.Project_CustomerId;
-                project.ConsultantId = dto.Project_ConsultantId;
                 project.StartDate = dto.Project_StartDate;
                 project.EndDate = dto.Project_EndDate;
                 project.Status = dto.Project_Status;
+                project.Description = dto.Project_Description;
+
+
+
 
                 result.Add(project);
             }
@@ -46,13 +49,16 @@ namespace DAL.Repository
         {
             var project = new Database.Project()
             {
-                ProjectId = dto.Id,
+
                 Project_Name = dto.Name,
                 Project_CustomerId = dto.CustomerId,
-                Project_ConsultantId = dto.ConsultantId,
                 Project_StartDate = dto.StartDate,
                 Project_EndDate = dto.EndDate,
-                Project_Status = dto.Status
+                Project_Status = dto.Status,
+                Project_Description = dto.Description,
+                Project_HourWage = dto.HourWage,
+                Project_CodeLanguageId = dto.Language.Id,
+                Project_EndType = dto.EndType.Id
             };
             DataContext.Projects.InsertOnSubmit(project);
             DataContext.SubmitChanges();

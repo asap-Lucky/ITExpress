@@ -11,7 +11,6 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Requirements { get; set; }
         public decimal TotalSum { get; set; }
         public decimal HourWage { get; set; }
         public DateTime StartDate { get; set; }
@@ -21,5 +20,7 @@ namespace DAL.Models
         public int Status { get; set; }
         public int CustomerId { get; set; }
         public int ConsultantId { get; set; }
+        public ICodeLanguage Language { get; set; }
+        public IEndType EndType { get; set; }
     }
 }
