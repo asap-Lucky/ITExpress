@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentation.All
 {
-    public partial class InvitationSend_Form : Form
+    public partial class SendMessage_Form : Form
     {
-        public InvitationSend_Form()
+        public SendMessage_Form()
         {
             InitializeComponent();
         }
