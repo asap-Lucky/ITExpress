@@ -17,7 +17,7 @@ namespace Presentation.Customer
     public partial class CustomerInfo : Form
     {
 
-        private ICustomer selectedCustomer { get; set; }
+        private Abstraction.Interfaces.ICustomer selectedCustomer { get; set; }
 
         private BLL.Services.CustomerService customerService { get; set; }
 
@@ -64,6 +64,14 @@ namespace Presentation.Customer
 
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
+            this.Hide();
+        }
+
+        private void bt_EditCustomerInfo_Click(object sender, EventArgs e)
+        {
+            //Hides this childform and opens another one on top of this
+            EditCustomerInfo editCustomerInfo = new EditCustomerInfo();//<-- Remember to take the selectedCustomer variable and put it in the constructor on the EditCustomerInfo_Form.
+            editCustomerInfo.Show();
             this.Hide();
         }
     }
