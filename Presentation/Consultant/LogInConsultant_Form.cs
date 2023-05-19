@@ -38,10 +38,11 @@ namespace UI.Consultant
         {
             if (consultantService.IsValidConsultant(tb_userNameConsultant.Text, tb_passWordConsultant.Text))
             {
-                Abstraction.Interfaces.IConsultant consultant = (Abstraction.Interfaces.IConsultant)consultantService.GetConsultant(tb_userNameConsultant.Text, tb_passWordConsultant.Text);
+                BLL.Singleton.ConsultantSingleton consultantUser = BLL.Singleton.ConsultantSingleton.Instance();
+                consultantUser.User = (Abstraction.Interfaces.IConsultant)consultantService.GetConsultant(tb_userNameConsultant.Text, tb_passWordConsultant.Text);
 
                 this.Hide();
-                ConsultantOverviewWindow_Form consultantOverviewWindow = new ConsultantOverviewWindow_Form(consultant);
+                ConsultantOverviewWindow_Form consultantOverviewWindow = new ConsultantOverviewWindow_Form();
                 consultantOverviewWindow.ShowDialog();
                 this.Show();
                 tb_userNameConsultant.Clear();

@@ -42,7 +42,8 @@ namespace UI.All
             if (customerService.IsValidCustomer(tb_userNameCustomer.Text, tb_passWordCustomer.Text))
             {
                 Abstraction.Interfaces.ICustomer customer = (Abstraction.Interfaces.ICustomer) customerService.GetCustomer(tb_userNameCustomer.Text, tb_passWordCustomer.Text);
-
+                BLL.Singleton.CustomerSingleton customerSingleton = BLL.Singleton.CustomerSingleton.Instance();
+                customerSingleton.User = customer;
                 this.Hide();
                 CustomerOverviewWindow_Form overViewWindow_Form = new CustomerOverviewWindow_Form(customer);
                 overViewWindow_Form.ShowDialog();

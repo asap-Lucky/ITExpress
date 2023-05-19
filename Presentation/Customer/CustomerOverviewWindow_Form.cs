@@ -23,7 +23,7 @@ namespace Presentation.Customer
         {
             InitializeComponent();
             IsMdiContainer = true;
-            this.loggedInCustomer = customer;
+            this.loggedInCustomer = BLL.Singleton.CustomerSingleton.Instance().User;
             lb_firstNameOfCustomer.Text = loggedInCustomer.FirstName;
 
         }
