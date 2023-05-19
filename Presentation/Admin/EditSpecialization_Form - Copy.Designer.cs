@@ -28,41 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bt_GoBack = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.dgv_allLanguages = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.bt_EditLanguages = new System.Windows.Forms.Button();
+            this.bt_delete = new System.Windows.Forms.Button();
+            this.bt_SaveChanges = new System.Windows.Forms.Button();
+            this.bt_AddLanguage = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_allLanguages)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bt_GoBack
-            // 
-            this.bt_GoBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
-            this.bt_GoBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_GoBack.FlatAppearance.BorderSize = 0;
-            this.bt_GoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_GoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_GoBack.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_GoBack.Location = new System.Drawing.Point(26, 345);
-            this.bt_GoBack.Name = "bt_GoBack";
-            this.bt_GoBack.Size = new System.Drawing.Size(177, 30);
-            this.bt_GoBack.TabIndex = 30;
-            this.bt_GoBack.Text = "Back";
-            this.bt_GoBack.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.dataGridView2);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.dgv_allLanguages);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(263, 12);
@@ -70,16 +51,20 @@
             this.panel1.Size = new System.Drawing.Size(479, 426);
             this.panel1.TabIndex = 29;
             // 
-            // label3
+            // dgv_allLanguages
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(14, 249);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Endtypes";
+            this.dgv_allLanguages.AllowUserToAddRows = false;
+            this.dgv_allLanguages.AllowUserToDeleteRows = false;
+            this.dgv_allLanguages.AllowUserToResizeColumns = false;
+            this.dgv_allLanguages.AllowUserToResizeRows = false;
+            this.dgv_allLanguages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_allLanguages.Location = new System.Drawing.Point(17, 77);
+            this.dgv_allLanguages.MultiSelect = false;
+            this.dgv_allLanguages.Name = "dgv_allLanguages";
+            this.dgv_allLanguages.ReadOnly = true;
+            this.dgv_allLanguages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_allLanguages.Size = new System.Drawing.Size(445, 335);
+            this.dgv_allLanguages.TabIndex = 5;
             // 
             // label2
             // 
@@ -103,51 +88,69 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Specialization";
             // 
-            // button2
+            // bt_EditLanguages
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(26, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(177, 30);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "Save changes";
-            this.button2.UseVisualStyleBackColor = false;
+            this.bt_EditLanguages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.bt_EditLanguages.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_EditLanguages.FlatAppearance.BorderSize = 0;
+            this.bt_EditLanguages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_EditLanguages.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_EditLanguages.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_EditLanguages.Location = new System.Drawing.Point(26, 145);
+            this.bt_EditLanguages.Name = "bt_EditLanguages";
+            this.bt_EditLanguages.Size = new System.Drawing.Size(177, 30);
+            this.bt_EditLanguages.TabIndex = 32;
+            this.bt_EditLanguages.Text = "Edit languages";
+            this.bt_EditLanguages.UseVisualStyleBackColor = false;
+            this.bt_EditLanguages.Click += new System.EventHandler(this.bt_EditLanguages_Click);
             // 
-            // button3
+            // bt_delete
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(26, 207);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(177, 30);
-            this.button3.TabIndex = 33;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = false;
+            this.bt_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(45)))), ((int)(((byte)(56)))));
+            this.bt_delete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_delete.FlatAppearance.BorderSize = 0;
+            this.bt_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_delete.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_delete.Location = new System.Drawing.Point(26, 335);
+            this.bt_delete.Name = "bt_delete";
+            this.bt_delete.Size = new System.Drawing.Size(177, 30);
+            this.bt_delete.TabIndex = 33;
+            this.bt_delete.Text = "Delete";
+            this.bt_delete.UseVisualStyleBackColor = false;
+            this.bt_delete.Click += new System.EventHandler(this.bt_delete_Click);
             // 
-            // dataGridView1
+            // bt_SaveChanges
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 78);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(445, 150);
-            this.dataGridView1.TabIndex = 5;
+            this.bt_SaveChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.bt_SaveChanges.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_SaveChanges.FlatAppearance.BorderSize = 0;
+            this.bt_SaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_SaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_SaveChanges.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_SaveChanges.Location = new System.Drawing.Point(26, 240);
+            this.bt_SaveChanges.Name = "bt_SaveChanges";
+            this.bt_SaveChanges.Size = new System.Drawing.Size(177, 30);
+            this.bt_SaveChanges.TabIndex = 34;
+            this.bt_SaveChanges.Text = "Save changes";
+            this.bt_SaveChanges.UseVisualStyleBackColor = false;
+            this.bt_SaveChanges.Click += new System.EventHandler(this.bt_SaveChanges_Click);
             // 
-            // dataGridView2
+            // bt_AddLanguage
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(17, 269);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(445, 150);
-            this.dataGridView2.TabIndex = 6;
+            this.bt_AddLanguage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.bt_AddLanguage.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_AddLanguage.FlatAppearance.BorderSize = 0;
+            this.bt_AddLanguage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_AddLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_AddLanguage.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_AddLanguage.Location = new System.Drawing.Point(26, 61);
+            this.bt_AddLanguage.Name = "bt_AddLanguage";
+            this.bt_AddLanguage.Size = new System.Drawing.Size(177, 30);
+            this.bt_AddLanguage.TabIndex = 35;
+            this.bt_AddLanguage.Text = "Add language";
+            this.bt_AddLanguage.UseVisualStyleBackColor = false;
+            this.bt_AddLanguage.Click += new System.EventHandler(this.bt_AddLanguage_Click);
             // 
             // EditSpecialization_Form
             // 
@@ -155,9 +158,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(759, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.bt_GoBack);
+            this.Controls.Add(this.bt_AddLanguage);
+            this.Controls.Add(this.bt_SaveChanges);
+            this.Controls.Add(this.bt_delete);
+            this.Controls.Add(this.bt_EditLanguages);
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(775, 489);
             this.MinimumSize = new System.Drawing.Size(775, 489);
@@ -165,21 +169,19 @@
             this.Text = "Specialization_Form";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_allLanguages)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button bt_GoBack;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button bt_EditLanguages;
+        private System.Windows.Forms.Button bt_delete;
+        private System.Windows.Forms.DataGridView dgv_allLanguages;
+        private System.Windows.Forms.Button bt_SaveChanges;
+        private System.Windows.Forms.Button bt_AddLanguage;
     }
 }

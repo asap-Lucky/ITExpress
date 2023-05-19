@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentation.Admin
 {
-    public partial class Specialization_Form : Form
+    public partial class AddSpecialization_Form : Form
     {
-        public Specialization_Form()
+        public AddSpecialization_Form()
         {
             InitializeComponent();
         }
