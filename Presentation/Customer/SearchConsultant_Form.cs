@@ -14,6 +14,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace Presentation.Customer
 {
+    //Code Behind: Mikkel
+    //Visual: Marcel
     public partial class SearchConsultant : Form
     {
         private ICustomer CustomerUser { get; set; }
