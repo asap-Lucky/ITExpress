@@ -56,6 +56,8 @@
     <Compile Include="Interfaces\IEndType.cs" />
     <Compile Include="Interfaces\IEndtypeRepo.cs" />
     <Compile Include="Interfaces\IEndtypeService.cs" />
+    <Compile Include="Interfaces\IInvitation.cs" />
+    <Compile Include="Interfaces\IInvitationRepo.cs" />
     <Compile Include="Interfaces\IProject.cs" />
     <Compile Include="Interfaces\IProjectRepo.cs" />
     <Compile Include="Interfaces\IProjectService.cs" />

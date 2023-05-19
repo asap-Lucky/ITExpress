@@ -33,6 +33,7 @@ namespace Presentation.Customer
             this.ProjectService = new ProjectService();
             this.ConsultantService = new BLL.Services.ConsultantService();
             DefaultProjectList = ProjectService.GetProjectsByCostumer(CustomerUser);
+            DefaultProjectList.RemoveAll(p => p.Status == 3);
             DefaultConsultantList = this.ConsultantService.GetAllConsultants(); 
             dataGridView1.DataSource = DefaultProjectList;
             dataGridView2.DataSource = DefaultConsultantList;
@@ -102,6 +103,20 @@ namespace Presentation.Customer
                 List<IConsultant> targetConsultants = ConsultantService.CodeLangaugeBinarySearch(DefaultConsultantList, selectedProject.Language.Language);
                 targetConsultants = ConsultantService.EndTypeBinarySearch(targetConsultants, selectedProject.EndType.EndType1);
                 dataGridView2.DataSource = targetConsultants;
+            }
+        }
+
+        private void bt_OpenProject_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please Select A Valid Project", "No Project", MessageBoxButtons.OK);
+                return;
+            }
+            if(dataGridView2.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please Select A Valid Consultant", "No Consultant", MessageBoxButtons.OK);
+                return;
             }
         }
     }

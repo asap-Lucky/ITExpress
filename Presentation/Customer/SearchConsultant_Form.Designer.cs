@@ -122,6 +122,7 @@ namespace Presentation.Customer
             this.bt_OpenProject.TabIndex = 33;
             this.bt_OpenProject.Text = "Send invitation";
             this.bt_OpenProject.UseVisualStyleBackColor = false;
+            this.bt_OpenProject.Click += new System.EventHandler(this.bt_OpenProject_Click);
             // 
             // bt_SearchMatchingConsultant
             // 
