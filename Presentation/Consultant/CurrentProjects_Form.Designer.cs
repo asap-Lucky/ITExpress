@@ -65,6 +65,7 @@
             this.bt_Refresh.TabIndex = 12;
             this.bt_Refresh.Text = "Refresh";
             this.bt_Refresh.UseVisualStyleBackColor = false;
+            this.bt_Refresh.Click += new System.EventHandler(this.bt_Refresh_Click);
             // 
             // dgv_existingProjectsCustomer
             // 
@@ -85,7 +86,6 @@
             this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1408, 574);
             this.dgv_existingProjectsCustomer.TabIndex = 14;
             this.dgv_existingProjectsCustomer.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_existingProjectsCustomer_CellValidating);
-            this.dgv_existingProjectsCustomer.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_existingProjectsCustomer_CellValueChanged);
             this.dgv_existingProjectsCustomer.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgv_existingProjectsCustomer_CurrentCellDirtyStateChanged);
             this.dgv_existingProjectsCustomer.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_existingProjectsCustomer_DataError);
             // 

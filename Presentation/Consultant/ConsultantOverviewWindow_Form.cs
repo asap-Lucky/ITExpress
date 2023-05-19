@@ -95,7 +95,8 @@ namespace Presentation.Consultant
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new ConsultantClosedProjects());
+            IProjectService projectService = new BLL.Services.ProjectService();
+            OpenChildForm(new ConsultantClosedProjects(loggedInConsultant, projectService));
         }
 
         private void bt_editProfile_Click(object sender, EventArgs e)

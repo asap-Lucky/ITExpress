@@ -70,7 +70,7 @@ namespace Presentation.Customer
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(17, 16);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(667, 590);
             this.panel1.TabIndex = 0;
@@ -79,7 +79,7 @@ namespace Presentation.Customer
             // 
             this.cb_EndType.FormattingEnabled = true;
             this.cb_EndType.Location = new System.Drawing.Point(264, 290);
-            this.cb_EndType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_EndType.Margin = new System.Windows.Forms.Padding(4);
             this.cb_EndType.Name = "cb_EndType";
             this.cb_EndType.Size = new System.Drawing.Size(371, 24);
             this.cb_EndType.TabIndex = 32;
@@ -88,7 +88,7 @@ namespace Presentation.Customer
             // 
             this.cb_CodeLanguage.FormattingEnabled = true;
             this.cb_CodeLanguage.Location = new System.Drawing.Point(265, 210);
-            this.cb_CodeLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CodeLanguage.Margin = new System.Windows.Forms.Padding(4);
             this.cb_CodeLanguage.Name = "cb_CodeLanguage";
             this.cb_CodeLanguage.Size = new System.Drawing.Size(371, 24);
             this.cb_CodeLanguage.TabIndex = 31;
@@ -107,7 +107,7 @@ namespace Presentation.Customer
             // dtp_endDate
             // 
             this.dtp_endDate.Location = new System.Drawing.Point(191, 532);
-            this.dtp_endDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_endDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_endDate.Name = "dtp_endDate";
             this.dtp_endDate.Size = new System.Drawing.Size(285, 22);
             this.dtp_endDate.TabIndex = 28;
@@ -115,7 +115,7 @@ namespace Presentation.Customer
             // dtp_startDate
             // 
             this.dtp_startDate.Location = new System.Drawing.Point(191, 465);
-            this.dtp_startDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_startDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_startDate.Name = "dtp_startDate";
             this.dtp_startDate.Size = new System.Drawing.Size(285, 22);
             this.dtp_startDate.TabIndex = 27;
@@ -145,7 +145,7 @@ namespace Presentation.Customer
             // tb_projectHourWage
             // 
             this.tb_projectHourWage.Location = new System.Drawing.Point(265, 363);
-            this.tb_projectHourWage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_projectHourWage.Margin = new System.Windows.Forms.Padding(4);
             this.tb_projectHourWage.Name = "tb_projectHourWage";
             this.tb_projectHourWage.Size = new System.Drawing.Size(369, 22);
             this.tb_projectHourWage.TabIndex = 22;
@@ -176,7 +176,7 @@ namespace Presentation.Customer
             // tb_projectName
             // 
             this.tb_projectName.Location = new System.Drawing.Point(265, 129);
-            this.tb_projectName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_projectName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_projectName.Name = "tb_projectName";
             this.tb_projectName.Size = new System.Drawing.Size(369, 22);
             this.tb_projectName.TabIndex = 18;
@@ -212,7 +212,7 @@ namespace Presentation.Customer
             this.panel2.Controls.Add(this.tb_projectDescription);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(757, 16);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(667, 590);
             this.panel2.TabIndex = 1;
@@ -220,7 +220,7 @@ namespace Presentation.Customer
             // tb_projectDescription
             // 
             this.tb_projectDescription.Location = new System.Drawing.Point(41, 96);
-            this.tb_projectDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_projectDescription.Margin = new System.Windows.Forms.Padding(4);
             this.tb_projectDescription.Multiline = true;
             this.tb_projectDescription.Name = "tb_projectDescription";
             this.tb_projectDescription.Size = new System.Drawing.Size(587, 461);
@@ -256,7 +256,7 @@ namespace Presentation.Customer
             this.bt_SaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_SaveChanges.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_SaveChanges.Location = new System.Drawing.Point(1145, 634);
-            this.bt_SaveChanges.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_SaveChanges.Margin = new System.Windows.Forms.Padding(4);
             this.bt_SaveChanges.Name = "bt_SaveChanges";
             this.bt_SaveChanges.Size = new System.Drawing.Size(273, 37);
             this.bt_SaveChanges.TabIndex = 27;
@@ -272,12 +272,13 @@ namespace Presentation.Customer
             this.bt_GoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_GoBack.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_GoBack.Location = new System.Drawing.Point(17, 634);
-            this.bt_GoBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_GoBack.Margin = new System.Windows.Forms.Padding(4);
             this.bt_GoBack.Name = "bt_GoBack";
             this.bt_GoBack.Size = new System.Drawing.Size(273, 37);
             this.bt_GoBack.TabIndex = 26;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
+            this.bt_GoBack.Click += new System.EventHandler(this.bt_GoBack_Click);
             // 
             // EditProjectConsultant_Form
             // 
@@ -291,7 +292,7 @@ namespace Presentation.Customer
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditProjectConsultant_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";

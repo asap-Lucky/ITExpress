@@ -109,37 +109,6 @@ using System;
                 }
             }
 
-            private void dgv_existingProjectsCustomer_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-            {
-                //if (dgv_existingProjectsCustomer.Columns[e.ColumnIndex].Name == "Status" && e.RowIndex >= 0)
-                //{
-                //    DataGridViewComboBoxCell cell = dgv_existingProjectsCustomer.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
-                //    object newValue = cell.Value;
-                //    object currentValue = cell.Tag; // Use the Tag property to store the original value
-
-                //    if (!newValue.Equals(currentValue))
-                //    {
-                //        string selectedStatus = cell.FormattedValue.ToString(); // Use FormattedValue to get the displayed text
-
-                //        DialogResult result = MessageBox.Show($"Are you sure you want to change the status to '{selectedStatus}'?", "Confirm Status Change", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                //        if (result == DialogResult.Yes)
-                //        {
-                //            IProject project = dgv_existingProjectsCustomer.Rows[e.RowIndex].DataBoundItem as IProject;
-                //            project.Status = statusMapping[selectedStatus];
-                //            projectService.EditProject(project);
-                //            dgv_existingProjectsCustomer.Refresh();
-                //        }
-                //        else
-                //        {
-                //            // Restore the original value in case the user cancels the change
-                //            cell.Value = currentValue;
-                //            dgv_existingProjectsCustomer.RefreshEdit();
-                //        }
-                //    }
-                //}
-            }
-
             private void dgv_existingProjectsCustomer_CurrentCellDirtyStateChanged(object sender, EventArgs e)
             {
                 if (dgv_existingProjectsCustomer.IsCurrentCellDirty)
@@ -172,6 +141,71 @@ using System;
                 }
             }
         }
+
+        private void bt_Refresh_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridView();
         }
-        
+
+        private void RefreshDataGridView()
+        {
+            List<IProject> projects = projectService.GetProjectsByConsultant(loggedInConsultant.Id)
+                .Where(p => p.Status == 1 || p.Status == 2)
+                .ToList();
+
+            dgv_existingProjectsCustomer.DataSource = null; // Clear the current data source
+            dgv_existingProjectsCustomer.Rows.Clear(); // Clear the existing rows
+            dgv_existingProjectsCustomer.Columns.Clear(); // Clear the existing columns
+
+            dgv_existingProjectsCustomer.DataSource = projects; // Assign the updated data source
+
+            // Re-add the columns to the DataGridView
+            DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
+            nameColumn.DataPropertyName = "Name";
+            nameColumn.HeaderText = "Project name";
+            dgv_existingProjectsCustomer.Columns.Add(nameColumn);
+
+            DataGridViewTextBoxColumn totalSumColumn = new DataGridViewTextBoxColumn();
+            totalSumColumn.DataPropertyName = "TotalSum";
+            totalSumColumn.HeaderText = "Total Sum";
+            dgv_existingProjectsCustomer.Columns.Add(totalSumColumn);
+
+            DataGridViewTextBoxColumn startDateColumn = new DataGridViewTextBoxColumn();
+            startDateColumn.DataPropertyName = "StartDate";
+            startDateColumn.HeaderText = "Start Date";
+            dgv_existingProjectsCustomer.Columns.Add(startDateColumn);
+
+            DataGridViewTextBoxColumn endDateColumn = new DataGridViewTextBoxColumn();
+            endDateColumn.DataPropertyName = "EndDate";
+            endDateColumn.HeaderText = "End Date";
+            dgv_existingProjectsCustomer.Columns.Add(endDateColumn);
+
+            DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
+            customerIdColumn.DataPropertyName = "CustomerId";
+            customerIdColumn.HeaderText = "Customer ID";
+            dgv_existingProjectsCustomer.Columns.Add(customerIdColumn);
+
+            DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();
+            languageColumn.DataPropertyName = "GetLangauge";
+            languageColumn.HeaderText = "Language";
+            dgv_existingProjectsCustomer.Columns.Add(languageColumn);
+
+            DataGridViewTextBoxColumn endTypeColumn = new DataGridViewTextBoxColumn();
+            endTypeColumn.DataPropertyName = "GetEndType";
+            endTypeColumn.HeaderText = "End Type";
+            dgv_existingProjectsCustomer.Columns.Add(endTypeColumn);
+
+            DataGridViewComboBoxColumn statusColumn = new DataGridViewComboBoxColumn();
+            statusColumn.DataPropertyName = "Status";
+            statusColumn.HeaderText = "Status";
+            statusColumn.Name = "Status";
+            statusColumn.ValueType = typeof(int);
+            statusColumn.ValueMember = "Value";
+            statusColumn.DisplayMember = "Key";
+            statusColumn.DataSource = new BindingSource(statusMapping, null);
+            dgv_existingProjectsCustomer.Columns.Add(statusColumn);
+        }
+
     }
+
+}
