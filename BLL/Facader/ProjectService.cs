@@ -25,5 +25,19 @@ namespace BLL.Facader
         {
             return projectService.GetAllProjects();
         }
+
+        public void EditProjectStatus(int id, int status)
+        {
+            MyProject = projectService.GetProject(id);
+
+            MyProject.Status = status;
+
+            projectService.EditProject(MyProject);
+        }
+
+        public IProject GetProject(int id)
+        {
+            return projectService.GetProject(id);
+        }
     }
 }

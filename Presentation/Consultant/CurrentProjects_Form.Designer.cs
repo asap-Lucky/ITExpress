@@ -43,7 +43,7 @@
             this.bt_OpenProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_OpenProject.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_OpenProject.Location = new System.Drawing.Point(1151, 619);
-            this.bt_OpenProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_OpenProject.Margin = new System.Windows.Forms.Padding(4);
             this.bt_OpenProject.Name = "bt_OpenProject";
             this.bt_OpenProject.Size = new System.Drawing.Size(273, 37);
             this.bt_OpenProject.TabIndex = 10;
@@ -59,7 +59,7 @@
             this.bt_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Refresh.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_Refresh.Location = new System.Drawing.Point(16, 619);
-            this.bt_Refresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Refresh.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Refresh.Name = "bt_Refresh";
             this.bt_Refresh.Size = new System.Drawing.Size(273, 37);
             this.bt_Refresh.TabIndex = 12;
@@ -76,7 +76,7 @@
             this.dgv_existingProjectsCustomer.BackgroundColor = System.Drawing.Color.White;
             this.dgv_existingProjectsCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_existingProjectsCustomer.Location = new System.Drawing.Point(16, 15);
-            this.dgv_existingProjectsCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_existingProjectsCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_existingProjectsCustomer.MultiSelect = false;
             this.dgv_existingProjectsCustomer.Name = "dgv_existingProjectsCustomer";
             this.dgv_existingProjectsCustomer.RowHeadersVisible = false;
@@ -85,6 +85,8 @@
             this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1408, 574);
             this.dgv_existingProjectsCustomer.TabIndex = 14;
             this.dgv_existingProjectsCustomer.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_existingProjectsCustomer_CellValidating);
+            this.dgv_existingProjectsCustomer.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_existingProjectsCustomer_CellValueChanged);
+            this.dgv_existingProjectsCustomer.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgv_existingProjectsCustomer_CurrentCellDirtyStateChanged);
             this.dgv_existingProjectsCustomer.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_existingProjectsCustomer_DataError);
             // 
             // CurrentProjects_Form
@@ -98,7 +100,7 @@
             this.Controls.Add(this.bt_Refresh);
             this.Controls.Add(this.bt_OpenProject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CurrentProjects_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";

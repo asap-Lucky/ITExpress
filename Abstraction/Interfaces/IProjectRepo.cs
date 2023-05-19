@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,5 +19,7 @@ namespace Abstraction.Interfaces
         void EditProject(IProject project);
 
         List<IProject> GetProjectsByCostumer(ICustomer customer);
+
+        IProject GetProject(int id);
     }
 }

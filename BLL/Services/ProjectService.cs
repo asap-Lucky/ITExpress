@@ -1,4 +1,4 @@
-﻿using Abstraction.Interfaces;
+using Abstraction.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,5 +46,10 @@ namespace BLL.Services
         {
             return _ProjectRepo.GetProjectsByCostumer(customer);
         }
+        public IProject GetProject(int id)
+        {
+            return _ProjectRepo.GetProject(id);
+        }
+
     }
 }

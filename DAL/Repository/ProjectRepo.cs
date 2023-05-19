@@ -1,5 +1,6 @@
-﻿using Abstraction.Interfaces;
+using Abstraction.Interfaces;
 using DAL.Database;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
@@ -17,29 +18,25 @@ namespace DAL.Repository
         public ProjectRepo()
         {
             DataContext = new ITExpressDataClassesDataContext();
-        }
 
+        }
         public List<IProject> GetAllProjects()
         {
             var result = new List<IProject>();
 
-            var AllDtoItem = DataContext.Projects;
+            var AlldataProjectItem = DataContext.Projects;
 
-            foreach (var dto in AllDtoItem)
+            foreach (var dataProject in AlldataProjectItem)
             {
                 Models.Project project = new Models.Project();
 
-                project.Id = dto.ProjectId;
-                project.Name = dto.Project_Name;
-                project.Customer = new DAL.Models.Customer() 
-                {
-                    Id = dto.Customer.CustomerId,
-
-                };
-                project.StartDate = dto.Project_StartDate;
-                project.EndDate = dto.Project_EndDate;
-                project.Status = dto.Project_Status;
-                project.Description = dto.Project_Description;
+                project.Id = dataProject.ProjectId;
+                project.Name = dataProject.Project_Name;
+                project.CustomerId = dataProject.Project_CustomerId;
+                project.StartDate = dataProject.Project_StartDate;
+                project.EndDate = dataProject.Project_EndDate;
+                project.Status = dataProject.Project_Status;
+                project.Description = dataProject.Project_Description;
 
 
 
@@ -55,41 +52,41 @@ namespace DAL.Repository
 
             var consultantProjects = DataContext.Projects.Where(p => p.Project_ConsultantId == consultantId);
 
-            foreach (var dto in consultantProjects)
+            foreach (var dataProject in consultantProjects)
             {
                 Models.Project project = new Models.Project();
 
-                project.Id = dto.ProjectId;
-                project.Name = dto.Project_Name;
-                project.CustomerId = dto.Project_CustomerId;
-                project.StartDate = dto.Project_StartDate;
-                project.EndDate = dto.Project_EndDate;
-                project.Status = dto.Project_Status;
-                project.Description = dto.Project_Description;
+                project.Id = dataProject.ProjectId;
+                project.Name = dataProject.Project_Name;
+                project.CustomerId = dataProject.Project_CustomerId;
+                project.StartDate = dataProject.Project_StartDate;
+                project.EndDate = dataProject.Project_EndDate;
+                project.Status = dataProject.Project_Status;
+                project.Description = dataProject.Project_Description;
 
                 project.Language = new Models.CodeLanguage();
-                project.Language.Id = dto.CodeLanguage.Id;
-                project.Language.Language = dto.CodeLanguage.LanguageName;
+                project.Language.Id = dataProject.CodeLanguage.Id;
+                project.Language.Language = dataProject.CodeLanguage.LanguageName;
 
                 project.EndType = new Models.EndType();
-                project.EndType.Id = dto.EndType.Id;
-                project.EndType.EndType1 = dto.EndType.EndType1;
+                project.EndType.Id = dataProject.EndType.Id;
+                project.EndType.EndType1 = dataProject.EndType.EndType1;
 
                 result.Add(project);
             }
             return result;
         }
 
-        public void AddProject(IProject dto)
+        public void AddProject(IProject dataProject)
         {
             Database.Project projectData = MapToData(dto);            
             DataContext.Projects.InsertOnSubmit(projectData);
             DataContext.SubmitChanges();
         }
 
-        public void DeleteProject(IProject dto)
+        public void DeleteProject(IProject dataProject)
         {
-            var targetProject = DataContext.Projects.FirstOrDefault(i => i.ProjectId == dto.Id);
+            var targetProject = DataContext.Projects.FirstOrDefault(i => i.ProjectId == dataProject.Id);
 
             DataContext.Projects.DeleteOnSubmit(targetProject);
 
@@ -103,17 +100,41 @@ namespace DAL.Repository
             {
                 // Update the Project object with the new values.
                 targetProject.Project_Name = project.Name;
-                targetProject.Project_CustomerId = project.Customer.Id;
+                targetProject.Project_CustomerId = project.CustomerId;
+
+                if (project.ConsultantId != 0)
+                {
+                    targetProject.Project_ConsultantId = project.ConsultantId;
+                }
+                
                 targetProject.Project_ConsultantId = project.Consultant.Id;
                 targetProject.Project_StartDate = project.StartDate;
                 targetProject.Project_EndDate = project.EndDate;
                 targetProject.Project_Status = project.Status;
-                targetProject.Project_EndType = project.EndType.Id;
-                targetProject.Project_CodeLanguageId = project.Language.Id;
+
+                // Make sure project.EndType is not null before accessing its properties.
+                if (project.EndType != null)
+                {
+                    targetProject.Project_EndType = project.EndType.Id;
+                }
+
+                // Make sure project.Language is not null before accessing its properties.
+                if (project.Language != null)
+                {
+                    targetProject.Project_CodeLanguageId = project.Language.Id;
+                }
 
                 // Save the changes to the database.
                 DataContext.SubmitChanges();
             }
+        }
+
+        public IProject GetProject(int id)
+        {
+            var dataProject = DataContext.Projects.FirstOrDefault(c => c.ProjectId == id);
+            Models.Project project = MapToModel(dataProject);
+
+            return project;
         }
 
         public List<IProject> GetProjectsByCostumer(ICustomer customer)
