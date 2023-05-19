@@ -68,7 +68,7 @@ namespace Presentation.Customer
                 MyProject.EndDate = dtp_endDate.Value;
                 MyProject.Language = (ICodeLanguage)cb_projectRequierements.SelectedItem;
                 MyProject.EndType = (IEndType)cb_projectEndtype.SelectedItem;
-                MyProject.CustomerId = loggedInCustomer.Id;
+                MyProject.Customer = loggedInCustomer;
 
 
 

@@ -19,8 +19,8 @@ namespace DAL.Models
         public string Description { get; set; }
         public int TimeUsed { get; set; }
         public int Status { get; set; }
-        public int CustomerId { get; set; }
-        public int ConsultantId { get; set; }
+        public ICustomer Customer { get; set; }
+        public IConsultant Consultant { get; set; }
         public ICodeLanguage Language { get; set; }
         public IEndType EndType { get; set; }
 

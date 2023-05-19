@@ -31,7 +31,11 @@ namespace DAL.Repository
 
                 project.Id = dto.ProjectId;
                 project.Name = dto.Project_Name;
-                project.CustomerId = dto.Project_CustomerId;
+                project.Customer = new DAL.Models.Customer() 
+                {
+                    Id = dto.Customer.CustomerId,
+
+                };
                 project.StartDate = dto.Project_StartDate;
                 project.EndDate = dto.Project_EndDate;
                 project.Status = dto.Project_Status;
@@ -47,20 +51,8 @@ namespace DAL.Repository
 
         public void AddProject(IProject dto)
         {
-            var project = new Database.Project()
-            {
-
-                Project_Name = dto.Name,
-                Project_CustomerId = dto.CustomerId,
-                Project_StartDate = dto.StartDate,
-                Project_EndDate = dto.EndDate,
-                Project_Status = dto.Status,
-                Project_Description = dto.Description,
-                Project_HourWage = dto.HourWage,
-                Project_CodeLanguageId = dto.Language.Id,
-                Project_EndType = dto.EndType.Id
-            };
-            DataContext.Projects.InsertOnSubmit(project);
+            Database.Project projectData = MapToData(dto);            
+            DataContext.Projects.InsertOnSubmit(projectData);
             DataContext.SubmitChanges();
         }
 
@@ -80,8 +72,8 @@ namespace DAL.Repository
             {
                 // Update the Project object with the new values.
                 targetProject.Project_Name = project.Name;
-                targetProject.Project_CustomerId = project.CustomerId;
-                targetProject.Project_ConsultantId = project.ConsultantId;
+                targetProject.Project_CustomerId = project.Customer.Id;
+                targetProject.Project_ConsultantId = project.Consultant.Id;
                 targetProject.Project_StartDate = project.StartDate;
                 targetProject.Project_EndDate = project.EndDate;
                 targetProject.Project_Status = project.Status;
@@ -122,11 +114,24 @@ namespace DAL.Repository
                 projectModel.TimeUsed = (int)dataProject.Project_TimeUsed;
             }
             projectModel.Status = dataProject.Project_Status;
-            projectModel.CustomerId = dataProject.Project_CustomerId;
+            projectModel.Customer = new Models.Customer() 
+            {
+                Id = dataProject.Customer.CustomerId,
+                FirstName = dataProject.Customer.Customer_FirstName,
+                LastName = dataProject.Customer.Customer_LastName,
+                Login = dataProject.Customer.Customer_Login,
+                Password = dataProject.Customer.Customer_Password,
+                Email = dataProject.Customer.Customer_Email,
+                ZipCode = dataProject.Customer.Customer_ZipCode,
+                City = dataProject.Customer.Customer_City,
+                Address = dataProject.Customer.Customer_Address,
+                PhoneNumber = dataProject.Customer.Customer_PhoneNumber,                
+            };
+            
 
             if(dataProject.Project_ConsultantId != null)
             {
-                projectModel.ConsultantId = (int)dataProject.Project_ConsultantId;
+                projectModel.Consultant = (IConsultant)dataProject.Consultant;                
             }
             
             projectModel.Language = new Models.CodeLanguage()
@@ -142,6 +147,27 @@ namespace DAL.Repository
             }
 
             return projectModel;
+        }
+
+        private Database.Project MapToData(IProject projectModel)
+        {
+            Database.Project projectData = new Database.Project()
+            {
+                ProjectId = projectModel.Id,
+                Project_Name = projectModel.Name,
+                Project_Description = projectModel.Description,
+                Project_TotalSum = projectModel.TotalSum,
+                Project_HourWage = projectModel.HourWage,
+                Project_StartDate = projectModel.StartDate,
+                Project_EndDate = projectModel.EndDate,
+                Project_TimeUsed = projectModel.TimeUsed,
+                Project_Status = projectModel.Status,
+                Project_CustomerId = projectModel.Customer.Id,
+                Project_ConsultantId = projectModel.Consultant.Id,
+                Project_CodeLanguageId = projectModel.Language.Id,
+                Project_EndType = projectModel.EndType.Id
+            };
+            return projectData;
         }
     }
 }

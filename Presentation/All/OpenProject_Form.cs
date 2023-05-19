@@ -65,7 +65,7 @@ namespace Presentation.Customer
                 MyProject.EndDate = dtp_endDate.Value;
                 MyProject.Language = (ICodeLanguage)cb_CodeLanguage.SelectedItem;
                 MyProject.EndType = (IEndType)cb_EndType.SelectedItem;
-                MyProject.CustomerId = loggedInCustomer.Id;
+                MyProject.Customer = loggedInCustomer;
 
                 ProjectService.EditProject(MyProject);
                 MessageBox.Show("Project updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

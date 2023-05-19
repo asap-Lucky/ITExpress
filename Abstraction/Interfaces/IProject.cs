@@ -18,8 +18,8 @@ namespace Abstraction.Interfaces
         string Description { get; set; }
         int TimeUsed { get; set; }
         int Status { get; set; }
-        int CustomerId { get; set; }
-        int ConsultantId { get; set; }
+        ICustomer Customer { get; set; }
+        IConsultant Consultant { get; set; }
         ICodeLanguage Language { get; set; }
         IEndType EndType { get; set; }
     }
