@@ -96,7 +96,7 @@ namespace Presentation.Consultant
         {
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new Specialization_Form());
+            OpenChildForm(new EditSpecialization_Form());
         }
     }
 }

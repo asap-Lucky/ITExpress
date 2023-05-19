@@ -10,6 +10,7 @@ using UI.Costumer;
 using Presentation.Customer;
 using Presentation.Consultant;
 using Presentation.All;
+using Presentation.Admin;
 
 namespace UI
 {
@@ -23,7 +24,7 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_Form());
+            Application.Run(new AdminsOverviewWindow_Form());
         }
     }
 }

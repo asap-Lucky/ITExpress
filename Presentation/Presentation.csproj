@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddSpecialization_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddSpecialization_Form.Designer.cs">
+      <DependentUpon>AddSpecialization_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminsOverviewWindow_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,12 +118,6 @@
     </Compile>
     <Compile Include="Admin\LogInAdmin_Form.Designer.cs">
       <DependentUpon>LogInAdmin_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Specialization_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\Specialization_Form.Designer.cs">
-      <DependentUpon>Specialization_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="All\SendMessage_Form.cs">
       <SubType>Form</SubType>
@@ -259,6 +259,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\AddSpecialization_Form.resx">
+      <DependentUpon>AddSpecialization_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\AdminsOverviewWindow_Form.resx">
       <DependentUpon>AdminsOverviewWindow_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,9 +294,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\LogInAdmin_Form.resx">
       <DependentUpon>LogInAdmin_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Specialization_Form.resx">
-      <DependentUpon>Specialization_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All\SendMessage_Form.resx">
       <DependentUpon>SendMessage_Form.cs</DependentUpon>
