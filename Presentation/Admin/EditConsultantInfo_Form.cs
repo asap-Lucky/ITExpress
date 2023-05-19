@@ -1,6 +1,8 @@
 ﻿using Abstraction.Interfaces;
 using BLL.Models;
+using BLL.Services;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,17 +19,40 @@ namespace Presentation.Customer
         //Fields
         private IConsultant SelectedConsultant { get; set; }
 
+        private ICodeLangaugeService codeLanguageService = new BLL.Services.CodeLanguageService();
+
+        private IEndtypeService endtypeService = new BLL.Services.EndtypeService();
+
+        private BLL.Facader.ConsultantService facadeService { get; set; }
+
         private BLL.Services.ConsultantService consultantService { get; set; }
+
+        private List<ICodeLanguage> DefaultCodeLanguages { get; set; }
+
+        private List<IEndType> DefaultEndType { get; set; }
 
         public EditConsultantInfo(IConsultant selectedConsultant)
         {
             InitializeComponent();
-            SelectedConsultant = selectedConsultant;
+            facadeService = new BLL.Facader.ConsultantService(consultantService);
+            DefaultCodeLanguages = codeLanguageService.GetAllCodeLanguages();
+            DefaultEndType = endtypeService.GetAllEndTypes();
+            this.SelectedConsultant = selectedConsultant;
             InitialiseControl();
+        }
+
+        private void InitializeCombobox()
+        {
+            cb_language.DataSource = DefaultCodeLanguages;
+            cb_language.DisplayMember = "Language";
+
+            cb_endType.DataSource = DefaultEndType;
+            cb_endType.DisplayMember = "Endtype1";
         }
 
         private void InitialiseControl()
         {
+            tb_id.Text = SelectedConsultant.Id.ToString();
             tb_firstName.Text = SelectedConsultant.FirstName;
             tb_lastName.Text = SelectedConsultant.LastName;
             tb_address.Text = SelectedConsultant.Address;
@@ -39,7 +64,7 @@ namespace Presentation.Customer
             tb_passWord.Text = SelectedConsultant.Password;
             cb_language.Text = SelectedConsultant.Language.Language;
             cb_endType.Text = SelectedConsultant.EndType.EndType1;
-            //tb_languageDescript_1 = SelectedConsultant.LanguageDescript_1.ToString();
+            InitializeCombobox();
             // Code that retrives the closed projects for the customer 
             // Code that retrives the current projects for the customer
         }
@@ -57,9 +82,7 @@ namespace Presentation.Customer
             // Check if the values of the zipcode and phonenumber can be converted to an integer.
             bool CanParseZipcode = int.TryParse(tb_zipCode.Text, out int zipcode);
             bool CanParsePhonenumber = int.TryParse(tb_phoneNumber.Text, out int phonenumber);
-            // Cast from cb to String? -------------->        cb_language.Text = ComboBox.SelectedItem.ToString(); 
-            // Cast from cb to String? -------------->        cb_language.Text = ComboBox.SelectedItem.ToString(); 
-            // Dont know tb_Discription for consultant? -------------->    ???????????????????????????????????????
+            
 
             // Check if the zipcode only consists of numbers.
             if (!CanParseZipcode)
@@ -82,6 +105,7 @@ namespace Presentation.Customer
 
                 else
                 {
+                    SelectedConsultant.Id = int.Parse(tb_id.Text);
                     SelectedConsultant.FirstName = tb_firstName.Text;
                     SelectedConsultant.LastName = tb_lastName.Text;
                     SelectedConsultant.Address = tb_address.Text;
@@ -91,18 +115,16 @@ namespace Presentation.Customer
                     SelectedConsultant.Password = tb_passWord.Text;
                     SelectedConsultant.ZipCode = zipcode;
                     SelectedConsultant.PhoneNumber = phonenumber;
-                    // --------------> Linje 60 SelectedConsultant.Language = cb_language.Text;
-                    // --------------> Linje 61 SelectedConsultant.EndType = cb_endType.Text;
-                    //tb_languageDescript_1 = SelectedConsultant.LanguageDescript_1.ToString();
+                    SelectedConsultant.Language.Id = DefaultCodeLanguages.FirstOrDefault(d => d.Language == cb_language.Text).Id;
+                    SelectedConsultant.Language.Language = cb_language.Text;
+                    SelectedConsultant.EndType.EndType1 = cb_endType.Text;
+                    SelectedConsultant.EndType.Id = DefaultEndType.FirstOrDefault(d => d.EndType1 == cb_endType.Text).Id;
 
-                    consultantService.EditConsultant(SelectedConsultant);
+                    consultantService.EditConsultant(SelectedConsultant);;
                 }
-
-
             }
         }
-
-        private void bt_DiscardChanges_Click(object sender, EventArgs e)
+            private void bt_DiscardChanges_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you wish to discard your changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 

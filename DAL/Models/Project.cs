@@ -14,6 +14,7 @@ namespace DAL.Models
         public decimal TotalSum { get; set; }
         public decimal HourWage { get; set; }
         public DateTime StartDate { get; set; }
+        public string GetStartDate { get { return StartDate.ToString(); } }
         public DateTime EndDate { get; set; }
         public string Description { get; set; }
         public int TimeUsed { get; set; }
@@ -22,5 +23,7 @@ namespace DAL.Models
         public int ConsultantId { get; set; }
         public ICodeLanguage Language { get; set; }
         public IEndType EndType { get; set; }
+
+       
     }
 }

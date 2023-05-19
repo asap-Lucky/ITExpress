@@ -13,14 +13,14 @@ namespace Abstraction.Interfaces
         decimal TotalSum { get; set; }
         decimal HourWage { get; set; }
         DateTime StartDate { get; set; }
+        string GetStartDate { get; }
         DateTime EndDate { get; set; }
-       string Description { get; set; }
+        string Description { get; set; }
         int TimeUsed { get; set; }
         int Status { get; set; }
         int CustomerId { get; set; }
         int ConsultantId { get; set; }
-
-      ICodeLanguage Language { get; set; }
-         IEndType EndType { get; set; }
+        ICodeLanguage Language { get; set; }
+        IEndType EndType { get; set; }
     }
 }

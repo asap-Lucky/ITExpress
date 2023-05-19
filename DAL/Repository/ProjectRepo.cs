@@ -92,5 +92,56 @@ namespace DAL.Repository
                 DataContext.SubmitChanges();
             }
         }
+
+        public List<IProject> GetProjectsByCostumer(ICustomer customer)
+        {
+            List<IProject> projectModels = new List<IProject>();
+            var dataProjects = DataContext.Projects.Where(c => c.Project_CustomerId == customer.Id).ToList();
+            foreach(var dataProject in dataProjects)
+            {
+                projectModels.Add(MapToModel(dataProject));
+            }
+            return projectModels;
+        }
+
+        private IProject MapToModel(Database.Project dataProject)
+        {
+            IProject projectModel = new Models.Project();
+            projectModel.Id = dataProject.ProjectId;
+            projectModel.Name = dataProject.Project_Name;
+            if(dataProject.Project_TotalSum != null)
+            {
+                projectModel.TotalSum = (decimal)dataProject.Project_TotalSum;
+            }
+            projectModel.HourWage = dataProject.Project_HourWage;
+            projectModel.StartDate = dataProject.Project_StartDate;
+            projectModel.EndDate = dataProject.Project_EndDate;
+            projectModel.Description = dataProject.Project_Description;
+            if(dataProject.Project_TimeUsed != null)
+            {
+                projectModel.TimeUsed = (int)dataProject.Project_TimeUsed;
+            }
+            projectModel.Status = dataProject.Project_Status;
+            projectModel.CustomerId = dataProject.Project_CustomerId;
+
+            if(dataProject.Project_ConsultantId != null)
+            {
+                projectModel.ConsultantId = (int)dataProject.Project_ConsultantId;
+            }
+            
+            projectModel.Language = new Models.CodeLanguage()
+            {
+                Id = dataProject.Project_CodeLanguageId,
+                Language = dataProject.CodeLanguage.LanguageName
+            };
+            projectModel.EndType = new Models.EndType();
+            if (dataProject.Project_EndType != null)
+            {
+                projectModel.EndType.Id = (int)dataProject.Project_EndType;
+                projectModel.EndType.EndType1 = dataProject.EndType.EndType1;
+            }
+
+            return projectModel;
+        }
     }
 }

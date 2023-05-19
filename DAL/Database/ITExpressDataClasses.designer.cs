@@ -33,9 +33,6 @@ namespace DAL.Database
     partial void InsertAdmin(Admin instance);
     partial void UpdateAdmin(Admin instance);
     partial void DeleteAdmin(Admin instance);
-    partial void InsertProject(Project instance);
-    partial void UpdateProject(Project instance);
-    partial void DeleteProject(Project instance);
     partial void InsertCodeLanguage(CodeLanguage instance);
     partial void UpdateCodeLanguage(CodeLanguage instance);
     partial void DeleteCodeLanguage(CodeLanguage instance);
@@ -54,6 +51,9 @@ namespace DAL.Database
     partial void InsertMessage(Message instance);
     partial void UpdateMessage(Message instance);
     partial void DeleteMessage(Message instance);
+    partial void InsertProject(Project instance);
+    partial void UpdateProject(Project instance);
+    partial void DeleteProject(Project instance);
     #endregion
 		
 		public ITExpressDataClassesDataContext() : 
@@ -91,14 +91,6 @@ namespace DAL.Database
 			get
 			{
 				return this.GetTable<Admin>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Project> Projects
-		{
-			get
-			{
-				return this.GetTable<Project>();
 			}
 		}
 		
@@ -147,6 +139,14 @@ namespace DAL.Database
 			get
 			{
 				return this.GetTable<Message>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Project> Projects
+		{
+			get
+			{
+				return this.GetTable<Project>();
 			}
 		}
 	}
@@ -261,520 +261,6 @@ namespace DAL.Database
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Project")]
-	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ProjectId;
-		
-		private string _Project_Name;
-		
-		private string _Project_Description;
-		
-		private System.Nullable<decimal> _Project_TotalSum;
-		
-		private decimal _Project_HourWage;
-		
-		private System.DateTime _Project_StartDate;
-		
-		private System.DateTime _Project_EndDate;
-		
-		private System.Nullable<int> _Project_TimeUsed;
-		
-		private int _Project_Status;
-		
-		private int _Project_CustomerId;
-		
-		private int _Project_ConsultantId;
-		
-		private int _Project_CodeLanguageId;
-		
-		private System.Nullable<int> _Project_EndType;
-		
-		private EntityRef<CodeLanguage> _CodeLanguage;
-		
-		private EntityRef<Consultant> _Consultant;
-		
-		private EntityRef<Customer> _Customer;
-		
-		private EntityRef<EndType> _EndType;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnProjectIdChanging(int value);
-    partial void OnProjectIdChanged();
-    partial void OnProject_NameChanging(string value);
-    partial void OnProject_NameChanged();
-    partial void OnProject_DescriptionChanging(string value);
-    partial void OnProject_DescriptionChanged();
-    partial void OnProject_TotalSumChanging(System.Nullable<decimal> value);
-    partial void OnProject_TotalSumChanged();
-    partial void OnProject_HourWageChanging(decimal value);
-    partial void OnProject_HourWageChanged();
-    partial void OnProject_StartDateChanging(System.DateTime value);
-    partial void OnProject_StartDateChanged();
-    partial void OnProject_EndDateChanging(System.DateTime value);
-    partial void OnProject_EndDateChanged();
-    partial void OnProject_TimeUsedChanging(System.Nullable<int> value);
-    partial void OnProject_TimeUsedChanged();
-    partial void OnProject_StatusChanging(int value);
-    partial void OnProject_StatusChanged();
-    partial void OnProject_CustomerIdChanging(int value);
-    partial void OnProject_CustomerIdChanged();
-    partial void OnProject_ConsultantIdChanging(int value);
-    partial void OnProject_ConsultantIdChanged();
-    partial void OnProject_CodeLanguageIdChanging(int value);
-    partial void OnProject_CodeLanguageIdChanged();
-    partial void OnProject_EndTypeChanging(System.Nullable<int> value);
-    partial void OnProject_EndTypeChanged();
-    #endregion
-		
-		public Project()
-		{
-			this._CodeLanguage = default(EntityRef<CodeLanguage>);
-			this._Consultant = default(EntityRef<Consultant>);
-			this._Customer = default(EntityRef<Customer>);
-			this._EndType = default(EntityRef<EndType>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ProjectId
-		{
-			get
-			{
-				return this._ProjectId;
-			}
-			set
-			{
-				if ((this._ProjectId != value))
-				{
-					this.OnProjectIdChanging(value);
-					this.SendPropertyChanging();
-					this._ProjectId = value;
-					this.SendPropertyChanged("ProjectId");
-					this.OnProjectIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Project_Name
-		{
-			get
-			{
-				return this._Project_Name;
-			}
-			set
-			{
-				if ((this._Project_Name != value))
-				{
-					this.OnProject_NameChanging(value);
-					this.SendPropertyChanging();
-					this._Project_Name = value;
-					this.SendPropertyChanged("Project_Name");
-					this.OnProject_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_Description", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Project_Description
-		{
-			get
-			{
-				return this._Project_Description;
-			}
-			set
-			{
-				if ((this._Project_Description != value))
-				{
-					this.OnProject_DescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Project_Description = value;
-					this.SendPropertyChanged("Project_Description");
-					this.OnProject_DescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_TotalSum", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> Project_TotalSum
-		{
-			get
-			{
-				return this._Project_TotalSum;
-			}
-			set
-			{
-				if ((this._Project_TotalSum != value))
-				{
-					this.OnProject_TotalSumChanging(value);
-					this.SendPropertyChanging();
-					this._Project_TotalSum = value;
-					this.SendPropertyChanged("Project_TotalSum");
-					this.OnProject_TotalSumChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_HourWage", DbType="Decimal(18,0) NOT NULL")]
-		public decimal Project_HourWage
-		{
-			get
-			{
-				return this._Project_HourWage;
-			}
-			set
-			{
-				if ((this._Project_HourWage != value))
-				{
-					this.OnProject_HourWageChanging(value);
-					this.SendPropertyChanging();
-					this._Project_HourWage = value;
-					this.SendPropertyChanged("Project_HourWage");
-					this.OnProject_HourWageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_StartDate", DbType="DateTime NOT NULL")]
-		public System.DateTime Project_StartDate
-		{
-			get
-			{
-				return this._Project_StartDate;
-			}
-			set
-			{
-				if ((this._Project_StartDate != value))
-				{
-					this.OnProject_StartDateChanging(value);
-					this.SendPropertyChanging();
-					this._Project_StartDate = value;
-					this.SendPropertyChanged("Project_StartDate");
-					this.OnProject_StartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_EndDate", DbType="DateTime NOT NULL")]
-		public System.DateTime Project_EndDate
-		{
-			get
-			{
-				return this._Project_EndDate;
-			}
-			set
-			{
-				if ((this._Project_EndDate != value))
-				{
-					this.OnProject_EndDateChanging(value);
-					this.SendPropertyChanging();
-					this._Project_EndDate = value;
-					this.SendPropertyChanged("Project_EndDate");
-					this.OnProject_EndDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_TimeUsed", DbType="Int")]
-		public System.Nullable<int> Project_TimeUsed
-		{
-			get
-			{
-				return this._Project_TimeUsed;
-			}
-			set
-			{
-				if ((this._Project_TimeUsed != value))
-				{
-					this.OnProject_TimeUsedChanging(value);
-					this.SendPropertyChanging();
-					this._Project_TimeUsed = value;
-					this.SendPropertyChanged("Project_TimeUsed");
-					this.OnProject_TimeUsedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_Status", DbType="Int NOT NULL")]
-		public int Project_Status
-		{
-			get
-			{
-				return this._Project_Status;
-			}
-			set
-			{
-				if ((this._Project_Status != value))
-				{
-					this.OnProject_StatusChanging(value);
-					this.SendPropertyChanging();
-					this._Project_Status = value;
-					this.SendPropertyChanged("Project_Status");
-					this.OnProject_StatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_CustomerId", DbType="Int NOT NULL")]
-		public int Project_CustomerId
-		{
-			get
-			{
-				return this._Project_CustomerId;
-			}
-			set
-			{
-				if ((this._Project_CustomerId != value))
-				{
-					if (this._Customer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnProject_CustomerIdChanging(value);
-					this.SendPropertyChanging();
-					this._Project_CustomerId = value;
-					this.SendPropertyChanged("Project_CustomerId");
-					this.OnProject_CustomerIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_ConsultantId", DbType="Int NOT NULL")]
-		public int Project_ConsultantId
-		{
-			get
-			{
-				return this._Project_ConsultantId;
-			}
-			set
-			{
-				if ((this._Project_ConsultantId != value))
-				{
-					if (this._Consultant.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnProject_ConsultantIdChanging(value);
-					this.SendPropertyChanging();
-					this._Project_ConsultantId = value;
-					this.SendPropertyChanged("Project_ConsultantId");
-					this.OnProject_ConsultantIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_CodeLanguageId", DbType="Int NOT NULL")]
-		public int Project_CodeLanguageId
-		{
-			get
-			{
-				return this._Project_CodeLanguageId;
-			}
-			set
-			{
-				if ((this._Project_CodeLanguageId != value))
-				{
-					if (this._CodeLanguage.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnProject_CodeLanguageIdChanging(value);
-					this.SendPropertyChanging();
-					this._Project_CodeLanguageId = value;
-					this.SendPropertyChanged("Project_CodeLanguageId");
-					this.OnProject_CodeLanguageIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_EndType", DbType="Int")]
-		public System.Nullable<int> Project_EndType
-		{
-			get
-			{
-				return this._Project_EndType;
-			}
-			set
-			{
-				if ((this._Project_EndType != value))
-				{
-					if (this._EndType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnProject_EndTypeChanging(value);
-					this.SendPropertyChanging();
-					this._Project_EndType = value;
-					this.SendPropertyChanged("Project_EndType");
-					this.OnProject_EndTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Project", Storage="_CodeLanguage", ThisKey="Project_CodeLanguageId", OtherKey="Id", IsForeignKey=true)]
-		public CodeLanguage CodeLanguage
-		{
-			get
-			{
-				return this._CodeLanguage.Entity;
-			}
-			set
-			{
-				CodeLanguage previousValue = this._CodeLanguage.Entity;
-				if (((previousValue != value) 
-							|| (this._CodeLanguage.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CodeLanguage.Entity = null;
-						previousValue.Projects.Remove(this);
-					}
-					this._CodeLanguage.Entity = value;
-					if ((value != null))
-					{
-						value.Projects.Add(this);
-						this._Project_CodeLanguageId = value.Id;
-					}
-					else
-					{
-						this._Project_CodeLanguageId = default(int);
-					}
-					this.SendPropertyChanged("CodeLanguage");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Project", Storage="_Consultant", ThisKey="Project_ConsultantId", OtherKey="ConsultantId", IsForeignKey=true)]
-		public Consultant Consultant
-		{
-			get
-			{
-				return this._Consultant.Entity;
-			}
-			set
-			{
-				Consultant previousValue = this._Consultant.Entity;
-				if (((previousValue != value) 
-							|| (this._Consultant.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Consultant.Entity = null;
-						previousValue.Projects.Remove(this);
-					}
-					this._Consultant.Entity = value;
-					if ((value != null))
-					{
-						value.Projects.Add(this);
-						this._Project_ConsultantId = value.ConsultantId;
-					}
-					else
-					{
-						this._Project_ConsultantId = default(int);
-					}
-					this.SendPropertyChanged("Consultant");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Project", Storage="_Customer", ThisKey="Project_CustomerId", OtherKey="CustomerId", IsForeignKey=true)]
-		public Customer Customer
-		{
-			get
-			{
-				return this._Customer.Entity;
-			}
-			set
-			{
-				Customer previousValue = this._Customer.Entity;
-				if (((previousValue != value) 
-							|| (this._Customer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Customer.Entity = null;
-						previousValue.Projects.Remove(this);
-					}
-					this._Customer.Entity = value;
-					if ((value != null))
-					{
-						value.Projects.Add(this);
-						this._Project_CustomerId = value.CustomerId;
-					}
-					else
-					{
-						this._Project_CustomerId = default(int);
-					}
-					this.SendPropertyChanged("Customer");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EndType_Project", Storage="_EndType", ThisKey="Project_EndType", OtherKey="Id", IsForeignKey=true)]
-		public EndType EndType
-		{
-			get
-			{
-				return this._EndType.Entity;
-			}
-			set
-			{
-				EndType previousValue = this._EndType.Entity;
-				if (((previousValue != value) 
-							|| (this._EndType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EndType.Entity = null;
-						previousValue.Projects.Remove(this);
-					}
-					this._EndType.Entity = value;
-					if ((value != null))
-					{
-						value.Projects.Add(this);
-						this._Project_EndType = value.Id;
-					}
-					else
-					{
-						this._Project_EndType = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("EndType");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CodeLanguage")]
 	public partial class CodeLanguage : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -785,9 +271,9 @@ namespace DAL.Database
 		
 		private string _LanguageName;
 		
-		private EntitySet<Project> _Projects;
-		
 		private EntitySet<Consultant> _Consultants;
+		
+		private EntitySet<Project> _Projects;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -801,8 +287,8 @@ namespace DAL.Database
 		
 		public CodeLanguage()
 		{
-			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._Consultants = new EntitySet<Consultant>(new Action<Consultant>(this.attach_Consultants), new Action<Consultant>(this.detach_Consultants));
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			OnCreated();
 		}
 		
@@ -846,19 +332,6 @@ namespace DAL.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Project", Storage="_Projects", ThisKey="Id", OtherKey="Project_CodeLanguageId")]
-		public EntitySet<Project> Projects
-		{
-			get
-			{
-				return this._Projects;
-			}
-			set
-			{
-				this._Projects.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Consultant", Storage="_Consultants", ThisKey="Id", OtherKey="Consultant_CodeLangaugeId")]
 		public EntitySet<Consultant> Consultants
 		{
@@ -869,6 +342,19 @@ namespace DAL.Database
 			set
 			{
 				this._Consultants.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Project", Storage="_Projects", ThisKey="Id", OtherKey="Project_CodeLanguageId")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
 			}
 		}
 		
@@ -892,18 +378,6 @@ namespace DAL.Database
 			}
 		}
 		
-		private void attach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.CodeLanguage = this;
-		}
-		
-		private void detach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.CodeLanguage = null;
-		}
-		
 		private void attach_Consultants(Consultant entity)
 		{
 			this.SendPropertyChanging();
@@ -911,6 +385,18 @@ namespace DAL.Database
 		}
 		
 		private void detach_Consultants(Consultant entity)
+		{
+			this.SendPropertyChanging();
+			entity.CodeLanguage = null;
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.CodeLanguage = this;
+		}
+		
+		private void detach_Projects(Project entity)
 		{
 			this.SendPropertyChanging();
 			entity.CodeLanguage = null;
@@ -947,11 +433,11 @@ namespace DAL.Database
 		
 		private System.Nullable<int> _Contsultant_EndType;
 		
-		private EntitySet<Project> _Projects;
-		
 		private EntitySet<Invitation> _Invitations;
 		
 		private EntitySet<Message> _Messages;
+		
+		private EntitySet<Project> _Projects;
 		
 		private EntityRef<CodeLanguage> _CodeLanguage;
 		
@@ -989,9 +475,9 @@ namespace DAL.Database
 		
 		public Consultant()
 		{
-			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
 			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._CodeLanguage = default(EntityRef<CodeLanguage>);
 			this._EndType = default(EntityRef<EndType>);
 			OnCreated();
@@ -1245,19 +731,6 @@ namespace DAL.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Project", Storage="_Projects", ThisKey="ConsultantId", OtherKey="Project_ConsultantId")]
-		public EntitySet<Project> Projects
-		{
-			get
-			{
-				return this._Projects;
-			}
-			set
-			{
-				this._Projects.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Invitation", Storage="_Invitations", ThisKey="ConsultantId", OtherKey="Invitaiton_ConsultantId")]
 		public EntitySet<Invitation> Invitations
 		{
@@ -1281,6 +754,19 @@ namespace DAL.Database
 			set
 			{
 				this._Messages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Project", Storage="_Projects", ThisKey="ConsultantId", OtherKey="Project_ConsultantId")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
 			}
 		}
 		
@@ -1372,18 +858,6 @@ namespace DAL.Database
 			}
 		}
 		
-		private void attach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = this;
-		}
-		
-		private void detach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Consultant = null;
-		}
-		
 		private void attach_Invitations(Invitation entity)
 		{
 			this.SendPropertyChanging();
@@ -1403,6 +877,18 @@ namespace DAL.Database
 		}
 		
 		private void detach_Messages(Message entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = null;
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.Consultant = this;
+		}
+		
+		private void detach_Projects(Project entity)
 		{
 			this.SendPropertyChanging();
 			entity.Consultant = null;
@@ -1435,11 +921,11 @@ namespace DAL.Database
 		
 		private int _Customer_PhoneNumber;
 		
-		private EntitySet<Project> _Projects;
-		
 		private EntitySet<Invitation> _Invitations;
 		
 		private EntitySet<Message> _Messages;
+		
+		private EntitySet<Project> _Projects;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1469,9 +955,9 @@ namespace DAL.Database
 		
 		public Customer()
 		{
-			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
 			this._Messages = new EntitySet<Message>(new Action<Message>(this.attach_Messages), new Action<Message>(this.detach_Messages));
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			OnCreated();
 		}
 		
@@ -1675,19 +1161,6 @@ namespace DAL.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Project", Storage="_Projects", ThisKey="CustomerId", OtherKey="Project_CustomerId")]
-		public EntitySet<Project> Projects
-		{
-			get
-			{
-				return this._Projects;
-			}
-			set
-			{
-				this._Projects.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Invitation", Storage="_Invitations", ThisKey="CustomerId", OtherKey="Invitation_CustomerId")]
 		public EntitySet<Invitation> Invitations
 		{
@@ -1714,6 +1187,19 @@ namespace DAL.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Project", Storage="_Projects", ThisKey="CustomerId", OtherKey="Project_CustomerId")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1732,18 +1218,6 @@ namespace DAL.Database
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = this;
-		}
-		
-		private void detach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.Customer = null;
 		}
 		
 		private void attach_Invitations(Invitation entity)
@@ -1769,6 +1243,18 @@ namespace DAL.Database
 			this.SendPropertyChanging();
 			entity.Customer = null;
 		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = this;
+		}
+		
+		private void detach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EndType")]
@@ -1781,9 +1267,9 @@ namespace DAL.Database
 		
 		private string _EndType1;
 		
-		private EntitySet<Project> _Projects;
-		
 		private EntitySet<Consultant> _Consultants;
+		
+		private EntitySet<Project> _Projects;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1797,8 +1283,8 @@ namespace DAL.Database
 		
 		public EndType()
 		{
-			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			this._Consultants = new EntitySet<Consultant>(new Action<Consultant>(this.attach_Consultants), new Action<Consultant>(this.detach_Consultants));
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
 			OnCreated();
 		}
 		
@@ -1842,19 +1328,6 @@ namespace DAL.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EndType_Project", Storage="_Projects", ThisKey="Id", OtherKey="Project_EndType")]
-		public EntitySet<Project> Projects
-		{
-			get
-			{
-				return this._Projects;
-			}
-			set
-			{
-				this._Projects.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EndType_Consultant", Storage="_Consultants", ThisKey="Id", OtherKey="Contsultant_EndType")]
 		public EntitySet<Consultant> Consultants
 		{
@@ -1865,6 +1338,19 @@ namespace DAL.Database
 			set
 			{
 				this._Consultants.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EndType_Project", Storage="_Projects", ThisKey="Id", OtherKey="Project_EndType")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
 			}
 		}
 		
@@ -1888,18 +1374,6 @@ namespace DAL.Database
 			}
 		}
 		
-		private void attach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.EndType = this;
-		}
-		
-		private void detach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.EndType = null;
-		}
-		
 		private void attach_Consultants(Consultant entity)
 		{
 			this.SendPropertyChanging();
@@ -1907,6 +1381,18 @@ namespace DAL.Database
 		}
 		
 		private void detach_Consultants(Consultant entity)
+		{
+			this.SendPropertyChanging();
+			entity.EndType = null;
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.EndType = this;
+		}
+		
+		private void detach_Projects(Project entity)
 		{
 			this.SendPropertyChanging();
 			entity.EndType = null;
@@ -2320,6 +1806,520 @@ namespace DAL.Database
 						this._Message_ConsultantId = default(int);
 					}
 					this.SendPropertyChanged("Consultant");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Project")]
+	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProjectId;
+		
+		private string _Project_Name;
+		
+		private string _Project_Description;
+		
+		private System.Nullable<decimal> _Project_TotalSum;
+		
+		private decimal _Project_HourWage;
+		
+		private System.DateTime _Project_StartDate;
+		
+		private System.DateTime _Project_EndDate;
+		
+		private System.Nullable<int> _Project_TimeUsed;
+		
+		private int _Project_Status;
+		
+		private int _Project_CustomerId;
+		
+		private System.Nullable<int> _Project_ConsultantId;
+		
+		private int _Project_CodeLanguageId;
+		
+		private System.Nullable<int> _Project_EndType;
+		
+		private EntityRef<Customer> _Customer;
+		
+		private EntityRef<Consultant> _Consultant;
+		
+		private EntityRef<CodeLanguage> _CodeLanguage;
+		
+		private EntityRef<EndType> _EndType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnProjectIdChanging(int value);
+    partial void OnProjectIdChanged();
+    partial void OnProject_NameChanging(string value);
+    partial void OnProject_NameChanged();
+    partial void OnProject_DescriptionChanging(string value);
+    partial void OnProject_DescriptionChanged();
+    partial void OnProject_TotalSumChanging(System.Nullable<decimal> value);
+    partial void OnProject_TotalSumChanged();
+    partial void OnProject_HourWageChanging(decimal value);
+    partial void OnProject_HourWageChanged();
+    partial void OnProject_StartDateChanging(System.DateTime value);
+    partial void OnProject_StartDateChanged();
+    partial void OnProject_EndDateChanging(System.DateTime value);
+    partial void OnProject_EndDateChanged();
+    partial void OnProject_TimeUsedChanging(System.Nullable<int> value);
+    partial void OnProject_TimeUsedChanged();
+    partial void OnProject_StatusChanging(int value);
+    partial void OnProject_StatusChanged();
+    partial void OnProject_CustomerIdChanging(int value);
+    partial void OnProject_CustomerIdChanged();
+    partial void OnProject_ConsultantIdChanging(System.Nullable<int> value);
+    partial void OnProject_ConsultantIdChanged();
+    partial void OnProject_CodeLanguageIdChanging(int value);
+    partial void OnProject_CodeLanguageIdChanged();
+    partial void OnProject_EndTypeChanging(System.Nullable<int> value);
+    partial void OnProject_EndTypeChanged();
+    #endregion
+		
+		public Project()
+		{
+			this._Customer = default(EntityRef<Customer>);
+			this._Consultant = default(EntityRef<Consultant>);
+			this._CodeLanguage = default(EntityRef<CodeLanguage>);
+			this._EndType = default(EntityRef<EndType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProjectId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ProjectId
+		{
+			get
+			{
+				return this._ProjectId;
+			}
+			set
+			{
+				if ((this._ProjectId != value))
+				{
+					this.OnProjectIdChanging(value);
+					this.SendPropertyChanging();
+					this._ProjectId = value;
+					this.SendPropertyChanged("ProjectId");
+					this.OnProjectIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Project_Name
+		{
+			get
+			{
+				return this._Project_Name;
+			}
+			set
+			{
+				if ((this._Project_Name != value))
+				{
+					this.OnProject_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Project_Name = value;
+					this.SendPropertyChanged("Project_Name");
+					this.OnProject_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_Description", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Project_Description
+		{
+			get
+			{
+				return this._Project_Description;
+			}
+			set
+			{
+				if ((this._Project_Description != value))
+				{
+					this.OnProject_DescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Project_Description = value;
+					this.SendPropertyChanged("Project_Description");
+					this.OnProject_DescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_TotalSum", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> Project_TotalSum
+		{
+			get
+			{
+				return this._Project_TotalSum;
+			}
+			set
+			{
+				if ((this._Project_TotalSum != value))
+				{
+					this.OnProject_TotalSumChanging(value);
+					this.SendPropertyChanging();
+					this._Project_TotalSum = value;
+					this.SendPropertyChanged("Project_TotalSum");
+					this.OnProject_TotalSumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_HourWage", DbType="Decimal(18,0) NOT NULL")]
+		public decimal Project_HourWage
+		{
+			get
+			{
+				return this._Project_HourWage;
+			}
+			set
+			{
+				if ((this._Project_HourWage != value))
+				{
+					this.OnProject_HourWageChanging(value);
+					this.SendPropertyChanging();
+					this._Project_HourWage = value;
+					this.SendPropertyChanged("Project_HourWage");
+					this.OnProject_HourWageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_StartDate", DbType="DateTime NOT NULL")]
+		public System.DateTime Project_StartDate
+		{
+			get
+			{
+				return this._Project_StartDate;
+			}
+			set
+			{
+				if ((this._Project_StartDate != value))
+				{
+					this.OnProject_StartDateChanging(value);
+					this.SendPropertyChanging();
+					this._Project_StartDate = value;
+					this.SendPropertyChanged("Project_StartDate");
+					this.OnProject_StartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_EndDate", DbType="DateTime NOT NULL")]
+		public System.DateTime Project_EndDate
+		{
+			get
+			{
+				return this._Project_EndDate;
+			}
+			set
+			{
+				if ((this._Project_EndDate != value))
+				{
+					this.OnProject_EndDateChanging(value);
+					this.SendPropertyChanging();
+					this._Project_EndDate = value;
+					this.SendPropertyChanged("Project_EndDate");
+					this.OnProject_EndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_TimeUsed", DbType="Int")]
+		public System.Nullable<int> Project_TimeUsed
+		{
+			get
+			{
+				return this._Project_TimeUsed;
+			}
+			set
+			{
+				if ((this._Project_TimeUsed != value))
+				{
+					this.OnProject_TimeUsedChanging(value);
+					this.SendPropertyChanging();
+					this._Project_TimeUsed = value;
+					this.SendPropertyChanged("Project_TimeUsed");
+					this.OnProject_TimeUsedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_Status", DbType="Int NOT NULL")]
+		public int Project_Status
+		{
+			get
+			{
+				return this._Project_Status;
+			}
+			set
+			{
+				if ((this._Project_Status != value))
+				{
+					this.OnProject_StatusChanging(value);
+					this.SendPropertyChanging();
+					this._Project_Status = value;
+					this.SendPropertyChanged("Project_Status");
+					this.OnProject_StatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_CustomerId", DbType="Int NOT NULL")]
+		public int Project_CustomerId
+		{
+			get
+			{
+				return this._Project_CustomerId;
+			}
+			set
+			{
+				if ((this._Project_CustomerId != value))
+				{
+					if (this._Customer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProject_CustomerIdChanging(value);
+					this.SendPropertyChanging();
+					this._Project_CustomerId = value;
+					this.SendPropertyChanged("Project_CustomerId");
+					this.OnProject_CustomerIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_ConsultantId", DbType="Int")]
+		public System.Nullable<int> Project_ConsultantId
+		{
+			get
+			{
+				return this._Project_ConsultantId;
+			}
+			set
+			{
+				if ((this._Project_ConsultantId != value))
+				{
+					if (this._Consultant.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProject_ConsultantIdChanging(value);
+					this.SendPropertyChanging();
+					this._Project_ConsultantId = value;
+					this.SendPropertyChanged("Project_ConsultantId");
+					this.OnProject_ConsultantIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_CodeLanguageId", DbType="Int NOT NULL")]
+		public int Project_CodeLanguageId
+		{
+			get
+			{
+				return this._Project_CodeLanguageId;
+			}
+			set
+			{
+				if ((this._Project_CodeLanguageId != value))
+				{
+					if (this._CodeLanguage.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProject_CodeLanguageIdChanging(value);
+					this.SendPropertyChanging();
+					this._Project_CodeLanguageId = value;
+					this.SendPropertyChanged("Project_CodeLanguageId");
+					this.OnProject_CodeLanguageIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Project_EndType", DbType="Int")]
+		public System.Nullable<int> Project_EndType
+		{
+			get
+			{
+				return this._Project_EndType;
+			}
+			set
+			{
+				if ((this._Project_EndType != value))
+				{
+					if (this._EndType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProject_EndTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Project_EndType = value;
+					this.SendPropertyChanged("Project_EndType");
+					this.OnProject_EndTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Project", Storage="_Customer", ThisKey="Project_CustomerId", OtherKey="CustomerId", IsForeignKey=true)]
+		public Customer Customer
+		{
+			get
+			{
+				return this._Customer.Entity;
+			}
+			set
+			{
+				Customer previousValue = this._Customer.Entity;
+				if (((previousValue != value) 
+							|| (this._Customer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Customer.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._Customer.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._Project_CustomerId = value.CustomerId;
+					}
+					else
+					{
+						this._Project_CustomerId = default(int);
+					}
+					this.SendPropertyChanged("Customer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Consultant_Project", Storage="_Consultant", ThisKey="Project_ConsultantId", OtherKey="ConsultantId", IsForeignKey=true)]
+		public Consultant Consultant
+		{
+			get
+			{
+				return this._Consultant.Entity;
+			}
+			set
+			{
+				Consultant previousValue = this._Consultant.Entity;
+				if (((previousValue != value) 
+							|| (this._Consultant.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Consultant.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._Consultant.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._Project_ConsultantId = value.ConsultantId;
+					}
+					else
+					{
+						this._Project_ConsultantId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Consultant");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Project", Storage="_CodeLanguage", ThisKey="Project_CodeLanguageId", OtherKey="Id", IsForeignKey=true)]
+		public CodeLanguage CodeLanguage
+		{
+			get
+			{
+				return this._CodeLanguage.Entity;
+			}
+			set
+			{
+				CodeLanguage previousValue = this._CodeLanguage.Entity;
+				if (((previousValue != value) 
+							|| (this._CodeLanguage.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CodeLanguage.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._CodeLanguage.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._Project_CodeLanguageId = value.Id;
+					}
+					else
+					{
+						this._Project_CodeLanguageId = default(int);
+					}
+					this.SendPropertyChanged("CodeLanguage");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EndType_Project", Storage="_EndType", ThisKey="Project_EndType", OtherKey="Id", IsForeignKey=true)]
+		public EndType EndType
+		{
+			get
+			{
+				return this._EndType.Entity;
+			}
+			set
+			{
+				EndType previousValue = this._EndType.Entity;
+				if (((previousValue != value) 
+							|| (this._EndType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EndType.Entity = null;
+						previousValue.Projects.Remove(this);
+					}
+					this._EndType.Entity = value;
+					if ((value != null))
+					{
+						value.Projects.Add(this);
+						this._Project_EndType = value.Id;
+					}
+					else
+					{
+						this._Project_EndType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("EndType");
 				}
 			}
 		}

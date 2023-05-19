@@ -24,10 +24,9 @@ namespace Presentation.Customer
             GetConsultantData();
         }
 
-
-
         private void GetConsultantData()
         {
+            tb_id.Text = selectedConsultant.Id.ToString();
             tb_firstName.Text = selectedConsultant.FirstName;
             tb_lastName.Text = selectedConsultant.LastName;
             tb_address.Text = selectedConsultant.Address;
