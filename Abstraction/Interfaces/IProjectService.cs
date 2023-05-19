@@ -15,5 +15,7 @@ namespace Abstraction.Interfaces
         void EditProject(IProject project);
 
         void DeleteProject(IProject project);
+
+        List<IProject> GetProjectsByCostumer(ICustomer customer);
     }
 }
