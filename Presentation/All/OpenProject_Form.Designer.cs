@@ -30,6 +30,8 @@ namespace Presentation.Customer
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cb_EndType = new System.Windows.Forms.ComboBox();
+            this.cb_CodeLanguage = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
             this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
@@ -47,9 +49,6 @@ namespace Presentation.Customer
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bt_SaveChanges = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
-            this.cb_ProjectStatus = new System.Windows.Forms.ComboBox();
-            this.cb_CodeLanguage = new System.Windows.Forms.ComboBox();
-            this.cb_EndType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -70,42 +69,65 @@ namespace Presentation.Customer
             this.panel1.Controls.Add(this.tb_projectName);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(17, 16);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 479);
+            this.panel1.Size = new System.Drawing.Size(667, 590);
             this.panel1.TabIndex = 0;
+            // 
+            // cb_EndType
+            // 
+            this.cb_EndType.FormattingEnabled = true;
+            this.cb_EndType.Location = new System.Drawing.Point(264, 290);
+            this.cb_EndType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_EndType.Name = "cb_EndType";
+            this.cb_EndType.Size = new System.Drawing.Size(371, 24);
+            this.cb_EndType.TabIndex = 32;
+            // 
+            // cb_CodeLanguage
+            // 
+            this.cb_CodeLanguage.FormattingEnabled = true;
+            this.cb_CodeLanguage.Location = new System.Drawing.Point(265, 210);
+            this.cb_CodeLanguage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_CodeLanguage.Name = "cb_CodeLanguage";
+            this.cb_CodeLanguage.Size = new System.Drawing.Size(371, 24);
+            this.cb_CodeLanguage.TabIndex = 31;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(12, 234);
+            this.label7.Location = new System.Drawing.Point(16, 288);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 20);
+            this.label7.Size = new System.Drawing.Size(95, 25);
             this.label7.TabIndex = 29;
             this.label7.Text = "End type:";
             // 
             // dtp_endDate
             // 
-            this.dtp_endDate.Location = new System.Drawing.Point(143, 432);
+            this.dtp_endDate.Location = new System.Drawing.Point(191, 532);
+            this.dtp_endDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtp_endDate.Name = "dtp_endDate";
-            this.dtp_endDate.Size = new System.Drawing.Size(215, 20);
+            this.dtp_endDate.Size = new System.Drawing.Size(285, 22);
             this.dtp_endDate.TabIndex = 28;
             // 
             // dtp_startDate
             // 
-            this.dtp_startDate.Location = new System.Drawing.Point(143, 378);
+            this.dtp_startDate.Location = new System.Drawing.Point(191, 465);
+            this.dtp_startDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtp_startDate.Name = "dtp_startDate";
-            this.dtp_startDate.Size = new System.Drawing.Size(215, 20);
+            this.dtp_startDate.Size = new System.Drawing.Size(285, 22);
             this.dtp_startDate.TabIndex = 27;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(31, 433);
+            this.label6.Location = new System.Drawing.Point(41, 533);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 20);
+            this.label6.Size = new System.Drawing.Size(96, 25);
             this.label6.TabIndex = 25;
             this.label6.Text = "End date:";
             // 
@@ -113,17 +135,19 @@ namespace Presentation.Customer
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(31, 379);
+            this.label5.Location = new System.Drawing.Point(41, 466);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 20);
+            this.label5.Size = new System.Drawing.Size(102, 25);
             this.label5.TabIndex = 23;
             this.label5.Text = "Start date:";
             // 
             // tb_projectHourWage
             // 
-            this.tb_projectHourWage.Location = new System.Drawing.Point(199, 295);
+            this.tb_projectHourWage.Location = new System.Drawing.Point(265, 363);
+            this.tb_projectHourWage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_projectHourWage.Name = "tb_projectHourWage";
-            this.tb_projectHourWage.Size = new System.Drawing.Size(278, 20);
+            this.tb_projectHourWage.Size = new System.Drawing.Size(369, 22);
             this.tb_projectHourWage.TabIndex = 22;
             this.tb_projectHourWage.Text = "Hour wage for the project";
             // 
@@ -131,9 +155,10 @@ namespace Presentation.Customer
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(11, 295);
+            this.label4.Location = new System.Drawing.Point(15, 363);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 20);
+            this.label4.Size = new System.Drawing.Size(112, 25);
             this.label4.TabIndex = 21;
             this.label4.Text = "Hour wage:";
             // 
@@ -141,17 +166,19 @@ namespace Presentation.Customer
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(11, 169);
+            this.label3.Location = new System.Drawing.Point(15, 208);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 20);
+            this.label3.Size = new System.Drawing.Size(228, 25);
             this.label3.TabIndex = 19;
             this.label3.Text = "Code language required:";
             // 
             // tb_projectName
             // 
-            this.tb_projectName.Location = new System.Drawing.Point(199, 105);
+            this.tb_projectName.Location = new System.Drawing.Point(265, 129);
+            this.tb_projectName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_projectName.Name = "tb_projectName";
-            this.tb_projectName.Size = new System.Drawing.Size(278, 20);
+            this.tb_projectName.Size = new System.Drawing.Size(369, 22);
             this.tb_projectName.TabIndex = 18;
             this.tb_projectName.Text = "Project Name";
             // 
@@ -159,9 +186,10 @@ namespace Presentation.Customer
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label10.Location = new System.Drawing.Point(11, 103);
+            this.label10.Location = new System.Drawing.Point(15, 127);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 20);
+            this.label10.Size = new System.Drawing.Size(132, 25);
             this.label10.TabIndex = 17;
             this.label10.Text = "Project name:";
             // 
@@ -170,9 +198,10 @@ namespace Presentation.Customer
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(136, 12);
+            this.label1.Location = new System.Drawing.Point(181, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 39);
+            this.label1.Size = new System.Drawing.Size(284, 48);
             this.label1.TabIndex = 1;
             this.label1.Text = "Project details";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,17 +211,19 @@ namespace Presentation.Customer
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.tb_projectDescription);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(568, 13);
+            this.panel2.Location = new System.Drawing.Point(757, 16);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(500, 479);
+            this.panel2.Size = new System.Drawing.Size(667, 590);
             this.panel2.TabIndex = 1;
             // 
             // tb_projectDescription
             // 
-            this.tb_projectDescription.Location = new System.Drawing.Point(31, 78);
+            this.tb_projectDescription.Location = new System.Drawing.Point(41, 96);
+            this.tb_projectDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tb_projectDescription.Multiline = true;
             this.tb_projectDescription.Name = "tb_projectDescription";
-            this.tb_projectDescription.Size = new System.Drawing.Size(441, 375);
+            this.tb_projectDescription.Size = new System.Drawing.Size(587, 461);
             this.tb_projectDescription.TabIndex = 3;
             this.tb_projectDescription.Text = "Here you can write additional informations that would help the consultant to unde" +
     "rstand the project";
@@ -202,15 +233,17 @@ namespace Presentation.Customer
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(111, 12);
+            this.label2.Location = new System.Drawing.Point(148, 15);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(297, 39);
+            this.label2.Size = new System.Drawing.Size(365, 48);
             this.label2.TabIndex = 2;
             this.label2.Text = "Project description";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
@@ -222,9 +255,10 @@ namespace Presentation.Customer
             this.bt_SaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_SaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_SaveChanges.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_SaveChanges.Location = new System.Drawing.Point(859, 515);
+            this.bt_SaveChanges.Location = new System.Drawing.Point(1145, 634);
+            this.bt_SaveChanges.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_SaveChanges.Name = "bt_SaveChanges";
-            this.bt_SaveChanges.Size = new System.Drawing.Size(205, 30);
+            this.bt_SaveChanges.Size = new System.Drawing.Size(273, 37);
             this.bt_SaveChanges.TabIndex = 27;
             this.bt_SaveChanges.Text = "Save changes";
             this.bt_SaveChanges.UseVisualStyleBackColor = false;
@@ -237,52 +271,27 @@ namespace Presentation.Customer
             this.bt_GoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_GoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_GoBack.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_GoBack.Location = new System.Drawing.Point(13, 515);
+            this.bt_GoBack.Location = new System.Drawing.Point(17, 634);
+            this.bt_GoBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bt_GoBack.Name = "bt_GoBack";
-            this.bt_GoBack.Size = new System.Drawing.Size(205, 30);
+            this.bt_GoBack.Size = new System.Drawing.Size(273, 37);
             this.bt_GoBack.TabIndex = 26;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
             // 
-            // cb_ProjectStatus
-            // 
-            this.cb_ProjectStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cb_ProjectStatus.FormattingEnabled = true;
-            this.cb_ProjectStatus.Location = new System.Drawing.Point(568, 517);
-            this.cb_ProjectStatus.Name = "cb_ProjectStatus";
-            this.cb_ProjectStatus.Size = new System.Drawing.Size(218, 28);
-            this.cb_ProjectStatus.TabIndex = 28;
-            this.cb_ProjectStatus.Text = "Project status";
-            // 
-            // cb_CodeLanguage
-            // 
-            this.cb_CodeLanguage.FormattingEnabled = true;
-            this.cb_CodeLanguage.Location = new System.Drawing.Point(199, 171);
-            this.cb_CodeLanguage.Name = "cb_CodeLanguage";
-            this.cb_CodeLanguage.Size = new System.Drawing.Size(279, 21);
-            this.cb_CodeLanguage.TabIndex = 31;
-            // 
-            // cb_EndType
-            // 
-            this.cb_EndType.FormattingEnabled = true;
-            this.cb_EndType.Location = new System.Drawing.Point(198, 236);
-            this.cb_EndType.Name = "cb_EndType";
-            this.cb_EndType.Size = new System.Drawing.Size(279, 21);
-            this.cb_EndType.TabIndex = 32;
-            // 
             // EditProjectConsultant_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
-            this.ClientSize = new System.Drawing.Size(1080, 557);
+            this.ClientSize = new System.Drawing.Size(1440, 686);
             this.ControlBox = false;
-            this.Controls.Add(this.cb_ProjectStatus);
             this.Controls.Add(this.bt_SaveChanges);
             this.Controls.Add(this.bt_GoBack);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EditProjectConsultant_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
@@ -314,7 +323,6 @@ namespace Presentation.Customer
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button bt_SaveChanges;
         private System.Windows.Forms.Button bt_GoBack;
-        private System.Windows.Forms.ComboBox cb_ProjectStatus;
         private System.Windows.Forms.ComboBox cb_EndType;
         private System.Windows.Forms.ComboBox cb_CodeLanguage;
     }
