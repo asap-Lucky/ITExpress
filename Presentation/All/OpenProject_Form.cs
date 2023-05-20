@@ -42,6 +42,13 @@
                 dtp_endDate.Value = MyProject.EndDate;
                 cb_CodeLanguage.SelectedItem = MyProject.Language.Language;
                 cb_EndType.SelectedItem = MyProject.EndType.EndType1;
+                
+                if (MyProject.TimeUsed != 0)
+                {
+                    tb_HoursSpent.Text = MyProject.TimeUsed.ToString();
+                }
+
+                tb_TotalPay.Enabled = false;
             }
 
         public void DisableEditing()
@@ -53,7 +60,6 @@
             dtp_endDate.Enabled = false;
             cb_CodeLanguage.Enabled = false;
             cb_EndType.Enabled = false;
-            bt_SaveChanges.Visible = false;
 
             if (MyProject.Language != null)
             {
@@ -84,5 +90,10 @@
                 MessageBox.Show("Are you sure you want to close this window?", "Close window", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 this.Close();
             }
+
+        private void bt_SaveChanges_Click(object sender, EventArgs e)
+        {
+
         }
+    }
     }

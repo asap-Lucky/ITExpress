@@ -45,6 +45,7 @@ namespace Presentation.Customer
             DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
             nameColumn.DataPropertyName = "Name";
             nameColumn.HeaderText = "Project Name";
+            nameColumn.ReadOnly = true;
             dgv_closedProjects.Columns.Add(nameColumn);
 
             DataGridViewTextBoxColumn totalSumColumn = new DataGridViewTextBoxColumn();
@@ -86,6 +87,11 @@ namespace Presentation.Customer
             statusColumn.DisplayMember = "Key";
             statusColumn.DataSource = new BindingSource(statusMapping, null);
             dgv_closedProjects.Columns.Add(statusColumn);
+
+            DataGridViewTextBoxColumn totalHoursColumn = new DataGridViewTextBoxColumn();
+            totalHoursColumn.DataPropertyName = "HourWage";
+            totalHoursColumn.HeaderText = "Billable hours";
+            dgv_closedProjects.Columns.Add(totalHoursColumn);
         }
 
         private void bt_OpenProject_Click(object sender, EventArgs e)
@@ -107,6 +113,75 @@ namespace Presentation.Customer
             {
                 MessageBox.Show("Please select a project to view.", "No Project Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void bt_Refresh_Click(object sender, EventArgs e)
+        {
+            RefreshDGV();
+        }
+
+        private void RefreshDGV()
+        {
+            List<IProject> projects = projectService.GetProjectsByConsultant(loggedInConsultant.Id)
+                .Where(p => p.Status == 3)
+                .ToList();
+
+            dgv_closedProjects.DataSource = null; // Clear the current data source
+            dgv_closedProjects.Rows.Clear(); // Clear the existing rows
+            dgv_closedProjects.Columns.Clear(); // Clear the existing columns
+
+            dgv_closedProjects.DataSource = projects; // Assign the updated data source
+
+            DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
+            nameColumn.DataPropertyName = "Name";
+            nameColumn.HeaderText = "Project Name";
+            nameColumn.ReadOnly = true;
+            dgv_closedProjects.Columns.Add(nameColumn);
+
+            DataGridViewTextBoxColumn totalSumColumn = new DataGridViewTextBoxColumn();
+            totalSumColumn.DataPropertyName = "TotalSum";
+            totalSumColumn.HeaderText = "Total Sum";
+            dgv_closedProjects.Columns.Add(totalSumColumn);
+
+            DataGridViewTextBoxColumn startDateColumn = new DataGridViewTextBoxColumn();
+            startDateColumn.DataPropertyName = "StartDate";
+            startDateColumn.HeaderText = "Start Date";
+            dgv_closedProjects.Columns.Add(startDateColumn);
+
+            DataGridViewTextBoxColumn endDateColumn = new DataGridViewTextBoxColumn();
+            endDateColumn.DataPropertyName = "EndDate";
+            endDateColumn.HeaderText = "End Date";
+            dgv_closedProjects.Columns.Add(endDateColumn);
+
+            DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
+            customerIdColumn.DataPropertyName = "CustomerId";
+            customerIdColumn.HeaderText = "Customer ID";
+            dgv_closedProjects.Columns.Add(customerIdColumn);
+
+            DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();
+            languageColumn.DataPropertyName = "GetLangauge";
+            languageColumn.HeaderText = "Language";
+            dgv_closedProjects.Columns.Add(languageColumn);
+
+            DataGridViewTextBoxColumn endTypeColumn = new DataGridViewTextBoxColumn();
+            endTypeColumn.DataPropertyName = "GetEndType";
+            endTypeColumn.HeaderText = "End Type";
+            dgv_closedProjects.Columns.Add(endTypeColumn);
+
+            DataGridViewComboBoxColumn statusColumn = new DataGridViewComboBoxColumn();
+            statusColumn.DataPropertyName = "Status";
+            statusColumn.HeaderText = "Status";
+            statusColumn.Name = "Status";
+            statusColumn.ValueType = typeof(int);
+            statusColumn.ValueMember = "Value";
+            statusColumn.DisplayMember = "Key";
+            statusColumn.DataSource = new BindingSource(statusMapping, null);
+            dgv_closedProjects.Columns.Add(statusColumn);
+
+            DataGridViewTextBoxColumn totalHoursColumn = new DataGridViewTextBoxColumn();
+            totalHoursColumn.DataPropertyName = "HourWage";
+            totalHoursColumn.HeaderText = "Billable hours";
+            dgv_closedProjects.Columns.Add(totalHoursColumn);
         }
     }
     

@@ -44,8 +44,7 @@
             this.dgv_closedProjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_closedProjects.BackgroundColor = System.Drawing.Color.White;
             this.dgv_closedProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_closedProjects.Location = new System.Drawing.Point(23, 15);
-            this.dgv_closedProjects.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_closedProjects.Location = new System.Drawing.Point(17, 12);
             this.dgv_closedProjects.MultiSelect = false;
             this.dgv_closedProjects.Name = "dgv_closedProjects";
             this.dgv_closedProjects.ReadOnly = true;
@@ -53,7 +52,7 @@
             this.dgv_closedProjects.RowHeadersWidth = 51;
             this.dgv_closedProjects.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_closedProjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_closedProjects.Size = new System.Drawing.Size(1401, 566);
+            this.dgv_closedProjects.Size = new System.Drawing.Size(1051, 460);
             this.dgv_closedProjects.TabIndex = 18;
             // 
             // bt_Refresh
@@ -64,13 +63,13 @@
             this.bt_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Refresh.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_Refresh.Location = new System.Drawing.Point(16, 618);
-            this.bt_Refresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Refresh.Location = new System.Drawing.Point(12, 502);
             this.bt_Refresh.Name = "bt_Refresh";
-            this.bt_Refresh.Size = new System.Drawing.Size(273, 37);
+            this.bt_Refresh.Size = new System.Drawing.Size(205, 30);
             this.bt_Refresh.TabIndex = 16;
             this.bt_Refresh.Text = "Refresh";
             this.bt_Refresh.UseVisualStyleBackColor = false;
+            this.bt_Refresh.Click += new System.EventHandler(this.bt_Refresh_Click);
             // 
             // bt_OpenProject
             // 
@@ -80,10 +79,9 @@
             this.bt_OpenProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_OpenProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_OpenProject.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_OpenProject.Location = new System.Drawing.Point(1144, 618);
-            this.bt_OpenProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_OpenProject.Location = new System.Drawing.Point(858, 502);
             this.bt_OpenProject.Name = "bt_OpenProject";
-            this.bt_OpenProject.Size = new System.Drawing.Size(273, 37);
+            this.bt_OpenProject.Size = new System.Drawing.Size(205, 30);
             this.bt_OpenProject.TabIndex = 15;
             this.bt_OpenProject.Text = "Open project";
             this.bt_OpenProject.UseVisualStyleBackColor = false;
@@ -91,16 +89,15 @@
             // 
             // ConsultantClosedProjects
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
-            this.ClientSize = new System.Drawing.Size(1440, 686);
+            this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
             this.Controls.Add(this.dgv_closedProjects);
             this.Controls.Add(this.bt_Refresh);
             this.Controls.Add(this.bt_OpenProject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ConsultantClosedProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";

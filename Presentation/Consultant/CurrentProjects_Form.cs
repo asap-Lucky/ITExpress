@@ -1,6 +1,6 @@
 ﻿    using Abstraction.Interfaces;
-using BLL.Facader;
-using System;
+    using BLL.Facader;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
@@ -51,36 +51,43 @@ using System;
                 DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
                 nameColumn.DataPropertyName = "Name";
                 nameColumn.HeaderText = "Project name";
+                nameColumn.ReadOnly = true;
                 dgv_existingProjectsCustomer.Columns.Add(nameColumn);
 
                 DataGridViewTextBoxColumn totalSumColumn = new DataGridViewTextBoxColumn();
                 totalSumColumn.DataPropertyName = "TotalSum";
                 totalSumColumn.HeaderText = "Total Sum";
+                totalSumColumn.ReadOnly = true;
                 dgv_existingProjectsCustomer.Columns.Add(totalSumColumn);
 
                 DataGridViewTextBoxColumn startDateColumn = new DataGridViewTextBoxColumn();
                 startDateColumn.DataPropertyName = "StartDate";
                 startDateColumn.HeaderText = "Start Date";
+                startDateColumn.ReadOnly = true;
                 dgv_existingProjectsCustomer.Columns.Add(startDateColumn);
 
                 DataGridViewTextBoxColumn endDateColumn = new DataGridViewTextBoxColumn();
                 endDateColumn.DataPropertyName = "EndDate";
                 endDateColumn.HeaderText = "End Date";
+                endDateColumn.ReadOnly = true;
                 dgv_existingProjectsCustomer.Columns.Add(endDateColumn);
 
                 DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
                 customerIdColumn.DataPropertyName = "CustomerId";
                 customerIdColumn.HeaderText = "Customer ID";
+                customerIdColumn.ReadOnly = true;
                 dgv_existingProjectsCustomer.Columns.Add(customerIdColumn);
 
                 DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();
                 languageColumn.DataPropertyName = "GetLangauge";
                 languageColumn.HeaderText = "Language";
+                languageColumn.ReadOnly = true;
                 dgv_existingProjectsCustomer.Columns.Add(languageColumn);
 
                 DataGridViewTextBoxColumn endTypeColumn = new DataGridViewTextBoxColumn();
                 endTypeColumn.DataPropertyName = "GetEndType";
                 endTypeColumn.HeaderText = "End Type";
+                endTypeColumn.ReadOnly = true;
                 dgv_existingProjectsCustomer.Columns.Add(endTypeColumn);
 
                 DataGridViewComboBoxColumn statusColumn = new DataGridViewComboBoxColumn();
@@ -92,7 +99,12 @@ using System;
                 statusColumn.DisplayMember = "Key";
                 statusColumn.DataSource = new BindingSource(statusMapping, null);
                 dgv_existingProjectsCustomer.Columns.Add(statusColumn);
-            }
+
+                DataGridViewTextBoxColumn totalHoursColumn = new DataGridViewTextBoxColumn();
+                totalHoursColumn.DataPropertyName = "HourWage";
+                totalHoursColumn.HeaderText = "Billable hours";
+                dgv_existingProjectsCustomer.Columns.Add(totalHoursColumn);
+        }
 
             private void dgv_existingProjectsCustomer_DataError(object sender, DataGridViewDataErrorEventArgs e)
             {
@@ -163,36 +175,43 @@ using System;
             DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
             nameColumn.DataPropertyName = "Name";
             nameColumn.HeaderText = "Project name";
+            nameColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(nameColumn);
 
             DataGridViewTextBoxColumn totalSumColumn = new DataGridViewTextBoxColumn();
             totalSumColumn.DataPropertyName = "TotalSum";
             totalSumColumn.HeaderText = "Total Sum";
+            totalSumColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(totalSumColumn);
 
             DataGridViewTextBoxColumn startDateColumn = new DataGridViewTextBoxColumn();
             startDateColumn.DataPropertyName = "StartDate";
             startDateColumn.HeaderText = "Start Date";
+            startDateColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(startDateColumn);
 
             DataGridViewTextBoxColumn endDateColumn = new DataGridViewTextBoxColumn();
             endDateColumn.DataPropertyName = "EndDate";
             endDateColumn.HeaderText = "End Date";
+            endDateColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(endDateColumn);
 
             DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
             customerIdColumn.DataPropertyName = "CustomerId";
             customerIdColumn.HeaderText = "Customer ID";
+            customerIdColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(customerIdColumn);
 
             DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();
             languageColumn.DataPropertyName = "GetLangauge";
             languageColumn.HeaderText = "Language";
+            languageColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(languageColumn);
 
             DataGridViewTextBoxColumn endTypeColumn = new DataGridViewTextBoxColumn();
             endTypeColumn.DataPropertyName = "GetEndType";
             endTypeColumn.HeaderText = "End Type";
+            endTypeColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(endTypeColumn);
 
             DataGridViewComboBoxColumn statusColumn = new DataGridViewComboBoxColumn();
@@ -204,8 +223,33 @@ using System;
             statusColumn.DisplayMember = "Key";
             statusColumn.DataSource = new BindingSource(statusMapping, null);
             dgv_existingProjectsCustomer.Columns.Add(statusColumn);
+
+            DataGridViewTextBoxColumn totalHoursColumn = new DataGridViewTextBoxColumn();
+            totalHoursColumn.DataPropertyName = "HourWage";
+            totalHoursColumn.HeaderText = "Billable hours";
+            dgv_existingProjectsCustomer.Columns.Add(totalHoursColumn);
         }
 
+        private void bt_OpenProject_Click(object sender, EventArgs e)
+        {
+            ViewCompletedProject();
+        }
+
+        private void ViewCompletedProject()
+        {
+            if (dgv_existingProjectsCustomer.SelectedRows.Count > 0)
+            {
+                IProject selectedProject = dgv_existingProjectsCustomer.SelectedRows[0].DataBoundItem as IProject;
+
+                EditProjectConsultant_Form openProjectForm = new EditProjectConsultant_Form(loggedInConsultant as ICustomer, selectedProject);
+                openProjectForm.DisableEditing();
+                openProjectForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a project to view.", "No Project Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 
 }

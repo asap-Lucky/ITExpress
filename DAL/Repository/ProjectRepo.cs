@@ -28,20 +28,7 @@ namespace DAL.Repository
 
             foreach (var dataProject in AlldataProjectItem)
             {
-                Models.Project project = new Models.Project();
-
-                project.Id = dataProject.ProjectId;
-                project.Name = dataProject.Project_Name;
-                project.CustomerId = dataProject.Project_CustomerId;
-                project.StartDate = dataProject.Project_StartDate;
-                project.EndDate = dataProject.Project_EndDate;
-                project.Status = dataProject.Project_Status;
-                project.Description = dataProject.Project_Description;
-
-
-
-
-                result.Add(project);
+                result.Add(MapToModel(dataProject));
             }
             return result;
         }
@@ -63,6 +50,7 @@ namespace DAL.Repository
                 project.EndDate = dataProject.Project_EndDate;
                 project.Status = dataProject.Project_Status;
                 project.Description = dataProject.Project_Description;
+                project.TimeUsed = (int)dataProject.Project_TimeUsed;
 
                 project.Language = new Models.CodeLanguage();
                 project.Language.Id = dataProject.CodeLanguage.Id;
@@ -122,6 +110,11 @@ namespace DAL.Repository
                 if (project.Language != null)
                 {
                     targetProject.Project_CodeLanguageId = project.Language.Id;
+                }
+
+                if (targetProject.Project_TimeUsed != null)
+                {
+                    targetProject.Project_TimeUsed = (int)project.TimeUsed;
                 }
 
                 // Save the changes to the database.
@@ -196,6 +189,11 @@ namespace DAL.Repository
             {
                 projectModel.EndType.Id = (int)dataProject.Project_EndType;
                 projectModel.EndType.EndType1 = dataProject.EndType.EndType1;
+            }
+
+            if (dataProject.Project_TimeUsed != null) 
+            {
+                projectModel.TimeUsed = (int)dataProject.Project_TimeUsed;
             }
 
             return projectModel;
