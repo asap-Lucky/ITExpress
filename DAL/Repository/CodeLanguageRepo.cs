@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,17 +29,17 @@ namespace DAL.Repository
             DataContext.CodeLanguages.InsertOnSubmit(lan);
             DataContext.SubmitChanges();
         }
-        
+
         public void DeleteCodeLanguage(ICodeLanguage language)
         {
-            // Find the CodeLanguage DTO in the database by ID and delete it
-            var targetCodeLanguage = DataContext.CodeLanguages.FirstOrDefault(i => i.Id == language.Id);
-            DataContext.CodeLanguages.DeleteOnSubmit(targetCodeLanguage);
+                // Find the CodeLanguage DTO in the database by ID and delete it
+                var targetCodeLanguage = DataContext.CodeLanguages.FirstOrDefault(i => i.Id == language.Id);
+                DataContext.CodeLanguages.DeleteOnSubmit(targetCodeLanguage);
 
-            // Save the changes to the database
-            DataContext.SubmitChanges();
-        }
-        
+                // Save the changes to the database
+                DataContext.SubmitChanges();
+        } 
+            
         public void EditCodeLanguage(ICodeLanguage dto)
         {
             var targetCodeLanguage = DataContext.CodeLanguages.FirstOrDefault(c => c.Id == dto.Id);

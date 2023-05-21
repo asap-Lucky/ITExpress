@@ -3,6 +3,7 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -115,7 +116,16 @@ namespace Presentation.Admin
                 ICodeLanguage selectedLanguage = (ICodeLanguage)language;
 
                 // Call the LanguageService.Delete() method
-                codeLanguageService.DeleteCodeLanguage(selectedLanguage);
+
+                try
+                {
+                    codeLanguageService.DeleteCodeLanguage(selectedLanguage);
+                }
+
+                catch(SqlException SqlException)
+                {
+                    MessageBox.Show(("The language is in use and cannot be deleted"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 UpdateLanguagesData();
                 LoadLanguagesData();
                 
