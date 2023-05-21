@@ -29,10 +29,10 @@ namespace DAL.Repository
             DataContext.SubmitChanges();
         }
         
-        public void DeleteCodeLanguage(ICodeLanguage dto)
+        public void DeleteCodeLanguage(ICodeLanguage language)
         {
             // Find the CodeLanguage DTO in the database by ID and delete it
-            var targetCodeLanguage = DataContext.CodeLanguages.FirstOrDefault(i => i.Id == dto.Id);
+            var targetCodeLanguage = DataContext.CodeLanguages.FirstOrDefault(i => i.Id == language.Id);
             DataContext.CodeLanguages.DeleteOnSubmit(targetCodeLanguage);
 
             // Save the changes to the database
