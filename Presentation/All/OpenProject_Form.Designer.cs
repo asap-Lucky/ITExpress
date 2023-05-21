@@ -30,6 +30,8 @@ namespace Presentation.Customer
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cb_EndType = new System.Windows.Forms.ComboBox();
+            this.cb_CodeLanguage = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
             this.dtp_startDate = new System.Windows.Forms.DateTimePicker();
@@ -47,11 +49,14 @@ namespace Presentation.Customer
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bt_SaveChanges = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
-            this.cb_ProjectStatus = new System.Windows.Forms.ComboBox();
-            this.cb_CodeLanguage = new System.Windows.Forms.ComboBox();
-            this.cb_EndType = new System.Windows.Forms.ComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tb_HoursSpent = new System.Windows.Forms.TextBox();
+            this.tb_TotalPay = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,6 +80,22 @@ namespace Presentation.Customer
             this.panel1.Size = new System.Drawing.Size(500, 479);
             this.panel1.TabIndex = 0;
             // 
+            // cb_EndType
+            // 
+            this.cb_EndType.FormattingEnabled = true;
+            this.cb_EndType.Location = new System.Drawing.Point(198, 236);
+            this.cb_EndType.Name = "cb_EndType";
+            this.cb_EndType.Size = new System.Drawing.Size(279, 21);
+            this.cb_EndType.TabIndex = 32;
+            // 
+            // cb_CodeLanguage
+            // 
+            this.cb_CodeLanguage.FormattingEnabled = true;
+            this.cb_CodeLanguage.Location = new System.Drawing.Point(198, 171);
+            this.cb_CodeLanguage.Name = "cb_CodeLanguage";
+            this.cb_CodeLanguage.Size = new System.Drawing.Size(279, 21);
+            this.cb_CodeLanguage.TabIndex = 31;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -87,23 +108,23 @@ namespace Presentation.Customer
             // 
             // dtp_endDate
             // 
-            this.dtp_endDate.Location = new System.Drawing.Point(143, 432);
+            this.dtp_endDate.Location = new System.Drawing.Point(198, 431);
             this.dtp_endDate.Name = "dtp_endDate";
-            this.dtp_endDate.Size = new System.Drawing.Size(215, 20);
+            this.dtp_endDate.Size = new System.Drawing.Size(279, 20);
             this.dtp_endDate.TabIndex = 28;
             // 
             // dtp_startDate
             // 
-            this.dtp_startDate.Location = new System.Drawing.Point(143, 378);
+            this.dtp_startDate.Location = new System.Drawing.Point(198, 377);
             this.dtp_startDate.Name = "dtp_startDate";
-            this.dtp_startDate.Size = new System.Drawing.Size(215, 20);
+            this.dtp_startDate.Size = new System.Drawing.Size(279, 20);
             this.dtp_startDate.TabIndex = 27;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(31, 433);
+            this.label6.Location = new System.Drawing.Point(17, 432);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 20);
             this.label6.TabIndex = 25;
@@ -113,7 +134,7 @@ namespace Presentation.Customer
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(31, 379);
+            this.label5.Location = new System.Drawing.Point(17, 378);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 20);
             this.label5.TabIndex = 23;
@@ -179,20 +200,22 @@ namespace Presentation.Customer
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.tb_projectDescription);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(568, 13);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(500, 479);
+            this.panel2.Size = new System.Drawing.Size(500, 315);
             this.panel2.TabIndex = 1;
             // 
             // tb_projectDescription
             // 
-            this.tb_projectDescription.Location = new System.Drawing.Point(31, 78);
+            this.tb_projectDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_projectDescription.Location = new System.Drawing.Point(32, 63);
             this.tb_projectDescription.Multiline = true;
             this.tb_projectDescription.Name = "tb_projectDescription";
-            this.tb_projectDescription.Size = new System.Drawing.Size(441, 375);
+            this.tb_projectDescription.Size = new System.Drawing.Size(441, 237);
             this.tb_projectDescription.TabIndex = 3;
             this.tb_projectDescription.Text = "Here you can write additional informations that would help the consultant to unde" +
     "rstand the project";
@@ -211,6 +234,7 @@ namespace Presentation.Customer
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
@@ -228,6 +252,7 @@ namespace Presentation.Customer
             this.bt_SaveChanges.TabIndex = 27;
             this.bt_SaveChanges.Text = "Save changes";
             this.bt_SaveChanges.UseVisualStyleBackColor = false;
+            this.bt_SaveChanges.Click += new System.EventHandler(this.bt_SaveChanges_Click);
             // 
             // bt_GoBack
             // 
@@ -243,32 +268,55 @@ namespace Presentation.Customer
             this.bt_GoBack.TabIndex = 26;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
+            this.bt_GoBack.Click += new System.EventHandler(this.bt_GoBack_Click);
             // 
-            // cb_ProjectStatus
+            // panel3
             // 
-            this.cb_ProjectStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cb_ProjectStatus.FormattingEnabled = true;
-            this.cb_ProjectStatus.Location = new System.Drawing.Point(568, 517);
-            this.cb_ProjectStatus.Name = "cb_ProjectStatus";
-            this.cb_ProjectStatus.Size = new System.Drawing.Size(218, 28);
-            this.cb_ProjectStatus.TabIndex = 28;
-            this.cb_ProjectStatus.Text = "Project status";
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.tb_TotalPay);
+            this.panel3.Controls.Add(this.tb_HoursSpent);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Location = new System.Drawing.Point(568, 343);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(500, 149);
+            this.panel3.TabIndex = 28;
             // 
-            // cb_CodeLanguage
+            // label8
             // 
-            this.cb_CodeLanguage.FormattingEnabled = true;
-            this.cb_CodeLanguage.Location = new System.Drawing.Point(199, 171);
-            this.cb_CodeLanguage.Name = "cb_CodeLanguage";
-            this.cb_CodeLanguage.Size = new System.Drawing.Size(279, 21);
-            this.cb_CodeLanguage.TabIndex = 31;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(16, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(168, 20);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Consultant paid hours:";
             // 
-            // cb_EndType
+            // label9
             // 
-            this.cb_EndType.FormattingEnabled = true;
-            this.cb_EndType.Location = new System.Drawing.Point(198, 236);
-            this.cb_EndType.Name = "cb_EndType";
-            this.cb_EndType.Size = new System.Drawing.Size(279, 21);
-            this.cb_EndType.TabIndex = 32;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(16, 100);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 20);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Accumulative pay:";
+            // 
+            // tb_HoursSpent
+            // 
+            this.tb_HoursSpent.Location = new System.Drawing.Point(195, 26);
+            this.tb_HoursSpent.Name = "tb_HoursSpent";
+            this.tb_HoursSpent.Size = new System.Drawing.Size(278, 20);
+            this.tb_HoursSpent.TabIndex = 20;
+            this.tb_HoursSpent.Text = "Total hours worked";
+            // 
+            // tb_TotalPay
+            // 
+            this.tb_TotalPay.Location = new System.Drawing.Point(195, 102);
+            this.tb_TotalPay.Name = "tb_TotalPay";
+            this.tb_TotalPay.Size = new System.Drawing.Size(278, 20);
+            this.tb_TotalPay.TabIndex = 21;
             // 
             // EditProjectConsultant_Form
             // 
@@ -277,7 +325,7 @@ namespace Presentation.Customer
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
-            this.Controls.Add(this.cb_ProjectStatus);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.bt_SaveChanges);
             this.Controls.Add(this.bt_GoBack);
             this.Controls.Add(this.panel2);
@@ -290,6 +338,8 @@ namespace Presentation.Customer
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -314,8 +364,12 @@ namespace Presentation.Customer
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button bt_SaveChanges;
         private System.Windows.Forms.Button bt_GoBack;
-        private System.Windows.Forms.ComboBox cb_ProjectStatus;
         private System.Windows.Forms.ComboBox cb_EndType;
         private System.Windows.Forms.ComboBox cb_CodeLanguage;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox tb_TotalPay;
+        private System.Windows.Forms.TextBox tb_HoursSpent;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

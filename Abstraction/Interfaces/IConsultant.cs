@@ -24,5 +24,7 @@ namespace Abstraction.Interfaces
         IEndType EndType { get; set; }
         //This is here because datagrid
         string GetEndType { get; }
+
+        string GetFullName { get; }
     }
 }

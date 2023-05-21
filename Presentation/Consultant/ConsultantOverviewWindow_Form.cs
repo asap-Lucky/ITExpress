@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Presentation.Consultant;
 using Presentation.All;
 using Presentation.Customer;
+using Abstraction.Interfaces;
 
 namespace Presentation.Consultant
 {
@@ -28,6 +29,7 @@ namespace Presentation.Consultant
             IsMdiContainer = true;
             this.loggedInConsultant = BLL.Singleton.ConsultantSingleton.Instance().User;
             lb_firstNameOfCustomer.Text = loggedInConsultant.FirstName;
+
         }
 
         /// <summary>
@@ -84,7 +86,8 @@ namespace Presentation.Consultant
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new CurrentProjects_Form());
+            IProjectService projectService = new BLL.Services.ProjectService();
+            OpenChildForm(new CurrentProjects_Form(loggedInConsultant, projectService));
         }
 
         private void bt_closedProjects_Click(object sender, EventArgs e)
@@ -92,7 +95,8 @@ namespace Presentation.Consultant
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new ConsultantClosedProjects());
+            IProjectService projectService = new BLL.Services.ProjectService();
+            OpenChildForm(new ConsultantClosedProjects(loggedInConsultant, projectService));
         }
 
         private void bt_editProfile_Click(object sender, EventArgs e)

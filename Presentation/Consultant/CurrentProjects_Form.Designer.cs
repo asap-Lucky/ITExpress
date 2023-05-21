@@ -48,6 +48,7 @@
             this.bt_OpenProject.TabIndex = 10;
             this.bt_OpenProject.Text = "Open project";
             this.bt_OpenProject.UseVisualStyleBackColor = false;
+            this.bt_OpenProject.Click += new System.EventHandler(this.bt_OpenProject_Click);
             // 
             // bt_Refresh
             // 
@@ -63,15 +64,28 @@
             this.bt_Refresh.TabIndex = 12;
             this.bt_Refresh.Text = "Refresh";
             this.bt_Refresh.UseVisualStyleBackColor = false;
+            this.bt_Refresh.Click += new System.EventHandler(this.bt_Refresh_Click);
             // 
             // dgv_existingProjectsCustomer
             // 
+            this.dgv_existingProjectsCustomer.AllowUserToAddRows = false;
+            this.dgv_existingProjectsCustomer.AllowUserToDeleteRows = false;
+            this.dgv_existingProjectsCustomer.AllowUserToResizeColumns = false;
+            this.dgv_existingProjectsCustomer.AllowUserToResizeRows = false;
+            this.dgv_existingProjectsCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_existingProjectsCustomer.BackgroundColor = System.Drawing.Color.White;
             this.dgv_existingProjectsCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_existingProjectsCustomer.Location = new System.Drawing.Point(12, 12);
+            this.dgv_existingProjectsCustomer.MultiSelect = false;
             this.dgv_existingProjectsCustomer.Name = "dgv_existingProjectsCustomer";
+            this.dgv_existingProjectsCustomer.RowHeadersVisible = false;
+            this.dgv_existingProjectsCustomer.RowHeadersWidth = 51;
+            this.dgv_existingProjectsCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1056, 466);
             this.dgv_existingProjectsCustomer.TabIndex = 14;
+            this.dgv_existingProjectsCustomer.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_existingProjectsCustomer_CellValidating);
+            this.dgv_existingProjectsCustomer.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgv_existingProjectsCustomer_CurrentCellDirtyStateChanged);
+            this.dgv_existingProjectsCustomer.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_existingProjectsCustomer_DataError);
             // 
             // CurrentProjects_Form
             // 
