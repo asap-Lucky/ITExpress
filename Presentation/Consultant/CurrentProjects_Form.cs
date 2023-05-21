@@ -23,8 +23,7 @@
             private Dictionary<string, int> statusMapping = new Dictionary<string, int>
             {
                 { "Open", 1 },
-                { "Pending review", 2 },
-                { "Closed", 3 }
+                { "Closed - Pending", 2 },
             };
 
             public CurrentProjects_Form(IConsultant loggedInConsultant, IProjectService projectService)
@@ -101,10 +100,11 @@
                 dgv_existingProjectsCustomer.Columns.Add(statusColumn);
 
                 DataGridViewTextBoxColumn totalHoursColumn = new DataGridViewTextBoxColumn();
-                totalHoursColumn.DataPropertyName = "HourWage";
+                totalHoursColumn.DataPropertyName = "TimeUsed";
                 totalHoursColumn.HeaderText = "Billable hours";
+                totalHoursColumn.ReadOnly = true;
                 dgv_existingProjectsCustomer.Columns.Add(totalHoursColumn);
-        }
+            }
 
             private void dgv_existingProjectsCustomer_DataError(object sender, DataGridViewDataErrorEventArgs e)
             {
@@ -225,8 +225,9 @@
             dgv_existingProjectsCustomer.Columns.Add(statusColumn);
 
             DataGridViewTextBoxColumn totalHoursColumn = new DataGridViewTextBoxColumn();
-            totalHoursColumn.DataPropertyName = "HourWage";
+            totalHoursColumn.DataPropertyName = "TimeUsed";
             totalHoursColumn.HeaderText = "Billable hours";
+            totalHoursColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(totalHoursColumn);
         }
 

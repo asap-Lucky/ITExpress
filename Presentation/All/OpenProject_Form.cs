@@ -18,6 +18,7 @@
         {
             private ICustomer loggedInCustomer;
             public IProject MyProject { get; set; }
+            private BLL.Services.ProjectService projectService = new BLL.Services.ProjectService();
             //private ProjectService projectService = new ProjectService();
             private CodeLanguageService codeLanguageService = new CodeLanguageService();
             //private CustomerService customerService = new CustomerService();
@@ -25,31 +26,39 @@
 
             public EditProjectConsultant_Form(ICustomer loggedInCustomer, IProject project)
             {
-                InitializeComponent();
-                InitializeComboBoxes();
                 this.loggedInCustomer = loggedInCustomer;
                 MyProject = project;
-                LoadProjectData();
+                InitializeComponent();
                 DisableEditing();
-            }
+                InitializeComboBoxes();
+                LoadProjectData();
+        }
 
-            private void LoadProjectData()
+        private void LoadProjectData()
+        {
+            tb_projectName.Text = MyProject.Name;
+            tb_projectDescription.Text = MyProject.Description;
+            tb_projectHourWage.Text = MyProject.HourWage.ToString();
+            dtp_startDate.Value = MyProject.StartDate;
+            dtp_endDate.Value = MyProject.EndDate;
+            cb_CodeLanguage.SelectedItem = MyProject.Language.Language;
+            cb_EndType.SelectedItem = MyProject.EndType.EndType1;
+
+            if (MyProject.TimeUsed != 0)
             {
-                tb_projectName.Text = MyProject.Name;
-                tb_projectDescription.Text = MyProject.Description;
-                tb_projectHourWage.Text = MyProject.HourWage.ToString();
-                dtp_startDate.Value = MyProject.StartDate;
-                dtp_endDate.Value = MyProject.EndDate;
-                cb_CodeLanguage.SelectedItem = MyProject.Language.Language;
-                cb_EndType.SelectedItem = MyProject.EndType.EndType1;
-                
-                if (MyProject.TimeUsed != 0)
-                {
-                    tb_HoursSpent.Text = MyProject.TimeUsed.ToString();
-                }
+                tb_HoursSpent.Text = MyProject.TimeUsed.ToString();
 
-                tb_TotalPay.Enabled = false;
+                int hoursSpent = MyProject.TimeUsed;
+                decimal hourWage = MyProject.HourWage;
+                decimal totalPay = hoursSpent * hourWage;
+
+                MyProject.TotalSum = totalPay;  // Update the TotalSum property with the calculated value
+
+                tb_TotalPay.Text = MyProject.TotalSum.ToString();
+
             }
+                tb_TotalPay.Enabled = false;
+        }
 
         public void DisableEditing()
         {
@@ -72,7 +81,13 @@
             }
         
         }
-    
+
+            public void DisableHours()
+            {
+                tb_HoursSpent.Enabled = false;
+            }
+
+
 
             private void InitializeComboBoxes()
             {
@@ -91,9 +106,25 @@
                 this.Close();
             }
 
-        private void bt_SaveChanges_Click(object sender, EventArgs e)
-        {
+            private void bt_SaveChanges_Click(object sender, EventArgs e)
+            {
+                SaveBillableHours();
+            }
 
+            private void SaveBillableHours()
+            {
+                int hoursSpent;
+                if (int.TryParse(tb_HoursSpent.Text, out hoursSpent))
+                {
+                    MyProject.TimeUsed = hoursSpent;
+                    projectService.EditProject(MyProject);
+
+                    MessageBox.Show("Changes saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid input for hours spent.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
-    }
+        }
     }

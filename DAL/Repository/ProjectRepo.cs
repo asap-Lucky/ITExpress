@@ -51,6 +51,7 @@ namespace DAL.Repository
                 project.Status = dataProject.Project_Status;
                 project.Description = dataProject.Project_Description;
                 project.TimeUsed = (int)dataProject.Project_TimeUsed;
+                project.HourWage = dataProject.Project_HourWage;
 
                 project.Language = new Models.CodeLanguage();
                 project.Language.Id = dataProject.CodeLanguage.Id;
@@ -89,6 +90,7 @@ namespace DAL.Repository
                 // Update the Project object with the new values.
                 targetProject.Project_Name = project.Name;
                 targetProject.Project_CustomerId = project.CustomerId;
+                targetProject.Project_HourWage = project.HourWage;
 
                 if (project.ConsultantId != 0)
                 {

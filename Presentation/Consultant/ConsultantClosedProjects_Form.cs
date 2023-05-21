@@ -89,7 +89,7 @@ namespace Presentation.Customer
             dgv_closedProjects.Columns.Add(statusColumn);
 
             DataGridViewTextBoxColumn totalHoursColumn = new DataGridViewTextBoxColumn();
-            totalHoursColumn.DataPropertyName = "HourWage";
+            totalHoursColumn.DataPropertyName = "TimeUsed";
             totalHoursColumn.HeaderText = "Billable hours";
             dgv_closedProjects.Columns.Add(totalHoursColumn);
         }
@@ -107,6 +107,7 @@ namespace Presentation.Customer
 
                 EditProjectConsultant_Form openProjectForm = new EditProjectConsultant_Form(loggedInConsultant as ICustomer, selectedProject);
                 openProjectForm.DisableEditing();
+                openProjectForm.DisableHours();
                 openProjectForm.ShowDialog();
             }
             else
@@ -179,7 +180,7 @@ namespace Presentation.Customer
             dgv_closedProjects.Columns.Add(statusColumn);
 
             DataGridViewTextBoxColumn totalHoursColumn = new DataGridViewTextBoxColumn();
-            totalHoursColumn.DataPropertyName = "HourWage";
+            totalHoursColumn.DataPropertyName = "TimeUsed";
             totalHoursColumn.HeaderText = "Billable hours";
             dgv_closedProjects.Columns.Add(totalHoursColumn);
         }
