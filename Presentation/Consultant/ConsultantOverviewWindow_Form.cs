@@ -23,7 +23,7 @@ namespace Presentation.Consultant
 
         private Abstraction.Interfaces.IConsultant loggedInConsultant;
 
-        public ConsultantOverviewWindow_Form(Abstraction.Interfaces.IConsultant consultant)
+        public ConsultantOverviewWindow_Form()
         {
             InitializeComponent();
             IsMdiContainer = true;

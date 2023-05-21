@@ -18,5 +18,6 @@ namespace Abstraction.Interfaces
         int ZipCode { get; set; }
         string City { get; set; }
         int PhoneNumber { get; set; }
+        string GetFullName { get; }
     }
 }

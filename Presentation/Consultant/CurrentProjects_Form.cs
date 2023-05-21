@@ -72,8 +72,8 @@
                 dgv_existingProjectsCustomer.Columns.Add(endDateColumn);
 
                 DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
-                customerIdColumn.DataPropertyName = "CustomerId";
-                customerIdColumn.HeaderText = "Customer ID";
+                customerIdColumn.DataPropertyName = "GetCustomerFullName";
+                customerIdColumn.HeaderText = "Customer";
                 customerIdColumn.ReadOnly = true;
                 dgv_existingProjectsCustomer.Columns.Add(customerIdColumn);
 
@@ -197,8 +197,8 @@
             dgv_existingProjectsCustomer.Columns.Add(endDateColumn);
 
             DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
-            customerIdColumn.DataPropertyName = "CustomerId";
-            customerIdColumn.HeaderText = "Customer ID";
+            customerIdColumn.DataPropertyName = "GetCustomerFullName";
+            customerIdColumn.HeaderText = "Customer";
             customerIdColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(customerIdColumn);
 

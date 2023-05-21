@@ -19,5 +19,6 @@ namespace DAL.Models
         public int ZipCode { get; set; }
         public string City { get; set; }  
         public int PhoneNumber { get; set; }
+        public string GetFullName { get { return FirstName + " " + LastName; } }
     }
 }

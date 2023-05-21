@@ -41,34 +41,14 @@ namespace DAL.Repository
 
             foreach (var dataProject in consultantProjects)
             {
-                Models.Project project = new Models.Project();
-
-                project.Id = dataProject.ProjectId;
-                project.Name = dataProject.Project_Name;
-                project.CustomerId = dataProject.Project_CustomerId;
-                project.StartDate = dataProject.Project_StartDate;
-                project.EndDate = dataProject.Project_EndDate;
-                project.Status = dataProject.Project_Status;
-                project.Description = dataProject.Project_Description;
-                project.TimeUsed = (int)dataProject.Project_TimeUsed;
-                project.HourWage = dataProject.Project_HourWage;
-
-                project.Language = new Models.CodeLanguage();
-                project.Language.Id = dataProject.CodeLanguage.Id;
-                project.Language.Language = dataProject.CodeLanguage.LanguageName;
-
-                project.EndType = new Models.EndType();
-                project.EndType.Id = dataProject.EndType.Id;
-                project.EndType.EndType1 = dataProject.EndType.EndType1;
-
-                result.Add(project);
+                result.Add(MapToModel(dataProject));
             }
             return result;
         }
 
         public void AddProject(IProject dataProject)
         {
-            Database.Project projectData = MapToData(dto);            
+            Database.Project projectData = MapToData(dataProject);            
             DataContext.Projects.InsertOnSubmit(projectData);
             DataContext.SubmitChanges();
         }
@@ -89,12 +69,12 @@ namespace DAL.Repository
             {
                 // Update the Project object with the new values.
                 targetProject.Project_Name = project.Name;
-                targetProject.Project_CustomerId = project.CustomerId;
+                targetProject.Project_CustomerId = project.Consultant.Id;
                 targetProject.Project_HourWage = project.HourWage;
 
-                if (project.ConsultantId != 0)
+                if (project.Consultant.Id != 0)
                 {
-                    targetProject.Project_ConsultantId = project.ConsultantId;
+                    targetProject.Project_ConsultantId = project.Consultant.Id;
                 }
                 
                 targetProject.Project_ConsultantId = project.Consultant.Id;
@@ -127,7 +107,7 @@ namespace DAL.Repository
         public IProject GetProject(int id)
         {
             var dataProject = DataContext.Projects.FirstOrDefault(c => c.ProjectId == id);
-            Models.Project project = MapToModel(dataProject);
+            Abstraction.Interfaces.IProject project = MapToModel(dataProject);
 
             return project;
         }
@@ -178,7 +158,29 @@ namespace DAL.Repository
 
             if(dataProject.Project_ConsultantId != null)
             {
-                projectModel.Consultant = (IConsultant)dataProject.Consultant;                
+                projectModel.Consultant = new Models.Consultant()
+                {
+                    Id = dataProject.Consultant.ConsultantId,
+                    FirstName = dataProject.Consultant.Consultant_FirstName,
+                    LastName = dataProject.Consultant.Consultant_LastName,
+                    Login = dataProject.Consultant.Consultant_Login,
+                    Password = dataProject.Consultant.Consultant_Password,
+                    Email = dataProject.Consultant.Consultant_Email,
+                    ZipCode = dataProject.Consultant.Consultant_ZipCode,
+                    City = dataProject.Consultant.Consultant_City,
+                    Address = dataProject.Consultant.Consultant_Address,
+                    PhoneNumber = dataProject.Consultant.Consultant_PhoneNumber,
+                    Language = new Models.CodeLanguage()
+                    {
+                        Id = dataProject.Consultant.CodeLanguage.Id,
+                        Language = dataProject.Consultant.CodeLanguage.LanguageName
+                    },                   
+                    EndType = new Models.EndType()
+                    {
+                        Id = dataProject.Consultant.EndType.Id,
+                        EndType1 = dataProject.Consultant.EndType.EndType1
+                    }
+                };
             }
             
             projectModel.Language = new Models.CodeLanguage()
@@ -187,11 +189,9 @@ namespace DAL.Repository
                 Language = dataProject.CodeLanguage.LanguageName
             };
             projectModel.EndType = new Models.EndType();
-            if (dataProject.Project_EndType != null)
-            {
-                projectModel.EndType.Id = (int)dataProject.Project_EndType;
-                projectModel.EndType.EndType1 = dataProject.EndType.EndType1;
-            }
+
+            projectModel.EndType.Id = (int)dataProject.Project_EndType;
+            projectModel.EndType.EndType1 = dataProject.EndType.EndType1;
 
             if (dataProject.Project_TimeUsed != null) 
             {

@@ -27,5 +27,9 @@ namespace BLL.Models
         public string GetLangauge { get { return Language.Language; } }
 
         public string GetEndType { get { return EndType.EndType1; } }
+
+        public string GetCustomerFullName { get { return Customer.GetFullName; } }
+
+        public string GetConsultantFullName { get { return Consultant.GetFullName; } }
     }
 }

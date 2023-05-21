@@ -64,8 +64,8 @@ namespace Presentation.Customer
             dgv_closedProjects.Columns.Add(endDateColumn);
 
             DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
-            customerIdColumn.DataPropertyName = "CustomerId";
-            customerIdColumn.HeaderText = "Customer ID";
+            customerIdColumn.DataPropertyName = "GetCustomerFullName";
+            customerIdColumn.HeaderText = "Customer";
             dgv_closedProjects.Columns.Add(customerIdColumn);
 
             DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();
@@ -155,8 +155,8 @@ namespace Presentation.Customer
             dgv_closedProjects.Columns.Add(endDateColumn);
 
             DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
-            customerIdColumn.DataPropertyName = "CustomerId";
-            customerIdColumn.HeaderText = "Customer ID";
+            customerIdColumn.DataPropertyName = "GetCustomerFullName";
+            customerIdColumn.HeaderText = "Customer";
             dgv_closedProjects.Columns.Add(customerIdColumn);
 
             DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();

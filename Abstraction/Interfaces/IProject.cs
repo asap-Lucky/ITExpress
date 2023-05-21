@@ -24,5 +24,7 @@ namespace Abstraction.Interfaces
         string GetLangauge { get; }
         IEndType EndType { get; set; }
         string GetEndType { get; }
+        string GetCustomerFullName { get; }
+        string GetConsultantFullName { get; }
     }
 }
