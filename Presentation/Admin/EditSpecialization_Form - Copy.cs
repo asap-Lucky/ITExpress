@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Abstraction.Interfaces;
+using BLL.Models;
 using Presentation.Customer;
 
 namespace Presentation.Admin
@@ -17,6 +18,7 @@ namespace Presentation.Admin
     {
         //Fields
         private BLL.Services.CodeLanguageService codeLanguageService {  get; set; }
+        private BLL.Models.CodeLanguage CodeLanguage { get; set; }
 
         public EditSpecialization_Form()
         {
@@ -40,16 +42,26 @@ namespace Presentation.Admin
 
         private void bt_SaveChanges_Click(object sender, EventArgs e)
         {
-            dgv_allLanguages.ReadOnly = true;
             if (dgv_allLanguages.SelectedCells.Count > 0)
             {
-                // Get the selected cell's column index
-                int columnIndex = dgv_allLanguages.SelectedCells[0].ColumnIndex;
+                // Get the selected row index
+                var rowIndex = dgv_allLanguages.SelectedCells[0].RowIndex;
 
-                // Show only the selected column, hide others
+                // Retrieve the data from the selected row
+                var id = dgv_allLanguages.Rows[rowIndex].Cells["Id"].Value; // Assuming the column name is "Id"
+                var language = dgv_allLanguages.Rows[rowIndex].Cells["Language"].Value; // Assuming the column name is "Name"
+
+                // Create an instance of ICodeLanguage and populate its properties
+                ICodeLanguage codeLanguage = new CodeLanguage();
+                codeLanguage.Id = Convert.ToInt32(id);
+                codeLanguage.Language = language.ToString();
+
+                // Call the service method to edit the code language
+                codeLanguageService.EditCodeLanguage(codeLanguage);
+
                 foreach (DataGridViewColumn column in dgv_allLanguages.Columns)
                 {
-                    if (column.Index == columnIndex)
+                    if (column.Index == rowIndex)
                     {
                         column.Visible = true;
                     }
@@ -58,6 +70,8 @@ namespace Presentation.Admin
                         column.Visible = true;
                     }
                 }
+
+                dgv_allLanguages.ReadOnly = true;
             }
         }
 
@@ -101,7 +115,10 @@ namespace Presentation.Admin
                 ICodeLanguage selectedLanguage = (ICodeLanguage)language;
 
                 // Call the LanguageService.Delete() method
-                codeLanguageService.DeleteCodeLanguage(selectedLanguage); 
+                codeLanguageService.DeleteCodeLanguage(selectedLanguage);
+                UpdateLanguagesData();
+                LoadLanguagesData();
+                
             }
             else
             {
