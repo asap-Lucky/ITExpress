@@ -68,6 +68,7 @@
             this.bt_GoBack.TabIndex = 35;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
+            this.bt_GoBack.Click += new System.EventHandler(this.bt_GoBack_Click);
             // 
             // bt_SaveChanges
             // 
@@ -83,6 +84,7 @@
             this.bt_SaveChanges.TabIndex = 36;
             this.bt_SaveChanges.Text = "Save changes";
             this.bt_SaveChanges.UseVisualStyleBackColor = false;
+            this.bt_SaveChanges.Click += new System.EventHandler(this.bt_SaveChanges_Click);
             // 
             // AddSpecialization_Form
             // 
