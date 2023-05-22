@@ -1,6 +1,6 @@
 ﻿namespace Presentation.All
 {
-    partial class SendMessage_Form
+    partial class ConsultantMessage_Form
     {
         /// <summary>
         /// Required designer variable.

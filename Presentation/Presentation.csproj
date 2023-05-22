@@ -119,11 +119,11 @@
     <Compile Include="Admin\LogInAdmin_Form.Designer.cs">
       <DependentUpon>LogInAdmin_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="All\SendMessage_Form.cs">
+    <Compile Include="Consultant\ConsultantMessage_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="All\SendMessage_Form.Designer.cs">
-      <DependentUpon>SendMessage_Form.cs</DependentUpon>
+    <Compile Include="Consultant\ConsultantMessage_Form.Designer.cs">
+      <DependentUpon>ConsultantMessage_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="All\OpenProject_Form.cs">
       <SubType>Form</SubType>
@@ -196,6 +196,12 @@
     </Compile>
     <Compile Include="Consultant\SignUpConsultant_Form.Designer.cs">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerMessage.Designer.cs">
+      <DependentUpon>CustomerMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\SearchConsultant_Form.cs">
       <SubType>Form</SubType>
@@ -295,8 +301,8 @@
     <EmbeddedResource Include="Admin\LogInAdmin_Form.resx">
       <DependentUpon>LogInAdmin_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="All\SendMessage_Form.resx">
-      <DependentUpon>SendMessage_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Consultant\ConsultantMessage_Form.resx">
+      <DependentUpon>ConsultantMessage_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="All\OpenProject_Form.resx">
       <DependentUpon>OpenProject_Form.cs</DependentUpon>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultant\SignUpConsultant_Form.resx">
       <DependentUpon>SignUpConsultant_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\CustomerMessage.resx">
+      <DependentUpon>CustomerMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\SearchConsultant_Form.resx">
       <DependentUpon>SearchConsultant_Form.cs</DependentUpon>
