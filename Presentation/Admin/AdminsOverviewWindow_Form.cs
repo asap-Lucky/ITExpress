@@ -98,6 +98,13 @@ namespace Presentation.Consultant
             buttonColorChange_Click(button);
             OpenChildForm(new EditSpecialization_Form());
         }
+
+        private void bt_ProjectList_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            buttonColorChange_Click(button);
+            OpenChildForm(new AllProjectOverview_Form());
+        }
     }
 }
 
