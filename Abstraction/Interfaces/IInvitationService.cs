@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Abstraction.Interfaces
 {
-    public interface IInvitationRepo
+    public interface  IInvitationService
     {
         void AddInvitation(IInvitation invitation);
-
         bool IsSend(IInvitation invitation);
     }
 }

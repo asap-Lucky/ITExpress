@@ -1,6 +1,7 @@
 using Abstraction.Interfaces;
 using BLL.Models;
 using BLL.Services;
+using BLL.Singleton;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace Presentation.Customer
         private ICustomer CustomerUser { get; set; }
         private ProjectService ProjectService { get; set; }
         private BLL.Services.ConsultantService ConsultantService { get; set; }
+        private InvitationService InvitationService { get; set; }
         private List<IProject> DefaultProjectList { get; set; }
         private List<IConsultant> DefaultConsultantList { get; set; }
         private List<IConsultant> SortedConsultantsList { get; set; }
@@ -32,6 +34,7 @@ namespace Presentation.Customer
             this.CustomerUser = customerUser;
             this.ProjectService = new ProjectService();
             this.ConsultantService = new BLL.Services.ConsultantService();
+            this.InvitationService = new InvitationService();
             DefaultProjectList = ProjectService.GetProjectsByCostumer(CustomerUser);
             DefaultProjectList.RemoveAll(p => p.Status == 3);
             DefaultConsultantList = this.ConsultantService.GetAllConsultants(); 
@@ -50,6 +53,16 @@ namespace Presentation.Customer
             nameColumn.DataPropertyName = "Name";
             nameColumn.HeaderText = "Project Name";
             dataGridView1.Columns.Add(nameColumn);
+
+            DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();
+            languageColumn.DataPropertyName = "GetLangauge";
+            languageColumn.HeaderText = "Language";
+            dataGridView1.Columns.Add(languageColumn);
+
+            DataGridViewTextBoxColumn endTypeClumn = new DataGridViewTextBoxColumn();
+            endTypeClumn.DataPropertyName = "GetEndType";
+            endTypeClumn.HeaderText = "End Type";
+            dataGridView1.Columns.Add(endTypeClumn);
 
             DataGridViewTextBoxColumn totalSumColumn = new DataGridViewTextBoxColumn();
             totalSumColumn.DataPropertyName = "TotalSum";
@@ -106,18 +119,37 @@ namespace Presentation.Customer
             }
         }
 
+        //Functionality for the send invite buton.
         private void bt_OpenProject_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.SelectedRows.Count == 0)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please Select A Valid Project", "No Project", MessageBoxButtons.OK);
                 return;
             }
-            if(dataGridView2.SelectedRows.Count == 0)
+            if (dataGridView2.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please Select A Valid Consultant", "No Consultant", MessageBoxButtons.OK);
                 return;
             }
+            var test = dataGridView2.SelectedRows[0].DataBoundItem as BLL.Models.Consultant;
+            Invitation invitation = new Invitation()
+            {
+                Customer = CustomerSingleton.Instance().User,
+                Consultant = (IConsultant)dataGridView2.SelectedRows[0].DataBoundItem,
+                Project = (IProject)dataGridView1.SelectedRows[0].DataBoundItem,
+                AcceptStatus = false
+            };
+            if (InvitationService.IsSend(invitation))
+            {
+                MessageBox.Show("The project already have an invitation pending", "ERROR");
+                return;
+            }
+            InvitationService.AddInvitation(invitation);
+            List<IConsultant> consultants = (List<IConsultant>)dataGridView2.DataSource;
+            consultants.RemoveAll(c => c == dataGridView2.SelectedRows[0].DataBoundItem as BLL.Models.Consultant);
+            dataGridView2.DataSource = consultants;
+            MessageBox.Show("Invitation Send", "SUCCESS");
         }
     }
 }

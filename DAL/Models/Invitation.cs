@@ -10,8 +10,9 @@ namespace DAL.Models
     public class Invitation : IInvitation
     {
         public int Id { get; set; }
-        public string Message { get; set; }
         public ICustomer Customer { get; set; }
         public IConsultant Consultant { get; set; }
+        public IProject Project { get; set; }
+        public bool AcceptStatus { get; set; }
     }
 }

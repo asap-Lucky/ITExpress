@@ -30,12 +30,12 @@ namespace DAL.Database
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAdmin(Admin instance);
-    partial void UpdateAdmin(Admin instance);
-    partial void DeleteAdmin(Admin instance);
     partial void InsertProject(Project instance);
     partial void UpdateProject(Project instance);
     partial void DeleteProject(Project instance);
+    partial void InsertAdmin(Admin instance);
+    partial void UpdateAdmin(Admin instance);
+    partial void DeleteAdmin(Admin instance);
     partial void InsertCodeLanguage(CodeLanguage instance);
     partial void UpdateCodeLanguage(CodeLanguage instance);
     partial void DeleteCodeLanguage(CodeLanguage instance);
@@ -86,19 +86,19 @@ namespace DAL.Database
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Admin> Admins
-		{
-			get
-			{
-				return this.GetTable<Admin>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Project> Projects
 		{
 			get
 			{
 				return this.GetTable<Project>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Admin> Admins
+		{
+			get
+			{
+				return this.GetTable<Admin>();
 			}
 		}
 		
@@ -151,116 +151,6 @@ namespace DAL.Database
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Admin")]
-	public partial class Admin : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _AdminID;
-		
-		private string _Admin_UserName;
-		
-		private string _Admin_Password;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAdminIDChanging(int value);
-    partial void OnAdminIDChanged();
-    partial void OnAdmin_UserNameChanging(string value);
-    partial void OnAdmin_UserNameChanged();
-    partial void OnAdmin_PasswordChanging(string value);
-    partial void OnAdmin_PasswordChanged();
-    #endregion
-		
-		public Admin()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int AdminID
-		{
-			get
-			{
-				return this._AdminID;
-			}
-			set
-			{
-				if ((this._AdminID != value))
-				{
-					this.OnAdminIDChanging(value);
-					this.SendPropertyChanging();
-					this._AdminID = value;
-					this.SendPropertyChanged("AdminID");
-					this.OnAdminIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin_UserName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Admin_UserName
-		{
-			get
-			{
-				return this._Admin_UserName;
-			}
-			set
-			{
-				if ((this._Admin_UserName != value))
-				{
-					this.OnAdmin_UserNameChanging(value);
-					this.SendPropertyChanging();
-					this._Admin_UserName = value;
-					this.SendPropertyChanged("Admin_UserName");
-					this.OnAdmin_UserNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Admin_Password
-		{
-			get
-			{
-				return this._Admin_Password;
-			}
-			set
-			{
-				if ((this._Admin_Password != value))
-				{
-					this.OnAdmin_PasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Admin_Password = value;
-					this.SendPropertyChanged("Admin_Password");
-					this.OnAdmin_PasswordChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Project")]
 	public partial class Project : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -292,6 +182,8 @@ namespace DAL.Database
 		private int _Project_CodeLanguageId;
 		
 		private int _Project_EndType;
+		
+		private EntitySet<Invitation> _Invitations;
 		
 		private EntityRef<CodeLanguage> _CodeLanguage;
 		
@@ -335,6 +227,7 @@ namespace DAL.Database
 		
 		public Project()
 		{
+			this._Invitations = new EntitySet<Invitation>(new Action<Invitation>(this.attach_Invitations), new Action<Invitation>(this.detach_Invitations));
 			this._CodeLanguage = default(EntityRef<CodeLanguage>);
 			this._Consultant = default(EntityRef<Consultant>);
 			this._Customer = default(EntityRef<Customer>);
@@ -618,6 +511,19 @@ namespace DAL.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Invitation", Storage="_Invitations", ThisKey="ProjectId", OtherKey="Invitation_ProjectId")]
+		public EntitySet<Invitation> Invitations
+		{
+			get
+			{
+				return this._Invitations;
+			}
+			set
+			{
+				this._Invitations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Project", Storage="_CodeLanguage", ThisKey="Project_CodeLanguageId", OtherKey="Id", IsForeignKey=true)]
 		public CodeLanguage CodeLanguage
 		{
@@ -750,6 +656,128 @@ namespace DAL.Database
 						this._Project_EndType = default(int);
 					}
 					this.SendPropertyChanged("EndType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Invitations(Invitation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = this;
+		}
+		
+		private void detach_Invitations(Invitation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Project = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Admin")]
+	public partial class Admin : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AdminID;
+		
+		private string _Admin_UserName;
+		
+		private string _Admin_Password;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAdminIDChanging(int value);
+    partial void OnAdminIDChanged();
+    partial void OnAdmin_UserNameChanging(string value);
+    partial void OnAdmin_UserNameChanged();
+    partial void OnAdmin_PasswordChanging(string value);
+    partial void OnAdmin_PasswordChanged();
+    #endregion
+		
+		public Admin()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AdminID
+		{
+			get
+			{
+				return this._AdminID;
+			}
+			set
+			{
+				if ((this._AdminID != value))
+				{
+					this.OnAdminIDChanging(value);
+					this.SendPropertyChanging();
+					this._AdminID = value;
+					this.SendPropertyChanged("AdminID");
+					this.OnAdminIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin_UserName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Admin_UserName
+		{
+			get
+			{
+				return this._Admin_UserName;
+			}
+			set
+			{
+				if ((this._Admin_UserName != value))
+				{
+					this.OnAdmin_UserNameChanging(value);
+					this.SendPropertyChanging();
+					this._Admin_UserName = value;
+					this.SendPropertyChanged("Admin_UserName");
+					this.OnAdmin_UserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Admin_Password
+		{
+			get
+			{
+				return this._Admin_Password;
+			}
+			set
+			{
+				if ((this._Admin_Password != value))
+				{
+					this.OnAdmin_PasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Admin_Password = value;
+					this.SendPropertyChanged("Admin_Password");
+					this.OnAdmin_PasswordChanged();
 				}
 			}
 		}
@@ -1921,15 +1949,19 @@ namespace DAL.Database
 		
 		private int _InvitationId;
 		
-		private string _Invitation_Content;
-		
 		private int _Invitation_CustomerId;
 		
 		private int _Invitaiton_ConsultantId;
 		
+		private int _Invitation_ProjectId;
+		
+		private bool _Inivitaion_AcceptStatus;
+		
 		private EntityRef<Customer> _Customer;
 		
 		private EntityRef<Consultant> _Consultant;
+		
+		private EntityRef<Project> _Project;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1937,18 +1969,21 @@ namespace DAL.Database
     partial void OnCreated();
     partial void OnInvitationIdChanging(int value);
     partial void OnInvitationIdChanged();
-    partial void OnInvitation_ContentChanging(string value);
-    partial void OnInvitation_ContentChanged();
     partial void OnInvitation_CustomerIdChanging(int value);
     partial void OnInvitation_CustomerIdChanged();
     partial void OnInvitaiton_ConsultantIdChanging(int value);
     partial void OnInvitaiton_ConsultantIdChanged();
+    partial void OnInvitation_ProjectIdChanging(int value);
+    partial void OnInvitation_ProjectIdChanged();
+    partial void OnInivitaion_AcceptStatusChanging(bool value);
+    partial void OnInivitaion_AcceptStatusChanged();
     #endregion
 		
 		public Invitation()
 		{
 			this._Customer = default(EntityRef<Customer>);
 			this._Consultant = default(EntityRef<Consultant>);
+			this._Project = default(EntityRef<Project>);
 			OnCreated();
 		}
 		
@@ -1968,26 +2003,6 @@ namespace DAL.Database
 					this._InvitationId = value;
 					this.SendPropertyChanged("InvitationId");
 					this.OnInvitationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Invitation_Content", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Invitation_Content
-		{
-			get
-			{
-				return this._Invitation_Content;
-			}
-			set
-			{
-				if ((this._Invitation_Content != value))
-				{
-					this.OnInvitation_ContentChanging(value);
-					this.SendPropertyChanging();
-					this._Invitation_Content = value;
-					this.SendPropertyChanged("Invitation_Content");
-					this.OnInvitation_ContentChanged();
 				}
 			}
 		}
@@ -2036,6 +2051,50 @@ namespace DAL.Database
 					this._Invitaiton_ConsultantId = value;
 					this.SendPropertyChanged("Invitaiton_ConsultantId");
 					this.OnInvitaiton_ConsultantIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Invitation_ProjectId", DbType="Int NOT NULL")]
+		public int Invitation_ProjectId
+		{
+			get
+			{
+				return this._Invitation_ProjectId;
+			}
+			set
+			{
+				if ((this._Invitation_ProjectId != value))
+				{
+					if (this._Project.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnInvitation_ProjectIdChanging(value);
+					this.SendPropertyChanging();
+					this._Invitation_ProjectId = value;
+					this.SendPropertyChanged("Invitation_ProjectId");
+					this.OnInvitation_ProjectIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Inivitaion_AcceptStatus", DbType="Bit NOT NULL")]
+		public bool Inivitaion_AcceptStatus
+		{
+			get
+			{
+				return this._Inivitaion_AcceptStatus;
+			}
+			set
+			{
+				if ((this._Inivitaion_AcceptStatus != value))
+				{
+					this.OnInivitaion_AcceptStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Inivitaion_AcceptStatus = value;
+					this.SendPropertyChanged("Inivitaion_AcceptStatus");
+					this.OnInivitaion_AcceptStatusChanged();
 				}
 			}
 		}
@@ -2104,6 +2163,40 @@ namespace DAL.Database
 						this._Invitaiton_ConsultantId = default(int);
 					}
 					this.SendPropertyChanged("Consultant");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Project_Invitation", Storage="_Project", ThisKey="Invitation_ProjectId", OtherKey="ProjectId", IsForeignKey=true)]
+		public Project Project
+		{
+			get
+			{
+				return this._Project.Entity;
+			}
+			set
+			{
+				Project previousValue = this._Project.Entity;
+				if (((previousValue != value) 
+							|| (this._Project.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Project.Entity = null;
+						previousValue.Invitations.Remove(this);
+					}
+					this._Project.Entity = value;
+					if ((value != null))
+					{
+						value.Invitations.Add(this);
+						this._Invitation_ProjectId = value.ProjectId;
+					}
+					else
+					{
+						this._Invitation_ProjectId = default(int);
+					}
+					this.SendPropertyChanged("Project");
 				}
 			}
 		}

@@ -11,26 +11,37 @@ namespace DAL.Repository
     {
         private Database.ITExpressDataClassesDataContext DataContext { get; set; }
 
-        InvitationRepo()
+        public InvitationRepo()
         {
             DataContext = new Database.ITExpressDataClassesDataContext();
         }
 
-        public void AddInvitationToDB(IInvitation invitation)
+        public void AddInvitation(IInvitation invitation)
         {
             Database.Invitation invitaionData = MapToData(invitation);
             DataContext.Invitations.InsertOnSubmit(invitaionData);
             DataContext.SubmitChanges();
         }
 
+        public bool IsSend(IInvitation invitation)
+        {
+            bool isSend = false;
+            var dataInvitations = DataContext.Invitations.Where(i => i.Invitation_CustomerId == invitation.Customer.Id).Where(i => i.Invitation_ProjectId == invitation.Project.Id);
+            if(dataInvitations.Count() > 0)
+            {
+                isSend = true;
+            }
+            return isSend;
+        }
+
         private Database.Invitation MapToData(IInvitation invitationModel)
         {
             Database.Invitation invitationData = new Database.Invitation()
             {
-                InvitationId = invitationModel.Id,
-                Invitation_Content = invitationModel.Message,
                 Invitation_CustomerId = invitationModel.Customer.Id,
                 Invitaiton_ConsultantId = invitationModel.Consultant.Id,
+                Invitation_ProjectId = invitationModel.Project.Id,
+                Inivitaion_AcceptStatus = invitationModel.AcceptStatus
             };
             return invitationData;
         }

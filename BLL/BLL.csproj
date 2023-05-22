@@ -86,6 +86,7 @@
     <Compile Include="Services\ConsultantService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\EndtypeService.cs" />
+    <Compile Include="Services\InvitationService.cs" />
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\ProjectService.cs" />
     <Compile Include="Singleton\ConsultantSingleton.cs" />
