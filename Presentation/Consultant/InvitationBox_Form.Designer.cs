@@ -198,6 +198,7 @@
             this.Name = "InvitationBox_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
+            this.Load += new System.EventHandler(this.InvitationBox_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_newInvitations)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
