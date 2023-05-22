@@ -48,6 +48,14 @@ namespace UI.All
                 MessageBox.Show("The credentials entered does not match any admin, try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void bt_GoBack_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Main_Form main_Form = new Main_Form();
+            main_Form.ShowDialog();
+            
+        }
     }
 }
 
