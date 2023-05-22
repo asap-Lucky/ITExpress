@@ -29,7 +29,7 @@
                 this.loggedInCustomer = loggedInCustomer;
                 MyProject = project;
                 InitializeComponent();
-                DisableEditing();
+                //DisableEditing();
                 InitializeComboBoxes();
                 LoadProjectData();
         }
@@ -69,17 +69,6 @@
             dtp_endDate.Enabled = false;
             cb_CodeLanguage.Enabled = false;
             cb_EndType.Enabled = false;
-
-            if (MyProject.Language != null)
-            {
-                cb_CodeLanguage.SelectedIndex = cb_CodeLanguage.FindStringExact(MyProject.Language.Language);
-            }
-
-            if (MyProject.EndType != null)
-            {
-                cb_EndType.SelectedIndex = cb_EndType.FindStringExact(MyProject.EndType.EndType1);
-            }
-        
         }
 
             public void DisableHours()
@@ -98,6 +87,16 @@
                 cb_EndType.DataSource = endtypeService.GetAllEndTypes();
                 cb_EndType.DisplayMember = "EndType1";
                 cb_EndType.SelectedIndex = -1;
+
+                if (MyProject.Language != null)
+                {
+                    cb_CodeLanguage.SelectedIndex = cb_CodeLanguage.FindStringExact(MyProject.Language.Language);
+                }
+
+                if (MyProject.EndType != null)
+                {
+                    cb_EndType.SelectedIndex = cb_EndType.FindStringExact(MyProject.EndType.EndType1);
+                }
             }
 
             private void bt_GoBack_Click(object sender, EventArgs e)
@@ -108,23 +107,39 @@
 
             private void bt_SaveChanges_Click(object sender, EventArgs e)
             {
-                SaveBillableHours();
+                SaveChanges();
             }
 
-            private void SaveBillableHours()
+            private void SaveChanges()
             {
+                MyProject.Name = tb_projectName.Text;
+                MyProject.Description = tb_projectDescription.Text;
+                MyProject.HourWage = decimal.Parse(tb_projectHourWage.Text);
+                MyProject.StartDate = dtp_startDate.Value;
+                MyProject.EndDate = dtp_endDate.Value;
+
+                if (cb_CodeLanguage.SelectedItem != null)
+                {
+                    MyProject.Language = (ICodeLanguage)cb_CodeLanguage.SelectedItem;
+                }
+
+                if (cb_EndType.SelectedItem != null)
+                {
+                    MyProject.EndType = (IEndType)cb_EndType.SelectedItem;
+                }
+
                 int hoursSpent;
                 if (int.TryParse(tb_HoursSpent.Text, out hoursSpent))
                 {
                     MyProject.TimeUsed = hoursSpent;
-                    projectService.EditProject(MyProject);
+                }
 
-                    MessageBox.Show("Changes saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Invalid input for hours spent.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                projectService.EditProject(MyProject);
+
+                MessageBox.Show("Changes saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        }
+
+
+
     }
+}
