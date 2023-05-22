@@ -85,6 +85,7 @@ namespace UI.All
             this.bt_GoBack.TabIndex = 6;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
+            this.bt_GoBack.Click += new System.EventHandler(this.bt_GoBack_Click_1);
             // 
             // tb_passWordAdmin
             // 

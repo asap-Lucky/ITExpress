@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tb_EnterNewLanguage = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.bt_GoBack = new System.Windows.Forms.Button();
             this.bt_SaveChanges = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // tb_EnterNewLanguage
@@ -41,17 +43,18 @@
             this.tb_EnterNewLanguage.Name = "tb_EnterNewLanguage";
             this.tb_EnterNewLanguage.Size = new System.Drawing.Size(159, 23);
             this.tb_EnterNewLanguage.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.tb_EnterNewLanguage, "Enter a new language into the language list");
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(88, 9);
+            this.label9.Location = new System.Drawing.Point(114, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(195, 31);
+            this.label9.Size = new System.Drawing.Size(134, 31);
             this.label9.TabIndex = 14;
-            this.label9.Text = "Write language";
+            this.label9.Text = "Language";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bt_GoBack
@@ -111,5 +114,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button bt_GoBack;
         private System.Windows.Forms.Button bt_SaveChanges;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

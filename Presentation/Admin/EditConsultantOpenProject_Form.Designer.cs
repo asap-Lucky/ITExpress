@@ -49,7 +49,6 @@ namespace Presentation.Customer
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bt_SaveChanges = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
-            this.cb_ProjectStatus = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -260,30 +259,19 @@ namespace Presentation.Customer
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
             // 
-            // cb_ProjectStatus
-            // 
-            this.cb_ProjectStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cb_ProjectStatus.FormattingEnabled = true;
-            this.cb_ProjectStatus.Location = new System.Drawing.Point(568, 517);
-            this.cb_ProjectStatus.Name = "cb_ProjectStatus";
-            this.cb_ProjectStatus.Size = new System.Drawing.Size(218, 28);
-            this.cb_ProjectStatus.TabIndex = 28;
-            this.cb_ProjectStatus.Text = "Project status";
-            // 
-            // EditProjectConsultant
+            // EditConsultantOpenProject_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
-            this.Controls.Add(this.cb_ProjectStatus);
             this.Controls.Add(this.bt_SaveChanges);
             this.Controls.Add(this.bt_GoBack);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EditProjectConsultant";
+            this.Name = "EditConsultantOpenProject_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             this.panel1.ResumeLayout(false);
@@ -316,6 +304,5 @@ namespace Presentation.Customer
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button bt_SaveChanges;
         private System.Windows.Forms.Button bt_GoBack;
-        private System.Windows.Forms.ComboBox cb_ProjectStatus;
     }
 }

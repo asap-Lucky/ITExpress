@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_allLanguages = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.bt_delete = new System.Windows.Forms.Button();
             this.bt_SaveChanges = new System.Windows.Forms.Button();
             this.bt_AddLanguage = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_allLanguages)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +67,8 @@
             this.dgv_allLanguages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_allLanguages.Size = new System.Drawing.Size(445, 335);
             this.dgv_allLanguages.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.dgv_allLanguages, "Select a language to edit or delete");
+
             // 
             // label2
             // 
@@ -183,5 +187,6 @@
         private System.Windows.Forms.DataGridView dgv_allLanguages;
         private System.Windows.Forms.Button bt_SaveChanges;
         private System.Windows.Forms.Button bt_AddLanguage;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

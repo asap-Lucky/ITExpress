@@ -50,10 +50,14 @@ namespace Presentation.Customer
             this.bt_SaveChanges = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tb_HoursSpent = new System.Windows.Forms.TextBox();
             this.tb_TotalPay = new System.Windows.Forms.TextBox();
+            this.tb_HoursSpent = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -87,6 +91,8 @@ namespace Presentation.Customer
             this.cb_EndType.Name = "cb_EndType";
             this.cb_EndType.Size = new System.Drawing.Size(279, 21);
             this.cb_EndType.TabIndex = 32;
+            this.toolTip4.SetToolTip(this.cb_EndType, "Choose if the consultant has to have knowledge in regards of frontend, backend or" +
+        " fullstack");
             // 
             // cb_CodeLanguage
             // 
@@ -112,6 +118,7 @@ namespace Presentation.Customer
             this.dtp_endDate.Name = "dtp_endDate";
             this.dtp_endDate.Size = new System.Drawing.Size(279, 20);
             this.dtp_endDate.TabIndex = 28;
+            this.toolTip3.SetToolTip(this.dtp_endDate, "End date of the project");
             // 
             // dtp_startDate
             // 
@@ -119,6 +126,7 @@ namespace Presentation.Customer
             this.dtp_startDate.Name = "dtp_startDate";
             this.dtp_startDate.Size = new System.Drawing.Size(279, 20);
             this.dtp_startDate.TabIndex = 27;
+            this.toolTip2.SetToolTip(this.dtp_startDate, "Start date of the project");
             // 
             // label6
             // 
@@ -283,15 +291,21 @@ namespace Presentation.Customer
             this.panel3.Size = new System.Drawing.Size(500, 149);
             this.panel3.TabIndex = 28;
             // 
-            // label8
+            // tb_TotalPay
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(16, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(168, 20);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Consultant paid hours:";
+            this.tb_TotalPay.Location = new System.Drawing.Point(195, 102);
+            this.tb_TotalPay.Name = "tb_TotalPay";
+            this.tb_TotalPay.Size = new System.Drawing.Size(278, 20);
+            this.tb_TotalPay.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.tb_TotalPay, "This field displays the calculated pay that will be transfared to the consultant");
+            // 
+            // tb_HoursSpent
+            // 
+            this.tb_HoursSpent.Location = new System.Drawing.Point(195, 26);
+            this.tb_HoursSpent.Name = "tb_HoursSpent";
+            this.tb_HoursSpent.Size = new System.Drawing.Size(278, 20);
+            this.tb_HoursSpent.TabIndex = 20;
+            this.tb_HoursSpent.Text = "Total hours worked";
             // 
             // label9
             // 
@@ -303,20 +317,15 @@ namespace Presentation.Customer
             this.label9.TabIndex = 19;
             this.label9.Text = "Accumulative pay:";
             // 
-            // tb_HoursSpent
+            // label8
             // 
-            this.tb_HoursSpent.Location = new System.Drawing.Point(195, 26);
-            this.tb_HoursSpent.Name = "tb_HoursSpent";
-            this.tb_HoursSpent.Size = new System.Drawing.Size(278, 20);
-            this.tb_HoursSpent.TabIndex = 20;
-            this.tb_HoursSpent.Text = "Total hours worked";
-            // 
-            // tb_TotalPay
-            // 
-            this.tb_TotalPay.Location = new System.Drawing.Point(195, 102);
-            this.tb_TotalPay.Name = "tb_TotalPay";
-            this.tb_TotalPay.Size = new System.Drawing.Size(278, 20);
-            this.tb_TotalPay.TabIndex = 21;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(16, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(168, 20);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Consultant paid hours:";
             // 
             // EditProjectConsultant_Form
             // 
@@ -371,5 +380,9 @@ namespace Presentation.Customer
         private System.Windows.Forms.TextBox tb_HoursSpent;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ToolTip toolTip4;
+        private System.Windows.Forms.ToolTip toolTip3;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
