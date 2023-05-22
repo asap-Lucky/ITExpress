@@ -12,8 +12,8 @@ namespace Abstraction.Interfaces
        string Header { get; set; }
         string Body { get; set; }
 
-        int CustomerId { get; set; }
+        ICustomer Customer { get; set; }
 
-        int ConsultantId { get; set; }
+        IConsultant Consultant { get; set; }
     }
 }
