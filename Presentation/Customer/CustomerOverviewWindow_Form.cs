@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Abstraction.Interfaces;
 using Presentation;
 using Presentation.Customer;
 
@@ -81,7 +82,8 @@ namespace Presentation.Customer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new ClosedProjects());
+            IProjectService projectService = new BLL.Services.ProjectService();
+            OpenChildForm(new ClosedProjects(loggedInCustomer, projectService));
         }
 
         private void bt_existingProjects_Click(object sender, EventArgs e)
@@ -89,7 +91,8 @@ namespace Presentation.Customer
             // Logic behind the button color change
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new ExistingProjectOverview_Forn());
+            IProjectService projectService = new BLL.Services.ProjectService();
+            OpenChildForm(new ExistingProjectOverview_Forn(loggedInCustomer, projectService));
         }
 
         private void bt_searchConsultant_Click(object sender, EventArgs e)

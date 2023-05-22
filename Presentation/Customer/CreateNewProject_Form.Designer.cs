@@ -78,7 +78,7 @@ namespace Presentation.Customer
             // 
             this.cb_projectEndtype.FormattingEnabled = true;
             this.cb_projectEndtype.Location = new System.Drawing.Point(199, 210);
-            this.cb_projectEndtype.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_projectEndtype.Margin = new System.Windows.Forms.Padding(2);
             this.cb_projectEndtype.Name = "cb_projectEndtype";
             this.cb_projectEndtype.Size = new System.Drawing.Size(278, 21);
             this.cb_projectEndtype.TabIndex = 32;
@@ -87,7 +87,7 @@ namespace Presentation.Customer
             // 
             this.cb_projectRequierements.FormattingEnabled = true;
             this.cb_projectRequierements.Location = new System.Drawing.Point(199, 145);
-            this.cb_projectRequierements.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_projectRequierements.Margin = new System.Windows.Forms.Padding(2);
             this.cb_projectRequierements.Name = "cb_projectRequierements";
             this.cb_projectRequierements.Size = new System.Drawing.Size(278, 21);
             this.cb_projectRequierements.TabIndex = 31;
@@ -257,6 +257,7 @@ namespace Presentation.Customer
             this.button1.TabIndex = 3;
             this.button1.Text = "Create project";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // contextMenuStrip1
             // 

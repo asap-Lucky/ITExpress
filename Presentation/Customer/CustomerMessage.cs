@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentation.All
+namespace Presentation.Customer
 {
-    public partial class SendMessage_Form : Form
+    public partial class CustomerMessage : Form
     {
-        public SendMessage_Form()
+        public CustomerMessage()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -62,7 +62,7 @@ namespace Presentation.Customer
             {
                 loggedInCustomer = FacadeService.GetCustomer(loggedInCustomer.Id);
                 MyProject.Name = tb_projectName.Text;
-                MyProject.Description = tb_projectDescription.Text;
+                MyProject.Description = tb_projectDescription.Text.ToString();
                 MyProject.HourWage = hourWage;
                 MyProject.StartDate = dtp_startDate.Value;
                 MyProject.EndDate = dtp_endDate.Value;
@@ -118,6 +118,13 @@ namespace Presentation.Customer
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            RegisterProject();
+            this.Close();
 
         }
     }

@@ -16,5 +16,10 @@ namespace Presentation.Customer
         {
             InitializeComponent();
         }
+
+        private void InvitationBox_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

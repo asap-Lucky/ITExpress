@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -77,6 +77,7 @@
     <Compile Include="Models\Consultant.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\EndType.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Invitation.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Repository\ConsultantRepo.cs" />
     <Compile Include="Repository\CustomerRepo.cs" />
     <Compile Include="Repository\EndtypeRepo.cs" />
+    <Compile Include="Repository\MessageRepo.cs" />
     <Compile Include="Repository\InvitationRepo.cs" />
     <Compile Include="Repository\ProjectRepo.cs" />
   </ItemGroup>
