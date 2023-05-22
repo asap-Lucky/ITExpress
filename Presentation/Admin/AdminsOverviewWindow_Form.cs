@@ -12,6 +12,7 @@ using Presentation;
 using Presentation.Customer;
 using Presentation.All;
 using Presentation.Admin;
+using Abstraction.Interfaces;
 
 namespace Presentation.Consultant
 {
@@ -103,7 +104,8 @@ namespace Presentation.Consultant
         {
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new AllProjectOverview_Form());
+            IProjectService projectService = new BLL.Services.ProjectService();
+            OpenChildForm(new AllProjectsOverview_Form(projectService));
         }
     }
 }

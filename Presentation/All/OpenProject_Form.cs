@@ -136,9 +136,9 @@
                 projectService.EditProject(MyProject);
 
                 MessageBox.Show("Changes saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+
         }
-
-
-
     }
-}
