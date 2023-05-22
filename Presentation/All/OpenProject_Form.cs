@@ -29,7 +29,6 @@
                 this.loggedInCustomer = loggedInCustomer;
                 MyProject = project;
                 InitializeComponent();
-                //DisableEditing();
                 InitializeComboBoxes();
                 LoadProjectData();
         }
