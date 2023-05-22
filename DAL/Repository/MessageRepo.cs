@@ -24,81 +24,109 @@ namespace DAL.Repository
             var AllDtoItem = DataContext.Messages;
 
             foreach (var dto in AllDtoItem)
-            {
-                Models.Message message = new Models.Message();
-
-               
-                Message.MessageId = dto.MessageId;
-                Message.Header = dto.MessageHeader;
-                Message.Body = dto.Message_content;
-                Message.CustomerId = dto.Message_CustomerId;
-                Message.ConsultantId = dto.Message_ConsultantId;
-
-
-
-
-                result.Add(message);
+            {            
+                result.Add(MapToModel(dto));
             }
             return result;
         }
 
         public void Addmessage(IMessage dto)
         {
-            var message = new Database.Message()
-            {
-
-                MessageId = dto.MessageId,
-                Message_Header = dto.Header,
-                Message_content = dto.Body,
-                Message_ConsultantId = dto.ConsultantId,
-                Message_CustomerId = dto.CustomerId,
-                
-            };
-            DataContext.Messages.InsertOnSubmit(message);
+            Database.Message messageData = MapToData(dto);
+            DataContext.Messages.InsertOnSubmit(messageData);
             DataContext.SubmitChanges();
         }
 
         public void DeleteMessage(IMessage dto)
         {
-            var targetMessage = DataContext.Messages.FirstOrDefault(i => i.MessageId == dto.Id);
+            var targetMessage = DataContext.Messages.FirstOrDefault(i => i.MessageId == dto.MessageId);
 
-            DataContext.Projects.DeleteOnSubmit(targetMessage);
+            DataContext.Messages.DeleteOnSubmit(targetMessage);
 
             DataContext.SubmitChanges();
         }
 
-        public void EditProject(IProject project)
-        {
-            var targetProject = DataContext.Projects.FirstOrDefault(p => p.ProjectId == project.Id);
-            if (targetProject != null)
-            {
-                // Update the Project object with the new values.
-                targetProject.Project_Name = project.Name;
-                targetProject.Project_CustomerId = project.CustomerId;
-                targetProject.Project_ConsultantId = project.ConsultantId;
-                targetProject.Project_StartDate = project.StartDate;
-                targetProject.Project_EndDate = project.EndDate;
-                targetProject.Project_Status = project.Status;
-                targetProject.Project_EndType = project.EndType.Id;
-                targetProject.Project_CodeLanguageId = project.Language.Id;
-
-                // Save the changes to the database.
-                DataContext.SubmitChanges();
-            }
-        }
+    
 
         public List<IMessage> GetMessagesByCostumer(IMessage message)
         {
             List<IMessage> messageModels = new List<IMessage>();
-            var dataMessages = DataContext.Messages.Where(c => c.Message_CustomerId == customer.Id).ToList();
-            foreach (var dataProject in dataMessages)
+            var dataMessages = DataContext.Messages.Where(m => m.Message_CustomerId == message.Customer.Id).ToList();
+            foreach (var dataMessage in dataMessages)
             {
-                messagesModels.Add(MapToModel(dataMessage));
+                messageModels.Add(MapToModel(dataMessage));
             }
             return messageModels;
         }
 
-        
+        private IMessage MapToModel(Database.Message messageData)
+        {
+            Models.Message messageModel = new Models.Message()
+            {
+                MessageId = messageData.MessageId,
+                Header = messageData.Message_Header,
+                Body = messageData.Message_Content,
+                Customer = new Models.Customer()
+                {
+                    Id = messageData.Customer.CustomerId,
+                    FirstName = messageData.Customer.Customer_FirstName,
+                    LastName = messageData.Customer.Customer_LastName,
+                    Login = messageData.Customer.Customer_Login,
+                    Password = messageData.Customer.Customer_Password,
+                    Email = messageData.Customer.Customer_Email,
+                    Address = messageData.Customer.Customer_Address,
+                    ZipCode = messageData.Customer.Customer_ZipCode,
+                    City = messageData.Customer.Customer_City,
+                    PhoneNumber = messageData.Customer.Customer_PhoneNumber
+                },
+                Consultant = new Models.Consultant()
+                {
+                    Id = messageData.Consultant.ConsultantId,
+                    FirstName = messageData.Consultant.Consultant_FirstName,
+                    LastName = messageData.Consultant.Consultant_LastName,
+                    Login = messageData.Consultant.Consultant_Login,
+                    Password = messageData.Consultant.Consultant_Password,
+                    Email = messageData.Consultant.Consultant_Email,
+                    ZipCode = messageData.Consultant.Consultant_ZipCode,
+                    City = messageData.Consultant.Consultant_City,
+                    Address = messageData.Consultant.Consultant_Address,
+                    PhoneNumber = messageData.Consultant.Consultant_PhoneNumber,
+                    Language = new Models.CodeLanguage()
+                    {
+                        Id = messageData.Consultant.CodeLanguage.Id,
+                        Language = messageData.Consultant.CodeLanguage.LanguageName
+                    },
+                    EndType = new Models.EndType()
+                    {
+                        Id = messageData.Consultant.EndType.Id,
+                        EndType1 = messageData.Consultant.EndType.EndType1
+                    }
+                }
+            };
+            return messageModel;
+        }        
+        private Database.Message MapToData(IMessage messageModel)
+        {
+            Database.Message messageData = new Database.Message()
+            {
+                MessageId = messageModel.MessageId,
+                Message_Header = messageModel.Header,
+                Message_Content = messageModel.Body,
+                Message_CustomerId = messageModel.Customer.Id,
+                Message_ConsultantId = messageModel.Consultant.Id
+            };
+            return messageData;
+        }
+
+        public void AddMessage(IMessage dto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditMessage(IMessage message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -21,5 +21,6 @@ namespace Abstraction.Interfaces
         List<IProject> GetProjectsByCostumer(ICustomer customer);
 
         IProject GetProject(int id);
+
     }
 }

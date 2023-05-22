@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abstraction.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace BLL.Models
 {
-    public class Message
+    public class Message : IMessage
     {
         public int MessageId { get; set; }
-        public string MessageHeader { get; set; }
-        public string MessageContent { get; set; }
-        public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
-        public int ConsultantId { get; set; }
-        public Consultant Consultant { get; set; }
+
+        public ICustomer Customer { get; set; }        
+        public IConsultant Consultant { get; set; }
+        public string Header { get; set; }
+        public string Body { get; set; }
     }
 }

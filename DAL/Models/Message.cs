@@ -13,9 +13,9 @@ namespace DAL.Models
         public string Header { get; set; }
         public string Body { get; set; }
         
-        public int CustomerId { get; set; } 
+        public ICustomer Customer { get; set; } 
 
-        public int ConsultantId { get; set; }   
+        public IConsultant Consultant { get; set; }   
 
     }
 }

@@ -16,7 +16,7 @@ namespace Abstraction.Interfaces
 
         void EditMessage(IMessage message);
 
-        List<IMessage> GetMeesagesByCostumer(IMessage message);
+        List<IMessage> GetMessagesByCostumer(IMessage message);
     }
   
 }
