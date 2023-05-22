@@ -1,5 +1,6 @@
-﻿using Abstraction.Interfaces;
+using Abstraction.Interfaces;
 using DAL.Database;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
@@ -17,48 +18,44 @@ namespace DAL.Repository
         public ProjectRepo()
         {
             DataContext = new ITExpressDataClassesDataContext();
-        }
 
+        }
         public List<IProject> GetAllProjects()
         {
             var result = new List<IProject>();
 
-            var AllDtoItem = DataContext.Projects;
+            var AlldataProjectItem = DataContext.Projects;
 
-            foreach (var dto in AllDtoItem)
+            foreach (var dataProject in AlldataProjectItem)
             {
-                Models.Project project = new Models.Project();
-
-                project.Id = dto.ProjectId;
-                project.Name = dto.Project_Name;
-                project.Customer = new DAL.Models.Customer() 
-                {
-                    Id = dto.Customer.CustomerId,
-
-                };
-                project.StartDate = dto.Project_StartDate;
-                project.EndDate = dto.Project_EndDate;
-                project.Status = dto.Project_Status;
-                project.Description = dto.Project_Description;
-
-
-
-
-                result.Add(project);
+                result.Add(MapToModel(dataProject));
             }
             return result;
         }
 
-        public void AddProject(IProject dto)
+        public List<IProject> GetProjectsByConsultant(int consultantId)
         {
-            Database.Project projectData = MapToData(dto);            
+            var result = new List<IProject>();
+
+            var consultantProjects = DataContext.Projects.Where(p => p.Project_ConsultantId == consultantId);
+
+            foreach (var dataProject in consultantProjects)
+            {
+                result.Add(MapToModel(dataProject));
+            }
+            return result;
+        }
+
+        public void AddProject(IProject dataProject)
+        {
+            Database.Project projectData = MapToData(dataProject);            
             DataContext.Projects.InsertOnSubmit(projectData);
             DataContext.SubmitChanges();
         }
 
-        public void DeleteProject(IProject dto)
+        public void DeleteProject(IProject dataProject)
         {
-            var targetProject = DataContext.Projects.FirstOrDefault(i => i.ProjectId == dto.Id);
+            var targetProject = DataContext.Projects.FirstOrDefault(i => i.ProjectId == dataProject.Id);
 
             DataContext.Projects.DeleteOnSubmit(targetProject);
 
@@ -72,17 +69,47 @@ namespace DAL.Repository
             {
                 // Update the Project object with the new values.
                 targetProject.Project_Name = project.Name;
-                targetProject.Project_CustomerId = project.Customer.Id;
+                targetProject.Project_CustomerId = project.Consultant.Id;
+                targetProject.Project_HourWage = project.HourWage;
+
+                if (project.Consultant.Id != 0)
+                {
+                    targetProject.Project_ConsultantId = project.Consultant.Id;
+                }
+                
                 targetProject.Project_ConsultantId = project.Consultant.Id;
                 targetProject.Project_StartDate = project.StartDate;
                 targetProject.Project_EndDate = project.EndDate;
                 targetProject.Project_Status = project.Status;
-                targetProject.Project_EndType = project.EndType.Id;
-                targetProject.Project_CodeLanguageId = project.Language.Id;
+
+                // Make sure project.EndType is not null before accessing its properties.
+                if (project.EndType != null)
+                {
+                    targetProject.Project_EndType = project.EndType.Id;
+                }
+
+                // Make sure project.Language is not null before accessing its properties.
+                if (project.Language != null)
+                {
+                    targetProject.Project_CodeLanguageId = project.Language.Id;
+                }
+
+                if (targetProject.Project_TimeUsed != null)
+                {
+                    targetProject.Project_TimeUsed = (int)project.TimeUsed;
+                }
 
                 // Save the changes to the database.
                 DataContext.SubmitChanges();
             }
+        }
+
+        public IProject GetProject(int id)
+        {
+            var dataProject = DataContext.Projects.FirstOrDefault(c => c.ProjectId == id);
+            Abstraction.Interfaces.IProject project = MapToModel(dataProject);
+
+            return project;
         }
 
         public List<IProject> GetProjectsByCostumer(ICustomer customer)
@@ -131,7 +158,29 @@ namespace DAL.Repository
 
             if(dataProject.Project_ConsultantId != null)
             {
-                projectModel.Consultant = (IConsultant)dataProject.Consultant;                
+                projectModel.Consultant = new Models.Consultant()
+                {
+                    Id = dataProject.Consultant.ConsultantId,
+                    FirstName = dataProject.Consultant.Consultant_FirstName,
+                    LastName = dataProject.Consultant.Consultant_LastName,
+                    Login = dataProject.Consultant.Consultant_Login,
+                    Password = dataProject.Consultant.Consultant_Password,
+                    Email = dataProject.Consultant.Consultant_Email,
+                    ZipCode = dataProject.Consultant.Consultant_ZipCode,
+                    City = dataProject.Consultant.Consultant_City,
+                    Address = dataProject.Consultant.Consultant_Address,
+                    PhoneNumber = dataProject.Consultant.Consultant_PhoneNumber,
+                    Language = new Models.CodeLanguage()
+                    {
+                        Id = dataProject.Consultant.CodeLanguage.Id,
+                        Language = dataProject.Consultant.CodeLanguage.LanguageName
+                    },                   
+                    EndType = new Models.EndType()
+                    {
+                        Id = dataProject.Consultant.EndType.Id,
+                        EndType1 = dataProject.Consultant.EndType.EndType1
+                    }
+                };
             }
             
             projectModel.Language = new Models.CodeLanguage()
@@ -140,10 +189,13 @@ namespace DAL.Repository
                 Language = dataProject.CodeLanguage.LanguageName
             };
             projectModel.EndType = new Models.EndType();
-            if (dataProject.Project_EndType != null)
+
+            projectModel.EndType.Id = (int)dataProject.Project_EndType;
+            projectModel.EndType.EndType1 = dataProject.EndType.EndType1;
+
+            if (dataProject.Project_TimeUsed != null) 
             {
-                projectModel.EndType.Id = (int)dataProject.Project_EndType;
-                projectModel.EndType.EndType1 = dataProject.EndType.EndType1;
+                projectModel.TimeUsed = (int)dataProject.Project_TimeUsed;
             }
 
             return projectModel;

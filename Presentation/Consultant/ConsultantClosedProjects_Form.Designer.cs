@@ -28,20 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_existingProjectsCustomer = new System.Windows.Forms.DataGridView();
+            this.dgv_closedProjects = new System.Windows.Forms.DataGridView();
             this.bt_Refresh = new System.Windows.Forms.Button();
             this.bt_OpenProject = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_closedProjects)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgv_existingProjectsCustomer
+            // dgv_closedProjects
             // 
-            this.dgv_existingProjectsCustomer.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_existingProjectsCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_existingProjectsCustomer.Location = new System.Drawing.Point(17, 12);
-            this.dgv_existingProjectsCustomer.Name = "dgv_existingProjectsCustomer";
-            this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1051, 460);
-            this.dgv_existingProjectsCustomer.TabIndex = 18;
+            this.dgv_closedProjects.AllowUserToAddRows = false;
+            this.dgv_closedProjects.AllowUserToDeleteRows = false;
+            this.dgv_closedProjects.AllowUserToOrderColumns = true;
+            this.dgv_closedProjects.AllowUserToResizeColumns = false;
+            this.dgv_closedProjects.AllowUserToResizeRows = false;
+            this.dgv_closedProjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_closedProjects.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_closedProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_closedProjects.Location = new System.Drawing.Point(17, 12);
+            this.dgv_closedProjects.MultiSelect = false;
+            this.dgv_closedProjects.Name = "dgv_closedProjects";
+            this.dgv_closedProjects.ReadOnly = true;
+            this.dgv_closedProjects.RowHeadersVisible = false;
+            this.dgv_closedProjects.RowHeadersWidth = 51;
+            this.dgv_closedProjects.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgv_closedProjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_closedProjects.Size = new System.Drawing.Size(1051, 460);
+            this.dgv_closedProjects.TabIndex = 18;
             // 
             // bt_Refresh
             // 
@@ -57,6 +69,7 @@
             this.bt_Refresh.TabIndex = 16;
             this.bt_Refresh.Text = "Refresh";
             this.bt_Refresh.UseVisualStyleBackColor = false;
+            this.bt_Refresh.Click += new System.EventHandler(this.bt_Refresh_Click);
             // 
             // bt_OpenProject
             // 
@@ -72,6 +85,7 @@
             this.bt_OpenProject.TabIndex = 15;
             this.bt_OpenProject.Text = "Open project";
             this.bt_OpenProject.UseVisualStyleBackColor = false;
+            this.bt_OpenProject.Click += new System.EventHandler(this.bt_OpenProject_Click);
             // 
             // ConsultantClosedProjects
             // 
@@ -80,21 +94,21 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
-            this.Controls.Add(this.dgv_existingProjectsCustomer);
+            this.Controls.Add(this.dgv_closedProjects);
             this.Controls.Add(this.bt_Refresh);
             this.Controls.Add(this.bt_OpenProject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConsultantClosedProjects";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_closedProjects)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_existingProjectsCustomer;
+        private System.Windows.Forms.DataGridView dgv_closedProjects;
         private System.Windows.Forms.Button bt_Refresh;
         private System.Windows.Forms.Button bt_OpenProject;
     }

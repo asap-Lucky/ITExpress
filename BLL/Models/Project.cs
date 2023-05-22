@@ -23,5 +23,13 @@ namespace BLL.Models
         public IConsultant Consultant { get; set; }
         public ICodeLanguage Language { get; set; }
         public IEndType EndType { get; set; }
+
+        public string GetLangauge { get { return Language.Language; } }
+
+        public string GetEndType { get { return EndType.EndType1; } }
+
+        public string GetCustomerFullName { get { return Customer.GetFullName; } }
+
+        public string GetConsultantFullName { get { return Consultant.GetFullName; } }
     }
 }

@@ -20,5 +20,6 @@ namespace BLL.Models
         public string GetLanguage { get { return Language.Language; } }
         public IEndType EndType { get; set; }
         public string GetEndType { get { return EndType.EndType1; } }
+        public string GetFullName { get { return FirstName + " " + LastName; } }
     }
 }

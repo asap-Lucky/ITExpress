@@ -20,5 +20,6 @@ namespace BLL.Models
         public string City { get; set; }
         public int ZipCode { get; set; }
         public int PhoneNumber { get; set; }
+        public string GetFullName { get { return FirstName + " " + LastName; } }
     }
 }

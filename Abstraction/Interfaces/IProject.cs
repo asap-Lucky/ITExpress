@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +21,10 @@ namespace Abstraction.Interfaces
         ICustomer Customer { get; set; }
         IConsultant Consultant { get; set; }
         ICodeLanguage Language { get; set; }
+        string GetLangauge { get; }
         IEndType EndType { get; set; }
+        string GetEndType { get; }
+        string GetCustomerFullName { get; }
+        string GetConsultantFullName { get; }
     }
 }
