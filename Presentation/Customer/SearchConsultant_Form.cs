@@ -112,7 +112,7 @@ namespace Presentation.Customer
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                IProject selectedProject = (IProject)dataGridView1.SelectedRows[0];
+                IProject selectedProject = (IProject)dataGridView1.SelectedRows[0].DataBoundItem;
                 List<IConsultant> targetConsultants = ConsultantService.CodeLangaugeBinarySearch(DefaultConsultantList, selectedProject.Language.Language);
                 targetConsultants = ConsultantService.EndTypeBinarySearch(targetConsultants, selectedProject.EndType.EndType1);
                 dataGridView2.DataSource = targetConsultants;
