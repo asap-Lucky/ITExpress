@@ -12,12 +12,19 @@ namespace Presentation.Customer
 {
     public partial class CustomerMessage : Form
     {
+       
+
         public CustomerMessage()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void bt_Send_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegisterMessage()
         {
 
         }

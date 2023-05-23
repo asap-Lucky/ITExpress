@@ -1,5 +1,6 @@
 ﻿using Abstraction.Interfaces;
 using DAL.Database;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,33 +31,11 @@ namespace DAL.Repository
             return result;
         }
 
-        public void Addmessage(IMessage dto)
+        public void AddMessage(IMessage message)
         {
-            Database.Message messageData = MapToData(dto);
+            Database.Message messageData = MapToData(message);
             DataContext.Messages.InsertOnSubmit(messageData);
             DataContext.SubmitChanges();
-        }
-
-        public void DeleteMessage(IMessage dto)
-        {
-            var targetMessage = DataContext.Messages.FirstOrDefault(i => i.MessageId == dto.MessageId);
-
-            DataContext.Messages.DeleteOnSubmit(targetMessage);
-
-            DataContext.SubmitChanges();
-        }
-
-    
-
-        public List<IMessage> GetMessagesByCostumer(IMessage message)
-        {
-            List<IMessage> messageModels = new List<IMessage>();
-            var dataMessages = DataContext.Messages.Where(m => m.Message_CustomerId == message.Customer.Id).ToList();
-            foreach (var dataMessage in dataMessages)
-            {
-                messageModels.Add(MapToModel(dataMessage));
-            }
-            return messageModels;
         }
 
         private IMessage MapToModel(Database.Message messageData)
@@ -118,14 +97,28 @@ namespace DAL.Repository
             return messageData;
         }
 
-        public void AddMessage(IMessage dto)
+        public List<IMessage> GetMessagesByCustomer(ICustomer customer)
         {
-            throw new NotImplementedException();
+            List<IMessage> messageModels = new List<IMessage>();
+            var dataMessages = DataContext.Messages.Where(m => m.Message_CustomerId == customer.Id).ToList();
+            foreach (var dataMessage in dataMessages)
+            {
+                messageModels.Add(MapToModel(dataMessage));
+            }
+            return messageModels;
         }
 
-        public void EditMessage(IMessage message)
+        public List<IMessage> GetMessagesByConsultant(IConsultant consultant)
         {
-            throw new NotImplementedException();
+            List<IMessage> messageModels = new List<IMessage>();
+            var messageData = DataContext.Messages.Where(m => m.Message_ConsultantId == consultant.Id).ToList();
+
+            foreach (var message in messageData)
+            {
+                messageModels.Add(MapToModel(message));
+            }
+
+            return messageModels;
         }
     }
 }

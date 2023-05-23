@@ -40,15 +40,6 @@ namespace Presentation.Customer
             MyProject = new Project();
         }
 
-
-
-
-
-
-
-
-
-
         private void RegisterProject()
         {
             bool canParseHourWage = decimal.TryParse(tb_projectHourWage.Text, out decimal hourWage);
