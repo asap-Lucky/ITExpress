@@ -10,13 +10,11 @@ namespace Abstraction.Interfaces
     {
         List<IMessage> GetAllMessages();
 
-        void AddMessage(IMessage dto);
+        void AddMessage(IMessage message);
 
-        void DeleteMessage(IMessage dto);
+        List<IMessage> GetMessagesByCustomer(ICustomer customer);
 
-        void EditMessage(IMessage message);
-
-        List<IMessage> GetMessagesByCostumer(IMessage message);
+        List<IMessage> GetMessagesByConsultant(IConsultant consultant);
     }
   
 }

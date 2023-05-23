@@ -8,10 +8,13 @@ namespace Abstraction.Interfaces
 {
     public interface IMessageService
     {
+        List<IMessage> GetAllMessages();
+
         void AddMessage(IMessage message);
 
-        IMessage GetMesaage(IMessage message);
+        List<IMessage> GetMessagesByCustomer(ICustomer customer);
 
-        List<IMessage> GetAllMessages();
+        List<IMessage> GetMessagesByConsultant(IConsultant consultant);
+
     }
 }
