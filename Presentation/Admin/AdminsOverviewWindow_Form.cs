@@ -22,10 +22,14 @@ namespace Presentation.Consultant
 
         public Form currentChildForm;
 
+        private Abstraction.Interfaces.IAdmin loggedInAdmin;
+
         public AdminsOverviewWindow_Form()
         {
             InitializeComponent();
             IsMdiContainer = true;
+            this.loggedInAdmin = BLL.Singleton.AdminSingleton.Instance().User;
+            lb_firstNameOfAdmin.Text = loggedInAdmin.Login;
         }
 
         /// <summary>
@@ -105,7 +109,8 @@ namespace Presentation.Consultant
             Button button = (Button)sender;
             buttonColorChange_Click(button);
             IProjectService projectService = new BLL.Services.ProjectService();
-            OpenChildForm(new AllProjectsOverview_Form(projectService));
+            ICustomer customer = new BLL.Models.Customer();
+            OpenChildForm(new AllProjectsOverview_Form(projectService, customer));
         }
     }
 }

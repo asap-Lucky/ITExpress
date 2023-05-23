@@ -89,6 +89,7 @@
     <Compile Include="Services\InvitationService.cs" />
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\ProjectService.cs" />
+    <Compile Include="Singleton\AdminSingleton.cs" />
     <Compile Include="Singleton\ConsultantSingleton.cs" />
     <Compile Include="Singleton\CustomerSingleton.cs" />
   </ItemGroup>

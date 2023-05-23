@@ -1,3 +1,4 @@
+using BLL.Facader;
 using BLL.Services;
 using Presentation.Consultant;
 using Presentation.Customer;
@@ -34,7 +35,8 @@ namespace UI.All
         {
             if (adminService.IsValidAdmin(tb_userNameAdmin.Text, tb_passWordAdmin.Text))
             {
-                Abstraction.Interfaces.IAdmin admin = (Abstraction.Interfaces.IAdmin)adminService.GetAdmin(tb_userNameAdmin.Text, tb_passWordAdmin.Text);
+                BLL.Singleton.AdminSingleton adminUser = BLL.Singleton.AdminSingleton.Instance();
+                adminUser.User = (Abstraction.Interfaces.IAdmin)adminService.GetAdmin(tb_userNameAdmin.Text, tb_passWordAdmin.Text);
 
                 this.Hide();
                 AdminsOverviewWindow_Form overViewWindow_Form = new AdminsOverviewWindow_Form();
@@ -51,10 +53,7 @@ namespace UI.All
 
         private void bt_GoBack_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            Main_Form main_Form = new Main_Form();
-            main_Form.ShowDialog();
-            
+            this.Close();
         }
     }
 }
