@@ -31,7 +31,7 @@
                 InitializeComponent();
                 InitializeComboBoxes();
                 LoadProjectData();
-        }
+            }
 
         private void LoadProjectData()
         {

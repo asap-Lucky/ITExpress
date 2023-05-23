@@ -50,9 +50,10 @@ namespace UI.All
             this.panel1.Controls.Add(this.tb_userNameAdmin);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lb_LogInSign);
-            this.panel1.Location = new System.Drawing.Point(80, 60);
+            this.panel1.Location = new System.Drawing.Point(107, 74);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 440);
+            this.panel1.Size = new System.Drawing.Size(565, 542);
             this.panel1.TabIndex = 7;
             // 
             // bt_LogInAsAdmin
@@ -63,9 +64,10 @@ namespace UI.All
             this.bt_LogInAsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_LogInAsAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_LogInAsAdmin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.bt_LogInAsAdmin.Location = new System.Drawing.Point(283, 353);
+            this.bt_LogInAsAdmin.Location = new System.Drawing.Point(377, 434);
+            this.bt_LogInAsAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.bt_LogInAsAdmin.Name = "bt_LogInAsAdmin";
-            this.bt_LogInAsAdmin.Size = new System.Drawing.Size(104, 30);
+            this.bt_LogInAsAdmin.Size = new System.Drawing.Size(139, 37);
             this.bt_LogInAsAdmin.TabIndex = 7;
             this.bt_LogInAsAdmin.Text = "Log in";
             this.bt_LogInAsAdmin.UseVisualStyleBackColor = false;
@@ -79,45 +81,51 @@ namespace UI.All
             this.bt_GoBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_GoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_GoBack.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.bt_GoBack.Location = new System.Drawing.Point(40, 353);
+            this.bt_GoBack.Location = new System.Drawing.Point(53, 434);
+            this.bt_GoBack.Margin = new System.Windows.Forms.Padding(4);
             this.bt_GoBack.Name = "bt_GoBack";
-            this.bt_GoBack.Size = new System.Drawing.Size(104, 30);
+            this.bt_GoBack.Size = new System.Drawing.Size(139, 37);
             this.bt_GoBack.TabIndex = 6;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
+            this.bt_GoBack.Click += new System.EventHandler(this.bt_GoBack_Click_1);
             // 
             // tb_passWordAdmin
             // 
             this.tb_passWordAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tb_passWordAdmin.Location = new System.Drawing.Point(106, 241);
+            this.tb_passWordAdmin.Location = new System.Drawing.Point(141, 297);
+            this.tb_passWordAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.tb_passWordAdmin.Name = "tb_passWordAdmin";
             this.tb_passWordAdmin.PasswordChar = '*';
-            this.tb_passWordAdmin.Size = new System.Drawing.Size(229, 21);
+            this.tb_passWordAdmin.Size = new System.Drawing.Size(304, 24);
             this.tb_passWordAdmin.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(103, 225);
+            this.label2.Location = new System.Drawing.Point(137, 277);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password:";
             // 
             // tb_userNameAdmin
             // 
             this.tb_userNameAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tb_userNameAdmin.Location = new System.Drawing.Point(106, 153);
+            this.tb_userNameAdmin.Location = new System.Drawing.Point(141, 188);
+            this.tb_userNameAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.tb_userNameAdmin.Name = "tb_userNameAdmin";
-            this.tb_userNameAdmin.Size = new System.Drawing.Size(229, 21);
+            this.tb_userNameAdmin.Size = new System.Drawing.Size(304, 24);
             this.tb_userNameAdmin.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(103, 137);
+            this.label1.Location = new System.Drawing.Point(137, 169);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username:";
             // 
@@ -127,22 +135,25 @@ namespace UI.All
             this.lb_LogInSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.lb_LogInSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
             this.lb_LogInSign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_LogInSign.Location = new System.Drawing.Point(87, 35);
+            this.lb_LogInSign.Location = new System.Drawing.Point(116, 43);
+            this.lb_LogInSign.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_LogInSign.Name = "lb_LogInSign";
-            this.lb_LogInSign.Size = new System.Drawing.Size(265, 54);
+            this.lb_LogInSign.Size = new System.Drawing.Size(337, 67);
             this.lb_LogInSign.TabIndex = 0;
             this.lb_LogInSign.Text = "Admin login";
             this.lb_LogInSign.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LogInAdmin_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.bt_LogInAsAdmin;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.ClientSize = new System.Drawing.Size(584, 560);
+            this.ClientSize = new System.Drawing.Size(776, 679);
             this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(600, 599);
-            this.MinimumSize = new System.Drawing.Size(600, 599);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(794, 726);
+            this.MinimumSize = new System.Drawing.Size(794, 726);
             this.Name = "LogInAdmin_Form";
             this.Text = "Log in";
             this.panel1.ResumeLayout(false);

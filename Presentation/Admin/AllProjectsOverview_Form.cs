@@ -15,6 +15,8 @@ namespace Presentation.Customer
     {
         IProjectService projectService = new BLL.Services.ProjectService();
 
+        private ICustomer customer;
+
         BLL.Facader.ProjectService FacadeService;
 
         private Dictionary<string, int> statusMapping = new Dictionary<string, int>
@@ -24,12 +26,13 @@ namespace Presentation.Customer
                 { "Closed", 3 },
             };
 
-        public AllProjectsOverview_Form(IProjectService projectService)
+        public AllProjectsOverview_Form(IProjectService projectService, ICustomer customer)
         {
             this.projectService = projectService;
             InitializeComponent();
             InitializeDGV();
             FacadeService = new ProjectService(projectService);
+            this.customer = customer;
         }
 
         private void InitializeDGV()
@@ -38,6 +41,8 @@ namespace Presentation.Customer
 
             dgv_AllProjectsOverview.AutoGenerateColumns = false;
             dgv_AllProjectsOverview.DataSource = projects;
+            dgv_AllProjectsOverview.CellValidating += dgv_AllProjectsOverview_CellValidating;
+            dgv_AllProjectsOverview.CurrentCellDirtyStateChanged += dgv_AllProjectsOverview_CurrentCellDirtyStateChanged;
 
             PopulateDGV();
         }
@@ -130,11 +135,54 @@ namespace Presentation.Customer
         private void bt_ViewProject_Click(object sender, EventArgs e)
         {
 
+            IProject selectedProject = dgv_AllProjectsOverview.SelectedRows[0].DataBoundItem as IProject;
+
+            EditProjectConsultant_Form openProjectForm = new EditProjectConsultant_Form(customer, selectedProject);
+            openProjectForm.DisableEditing();
+            openProjectForm.DisableHours();
+            openProjectForm.ShowDialog();
+            
         }
 
         private void bt_EditProject_Click(object sender, EventArgs e)
         {
+            IProject selectedProject = dgv_AllProjectsOverview.SelectedRows[0].DataBoundItem as IProject;
 
+            EditProjectConsultant_Form openProjectForm = new EditProjectConsultant_Form(customer, selectedProject);
+            openProjectForm.ShowDialog();
+        }
+
+        private void dgv_AllProjectsOverview_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (dgv_AllProjectsOverview.Columns[e.ColumnIndex].Name == "Status" && e.RowIndex >= 0)
+            {
+                DataGridViewComboBoxCell cell = dgv_AllProjectsOverview.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewComboBoxCell;
+                object newValue = cell.Value;
+                object currentValue = cell.Tag; // Use the Tag property to store the original value
+
+                if (!newValue.Equals(currentValue))
+                {
+                    string selectedStatus = cell.FormattedValue.ToString(); // Use FormattedValue to get the displayed text
+
+                    IProject project = dgv_AllProjectsOverview.Rows[e.RowIndex].DataBoundItem as IProject;
+                    project.Status = statusMapping[selectedStatus];
+                    int projectId = project.Id;
+                    int newStatus = project.Status;
+
+                    FacadeService.EditProjectStatus(projectId, newStatus);
+
+                    // Update the Tag property to store the new value
+                    cell.Tag = newValue;
+                }
+            }
+        }
+
+        private void dgv_AllProjectsOverview_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgv_AllProjectsOverview.IsCurrentCellDirty)
+            {
+                dgv_AllProjectsOverview.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
         }
     }
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.bt_ProjectList = new System.Windows.Forms.Button();
             this.bt_LogOut = new System.Windows.Forms.Button();
             this.bt_SpecializationList = new System.Windows.Forms.Button();
             this.bt_ConsultantList = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.lb_firstNameOfAdmin = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelAdminDesktop = new System.Windows.Forms.Panel();
-            this.bt_ProjectList = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,10 +56,26 @@
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(267, 814);
             this.panelMenu.TabIndex = 0;
+            // 
+            // bt_ProjectList
+            // 
+            this.bt_ProjectList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_ProjectList.FlatAppearance.BorderSize = 0;
+            this.bt_ProjectList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_ProjectList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.bt_ProjectList.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_ProjectList.Location = new System.Drawing.Point(0, 345);
+            this.bt_ProjectList.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_ProjectList.Name = "bt_ProjectList";
+            this.bt_ProjectList.Size = new System.Drawing.Size(267, 74);
+            this.bt_ProjectList.TabIndex = 8;
+            this.bt_ProjectList.Text = "Project list";
+            this.bt_ProjectList.UseVisualStyleBackColor = true;
+            this.bt_ProjectList.Click += new System.EventHandler(this.bt_ProjectList_Click);
             // 
             // bt_LogOut
             // 
@@ -70,7 +86,7 @@
             this.bt_LogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_LogOut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bt_LogOut.Location = new System.Drawing.Point(0, 740);
-            this.bt_LogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_LogOut.Margin = new System.Windows.Forms.Padding(4);
             this.bt_LogOut.Name = "bt_LogOut";
             this.bt_LogOut.Size = new System.Drawing.Size(267, 74);
             this.bt_LogOut.TabIndex = 7;
@@ -86,7 +102,7 @@
             this.bt_SpecializationList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_SpecializationList.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bt_SpecializationList.Location = new System.Drawing.Point(0, 271);
-            this.bt_SpecializationList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_SpecializationList.Margin = new System.Windows.Forms.Padding(4);
             this.bt_SpecializationList.Name = "bt_SpecializationList";
             this.bt_SpecializationList.Size = new System.Drawing.Size(267, 74);
             this.bt_SpecializationList.TabIndex = 3;
@@ -102,7 +118,7 @@
             this.bt_ConsultantList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_ConsultantList.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bt_ConsultantList.Location = new System.Drawing.Point(0, 197);
-            this.bt_ConsultantList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_ConsultantList.Margin = new System.Windows.Forms.Padding(4);
             this.bt_ConsultantList.Name = "bt_ConsultantList";
             this.bt_ConsultantList.Size = new System.Drawing.Size(267, 74);
             this.bt_ConsultantList.TabIndex = 2;
@@ -118,7 +134,7 @@
             this.bt_CustomerList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_CustomerList.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bt_CustomerList.Location = new System.Drawing.Point(0, 123);
-            this.bt_CustomerList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CustomerList.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CustomerList.Name = "bt_CustomerList";
             this.bt_CustomerList.Size = new System.Drawing.Size(267, 74);
             this.bt_CustomerList.TabIndex = 1;
@@ -132,7 +148,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 123);
             this.panel1.TabIndex = 0;
@@ -140,7 +156,7 @@
             // panel3
             // 
             this.panel3.Location = new System.Drawing.Point(267, 123);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(267, 123);
             this.panel3.TabIndex = 2;
@@ -152,9 +168,9 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(267, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1445, 123);
+            this.panel2.Size = new System.Drawing.Size(1657, 123);
             this.panel2.TabIndex = 1;
             // 
             // lb_firstNameOfAdmin
@@ -188,37 +204,21 @@
             this.panelAdminDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.panelAdminDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAdminDesktop.Location = new System.Drawing.Point(267, 123);
-            this.panelAdminDesktop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelAdminDesktop.Margin = new System.Windows.Forms.Padding(4);
             this.panelAdminDesktop.Name = "panelAdminDesktop";
-            this.panelAdminDesktop.Size = new System.Drawing.Size(1445, 691);
+            this.panelAdminDesktop.Size = new System.Drawing.Size(1657, 691);
             this.panelAdminDesktop.TabIndex = 2;
-            // 
-            // bt_ProjectList
-            // 
-            this.bt_ProjectList.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bt_ProjectList.FlatAppearance.BorderSize = 0;
-            this.bt_ProjectList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_ProjectList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.bt_ProjectList.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bt_ProjectList.Location = new System.Drawing.Point(0, 345);
-            this.bt_ProjectList.Margin = new System.Windows.Forms.Padding(4);
-            this.bt_ProjectList.Name = "bt_ProjectList";
-            this.bt_ProjectList.Size = new System.Drawing.Size(267, 74);
-            this.bt_ProjectList.TabIndex = 8;
-            this.bt_ProjectList.Text = "Project list";
-            this.bt_ProjectList.UseVisualStyleBackColor = true;
-            this.bt_ProjectList.Click += new System.EventHandler(this.bt_ProjectList_Click);
             // 
             // AdminsOverviewWindow_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1712, 814);
+            this.ClientSize = new System.Drawing.Size(1924, 814);
             this.Controls.Add(this.panelAdminDesktop);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMenu);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminsOverviewWindow_Form";
             this.Text = "OverViewWindow_Form";
             this.panelMenu.ResumeLayout(false);

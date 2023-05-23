@@ -51,7 +51,7 @@
             this.bt_ViewProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_ViewProject.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_ViewProject.Location = new System.Drawing.Point(1151, 619);
-            this.bt_ViewProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_ViewProject.Margin = new System.Windows.Forms.Padding(4);
             this.bt_ViewProject.Name = "bt_ViewProject";
             this.bt_ViewProject.Size = new System.Drawing.Size(273, 37);
             this.bt_ViewProject.TabIndex = 10;
@@ -68,7 +68,7 @@
             this.bt_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Refresh.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_Refresh.Location = new System.Drawing.Point(16, 619);
-            this.bt_Refresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Refresh.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Refresh.Name = "bt_Refresh";
             this.bt_Refresh.Size = new System.Drawing.Size(273, 37);
             this.bt_Refresh.TabIndex = 12;
@@ -85,7 +85,7 @@
             this.bt_EditProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_EditProject.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_EditProject.Location = new System.Drawing.Point(840, 619);
-            this.bt_EditProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_EditProject.Margin = new System.Windows.Forms.Padding(4);
             this.bt_EditProject.Name = "bt_EditProject";
             this.bt_EditProject.Size = new System.Drawing.Size(273, 37);
             this.bt_EditProject.TabIndex = 13;
@@ -98,7 +98,7 @@
             this.dgv_existingProjectsCustomer.BackgroundColor = System.Drawing.Color.White;
             this.dgv_existingProjectsCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_existingProjectsCustomer.Location = new System.Drawing.Point(16, 15);
-            this.dgv_existingProjectsCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_existingProjectsCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_existingProjectsCustomer.Name = "dgv_existingProjectsCustomer";
             this.dgv_existingProjectsCustomer.RowHeadersWidth = 51;
             this.dgv_existingProjectsCustomer.Size = new System.Drawing.Size(1408, 574);
@@ -112,7 +112,7 @@
             this.dgv_AllProjectsOverview.AllowUserToResizeRows = false;
             this.dgv_AllProjectsOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_AllProjectsOverview.Location = new System.Drawing.Point(16, 15);
-            this.dgv_AllProjectsOverview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_AllProjectsOverview.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_AllProjectsOverview.MultiSelect = false;
             this.dgv_AllProjectsOverview.Name = "dgv_AllProjectsOverview";
             this.dgv_AllProjectsOverview.RowHeadersVisible = false;
@@ -121,6 +121,8 @@
             this.dgv_AllProjectsOverview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_AllProjectsOverview.Size = new System.Drawing.Size(1408, 574);
             this.dgv_AllProjectsOverview.TabIndex = 16;
+            this.dgv_AllProjectsOverview.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_AllProjectsOverview_CellValidating);
+            this.dgv_AllProjectsOverview.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgv_AllProjectsOverview_CurrentCellDirtyStateChanged);
             // 
             // AllProjectsOverview_Form
             // 
@@ -135,7 +137,7 @@
             this.Controls.Add(this.bt_Refresh);
             this.Controls.Add(this.bt_ViewProject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AllProjectsOverview_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
