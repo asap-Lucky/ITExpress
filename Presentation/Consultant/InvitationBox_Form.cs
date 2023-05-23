@@ -78,7 +78,11 @@ namespace Presentation.Customer
                 project.Consultant = currentUser;
                 project.Status = 2;
                 projectService.EditProject(project);
-                //Consultant
+                invitationService.EditInvitation(invitation);
+                dgv_newInvitations.DataSource = PendingInvitations;
+                dgv_AcceptedInvitations.DataSource = AcceptedInvitations;
+                dgv_AcceptedInvitations.ClearSelection();
+                MessageBox.Show("SUCCESS","SUCCESS");
             }
         }
     }

@@ -37,7 +37,8 @@ namespace DAL.Repository
         public List<IInvitation> GetPendingInvitationsForConsultant(IConsultant consultant)
         {
             List<IInvitation> invitationModels = new List<IInvitation>();
-            var invitationData = DataContext.Invitations.Where(i => i.Invitaiton_ConsultantId == consultant.Id).Where(i=> i.Inivitaion_AcceptStatus == false);
+            var invitationData = DataContext.Invitations.Where(i => i.Invitaiton_ConsultantId == consultant.Id);
+            invitationData = invitationData.Where(i => i.Inivitaion_AcceptStatus == false);
             foreach (var invitation in invitationData)
             {
                 invitationModels.Add(MapToModel(invitation));
@@ -47,7 +48,8 @@ namespace DAL.Repository
         public List<IInvitation> GetAcceptedInvittationsForConsultant(IConsultant consultant)
         {
             List<IInvitation> invitationModels = new List<IInvitation>();
-            var invitationData = DataContext.Invitations.Where(i => i.Invitaiton_ConsultantId == consultant.Id).Where(i => i.Inivitaion_AcceptStatus == true);
+            var invitationData = DataContext.Invitations.Where(i => i.Invitaiton_ConsultantId == consultant.Id);
+            invitationData = invitationData.Where(i => i.Inivitaion_AcceptStatus == true);
             foreach (var invitation in invitationData)
             {
                 invitationModels.Add(MapToModel(invitation));
@@ -58,7 +60,14 @@ namespace DAL.Repository
         public void EditInvitation(IInvitation invitation)
         {
             var targetInvitation = DataContext.Invitations.First(i => i.InvitationId == invitation.Id);
-            targetInvitation = MapToData(invitation);
+            if(targetInvitation != null)
+            {
+                targetInvitation.InvitationId = invitation.Id;
+                targetInvitation.Invitation_ProjectId = invitation.Project.Id;
+                targetInvitation.Invitation_CustomerId = invitation.Customer.Id;
+                targetInvitation.Invitaiton_ConsultantId = invitation.Customer.Id;
+                targetInvitation.Inivitaion_AcceptStatus = invitation.AcceptStatus;
+            }
             DataContext.SubmitChanges();
         }
 
@@ -123,6 +132,7 @@ namespace DAL.Repository
 
             IInvitation invitationModel = new Models.Invitation()
             {
+                Id = invitationData.InvitationId,
                 Project = invitationProject,
                 Consultant = invitationProject.Consultant,
                 Customer = invitationProject.Customer,

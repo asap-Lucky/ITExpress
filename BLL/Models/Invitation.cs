@@ -17,7 +17,7 @@ namespace BLL.Models
 
         public string GetProjectName { get { return Project.Name; } }
         public string GetProjectLanguage { get { return Project.GetLangauge; } }
-        public string GetEndType { get { return Project.GetEndType; } }
+        public string GetProjectEndType { get { return Project.GetEndType; } }
         public string GetCustomerName { get { return Customer.GetFullName; } }
     }
 }

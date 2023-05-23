@@ -13,5 +13,9 @@ namespace Abstraction.Interfaces
         ICustomer Customer { get; set; }
         IConsultant Consultant { get; set; }
         bool AcceptStatus { get; set; }
+        string GetProjectName { get; }
+        string GetProjectLanguage { get; }
+        string GetProjectEndType { get; }
+        string GetCustomerName { get; }
     }
 }
