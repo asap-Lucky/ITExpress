@@ -12,9 +12,17 @@ namespace Presentation.Customer
 {
     public partial class MessageBoxCustomer : Form
     {
+        
+
         public MessageBoxCustomer()
         {
             InitializeComponent();
+        }
+
+        private void bt_writeMessage_Click(object sender, EventArgs e)
+        {
+            CustomerMessage customerMessage = new CustomerMessage(BLL.Singleton.CustomerSingleton.Instance().User);
+            customerMessage.ShowDialog();
         }
     }
 }
