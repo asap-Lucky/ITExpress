@@ -87,13 +87,12 @@ namespace DAL.Repository
         private Database.Message MapToData(IMessage messageModel)
         {
             Database.Message messageData = new Database.Message()
-            {
-                MessageId = messageModel.MessageId,
+            {                
                 Message_Header = messageModel.Header,
                 Message_Content = messageModel.Body,
                 Message_CustomerId = messageModel.Customer.Id,
                 Message_ConsultantId = messageModel.Consultant.Id
-            };
+            };            
             return messageData;
         }
 
@@ -117,7 +116,6 @@ namespace DAL.Repository
             {
                 messageModels.Add(MapToModel(message));
             }
-
             return messageModels;
         }
     }
