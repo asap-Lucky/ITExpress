@@ -18,10 +18,11 @@
         {
             private ICustomer loggedInCustomer;
             public IProject MyProject { get; set; }
+
             private BLL.Services.ProjectService projectService = new BLL.Services.ProjectService();
-            //private ProjectService projectService = new ProjectService();
+
             private CodeLanguageService codeLanguageService = new CodeLanguageService();
-            //private CustomerService customerService = new CustomerService();
+
             private EndtypeService endtypeService = new EndtypeService();
 
             public EditProjectConsultant_Form(ICustomer loggedInCustomer, IProject project)

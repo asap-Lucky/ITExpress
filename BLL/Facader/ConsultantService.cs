@@ -91,5 +91,15 @@ namespace BLL.Facader
         {
             return consultantService.GetConsultant(Id);
         }
+
+        public IConsultant DuplicateEmailChecker(string email)
+        {
+            return consultantService.GetAllConsultants().FirstOrDefault(c => c.Email == email);
+        }
+
+        public IConsultant DuplicateUsernameChecker(string username)
+        {
+            return consultantService.GetAllConsultants().FirstOrDefault(c => c.Login == username);
+        }
     }
 }

@@ -40,15 +40,6 @@ namespace Presentation.Customer
             MyProject = new Project();
         }
 
-
-
-
-
-
-
-
-
-
         private void RegisterProject()
         {
             bool canParseHourWage = decimal.TryParse(tb_projectHourWage.Text, out decimal hourWage);
@@ -87,36 +78,7 @@ namespace Presentation.Customer
             cb_projectEndtype.SelectedIndex = -1;
         }
 
-        private void btn_registerProject_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CreateNewProject_Form_Load(object sender, EventArgs e)
-        {
-        }
-
         private void CreateNewProject_Form_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            RegisterProject();
-            this.Close();
-
-        }
-
-        private void bt_DiscardProject_Click(object sender, EventArgs e)
-        {
-
-            MessageBox.Show("Are you sure?", "Discrad Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-
-            this.Close();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -124,8 +86,26 @@ namespace Presentation.Customer
         private void button1_Click_1(object sender, EventArgs e)
         {
             RegisterProject();
-            this.Close();
+            DialogResult dialogresult = MessageBox.Show("Project has been created succesfully, you may now close this window safely.", "Project created succesfully!", MessageBoxButtons.OK);
+            if (dialogresult == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
 
+        private void bt_DiscardProject_Click_1(object sender, EventArgs e)
+        {
+            DialogResult dialogresult = MessageBox.Show("Are you sure you want to discard all changes to the create project? It will be LOST FOREVER!", "Discard changes?", MessageBoxButtons.YesNo);
+            if (dialogresult == DialogResult.Yes)
+            {
+                tb_projectName.Clear();
+                tb_projectDescription.Clear();
+                tb_projectHourWage.Clear();
+                cb_projectEndtype.SelectedIndex = -1;
+                cb_projectRequierements.SelectedIndex = -1;
+                dtp_startDate.Value = DateTime.Now;
+                dtp_endDate.Value = DateTime.Now;
+            }
         }
     }
 }

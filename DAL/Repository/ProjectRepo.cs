@@ -48,7 +48,8 @@ namespace DAL.Repository
 
         public void AddProject(IProject dataProject)
         {
-            Database.Project projectData = MapToData(dataProject);            
+            Database.Project projectData = MapToData(dataProject);
+            projectData.Project_Status = 1;
             DataContext.Projects.InsertOnSubmit(projectData);
             DataContext.SubmitChanges();
         }
@@ -205,7 +206,6 @@ namespace DAL.Repository
         {
             Database.Project projectData = new Database.Project()
             {
-                ProjectId = projectModel.Id,
                 Project_Name = projectModel.Name,
                 Project_Description = projectModel.Description,
                 Project_TotalSum = projectModel.TotalSum,
@@ -214,11 +214,16 @@ namespace DAL.Repository
                 Project_EndDate = projectModel.EndDate,
                 Project_TimeUsed = projectModel.TimeUsed,
                 Project_Status = projectModel.Status,
-                Project_CustomerId = projectModel.Customer.Id,
-                Project_ConsultantId = projectModel.Consultant.Id,
+                Project_CustomerId = projectModel.Customer.Id,                
+                
                 Project_CodeLanguageId = projectModel.Language.Id,
                 Project_EndType = projectModel.EndType.Id
             };
+
+            if(projectModel.Consultant != null)
+            {
+                projectData.Project_ConsultantId = projectModel.Consultant.Id;
+            }
             return projectData;
         }
     }

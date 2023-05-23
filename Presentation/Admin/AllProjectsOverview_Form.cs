@@ -21,7 +21,8 @@ namespace Presentation.Customer
 
         private Dictionary<string, int> statusMapping = new Dictionary<string, int>
             {
-                { "Open", 1 },
+                { "New", 1 },
+                { "In work", 4 },
                 { "Closed - Pending", 2 },
                 { "Closed", 3 },
             };
@@ -91,6 +92,16 @@ namespace Presentation.Customer
             consultantColumn.HeaderText = "Consultant";
             consultantColumn.ReadOnly = true;
             dgv_AllProjectsOverview.Columns.Add(consultantColumn);
+
+            // Iterate through the rows and set the cell value to an empty string if it's null
+            foreach (DataGridViewRow row in dgv_existingProjectsCustomer.Rows)
+            {
+                DataGridViewCell cell = row.Cells[consultantColumn.Index];
+                if (cell.Value == null)
+                {
+                    cell.Value = string.Empty;
+                }
+            }
 
             DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
             customerIdColumn.DataPropertyName = "GetCustomerFullName";
@@ -182,6 +193,17 @@ namespace Presentation.Customer
             if (dgv_AllProjectsOverview.IsCurrentCellDirty)
             {
                 dgv_AllProjectsOverview.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void bt_Delete_Click(object sender, EventArgs e)
+        {
+            IProject selectedProject = (IProject)dgv_AllProjectsOverview.SelectedRows[0].DataBoundItem;
+            var confirmResult = MessageBox.Show("Are you sure to delete this project?", "Confirm Delete!", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                projectService.DeleteProject(selectedProject);
+                RefreshDGV();
             }
         }
     }

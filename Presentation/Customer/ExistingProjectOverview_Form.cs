@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +24,8 @@ namespace Presentation.Customer
 
         private Dictionary<string, int> statusMapping = new Dictionary<string, int>
             {
-                { "Open", 1 },
+                { "New", 1 },
+                { "In work", 4 },
                 { "Closed - Pending", 2 },
                 { "Closed", 3 },
             };
@@ -95,6 +98,16 @@ namespace Presentation.Customer
             customerIdColumn.HeaderText = "Consultant";
             customerIdColumn.ReadOnly = true;
             dgv_existingProjectsCustomer.Columns.Add(customerIdColumn);
+
+            // Iterate through the rows and set the cell value to an empty string if it's null
+            foreach (DataGridViewRow row in dgv_existingProjectsCustomer.Rows)
+            {
+                DataGridViewCell cell = row.Cells[customerIdColumn.Index];
+                if (cell.Value == null)
+                {
+                    cell.Value = string.Empty;
+                }
+            }
 
             DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();
             languageColumn.DataPropertyName = "GetLangauge";
@@ -193,6 +206,17 @@ namespace Presentation.Customer
             else
             {
                 MessageBox.Show("Please select a project to view.", "No Project Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void bt_DeleteProject_Click(object sender, EventArgs e)
+        {
+            IProject selectedProject = (IProject)dgv_existingProjectsCustomer.SelectedRows[0].DataBoundItem;
+            var confirmResult = MessageBox.Show("Are you sure to delete this project?", "Confirm Delete!", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                projectService.DeleteProject(selectedProject);
+                RefreshDataGridView();
             }
         }
     }

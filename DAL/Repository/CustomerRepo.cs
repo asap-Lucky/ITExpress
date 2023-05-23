@@ -30,7 +30,7 @@ namespace DAL.Repository
             // Convert each customer DTO to a customer model object and add to the result list
             foreach (var dto in AllDToCustomer)
             {
-                Models.Customer customer = new Models.Customer();
+                ICustomer customer = new Models.Customer();
 
                 customer.Id = dto.CustomerId;
                 customer.Email = dto.Customer_Email;

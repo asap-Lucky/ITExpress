@@ -29,6 +29,9 @@ namespace DAL.Models
 
         public string GetCustomerFullName { get { return Customer.GetFullName; } }
 
-        public string GetConsultantFullName { get { return Consultant.GetFullName; } }
+        public string GetConsultantFullName
+        {
+            get { return Consultant != null ? Consultant.GetFullName : string.Empty; }
+        }
     }
 }

@@ -36,6 +36,7 @@
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dgv_AllProjectsOverview = new System.Windows.Forms.DataGridView();
+            this.bt_Delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_existingProjectsCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource1)).BeginInit();
@@ -124,6 +125,23 @@
             this.dgv_AllProjectsOverview.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_AllProjectsOverview_CellValidating);
             this.dgv_AllProjectsOverview.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgv_AllProjectsOverview_CurrentCellDirtyStateChanged);
             // 
+            // bt_Delete
+            // 
+            this.bt_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.bt_Delete.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_Delete.FlatAppearance.BorderSize = 0;
+            this.bt_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Delete.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_Delete.Location = new System.Drawing.Point(533, 619);
+            this.bt_Delete.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_Delete.Name = "bt_Delete";
+            this.bt_Delete.Size = new System.Drawing.Size(273, 37);
+            this.bt_Delete.TabIndex = 17;
+            this.bt_Delete.Text = "Delete project";
+            this.bt_Delete.UseVisualStyleBackColor = false;
+            this.bt_Delete.Click += new System.EventHandler(this.bt_Delete_Click);
+            // 
             // AllProjectsOverview_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -131,6 +149,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1440, 686);
             this.ControlBox = false;
+            this.Controls.Add(this.bt_Delete);
             this.Controls.Add(this.dgv_AllProjectsOverview);
             this.Controls.Add(this.dgv_existingProjectsCustomer);
             this.Controls.Add(this.bt_EditProject);
@@ -157,5 +176,6 @@
         private System.Windows.Forms.BindingSource customerBindingSource;
         private System.Windows.Forms.BindingSource customerBindingSource1;
         private System.Windows.Forms.DataGridView dgv_AllProjectsOverview;
+        private System.Windows.Forms.Button bt_Delete;
     }
 }

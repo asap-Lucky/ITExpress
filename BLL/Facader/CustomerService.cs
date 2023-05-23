@@ -81,5 +81,15 @@ namespace BLL.Facader
             return customerService.GetAllCustomers(); 
         }
 
+        public ICustomer DuplicateEmailChecker(string email)
+        {
+            return customerService.GetAllCustomers().FirstOrDefault(c => c.Email == email);
+        }
+
+        public ICustomer DuplicateUsernameChecker(string username) 
+        { 
+            return customerService.GetAllCustomers().FirstOrDefault(c => c.Login == username);
+        }
+
     }
 }
