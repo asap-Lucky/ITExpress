@@ -13,5 +13,7 @@ namespace Abstraction.Interfaces
         List<IInvitation> GetPendingInvitationsForConsultant(IConsultant consultant);
         List<IInvitation> GetAcceptedInvittationsForConsultant(IConsultant consultant);
         void EditInvitation(IInvitation invitation);
+
+        List<IInvitation> GetInvitationsViaCostumer(ICustomer customer);
     }
 }

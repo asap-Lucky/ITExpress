@@ -40,5 +40,10 @@ namespace BLL.Services
         {
             InvitationRepo.EditInvitation(invitation);
         }
+
+        public List<IInvitation> GetInvitationsViaCostumer(ICustomer customer)
+        {
+            return InvitationRepo.GetAllInvitationsViaCostumer(customer);
+        }
     }
 }

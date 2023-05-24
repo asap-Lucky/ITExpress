@@ -56,6 +56,7 @@
             this.bt_acceptInvitation.TabIndex = 20;
             this.bt_acceptInvitation.Text = "Accept Invitation";
             this.bt_acceptInvitation.UseVisualStyleBackColor = false;
+            this.bt_acceptInvitation.Click += new System.EventHandler(this.bt_acceptInvitation_Click);
             // 
             // dgv_newInvitations
             // 
@@ -142,7 +143,7 @@
             this.dgv_AcceptedInvitations.Size = new System.Drawing.Size(360, 427);
             this.dgv_AcceptedInvitations.TabIndex = 23;
             // 
-            // InvitationBox_Form
+            // CustomerInvitationBox_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -154,7 +155,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bt_acceptInvitation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InvitationBox_Form";
+            this.Name = "CustomerInvitationBox_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_newInvitations)).EndInit();
