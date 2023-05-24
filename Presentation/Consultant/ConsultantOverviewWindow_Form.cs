@@ -124,7 +124,7 @@ namespace Presentation.Consultant
         {
             Button button = (Button)sender;
             buttonColorChange_Click(button);
-            OpenChildForm(new InvitationBox_Form());
+            OpenChildForm(new InvitationBoxCustomer_Form());
         }
     }
 }

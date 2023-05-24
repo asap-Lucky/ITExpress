@@ -13,7 +13,6 @@ namespace Presentation.Customer
     public partial class MessageBoxCustomer : Form
     {
         
-
         public MessageBoxCustomer()
         {
             InitializeComponent();
