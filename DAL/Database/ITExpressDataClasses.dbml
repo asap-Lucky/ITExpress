@@ -1,11 +1,18 @@
-<<<<<<< Updated upstream
-<?xml version="1.0" encoding="utf-8"?><Database Name="2-sem-gr-1" Class="ITExpressDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="2-sem-gr-1" Class="ITExpressDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=ucl-jtm-sqlserver.database.windows.net;Initial Catalog=2-sem-gr-1;Persist Security Info=True;User ID=2-sem-gr-1-login" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="_2_sem_gr_1ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Admin_UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Admin_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CodeLanguage" Member="CodeLanguages">
+    <Type Name="CodeLanguage">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LanguageName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CodeLanguage_Consultant" Member="Consultants" ThisKey="Id" OtherKey="Consultant_CodeLangaugeId" Type="Consultant" />
+      <Association Name="CodeLanguage_Project" Member="Projects" ThisKey="Id" OtherKey="Project_CodeLanguageId" Type="Project" />
     </Type>
   </Table>
   <Table Name="dbo.Consultant" Member="Consultants">
@@ -21,20 +28,12 @@
       <Column Name="Consultant_Address" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Consultant_PhoneNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Consultant_CodeLangaugeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Contsultant_EndType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Contsultant_EndType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Consultant_Invitation" Member="Invitations" ThisKey="ConsultantId" OtherKey="Invitaiton_ConsultantId" Type="Invitation" />
       <Association Name="Consultant_Message" Member="Messages" ThisKey="ConsultantId" OtherKey="Message_ConsultantId" Type="Message" />
       <Association Name="Consultant_Project" Member="Projects" ThisKey="ConsultantId" OtherKey="Project_ConsultantId" Type="Project" />
       <Association Name="CodeLanguage_Consultant" Member="CodeLanguage" ThisKey="Consultant_CodeLangaugeId" OtherKey="Id" Type="CodeLanguage" IsForeignKey="true" />
       <Association Name="EndType_Consultant" Member="EndType" ThisKey="Contsultant_EndType" OtherKey="Id" Type="EndType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.CodeLanguage" Member="CodeLanguages">
-    <Type Name="CodeLanguage">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="LanguageName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="CodeLanguage_Consultant" Member="Consultants" ThisKey="Id" OtherKey="Consultant_CodeLangaugeId" Type="Consultant" />
-      <Association Name="CodeLanguage_Project" Member="Projects" ThisKey="Id" OtherKey="Project_CodeLanguageId" Type="Project" />
     </Type>
   </Table>
   <Table Name="dbo.Customer" Member="Customers">
@@ -109,6 +108,3 @@
     </Type>
   </Table>
 </Database>
-=======
-﻿
->>>>>>> Stashed changes

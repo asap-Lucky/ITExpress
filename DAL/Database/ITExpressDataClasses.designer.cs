@@ -22,6 +22,7 @@ namespace DAL.Database
 	using System;
 	
 	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="2-sem-gr-1")]
 	public partial class ITExpressDataClassesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -29,19 +30,15 @@ namespace DAL.Database
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-<<<<<<< Updated upstream
-    partial void InsertProject(Project instance);
-    partial void UpdateProject(Project instance);
-    partial void DeleteProject(Project instance);
     partial void InsertAdmin(Admin instance);
     partial void UpdateAdmin(Admin instance);
     partial void DeleteAdmin(Admin instance);
-    partial void InsertConsultant(Consultant instance);
-    partial void UpdateConsultant(Consultant instance);
-    partial void DeleteConsultant(Consultant instance);
     partial void InsertCodeLanguage(CodeLanguage instance);
     partial void UpdateCodeLanguage(CodeLanguage instance);
     partial void DeleteCodeLanguage(CodeLanguage instance);
+    partial void InsertConsultant(Consultant instance);
+    partial void UpdateConsultant(Consultant instance);
+    partial void DeleteConsultant(Consultant instance);
     partial void InsertCustomer(Customer instance);
     partial void UpdateCustomer(Customer instance);
     partial void DeleteCustomer(Customer instance);
@@ -57,9 +54,13 @@ namespace DAL.Database
     partial void InsertProject(Project instance);
     partial void UpdateProject(Project instance);
     partial void DeleteProject(Project instance);
-=======
->>>>>>> Stashed changes
     #endregion
+		
+		public ITExpressDataClassesDataContext() : 
+				base(global::DAL.Properties.Settings.Default._2_sem_gr_1ConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public ITExpressDataClassesDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -84,21 +85,12 @@ namespace DAL.Database
 		{
 			OnCreated();
 		}
-<<<<<<< Updated upstream
 		
-		public System.Data.Linq.Table<Project> Projects
+		public System.Data.Linq.Table<Admin> Admins
 		{
 			get
 			{
-				return this.GetTable<Project>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Consultant> Consultants
-		{
-			get
-			{
-				return this.GetTable<Consultant>();
+				return this.GetTable<Admin>();
 			}
 		}
 		
@@ -107,6 +99,14 @@ namespace DAL.Database
 			get
 			{
 				return this.GetTable<CodeLanguage>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Consultant> Consultants
+		{
+			get
+			{
+				return this.GetTable<Consultant>();
 			}
 		}
 		
@@ -155,12 +155,251 @@ namespace DAL.Database
 	public partial class Admin : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		public System.Data.Linq.Table<Project> Projects
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AdminID;
+		
+		private string _Admin_UserName;
+		
+		private string _Admin_Password;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAdminIDChanging(int value);
+    partial void OnAdminIDChanged();
+    partial void OnAdmin_UserNameChanging(string value);
+    partial void OnAdmin_UserNameChanged();
+    partial void OnAdmin_PasswordChanging(string value);
+    partial void OnAdmin_PasswordChanged();
+    #endregion
+		
+		public Admin()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AdminID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AdminID
 		{
 			get
 			{
-				return this.GetTable<Project>();
+				return this._AdminID;
 			}
+			set
+			{
+				if ((this._AdminID != value))
+				{
+					this.OnAdminIDChanging(value);
+					this.SendPropertyChanging();
+					this._AdminID = value;
+					this.SendPropertyChanged("AdminID");
+					this.OnAdminIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin_UserName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Admin_UserName
+		{
+			get
+			{
+				return this._Admin_UserName;
+			}
+			set
+			{
+				if ((this._Admin_UserName != value))
+				{
+					this.OnAdmin_UserNameChanging(value);
+					this.SendPropertyChanging();
+					this._Admin_UserName = value;
+					this.SendPropertyChanged("Admin_UserName");
+					this.OnAdmin_UserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Admin_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Admin_Password
+		{
+			get
+			{
+				return this._Admin_Password;
+			}
+			set
+			{
+				if ((this._Admin_Password != value))
+				{
+					this.OnAdmin_PasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Admin_Password = value;
+					this.SendPropertyChanged("Admin_Password");
+					this.OnAdmin_PasswordChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CodeLanguage")]
+	public partial class CodeLanguage : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _LanguageName;
+		
+		private EntitySet<Consultant> _Consultants;
+		
+		private EntitySet<Project> _Projects;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnLanguageNameChanging(string value);
+    partial void OnLanguageNameChanged();
+    #endregion
+		
+		public CodeLanguage()
+		{
+			this._Consultants = new EntitySet<Consultant>(new Action<Consultant>(this.attach_Consultants), new Action<Consultant>(this.detach_Consultants));
+			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string LanguageName
+		{
+			get
+			{
+				return this._LanguageName;
+			}
+			set
+			{
+				if ((this._LanguageName != value))
+				{
+					this.OnLanguageNameChanging(value);
+					this.SendPropertyChanging();
+					this._LanguageName = value;
+					this.SendPropertyChanged("LanguageName");
+					this.OnLanguageNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Consultant", Storage="_Consultants", ThisKey="Id", OtherKey="Consultant_CodeLangaugeId")]
+		public EntitySet<Consultant> Consultants
+		{
+			get
+			{
+				return this._Consultants;
+			}
+			set
+			{
+				this._Consultants.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Project", Storage="_Projects", ThisKey="Id", OtherKey="Project_CodeLanguageId")]
+		public EntitySet<Project> Projects
+		{
+			get
+			{
+				return this._Projects;
+			}
+			set
+			{
+				this._Projects.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Consultants(Consultant entity)
+		{
+			this.SendPropertyChanging();
+			entity.CodeLanguage = this;
+		}
+		
+		private void detach_Consultants(Consultant entity)
+		{
+			this.SendPropertyChanging();
+			entity.CodeLanguage = null;
+		}
+		
+		private void attach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.CodeLanguage = this;
+		}
+		
+		private void detach_Projects(Project entity)
+		{
+			this.SendPropertyChanging();
+			entity.CodeLanguage = null;
 		}
 	}
 	
@@ -192,7 +431,7 @@ namespace DAL.Database
 		
 		private int _Consultant_CodeLangaugeId;
 		
-		private System.Nullable<int> _Contsultant_EndType;
+		private int _Contsultant_EndType;
 		
 		private EntitySet<Invitation> _Invitations;
 		
@@ -230,7 +469,7 @@ namespace DAL.Database
     partial void OnConsultant_PhoneNumberChanged();
     partial void OnConsultant_CodeLangaugeIdChanging(int value);
     partial void OnConsultant_CodeLangaugeIdChanged();
-    partial void OnContsultant_EndTypeChanging(System.Nullable<int> value);
+    partial void OnContsultant_EndTypeChanging(int value);
     partial void OnContsultant_EndTypeChanged();
     #endregion
 		
@@ -468,8 +707,8 @@ namespace DAL.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contsultant_EndType", DbType="Int")]
-		public System.Nullable<int> Contsultant_EndType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contsultant_EndType", DbType="Int NOT NULL")]
+		public int Contsultant_EndType
 		{
 			get
 			{
@@ -592,7 +831,7 @@ namespace DAL.Database
 					}
 					else
 					{
-						this._Contsultant_EndType = default(Nullable<int>);
+						this._Contsultant_EndType = default(int);
 					}
 					this.SendPropertyChanged("EndType");
 				}
@@ -653,148 +892,6 @@ namespace DAL.Database
 		{
 			this.SendPropertyChanging();
 			entity.Consultant = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CodeLanguage")]
-	public partial class CodeLanguage : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _LanguageName;
-		
-		private EntitySet<Consultant> _Consultants;
-		
-		private EntitySet<Project> _Projects;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnLanguageNameChanging(string value);
-    partial void OnLanguageNameChanged();
-    #endregion
-		
-		public CodeLanguage()
-		{
-			this._Consultants = new EntitySet<Consultant>(new Action<Consultant>(this.attach_Consultants), new Action<Consultant>(this.detach_Consultants));
-			this._Projects = new EntitySet<Project>(new Action<Project>(this.attach_Projects), new Action<Project>(this.detach_Projects));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LanguageName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string LanguageName
-		{
-			get
-			{
-				return this._LanguageName;
-			}
-			set
-			{
-				if ((this._LanguageName != value))
-				{
-					this.OnLanguageNameChanging(value);
-					this.SendPropertyChanging();
-					this._LanguageName = value;
-					this.SendPropertyChanged("LanguageName");
-					this.OnLanguageNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Consultant", Storage="_Consultants", ThisKey="Id", OtherKey="Consultant_CodeLangaugeId")]
-		public EntitySet<Consultant> Consultants
-		{
-			get
-			{
-				return this._Consultants;
-			}
-			set
-			{
-				this._Consultants.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CodeLanguage_Project", Storage="_Projects", ThisKey="Id", OtherKey="Project_CodeLanguageId")]
-		public EntitySet<Project> Projects
-		{
-			get
-			{
-				return this._Projects;
-			}
-			set
-			{
-				this._Projects.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Consultants(Consultant entity)
-		{
-			this.SendPropertyChanging();
-			entity.CodeLanguage = this;
-		}
-		
-		private void detach_Consultants(Consultant entity)
-		{
-			this.SendPropertyChanging();
-			entity.CodeLanguage = null;
-		}
-		
-		private void attach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.CodeLanguage = this;
-		}
-		
-		private void detach_Projects(Project entity)
-		{
-			this.SendPropertyChanging();
-			entity.CodeLanguage = null;
 		}
 	}
 	
@@ -2387,8 +2484,6 @@ namespace DAL.Database
 			this.SendPropertyChanging();
 			entity.Project = null;
 		}
-=======
->>>>>>> Stashed changes
 	}
 }
 #pragma warning restore 1591
