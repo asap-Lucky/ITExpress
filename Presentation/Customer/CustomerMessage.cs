@@ -42,12 +42,33 @@ namespace Presentation.Customer
 
         private void bt_Send_Click(object sender, EventArgs e)
         {
-            StoreMessage();
+            StoreMessageInDatabase();
             MessageBox.Show("Your message has been send");
             this.Close();
         }
 
         //Select consultant that the message has to be sent to
+
+        public IConsultant SelectConsultant2(string email)
+        {
+            IConsultant consultant = new BLL.Models.Consultant();
+            List<IConsultant> allConsultants = ConsultantService.GetAllConsultants();
+
+            string reCieveremail = tb_SendToReciever.Text;
+            consultant = allConsultants.FirstOrDefault(c => c.Email == reCieveremail);
+
+            if (allConsultants != null)
+            {
+                //Remember to specify that it has to look through the tb_EmailTextBox as a reciever
+
+
+                consultant = allConsultants.FirstOrDefault(c => c.Email == email);
+
+            }
+            return consultant = SelectConsultant2(email);
+        }
+        
+
         public IConsultant SelectConsultant(string email)
         {
             IConsultant consultant = new BLL.Models.Consultant();
@@ -67,20 +88,18 @@ namespace Presentation.Customer
             return consultant = SelectConsultant(email);
         }
 
+        
         //Stores the message that has to be saved using the "SelectConsultant" method as an identification of the foreign key to the consultant that the message has to be sent to
-        public void StoreMessage()
-        {
-            if (Emails.Contains(tb_SendToReciever.Text))
-            {
-                BLL.Models.Message message = new BLL.Models.Message();
-                message.Header = tb_TitleOfMessage.Text;
-                message.Body = tb_BodyMessage.Text;
-                message.Customer = CurrentUser;
-                message.Consultant = AllConsultants.First(c => c.Email == tb_SendToReciever.Text);
-                //Add "IsRead/NotRead" bool that is either true or false since it is something that has to be taken further
-                MessageService.AddMessage(message);
-            }
-
+        //question: Can you explain where we should implement the SelectConsultant method in the StoreMessage method which takes the selected consultant mail as a parameter?
+        
+        public void StoreMessageInDatabase()
+        {            
+            IConsultant consultant = SelectConsultant2(tb_SendToReciever.Text);
+            MyMessage.Body = tb_BodyMessage.Text;
+            MyMessage.Customer = CurrentUser;
+            MyMessage.Consultant = consultant;
+            MessageService.AddMessage(MyMessage);
         }
+
     }
 }
