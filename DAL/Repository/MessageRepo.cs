@@ -45,7 +45,9 @@ namespace DAL.Repository
                 MessageId = messageData.MessageId,
                 Header = messageData.Message_Header,
                 Body = messageData.Message_Content,
+                IsRead = messageData.Message_IsRead,
                 Customer = new Models.Customer()
+
                 {
                     Id = messageData.Customer.CustomerId,
                     FirstName = messageData.Customer.Customer_FirstName,

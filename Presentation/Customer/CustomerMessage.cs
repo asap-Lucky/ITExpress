@@ -38,6 +38,8 @@ namespace Presentation.Customer
             {
                 Emails.Add(consultant.Email);
             }
+
+            tb_FromSenderEmail.Text = CurrentUser.Email;
         }
 
         private void bt_Send_Click(object sender, EventArgs e)
@@ -65,7 +67,8 @@ namespace Presentation.Customer
                 consultant = allConsultants.FirstOrDefault(c => c.Email == email);
 
             }
-            return consultant = SelectConsultant2(email);
+
+            return consultant;
         }
         
 
@@ -90,16 +93,18 @@ namespace Presentation.Customer
 
         
         //Stores the message that has to be saved using the "SelectConsultant" method as an identification of the foreign key to the consultant that the message has to be sent to
-        //question: Can you explain where we should implement the SelectConsultant method in the StoreMessage method which takes the selected consultant mail as a parameter?
+        //question: Can you write the code below to it displays the singleton of the c
+        //answer:
         
         public void StoreMessageInDatabase()
-        {            
+        {
             IConsultant consultant = SelectConsultant2(tb_SendToReciever.Text);
+            MyMessage.Header = tb_TitleOfMessage.Text;
             MyMessage.Body = tb_BodyMessage.Text;
             MyMessage.Customer = CurrentUser;
             MyMessage.Consultant = consultant;
+            MyMessage.IsRead = true;
             MessageService.AddMessage(MyMessage);
         }
-
     }
 }
