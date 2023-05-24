@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?xml version="1.0" encoding="utf-8"?><Database Name="2-sem-gr-1" Class="ITExpressDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=ucl-jtm-sqlserver.database.windows.net;Initial Catalog=2-sem-gr-1;Persist Security Info=True;User ID=2-sem-gr-1-login" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="_2_sem_gr_1ConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
@@ -108,3 +109,6 @@
     </Type>
   </Table>
 </Database>
+=======
+﻿
+>>>>>>> Stashed changes
