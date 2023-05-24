@@ -175,11 +175,9 @@ namespace DAL.Repository
             dataConsultant.Consultant_Address = consultantModel.Address;
             dataConsultant.Consultant_PhoneNumber = consultantModel.PhoneNumber;
 
-            dataConsultant.EndType.Id = consultantModel.EndType.Id;
-            dataConsultant.EndType.EndType1 = consultantModel.EndType.EndType1;
+            dataConsultant.Contsultant_EndType = consultantModel.EndType.Id;
 
-            dataConsultant.CodeLanguage.Id = consultantModel.Language.Id;
-            dataConsultant.CodeLanguage.LanguageName = consultantModel.Language.Language;
+            dataConsultant.Consultant_CodeLangaugeId = consultantModel.Language.Id;
 
             return dataConsultant;
         }

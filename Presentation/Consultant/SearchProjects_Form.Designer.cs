@@ -167,13 +167,21 @@ namespace Presentation.Customer
             // 
             // dgv_Projects
             // 
+            this.dgv_Projects.AllowUserToAddRows = false;
+            this.dgv_Projects.AllowUserToDeleteRows = false;
+            this.dgv_Projects.AllowUserToResizeColumns = false;
+            this.dgv_Projects.AllowUserToResizeRows = false;
+            this.dgv_Projects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Projects.BackgroundColor = System.Drawing.Color.White;
             this.dgv_Projects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Projects.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgv_Projects.Location = new System.Drawing.Point(0, 90);
             this.dgv_Projects.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_Projects.Name = "dgv_Projects";
+            this.dgv_Projects.ReadOnly = true;
+            this.dgv_Projects.RowHeadersVisible = false;
             this.dgv_Projects.RowHeadersWidth = 51;
+            this.dgv_Projects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Projects.Size = new System.Drawing.Size(656, 511);
             this.dgv_Projects.TabIndex = 3;
             // 

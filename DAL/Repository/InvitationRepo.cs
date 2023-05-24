@@ -45,6 +45,7 @@ namespace DAL.Repository
             }
             return invitationModels;
         }
+
         public List<IInvitation> GetAcceptedInvittationsForConsultant(IConsultant consultant)
         {
             List<IInvitation> invitationModels = new List<IInvitation>();

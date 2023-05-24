@@ -92,6 +92,7 @@ namespace UI.Costumer
             // Call the RegisterCustomer method and close the current window.
             if (RegisterCustomer())
             {
+                MessageBox.Show("Customer has been created succesfully!", "Success!", MessageBoxButtons.OK);
                 this.Close();
             }
         }

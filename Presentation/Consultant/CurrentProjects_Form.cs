@@ -23,6 +23,7 @@
             private Dictionary<string, int> statusMapping = new Dictionary<string, int>
             {
                 { "Open", 1 },
+                { "In work", 4 },
                 { "Closed - Pending", 2 },
             };
 

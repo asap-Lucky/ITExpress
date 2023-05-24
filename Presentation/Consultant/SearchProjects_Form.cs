@@ -20,15 +20,16 @@ namespace Presentation.Customer
 
         private BLL.Services.ProjectService projectService = new BLL.Services.ProjectService();
 
-        public IProject MyProject { get; set; }
+        private InvitationService invitationService = new InvitationService();
 
         public SearchProjects()
         {
             InitializeComponent();
             InitializeComboboxes();
+            InitializeDGV();
         }
 
-        public void InitializeComboboxes()
+        private void InitializeComboboxes()
         {
             cb_CodeLanguage.DataSource = codeLanguageService.GetAllCodeLanguages();
             cb_CodeLanguage.DisplayMember = "Language";
@@ -37,6 +38,46 @@ namespace Presentation.Customer
             cb_EndType.DataSource = endtypeService.GetAllEndTypes();
             cb_EndType.DisplayMember = "EndType1";
             cb_EndType.SelectedIndex = -1;
+        }
+
+        private void InitializeDGV()
+        {
+            dgv_Projects.AutoGenerateColumns = false;
+
+            DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
+            nameColumn.DataPropertyName = "Name";
+            nameColumn.HeaderText = "Project name";
+            dgv_Projects.Columns.Add(nameColumn);
+
+            DataGridViewTextBoxColumn totalSumColumn = new DataGridViewTextBoxColumn();
+            totalSumColumn.DataPropertyName = "TotalSum";
+            totalSumColumn.HeaderText = "Hourwage";
+            dgv_Projects.Columns.Add(totalSumColumn);
+
+            DataGridViewTextBoxColumn startDateColumn = new DataGridViewTextBoxColumn();
+            startDateColumn.DataPropertyName = "StartDate";
+            startDateColumn.HeaderText = "Start Date";
+            dgv_Projects.Columns.Add(startDateColumn);
+
+            DataGridViewTextBoxColumn endDateColumn = new DataGridViewTextBoxColumn();
+            endDateColumn.DataPropertyName = "EndDate";
+            endDateColumn.HeaderText = "End Date";
+            dgv_Projects.Columns.Add(endDateColumn);
+
+            DataGridViewTextBoxColumn customerIdColumn = new DataGridViewTextBoxColumn();
+            customerIdColumn.DataPropertyName = "GetCustomerFullName";
+            customerIdColumn.HeaderText = "Customer";
+            dgv_Projects.Columns.Add(customerIdColumn);
+
+            DataGridViewTextBoxColumn languageColumn = new DataGridViewTextBoxColumn();
+            languageColumn.DataPropertyName = "GetLangauge";
+            languageColumn.HeaderText = "Language";
+            dgv_Projects.Columns.Add(languageColumn);
+
+            DataGridViewTextBoxColumn endTypeColumn = new DataGridViewTextBoxColumn();
+            endTypeColumn.DataPropertyName = "GetEndType";
+            endTypeColumn.HeaderText = "End Type";
+            dgv_Projects.Columns.Add(endTypeColumn);
         }
 
         public void FilterSearch()
@@ -92,7 +133,26 @@ namespace Presentation.Customer
         {
             if (dgv_Projects.SelectedRows.Count > 0)
             {
-                IProject selectedProject = dgv_Projects.SelectedRows[0].DataBoundItem as IProject;
+                IProject selectedProject = (IProject)dgv_Projects.SelectedRows[0].DataBoundItem;
+
+                IInvitation invitation = new BLL.Models.Invitation();
+
+                invitation.Consultant = BLL.Singleton.ConsultantSingleton.Instance().User;
+                invitation.Project = selectedProject;
+                invitation.Customer = selectedProject.Customer;
+                invitation.AcceptStatus = false;
+
+                if (invitationService.IsSend(invitation))
+                {
+                    MessageBox.Show("That project already has a pending invite, wait for the customer to reply to that first", "Error!", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                {
+                    invitationService.AddInvitation(invitation);
+                    MessageBox.Show("Invitation has been succesfully sent!", "Success!", MessageBoxButtons.OK);
+                }
+
 
             }
             else

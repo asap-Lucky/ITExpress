@@ -89,6 +89,7 @@ namespace UI.Consultant
         {
             if (RegisterConsultant())
             {
+                MessageBox.Show("Consultant created succesfully!", "Success!", MessageBoxButtons.OK);
                 this.Close();
             }
         }
