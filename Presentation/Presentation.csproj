@@ -209,6 +209,12 @@
     <Compile Include="Customer\CustomerMessage.Designer.cs">
       <DependentUpon>CustomerMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer\CustomerInvitationBox_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerInvitationBox_Form.Designer.cs">
+      <DependentUpon>CustomerInvitationBox_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer\SearchConsultant_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\CustomerMessage.resx">
       <DependentUpon>CustomerMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\CustomerInvitationBox_Form.resx">
+      <DependentUpon>CustomerInvitationBox_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\SearchConsultant_Form.resx">
       <DependentUpon>SearchConsultant_Form.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Presentation.Customer
 {
-    partial class InvitationBox_Form
+    partial class CustomerInvitationBox_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -56,7 +56,6 @@
             this.bt_acceptInvitation.TabIndex = 20;
             this.bt_acceptInvitation.Text = "Accept Invitation";
             this.bt_acceptInvitation.UseVisualStyleBackColor = false;
-            this.bt_acceptInvitation.Click += new System.EventHandler(this.bt_acceptInvitation_Click);
             // 
             // dgv_newInvitations
             // 
