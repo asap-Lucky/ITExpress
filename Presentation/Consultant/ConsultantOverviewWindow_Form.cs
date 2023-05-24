@@ -23,13 +23,32 @@ namespace Presentation.Consultant
 
         private Abstraction.Interfaces.IConsultant loggedInConsultant;
 
+        List<IInvitation> PendingInvitations { get; set; }
+
+        BLL.Services.InvitationService invitationService;
+
         public ConsultantOverviewWindow_Form()
         {
             InitializeComponent();
-            IsMdiContainer = true;
             this.loggedInConsultant = BLL.Singleton.ConsultantSingleton.Instance().User;
+            invitationService = new BLL.Services.InvitationService();
+            PendingInvitations = invitationService.GetPendingInvitationsForConsultant(loggedInConsultant);
+            IsMdiContainer = true;
             lb_firstNameOfCustomer.Text = loggedInConsultant.FirstName;
+            InvitationNotification();
+        }
 
+        private void InvitationNotification()
+        {
+            if (PendingInvitations.Count == 0)
+            {
+                lb_InvitationNotification.Visible = false;
+            }
+            else
+            {
+                lb_InvitationNotification.Visible = true;
+            }
+            lb_InvitationNotification.Text = PendingInvitations.Count.ToString();
         }
 
         /// <summary>
