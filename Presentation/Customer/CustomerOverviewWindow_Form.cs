@@ -123,6 +123,13 @@ namespace Presentation.Customer
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            buttonColorChange_Click(button);
+            OpenChildForm(new CustomerInvitationBox_Form()); 
+        }
     }
    
 }
