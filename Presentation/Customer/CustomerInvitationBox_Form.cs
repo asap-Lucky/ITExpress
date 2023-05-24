@@ -1,6 +1,7 @@
 ﻿using Abstraction.Interfaces;
 using BLL;
 using BLL.Singleton;
+using Presentation.Consultant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,7 @@ namespace Presentation.Customer
         Abstraction.Interfaces.ICustomer currentUser;
         BLL.Services.InvitationService invitationService;
         BLL.Services.ProjectService projectService;
+        CustomerOverviewWindow_Form customerOverviewWindow_Form = new CustomerOverviewWindow_Form();
 
         public CustomerInvitationBox_Form()
         {
@@ -59,6 +61,7 @@ namespace Presentation.Customer
                 dgv_AcceptedInvitations.Refresh();
                 dgv_AcceptedInvitations.ClearSelection();
                 dgv_newInvitations.ClearSelection();
+                customerOverviewWindow_Form.InvitationNotification();
                 MessageBox.Show("SUCCESS", "SUCCESS");
             }
         }

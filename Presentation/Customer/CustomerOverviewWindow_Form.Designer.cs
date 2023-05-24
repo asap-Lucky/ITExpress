@@ -73,6 +73,7 @@
             // 
             this.lb_InvitationNotification.AutoSize = true;
             this.lb_InvitationNotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_InvitationNotification.ForeColor = System.Drawing.Color.Red;
             this.lb_InvitationNotification.Location = new System.Drawing.Point(196, 592);
             this.lb_InvitationNotification.Name = "lb_InvitationNotification";
             this.lb_InvitationNotification.Size = new System.Drawing.Size(64, 25);

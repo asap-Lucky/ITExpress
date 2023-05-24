@@ -1,6 +1,7 @@
 ﻿using Abstraction.Interfaces;
 using BLL;
 using BLL.Singleton;
+using Presentation.Consultant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,8 @@ namespace Presentation.Customer
         IConsultant currentUser;
         BLL.Services.InvitationService invitationService;
         BLL.Services.ProjectService projectService;
-        
+        ConsultantOverviewWindow_Form consultantOverviewWindow_Form = new ConsultantOverviewWindow_Form();
+
         public InvitationBox_Form()
         {
             InitializeComponent();
@@ -33,8 +35,6 @@ namespace Presentation.Customer
             IntializeDGV(dgv_AcceptedInvitations);
             dgv_newInvitations.DataSource = PendingInvitations;
             dgv_AcceptedInvitations.DataSource = AcceptedInvitations;
-            dgv_newInvitations.ClearSelection();
-            dgv_AcceptedInvitations.ClearSelection();
         }       
 
         private void IntializeDGV(DataGridView targetDataGridView)
@@ -81,9 +81,10 @@ namespace Presentation.Customer
                 project.Status = 2;
                 projectService.EditProject(project);
                 invitationService.EditInvitation(invitation);
-                dgv_newInvitations.Refresh();
-                dgv_AcceptedInvitations.Refresh();
+                dgv_newInvitations.DataSource = PendingInvitations;
+                dgv_AcceptedInvitations.DataSource = AcceptedInvitations;
                 dgv_AcceptedInvitations.ClearSelection();
+                consultantOverviewWindow_Form.InvitationNotification();
                 MessageBox.Show("SUCCESS","SUCCESS");
             }
         }

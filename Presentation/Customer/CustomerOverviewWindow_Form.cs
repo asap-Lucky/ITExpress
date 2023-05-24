@@ -19,14 +19,33 @@ namespace Presentation.Customer
         Button lastClickedButton = null;
         public Form currentChildForm { get; set; }
         private Abstraction.Interfaces.ICustomer loggedInCustomer;
+        List<IInvitation> PendingInvitations { get; set; }
 
-        public CustomerOverviewWindow_Form(Abstraction.Interfaces.ICustomer customer)
+        BLL.Services.InvitationService invitationService;
+
+        public CustomerOverviewWindow_Form()
         {
             InitializeComponent();
             IsMdiContainer = true;
             this.loggedInCustomer = BLL.Singleton.CustomerSingleton.Instance().User;
+            invitationService = new BLL.Services.InvitationService();
+            PendingInvitations = invitationService.GetInvitationsViaCostumer(loggedInCustomer);
             lb_firstNameOfCustomer.Text = loggedInCustomer.FirstName;
+            InvitationNotification();
 
+        }
+
+        public void InvitationNotification()
+        {
+            if (PendingInvitations.Count == 0)
+            {
+                lb_InvitationNotification.Visible = false;
+            }
+            else
+            {
+                lb_InvitationNotification.Visible = true;
+            }
+            lb_InvitationNotification.Text = PendingInvitations.Count.ToString();
         }
 
         /// <summary>

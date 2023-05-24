@@ -47,6 +47,18 @@ namespace DAL.Repository
             return invitations;
         }
 
+        public List<IInvitation> GetPendingInvitationsForCustomer(ICustomer customer)
+        {
+            List<IInvitation> invitationModels = new List<IInvitation>();
+            var invitationData = DataContext.Invitations.Where(i => i.Invitation_CustomerId == customer.Id);
+            invitationData = invitationData.Where(i => i.Inivitaion_AcceptStatus == false);
+            foreach (var invitation in invitationData)
+            {
+                invitationModels.Add(MapToModel(invitation));
+            }
+            return invitationModels;
+        }
+
         public List<IInvitation> GetPendingInvitationsForConsultant(IConsultant consultant)
         {
             List<IInvitation> invitationModels = new List<IInvitation>();

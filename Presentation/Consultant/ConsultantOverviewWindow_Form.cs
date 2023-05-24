@@ -38,7 +38,7 @@ namespace Presentation.Consultant
             InvitationNotification();
         }
 
-        private void InvitationNotification()
+        public void InvitationNotification()
         {
             if (PendingInvitations.Count == 0)
             {
