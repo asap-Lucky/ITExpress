@@ -33,8 +33,6 @@ namespace Presentation.All
                 consultants.Add(project.Consultant);
 
             }
-            cb_Consultant.DataSource = consultants;
-           
         }
 
         public void SendMessage()
@@ -42,14 +40,6 @@ namespace Presentation.All
            
             MyMessage.Header = textBox2.Text;
             MyMessage.Body = textBox1.Text;
-
-
-            
-
-
-
-           
-
         }
 
 
