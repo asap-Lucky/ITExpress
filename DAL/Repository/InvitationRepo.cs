@@ -28,7 +28,6 @@ namespace DAL.Repository
             Database.Invitation invitationData = new Database.Invitation()
             {
                 InvitationId = invitationModel.Id,
-                Invitation_Content = invitationModel.Message,
                 Invitation_CustomerId = invitationModel.Customer.Id,
                 Invitaiton_ConsultantId = invitationModel.Consultant.Id,
             };

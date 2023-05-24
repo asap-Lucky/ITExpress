@@ -8,10 +8,11 @@ namespace Abstraction.Interfaces
 {
     public interface IMessage
     {
-       int MessageId { get; set; }
-       string Header { get; set; }
-       string Body { get; set; }
-       ICustomer Customer { get; set; }
-       IConsultant Consultant { get; set; }
+        int MessageId { get; set; }
+        string Header { get; set; }
+        string Body { get; set; }
+        ICustomer Customer { get; set; }
+        IConsultant Consultant { get; set; }
+        bool IsRead { get; set; }
     }
 }

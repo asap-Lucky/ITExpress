@@ -14,5 +14,7 @@ namespace BLL.Models
         public IConsultant Consultant { get; set; }
         public string Header { get; set; }
         public string Body { get; set; }
+        public bool IsRead { get; set; }
+
     }
 }
