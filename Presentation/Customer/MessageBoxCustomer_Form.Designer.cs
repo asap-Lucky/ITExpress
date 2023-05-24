@@ -30,7 +30,6 @@
         {
             this.bt_openMessage = new System.Windows.Forms.Button();
             this.bt_writeMessage = new System.Windows.Forms.Button();
-            this.bt_deleteMessage = new System.Windows.Forms.Button();
             this.dgv_newMessages = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_LogInSign = new System.Windows.Forms.Label();
@@ -51,7 +50,7 @@
             this.bt_openMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_openMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_openMessage.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_openMessage.Location = new System.Drawing.Point(33, 283);
+            this.bt_openMessage.Location = new System.Drawing.Point(33, 381);
             this.bt_openMessage.Name = "bt_openMessage";
             this.bt_openMessage.Size = new System.Drawing.Size(205, 30);
             this.bt_openMessage.TabIndex = 20;
@@ -74,21 +73,6 @@
             this.bt_writeMessage.UseVisualStyleBackColor = false;
             this.bt_writeMessage.Click += new System.EventHandler(this.bt_writeMessage_Click);
             // 
-            // bt_deleteMessage
-            // 
-            this.bt_deleteMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
-            this.bt_deleteMessage.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_deleteMessage.FlatAppearance.BorderSize = 0;
-            this.bt_deleteMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_deleteMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_deleteMessage.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_deleteMessage.Location = new System.Drawing.Point(33, 413);
-            this.bt_deleteMessage.Name = "bt_deleteMessage";
-            this.bt_deleteMessage.Size = new System.Drawing.Size(205, 30);
-            this.bt_deleteMessage.TabIndex = 22;
-            this.bt_deleteMessage.Text = "Delete message";
-            this.bt_deleteMessage.UseVisualStyleBackColor = false;
-            // 
             // dgv_newMessages
             // 
             this.dgv_newMessages.BackgroundColor = System.Drawing.Color.White;
@@ -97,6 +81,7 @@
             this.dgv_newMessages.Name = "dgv_newMessages";
             this.dgv_newMessages.Size = new System.Drawing.Size(359, 460);
             this.dgv_newMessages.TabIndex = 23;
+            
             // 
             // panel1
             // 
@@ -162,7 +147,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.bt_deleteMessage);
             this.Controls.Add(this.bt_openMessage);
             this.Controls.Add(this.bt_writeMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -182,7 +166,6 @@
         #endregion
         private System.Windows.Forms.Button bt_openMessage;
         private System.Windows.Forms.Button bt_writeMessage;
-        private System.Windows.Forms.Button bt_deleteMessage;
         private System.Windows.Forms.DataGridView dgv_newMessages;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
