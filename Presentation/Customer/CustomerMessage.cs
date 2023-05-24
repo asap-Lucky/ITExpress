@@ -106,5 +106,10 @@ namespace Presentation.Customer
             MyMessage.IsRead = true;
             MessageService.AddMessage(MyMessage);
         }
+
+        private void bt_GoBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

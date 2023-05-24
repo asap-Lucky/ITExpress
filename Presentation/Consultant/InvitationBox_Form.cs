@@ -33,6 +33,8 @@ namespace Presentation.Customer
             IntializeDGV(dgv_AcceptedInvitations);
             dgv_newInvitations.DataSource = PendingInvitations;
             dgv_AcceptedInvitations.DataSource = AcceptedInvitations;
+            dgv_newInvitations.ClearSelection();
+            dgv_AcceptedInvitations.ClearSelection();
         }       
 
         private void IntializeDGV(DataGridView targetDataGridView)
@@ -79,8 +81,8 @@ namespace Presentation.Customer
                 project.Status = 2;
                 projectService.EditProject(project);
                 invitationService.EditInvitation(invitation);
-                dgv_newInvitations.DataSource = PendingInvitations;
-                dgv_AcceptedInvitations.DataSource = AcceptedInvitations;
+                dgv_newInvitations.Refresh();
+                dgv_AcceptedInvitations.Refresh();
                 dgv_AcceptedInvitations.ClearSelection();
                 MessageBox.Show("SUCCESS","SUCCESS");
             }

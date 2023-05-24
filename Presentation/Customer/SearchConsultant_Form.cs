@@ -38,8 +38,9 @@ namespace Presentation.Customer
             DefaultProjectList = ProjectService.GetProjectsByCostumer(CustomerUser);
             DefaultProjectList.RemoveAll(p => p.Status == 3);
             DefaultConsultantList = this.ConsultantService.GetAllConsultants(); 
-            dataGridView1.DataSource = DefaultProjectList;
-            dataGridView2.DataSource = DefaultConsultantList;
+            dataGridView1.DataSource = DefaultProjectList;            
+            dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
         }
 
         //Intialize the project related datagrid
@@ -131,8 +132,7 @@ namespace Presentation.Customer
             {
                 MessageBox.Show("Please Select A Valid Consultant", "No Consultant", MessageBoxButtons.OK);
                 return;
-            }
-            var test = dataGridView2.SelectedRows[0].DataBoundItem as BLL.Models.Consultant;
+            }            
             Invitation invitation = new Invitation()
             {
                 Customer = CustomerSingleton.Instance().User,
@@ -148,7 +148,7 @@ namespace Presentation.Customer
             InvitationService.AddInvitation(invitation);
             List<IConsultant> consultants = (List<IConsultant>)dataGridView2.DataSource;
             consultants.RemoveAll(c => c == dataGridView2.SelectedRows[0].DataBoundItem as BLL.Models.Consultant);
-            dataGridView2.DataSource = consultants;
+            dataGridView2.Refresh();
             MessageBox.Show("Invitation Send", "SUCCESS");
         }
     }

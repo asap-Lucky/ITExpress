@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_SendToReciever = new System.Windows.Forms.TextBox();
+            this.tb_FromSenderEmail = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_TitleOfMessage = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_BodyMessage = new System.Windows.Forms.TextBox();
             this.bt_GoBack = new System.Windows.Forms.Button();
             this.bt_Send = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,23 +47,30 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.tb_SendToReciever);
+            this.panel1.Controls.Add(this.tb_FromSenderEmail);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.tb_TitleOfMessage);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(557, 128);
             this.panel1.TabIndex = 0;
             // 
-            // textBox4
+            // tb_SendToReciever
             // 
-            this.textBox4.Location = new System.Drawing.Point(47, 95);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(501, 20);
-            this.textBox4.TabIndex = 7;
+            this.tb_SendToReciever.Location = new System.Drawing.Point(45, 53);
+            this.tb_SendToReciever.Name = "tb_SendToReciever";
+            this.tb_SendToReciever.Size = new System.Drawing.Size(501, 20);
+            this.tb_SendToReciever.TabIndex = 8;
+            // 
+            // tb_FromSenderEmail
+            // 
+            this.tb_FromSenderEmail.Location = new System.Drawing.Point(47, 95);
+            this.tb_FromSenderEmail.Name = "tb_FromSenderEmail";
+            this.tb_FromSenderEmail.Size = new System.Drawing.Size(501, 20);
+            this.tb_FromSenderEmail.TabIndex = 7;
             // 
             // label4
             // 
@@ -85,12 +92,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "To";
             // 
-            // textBox2
+            // tb_TitleOfMessage
             // 
-            this.textBox2.Location = new System.Drawing.Point(45, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(501, 20);
-            this.textBox2.TabIndex = 3;
+            this.tb_TitleOfMessage.Location = new System.Drawing.Point(45, 13);
+            this.tb_TitleOfMessage.Name = "tb_TitleOfMessage";
+            this.tb_TitleOfMessage.Size = new System.Drawing.Size(501, 20);
+            this.tb_TitleOfMessage.TabIndex = 3;
             // 
             // label2
             // 
@@ -106,7 +113,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tb_BodyMessage);
             this.panel2.Location = new System.Drawing.Point(13, 147);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(557, 255);
@@ -122,14 +129,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Body";
             // 
-            // textBox1
+            // tb_BodyMessage
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 24);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(540, 220);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tb_BodyMessage.Location = new System.Drawing.Point(9, 24);
+            this.tb_BodyMessage.Multiline = true;
+            this.tb_BodyMessage.Name = "tb_BodyMessage";
+            this.tb_BodyMessage.Size = new System.Drawing.Size(540, 220);
+            this.tb_BodyMessage.TabIndex = 0;
             // 
             // bt_GoBack
             // 
@@ -145,6 +151,7 @@
             this.bt_GoBack.TabIndex = 32;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
+            this.bt_GoBack.Click += new System.EventHandler(this.bt_GoBack_Click);
             // 
             // bt_Send
             // 
@@ -160,13 +167,7 @@
             this.bt_Send.TabIndex = 33;
             this.bt_Send.Text = "Send";
             this.bt_Send.UseVisualStyleBackColor = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(45, 53);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(501, 20);
-            this.textBox3.TabIndex = 8;
+            this.bt_Send.Click += new System.EventHandler(this.bt_Send_Click_1);
             // 
             // ConsultantMessage_Form
             // 
@@ -193,16 +194,16 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tb_FromSenderEmail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_TitleOfMessage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_BodyMessage;
         private System.Windows.Forms.Button bt_GoBack;
         private System.Windows.Forms.Button bt_Send;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_SendToReciever;
     }
 }
