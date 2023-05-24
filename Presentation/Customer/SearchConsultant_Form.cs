@@ -148,7 +148,7 @@ namespace Presentation.Customer
             InvitationService.AddInvitation(invitation);
             List<IConsultant> consultants = (List<IConsultant>)dataGridView2.DataSource;
             consultants.RemoveAll(c => c == dataGridView2.SelectedRows[0].DataBoundItem as BLL.Models.Consultant);
-            dataGridView2.DataSource = consultants;
+            dataGridView2.Refresh();
             MessageBox.Show("Invitation Send", "SUCCESS");
         }
     }
