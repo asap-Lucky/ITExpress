@@ -74,6 +74,7 @@
             this.bt_GoBack.TabIndex = 36;
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
+            this.bt_GoBack.Click += new System.EventHandler(this.bt_GoBack_Click);
             // 
             // panel2
             // 
