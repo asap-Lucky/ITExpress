@@ -23,6 +23,10 @@ namespace Presentation.Customer
         BLL.Services.ProjectService projectService;
         ConsultantOverviewWindow_Form consultantOverviewWindow_Form = new ConsultantOverviewWindow_Form();
 
+        /// <summary>
+        /// Mikkel: Does almost exactly the same as the CustomerInvitationForm but for consultant.
+        /// Probably a smarter way of doing this without using so much code (my money on inheirtance or interface).
+        /// </summary>
         public InvitationBox_Form()
         {
             InitializeComponent();
@@ -78,7 +82,7 @@ namespace Presentation.Customer
                 AcceptedInvitations.Add(invitation);
                 IProject project = invitation.Project;
                 project.Consultant = currentUser;
-                project.Status = 2;
+                project.Status = 4;
                 projectService.EditProject(project);
                 invitationService.EditInvitation(invitation);
                 dgv_newInvitations.DataSource = PendingInvitations;

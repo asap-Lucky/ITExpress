@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace BLL.Singleton
 {
+    /// <summary>
+    /// Mikkel: A Singleton for a Consultant object.
+    /// It was made because we were tired of setting the user around the program as a argument.
+    /// It is lazy, and thereby not threadsafe. 
+    /// </summary>
     public class ConsultantSingleton
     {
         static ConsultantSingleton instance;
