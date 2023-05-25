@@ -61,6 +61,7 @@
             // 
             this.tb_Sender.Location = new System.Drawing.Point(47, 95);
             this.tb_Sender.Name = "tb_Sender";
+            this.tb_Sender.ReadOnly = true;
             this.tb_Sender.Size = new System.Drawing.Size(501, 20);
             this.tb_Sender.TabIndex = 7;
             // 
@@ -76,9 +77,10 @@
             // 
             // tb_Reciver
             // 
-            this.tb_Reciver.Location = new System.Drawing.Point(48, 54);
+            this.tb_Reciver.Location = new System.Drawing.Point(45, 54);
             this.tb_Reciver.Name = "tb_Reciver";
-            this.tb_Reciver.Size = new System.Drawing.Size(501, 20);
+            this.tb_Reciver.ReadOnly = true;
+            this.tb_Reciver.Size = new System.Drawing.Size(504, 20);
             this.tb_Reciver.TabIndex = 5;
             // 
             // label3
@@ -95,6 +97,7 @@
             // 
             this.tb_Header.Location = new System.Drawing.Point(45, 13);
             this.tb_Header.Name = "tb_Header";
+            this.tb_Header.ReadOnly = true;
             this.tb_Header.Size = new System.Drawing.Size(501, 20);
             this.tb_Header.TabIndex = 3;
             // 
@@ -133,6 +136,7 @@
             this.tb_Body.Location = new System.Drawing.Point(9, 24);
             this.tb_Body.Multiline = true;
             this.tb_Body.Name = "tb_Body";
+            this.tb_Body.ReadOnly = true;
             this.tb_Body.Size = new System.Drawing.Size(540, 218);
             this.tb_Body.TabIndex = 0;
             // 

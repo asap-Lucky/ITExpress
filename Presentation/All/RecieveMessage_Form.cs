@@ -23,6 +23,8 @@ namespace Presentation.All
         {
             InitializeComponent();
             this.selectedMessage = selectedMessage;
+            tb_Header.Text = selectedMessage.Header;
+            tb_Body.Text = selectedMessage.Body;
             loggedInCustomer = CustomerSingleton.Instance().User;
             loggedInConsultant = ConsultantSingleton.Instance().User;
             DisplayMessageInfo();
@@ -30,9 +32,6 @@ namespace Presentation.All
 
         private void DisplayMessageInfo()
         {
-            tb_Header.Text = selectedMessage.Header;
-            tb_Body.Text = selectedMessage.Body;
-
             if (selectedMessage.Customer != null && selectedMessage.Consultant != null)
             {
                 // Determine the sender and receiver based on the logged-in user
@@ -61,6 +60,11 @@ namespace Presentation.All
                 tb_Reciver.Text = receiverEmail;
                 tb_Sender.Text = senderEmail;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

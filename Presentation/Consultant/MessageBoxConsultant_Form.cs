@@ -17,13 +17,12 @@ namespace Presentation.Customer
 {
     public partial class MessageBoxConsultant : Form
     {
+        private Abstraction.Interfaces.IMessage selectedMessage { get; set; }
         List<IMessage> Messages { get; set; }
         private List<IMessage> UnreadMessages { get; set; }
         private List<IMessage> ReadMessages { get; set; }
 
         private BLL.Services.MessageService MessageService;
-
-        private Abstraction.Interfaces.IMessage selectedMessage;
 
         public MessageBoxConsultant()
         {
@@ -36,13 +35,16 @@ namespace Presentation.Customer
             DisplayreadMessagesInDGV();
         }
 
+
+        //Methods used in the constructor
+
+
         private void BreedUnreadDGV(DataGridView dataGridView)
         {
             dgv_MessageDisplay.AutoGenerateColumns = false;
             dgv_MessageDisplay.RowHeadersVisible = false;
             dgv_MessageDisplay.MultiSelect = false;
-            dgv_MessageDisplay.CellContentClick += dgv_newMessages_CellContentClick;
-            dgv_MessageDisplay.CellBeginEdit += dgv_newMessages_CellBeginEdit;
+
             dgv_MessageDisplay.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             dataGridView.Columns.Clear();
@@ -68,60 +70,38 @@ namespace Presentation.Customer
             dgv_MessageDisplay.Columns.Add(subjectIsRead);
         }
 
-        private void dgv_newMessages_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            int allowedColumnIndex = 0;
-
-            // Cancel the edit operation for other columns
-            if (e.ColumnIndex != allowedColumnIndex)
-            {
-                e.Cancel = false;
-            }
-        }
-
-        //This does work partially. It does not display the messages in the dgv because the on line 64 it takes an input of an object and not an int value. Do stuff about it.
-
         private void DisplayreadMessagesInDGV()
         {
             dgv_MessageDisplay.DataSource = ReadMessages;
         }
 
-        private void dgv_newMessages_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        //Click events and methods used in the click events
+
+     
+
+
+        //Changes the checkbox emediatly on the DGV
+        private void dgv_MessageDisplay_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgv_MessageDisplay.Columns["IsRead"].Index)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                if (e.RowIndex < dgv_MessageDisplay.Rows.Count)
+                DataGridViewRow row = dgv_MessageDisplay.Rows[e.RowIndex];
+                var messageDto = Messages.FirstOrDefault(m => m.MessageId == ((IMessage)row.DataBoundItem).MessageId);
+
+                if (messageDto != null)
                 {
-                    DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)dgv_MessageDisplay.Rows[e.RowIndex].Cells["IsRead"];
-                    if (checkBoxCell != null)
+                    if (dgv_MessageDisplay.Columns[e.ColumnIndex].Name == "IsRead")
                     {
-                        bool isChecked = (bool)checkBoxCell.Value;
-                        IMessage message = (IMessage)dgv_MessageDisplay.Rows[e.RowIndex].DataBoundItem;
-                        if (message != null)
-                        {
-                            // Update the IsRead property of the message based on the checkbox value
-                            message.IsRead = isChecked;
-
-                            if (isChecked)
-                            {
-                                // Move the message from UnreadMessages to ReadMessages
-                                UnreadMessages.Remove(message);
-                                ReadMessages.Add(message);
-
-                                // Reset the DataSource of dgv_newMessages to update the displayed messages
-                                dgv_MessageDisplay.DataSource = null;
-                                dgv_MessageDisplay.DataSource = UnreadMessages;
-                            }
-
-                            // Refresh dgv_currentConversations to update the displayed messages
-                            dgv_MessageDisplay.Refresh();
-                        }
+                        bool isRead = Convert.ToBoolean(row.Cells["IsRead"].Value);
+                        messageDto.IsRead = isRead;
                     }
                 }
             }
+
         }
 
-        private void SaveChangesOnUnopenedMessages()
+        private void SaveChangesOnUnopenedMessage()
         {
             foreach (DataGridViewRow row in dgv_MessageDisplay.Rows)
             {
@@ -135,24 +115,30 @@ namespace Presentation.Customer
                         messageDto.IsRead = Convert.ToBoolean(row.Cells["IsRead"].Value);
                     }
                 }
+
+
             }
         }
+
 
         private void bt_SaveChanges_Click(object sender, EventArgs e)
         {
-            SaveChangesOnUnopenedMessages();
-
-            foreach (IMessage message in Messages)
+            SaveChangesOnUnopenedMessage();
             {
-                MessageService.GetMessage(selectedMessage); // This is where the error is. It is not getting the message.
+               foreach (var messageDto in Messages)
+               {
+                   MessageService.EditIsReadMessages(messageDto);  // <--- This is where the error is (The method returns a nullreference)
+               }
             }
         }
 
+        //Opens the message in a new form
         private void bt_openMessage_Click(object sender, EventArgs e)
         {
             IsReadShowForm();
         }
 
+        //Logic behund the bt_openMessage_Click
         private void IsReadShowForm()
         {
             if (dgv_MessageDisplay.SelectedRows.Count > 0)
@@ -167,5 +153,7 @@ namespace Presentation.Customer
                 MessageBox.Show("Please select a message to view.", "No message Selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        
     }
 }

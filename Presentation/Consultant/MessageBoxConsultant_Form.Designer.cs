@@ -77,7 +77,8 @@
             this.dgv_MessageDisplay.Name = "dgv_MessageDisplay";
             this.dgv_MessageDisplay.Size = new System.Drawing.Size(765, 460);
             this.dgv_MessageDisplay.TabIndex = 23;
-            this.dgv_MessageDisplay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_newMessages_CellContentClick);
+            this.dgv_MessageDisplay.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_MessageDisplay_CellValueChanged);
+            
             // 
             // panel1
             // 
