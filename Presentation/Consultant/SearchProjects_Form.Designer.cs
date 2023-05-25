@@ -69,6 +69,7 @@ namespace Presentation.Customer
             // 
             // cb_EndType
             // 
+            this.cb_EndType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_EndType.FormattingEnabled = true;
             this.cb_EndType.Location = new System.Drawing.Point(275, 315);
             this.cb_EndType.Name = "cb_EndType";
@@ -77,6 +78,7 @@ namespace Presentation.Customer
             // 
             // cb_CodeLanguage
             // 
+            this.cb_CodeLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_CodeLanguage.FormattingEnabled = true;
             this.cb_CodeLanguage.Location = new System.Drawing.Point(275, 109);
             this.cb_CodeLanguage.Name = "cb_CodeLanguage";

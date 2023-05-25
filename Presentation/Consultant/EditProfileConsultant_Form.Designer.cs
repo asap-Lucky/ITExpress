@@ -260,6 +260,7 @@
             this.tb_repeatNewPassword.Location = new System.Drawing.Point(303, 208);
             this.tb_repeatNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tb_repeatNewPassword.Name = "tb_repeatNewPassword";
+            this.tb_repeatNewPassword.PasswordChar = '*';
             this.tb_repeatNewPassword.Size = new System.Drawing.Size(321, 22);
             this.tb_repeatNewPassword.TabIndex = 6;
             // 
@@ -279,6 +280,7 @@
             this.tb_newPassWord.Location = new System.Drawing.Point(303, 139);
             this.tb_newPassWord.Margin = new System.Windows.Forms.Padding(4);
             this.tb_newPassWord.Name = "tb_newPassWord";
+            this.tb_newPassWord.PasswordChar = '*';
             this.tb_newPassWord.Size = new System.Drawing.Size(321, 22);
             this.tb_newPassWord.TabIndex = 4;
             // 
@@ -388,6 +390,7 @@
             // 
             // cb_Endtype
             // 
+            this.cb_Endtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Endtype.FormattingEnabled = true;
             this.cb_Endtype.Location = new System.Drawing.Point(240, 117);
             this.cb_Endtype.Margin = new System.Windows.Forms.Padding(4);
@@ -397,6 +400,7 @@
             // 
             // cb_Language
             // 
+            this.cb_Language.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_Language.FormattingEnabled = true;
             this.cb_Language.Location = new System.Drawing.Point(240, 59);
             this.cb_Language.Margin = new System.Windows.Forms.Padding(4);

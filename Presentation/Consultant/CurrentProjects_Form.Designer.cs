@@ -85,7 +85,6 @@
             this.dgv_existingProjectsCustomer.TabIndex = 14;
             this.dgv_existingProjectsCustomer.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgv_existingProjectsCustomer_CellValidating);
             this.dgv_existingProjectsCustomer.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgv_existingProjectsCustomer_CurrentCellDirtyStateChanged);
-            this.dgv_existingProjectsCustomer.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_existingProjectsCustomer_DataError);
             // 
             // CurrentProjects_Form
             // 

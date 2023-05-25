@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public partial class ConsultantClosedProjects : Form
     {
         IConsultant loggedInConsultant;
@@ -24,6 +27,11 @@ namespace Presentation.Customer
             { "Closed", 3 }
         };
 
+        /// <summary>
+        /// Initializes a new instance of the ConsultantClosedProjects form.
+        /// </summary>
+        /// <param name="loggedInConsultant">The logged-in consultant.</param>
+        /// <param name="projectService">The project service.</param>
         public ConsultantClosedProjects(IConsultant loggedInConsultant, IProjectService projectService)
         {
             InitializeComponent();
@@ -33,6 +41,9 @@ namespace Presentation.Customer
             InitializeDataGridView();
         }
 
+        /// <summary>
+        /// Initializes the DataGridView with closed projects of the consultant.
+        /// </summary>
         public void InitializeDataGridView()
         {
             List<IProject> projects = projectService.GetProjectsByConsultant(loggedInConsultant.Id)
@@ -45,11 +56,18 @@ namespace Presentation.Customer
             DGVPopulate();
         }
 
+        /// <summary>
+        /// Event handler for the Open Project button click.
+        /// Opens the selected completed project for viewing.
+        /// </summary>
         private void bt_OpenProject_Click(object sender, EventArgs e)
         {
             ViewCompletedProject();
         }
 
+        /// <summary>
+        /// Opens the selected completed project for viewing.
+        /// </summary>
         private void ViewCompletedProject()
         {
             if (dgv_closedProjects.SelectedRows.Count > 0)
@@ -67,11 +85,18 @@ namespace Presentation.Customer
             }
         }
 
+        /// <summary>
+        /// Event handler for the Refresh button click.
+        /// Refreshes the DataGridView with the latest closed projects.
+        /// </summary>
         private void bt_Refresh_Click(object sender, EventArgs e)
         {
             RefreshDGV();
         }
 
+        /// <summary>
+        /// Refreshes the DataGridView with the latest closed projects.
+        /// </summary>
         private void RefreshDGV()
         {
             List<IProject> projects = projectService.GetProjectsByConsultant(loggedInConsultant.Id)
@@ -87,6 +112,9 @@ namespace Presentation.Customer
             DGVPopulate();
         }
 
+        /// <summary>
+        /// Populates the DataGridView with the necessary columns.
+        /// </summary>
         private void DGVPopulate()
         {
             DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
@@ -141,5 +169,4 @@ namespace Presentation.Customer
             dgv_closedProjects.Columns.Add(totalHoursColumn);
         }
     }
-
 }

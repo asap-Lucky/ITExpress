@@ -60,7 +60,7 @@ namespace Presentation.Customer
 
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void bt_EditConsultantInfo_Click(object sender, EventArgs e)

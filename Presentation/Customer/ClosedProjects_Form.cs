@@ -12,12 +12,13 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public partial class ClosedProjects : Form
     {
         private ICustomer loggedInCustomer;
-
         IProjectService projectService = new BLL.Services.ProjectService();
-
         BLL.Facader.ProjectService FacadeService;
 
         private Dictionary<string, int> statusMapping = new Dictionary<string, int>
@@ -36,6 +37,7 @@ namespace Presentation.Customer
             FacadeService = new ProjectService(projectService);
         }
 
+        // Initialize the DataGridView with closed projects
         public void InitializeDataGridView()
         {
             List<IProject> projects = projectService.GetProjectsByCostumer(loggedInCustomer)
@@ -47,6 +49,8 @@ namespace Presentation.Customer
 
             DGVPopulate();
         }
+
+        // Open the selected completed project for viewing
         private void ViewCompletedProject()
         {
             if (dgv_existingProjectsCustomer.SelectedRows.Count > 0)
@@ -64,6 +68,7 @@ namespace Presentation.Customer
             }
         }
 
+        // Refresh the DataGridView to show the updated closed projects
         private void RefreshDGV()
         {
             List<IProject> projects = projectService.GetProjectsByCostumer(loggedInCustomer)
@@ -79,6 +84,7 @@ namespace Presentation.Customer
             DGVPopulate();
         }
 
+        // Populate the DataGridView with columns and data
         private void DGVPopulate()
         {
             DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
@@ -140,11 +146,13 @@ namespace Presentation.Customer
             dgv_existingProjectsCustomer.Columns.Add(totalHoursColumn);
         }
 
+        // Open the selected completed project
         private void bt_OpenProject_Click(object sender, EventArgs e)
         {
             ViewCompletedProject();
         }
 
+        // Refresh the DataGridView
         private void bt_Refresh_Click(object sender, EventArgs e)
         {
             RefreshDGV();

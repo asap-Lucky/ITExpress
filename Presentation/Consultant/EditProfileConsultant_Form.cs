@@ -11,16 +11,15 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public partial class EditProfileConsultant : Form
     {
         private Abstraction.Interfaces.IConsultant loggedInConsultant;
-
         IConsultantService consultantService = new BLL.Services.ConsultantService();
-
         ICodeLangaugeService codeLanguageService = new BLL.Services.CodeLanguageService();
-
         IEndtypeService endtypeService = new BLL.Services.EndtypeService();
-
         BLL.Facader.ConsultantService FacadeService;
 
         public EditProfileConsultant(Abstraction.Interfaces.IConsultant loggedInConsultant)
@@ -30,6 +29,7 @@ namespace Presentation.Customer
             FacadeService = new BLL.Facader.ConsultantService(consultantService);
         }
 
+        // Discards the changes made on the profile by resetting the form fields
         private void bt_DiscardProfileChanges_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to discard changes? All changes WILL BE LOST!", "DISCARD CHANGES?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -43,12 +43,14 @@ namespace Presentation.Customer
             }
         }
 
+        // Loads the consultant data into the form fields when the form is loaded
         private void EditProfileConsultant_Load(object sender, EventArgs e)
         {
             InitializeCombobox();
             LoadConsultantData();
         }
 
+        // Loads the consultant data into the form fields
         private void LoadConsultantData()
         {
             loggedInConsultant = FacadeService.GetConsultant(loggedInConsultant.Id);
@@ -65,6 +67,7 @@ namespace Presentation.Customer
             cb_Endtype.Text = loggedInConsultant.EndType.EndType1;
         }
 
+        // Initializes the comboboxes with code languages and end types
         private void InitializeCombobox()
         {
             cb_Language.DataSource = codeLanguageService.GetAllCodeLanguages();
@@ -74,12 +77,12 @@ namespace Presentation.Customer
             cb_Endtype.DisplayMember = "Endtype1";
         }
 
+        // Saves the changes made on the profile
         private void SaveChanges()
         {
             // Check if the values of the zipcode and phonenumber can be converted to an integer.
             bool CanParseZipcode = int.TryParse(tb_currentZipCode.Text, out int zipcode);
             bool CanParsePhonenumber = int.TryParse(tb_currentPhoneNumber.Text, out int phonenumber);
-
 
             // Check if the zipcode only consists of numbers.
             if (!CanParseZipcode)
@@ -120,6 +123,7 @@ namespace Presentation.Customer
             }
         }
 
+        // Handles the click event of the Save Changes button
         private void bt_saveChangesOnProfile_Click(object sender, EventArgs e)
         {
             SaveChanges();

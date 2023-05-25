@@ -14,21 +14,22 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public partial class ExistingProjectOverview_Forn : Form
     {
         private ICustomer loggedInCustomer;
-
         IProjectService projectService = new BLL.Services.ProjectService();
-
         BLL.Facader.ProjectService FacadeService;
-
         private Dictionary<string, int> statusMapping = new Dictionary<string, int>
-            {
-                { "New", 1 },
-                { "In work", 4 },
-                { "Closed - Pending", 2 },
-                { "Closed", 3 },
-            };
+        {
+            { "New", 1 },
+            { "In work", 4 },
+            { "Closed - Pending", 2 },
+            { "Closed", 3 },
+        };
+
         public ExistingProjectOverview_Forn(ICustomer loggedInCustomer, IProjectService projectService)
         {
             this.loggedInCustomer = loggedInCustomer;
@@ -38,6 +39,7 @@ namespace Presentation.Customer
             FacadeService = new ProjectService(projectService);
         }
 
+        // Initialize the DataGridView with project data
         public void InitializeDataGridView()
         {
             List<IProject> projects = projectService.GetProjectsByCostumer(loggedInCustomer)
@@ -52,6 +54,7 @@ namespace Presentation.Customer
             DGVPopulate();
         }
 
+        // Refresh the DataGridView with updated project data
         private void RefreshDataGridView()
         {
             List<IProject> projects = projectService.GetProjectsByCostumer(loggedInCustomer)
@@ -67,6 +70,7 @@ namespace Presentation.Customer
             DGVPopulate();
         }
 
+        // Populate the DataGridView with columns and data
         private void DGVPopulate()
         {
             DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
@@ -138,6 +142,7 @@ namespace Presentation.Customer
             dgv_existingProjectsCustomer.Columns.Add(totalHoursColumn);
         }
 
+        // Handle cell validation for the Status column
         private void dgv_existingProjectsCustomer_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (dgv_existingProjectsCustomer.Columns[e.ColumnIndex].Name == "Status" && e.RowIndex >= 0)
@@ -163,6 +168,7 @@ namespace Presentation.Customer
             }
         }
 
+        // Commit cell value changes when the cell is dirty
         private void dgv_existingProjectsCustomer_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (dgv_existingProjectsCustomer.IsCurrentCellDirty)
@@ -171,11 +177,13 @@ namespace Presentation.Customer
             }
         }
 
+        // Refresh the DataGridView when the Refresh button is clicked
         private void bt_Refresh_Click(object sender, EventArgs e)
         {
             RefreshDataGridView();
         }
 
+        // Open a selected project in view-only mode
         private void bt_OpenProject_Click(object sender, EventArgs e)
         {
             if (dgv_existingProjectsCustomer.SelectedRows.Count > 0)
@@ -193,6 +201,7 @@ namespace Presentation.Customer
             }
         }
 
+        // Open a selected project in edit mode
         private void bt_EditProject_Click(object sender, EventArgs e)
         {
             if (dgv_existingProjectsCustomer.SelectedRows.Count > 0)
@@ -209,6 +218,7 @@ namespace Presentation.Customer
             }
         }
 
+        // Delete a selected project
         private void bt_DeleteProject_Click(object sender, EventArgs e)
         {
             IProject selectedProject = (IProject)dgv_existingProjectsCustomer.SelectedRows[0].DataBoundItem;

@@ -12,10 +12,11 @@ using BLL.Models;
 
 namespace UI.Costumer
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public partial class SignUpCustomer_Form : Form
     {
-       
-
          // Create an instance of the CustomerService class to use its methods.
          ICustomerService customerService = new BLL.Services.CustomerService();
          BLL.Facader.CustomerService FacadeService;

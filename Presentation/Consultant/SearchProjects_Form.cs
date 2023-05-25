@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public partial class SearchProjects : Form
     {
         private CodeLanguageService codeLanguageService = new CodeLanguageService();
-
         private EndtypeService endtypeService = new EndtypeService();
-
         private BLL.Services.ProjectService projectService = new BLL.Services.ProjectService();
-
         private InvitationService invitationService = new InvitationService();
 
         public SearchProjects()
@@ -29,6 +29,7 @@ namespace Presentation.Customer
             InitializeDGV();
         }
 
+        // Initialize the code language and end type comboboxes
         private void InitializeComboboxes()
         {
             cb_CodeLanguage.DataSource = codeLanguageService.GetAllCodeLanguages();
@@ -40,6 +41,7 @@ namespace Presentation.Customer
             cb_EndType.SelectedIndex = -1;
         }
 
+        // Initialize the DataGridView columns
         private void InitializeDGV()
         {
             dgv_Projects.AutoGenerateColumns = false;
@@ -80,15 +82,16 @@ namespace Presentation.Customer
             dgv_Projects.Columns.Add(endTypeColumn);
         }
 
+        // Perform the search and filter the projects
         public void FilterSearch()
         {
             var projects = projectService.GetAllProjects();
 
             try
             {
-                int codeLanguage = cb_CodeLanguage.SelectedIndex +1;
-                int endType = cb_EndType.SelectedIndex +1;
-                int projectStatus = 1; 
+                int codeLanguage = cb_CodeLanguage.SelectedIndex + 1;
+                int endType = cb_EndType.SelectedIndex + 1;
+                int projectStatus = 1;
 
                 var result = (from i in projects
                               where i.Language.Id == codeLanguage && i.EndType.Id == endType && i.Status == projectStatus
@@ -112,10 +115,11 @@ namespace Presentation.Customer
             }
             catch
             {
-                MessageBox.Show("An error has occured, please try again later!", "Error!");
+                MessageBox.Show("An error has occurred, please try again later!", "Error!");
             }
         }
 
+        // Reset the search filters and clear the DataGridView
         private void bt_ResetSearch_Click(object sender, EventArgs e)
         {
             cb_CodeLanguage.SelectedIndex = -1;
@@ -124,11 +128,13 @@ namespace Presentation.Customer
             dgv_Projects.DataSource = null;
         }
 
+        // Perform the search when the Search button is clicked
         private void bt_Search_Click(object sender, EventArgs e)
         {
             FilterSearch();
         }
 
+        // Handle the click event of the Open Project button
         private void bt_OpenProject_Click(object sender, EventArgs e)
         {
             if (dgv_Projects.SelectedRows.Count > 0)
@@ -150,10 +156,8 @@ namespace Presentation.Customer
                 else
                 {
                     invitationService.AddInvitation(invitation);
-                    MessageBox.Show("Invitation has been succesfully sent!", "Success!", MessageBoxButtons.OK);
+                    MessageBox.Show("Invitation has been successfully sent!", "Success!", MessageBoxButtons.OK);
                 }
-
-
             }
             else
             {

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace BLL.Facader
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public class ProjectService
     {
         //Create an Interface of type IProjectService

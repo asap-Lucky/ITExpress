@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_Sender = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_Reciver = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_Header = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_Body = new System.Windows.Forms.TextBox();
             this.bt_GoBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -46,23 +46,23 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.tb_Sender);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.tb_Reciver);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.tb_Header);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(557, 128);
             this.panel1.TabIndex = 0;
             // 
-            // textBox4
+            // tb_Sender
             // 
-            this.textBox4.Location = new System.Drawing.Point(47, 95);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(501, 20);
-            this.textBox4.TabIndex = 7;
+            this.tb_Sender.Location = new System.Drawing.Point(47, 95);
+            this.tb_Sender.Name = "tb_Sender";
+            this.tb_Sender.Size = new System.Drawing.Size(501, 20);
+            this.tb_Sender.TabIndex = 7;
             // 
             // label4
             // 
@@ -74,12 +74,12 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "From";
             // 
-            // textBox3
+            // tb_Reciver
             // 
-            this.textBox3.Location = new System.Drawing.Point(48, 54);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(501, 20);
-            this.textBox3.TabIndex = 5;
+            this.tb_Reciver.Location = new System.Drawing.Point(48, 54);
+            this.tb_Reciver.Name = "tb_Reciver";
+            this.tb_Reciver.Size = new System.Drawing.Size(501, 20);
+            this.tb_Reciver.TabIndex = 5;
             // 
             // label3
             // 
@@ -91,12 +91,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "To";
             // 
-            // textBox2
+            // tb_Header
             // 
-            this.textBox2.Location = new System.Drawing.Point(45, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(501, 20);
-            this.textBox2.TabIndex = 3;
+            this.tb_Header.Location = new System.Drawing.Point(45, 13);
+            this.tb_Header.Name = "tb_Header";
+            this.tb_Header.Size = new System.Drawing.Size(501, 20);
+            this.tb_Header.TabIndex = 3;
             // 
             // label2
             // 
@@ -112,7 +112,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tb_Body);
             this.panel2.Location = new System.Drawing.Point(13, 147);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(557, 250);
@@ -128,13 +128,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Body";
             // 
-            // textBox1
+            // tb_Body
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 24);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(540, 218);
-            this.textBox1.TabIndex = 0;
+            this.tb_Body.Location = new System.Drawing.Point(9, 24);
+            this.tb_Body.Multiline = true;
+            this.tb_Body.Name = "tb_Body";
+            this.tb_Body.Size = new System.Drawing.Size(540, 218);
+            this.tb_Body.TabIndex = 0;
             // 
             // bt_GoBack
             // 
@@ -151,7 +151,7 @@
             this.bt_GoBack.Text = "Back";
             this.bt_GoBack.UseVisualStyleBackColor = false;
             // 
-            // Message_Form
+            // RecieveMessage_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,7 +162,7 @@
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(599, 489);
             this.MinimumSize = new System.Drawing.Size(599, 489);
-            this.Name = "Message_Form";
+            this.Name = "RecieveMessage_Form";
             this.Text = "Message";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -175,15 +175,15 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tb_Sender;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_Reciver;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_Header;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_Body;
         private System.Windows.Forms.Button bt_GoBack;
     }
 }
