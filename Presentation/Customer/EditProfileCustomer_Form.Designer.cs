@@ -255,6 +255,7 @@
             this.tb_repeatNewPassword.Location = new System.Drawing.Point(285, 254);
             this.tb_repeatNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tb_repeatNewPassword.Name = "tb_repeatNewPassword";
+            this.tb_repeatNewPassword.PasswordChar = '*';
             this.tb_repeatNewPassword.Size = new System.Drawing.Size(269, 22);
             this.tb_repeatNewPassword.TabIndex = 6;
             // 
@@ -274,6 +275,7 @@
             this.tb_newPassWord.Location = new System.Drawing.Point(285, 159);
             this.tb_newPassWord.Margin = new System.Windows.Forms.Padding(4);
             this.tb_newPassWord.Name = "tb_newPassWord";
+            this.tb_newPassWord.PasswordChar = '*';
             this.tb_newPassWord.Size = new System.Drawing.Size(269, 22);
             this.tb_newPassWord.TabIndex = 4;
             // 

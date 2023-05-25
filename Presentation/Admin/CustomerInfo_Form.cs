@@ -64,13 +64,14 @@ namespace Presentation.Customer
 
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
+
         }
 
         private void bt_EditCustomerInfo_Click(object sender, EventArgs e)
         {
             //Hides this childform and opens another one on top of this
-            EditCustomerInfo editCustomerInfo = new EditCustomerInfo(selectedCustomer);//<-- Remember to take the selectedCustomer variable and put it in the constructor on the EditCustomerInfo_Form.
+            EditCustomerInfo editCustomerInfo = new EditCustomerInfo(selectedCustomer);
             editCustomerInfo.Show();
             this.Hide();
         }

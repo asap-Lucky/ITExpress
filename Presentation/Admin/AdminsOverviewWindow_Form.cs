@@ -88,6 +88,7 @@ namespace Presentation.Consultant
             Button button = (Button)sender;
             buttonColorChange_Click(button);
             OpenChildForm(new AllCustomerOverview_Form());
+            this.Show();
         }
 
         private void bt_ConsultantList_Click(object sender, EventArgs e)

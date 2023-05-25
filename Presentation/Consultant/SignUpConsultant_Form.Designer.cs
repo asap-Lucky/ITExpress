@@ -81,7 +81,7 @@ namespace UI.Consultant
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(21, 18);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(708, 1372);
             this.panel1.TabIndex = 1;
@@ -112,30 +112,30 @@ namespace UI.Consultant
             this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Location = new System.Drawing.Point(41, 750);
-            this.panel4.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel4.Margin = new System.Windows.Forms.Padding(5);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(872, 212);
             this.panel4.TabIndex = 12;
             // 
             // cb_endType_1
             // 
+            this.cb_endType_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_endType_1.FormattingEnabled = true;
             this.cb_endType_1.Location = new System.Drawing.Point(208, 143);
-            this.cb_endType_1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cb_endType_1.Margin = new System.Windows.Forms.Padding(5);
             this.cb_endType_1.Name = "cb_endType_1";
             this.cb_endType_1.Size = new System.Drawing.Size(357, 24);
             this.cb_endType_1.TabIndex = 8;
-            this.cb_endType_1.Text = "Please choose a prefered end-type";
             // 
             // cb_language_1
             // 
+            this.cb_language_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_language_1.FormattingEnabled = true;
             this.cb_language_1.Location = new System.Drawing.Point(208, 69);
-            this.cb_language_1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cb_language_1.Margin = new System.Windows.Forms.Padding(5);
             this.cb_language_1.Name = "cb_language_1";
             this.cb_language_1.Size = new System.Drawing.Size(357, 24);
             this.cb_language_1.TabIndex = 7;
-            this.cb_language_1.Text = "Please choose a prefered code language";
             // 
             // label18
             // 
@@ -187,7 +187,7 @@ namespace UI.Consultant
             this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Location = new System.Drawing.Point(41, 958);
-            this.panel3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(5);
             this.panel3.MaximumSize = new System.Drawing.Size(892, 356);
             this.panel3.MinimumSize = new System.Drawing.Size(892, 356);
             this.panel3.Name = "panel3";
@@ -197,8 +197,9 @@ namespace UI.Consultant
             // tb_RepeatPassWord
             // 
             this.tb_RepeatPassWord.Location = new System.Drawing.Point(208, 213);
-            this.tb_RepeatPassWord.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_RepeatPassWord.Margin = new System.Windows.Forms.Padding(5);
             this.tb_RepeatPassWord.Name = "tb_RepeatPassWord";
+            this.tb_RepeatPassWord.PasswordChar = '*';
             this.tb_RepeatPassWord.Size = new System.Drawing.Size(269, 22);
             this.tb_RepeatPassWord.TabIndex = 6;
             // 
@@ -223,7 +224,7 @@ namespace UI.Consultant
             this.bt_SignUpAsCostumer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_SignUpAsCostumer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.bt_SignUpAsCostumer.Location = new System.Drawing.Point(389, 286);
-            this.bt_SignUpAsCostumer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bt_SignUpAsCostumer.Margin = new System.Windows.Forms.Padding(5);
             this.bt_SignUpAsCostumer.Name = "bt_SignUpAsCostumer";
             this.bt_SignUpAsCostumer.Size = new System.Drawing.Size(240, 37);
             this.bt_SignUpAsCostumer.TabIndex = 11;
@@ -234,8 +235,9 @@ namespace UI.Consultant
             // tb_passWord
             // 
             this.tb_passWord.Location = new System.Drawing.Point(209, 133);
-            this.tb_passWord.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_passWord.Margin = new System.Windows.Forms.Padding(5);
             this.tb_passWord.Name = "tb_passWord";
+            this.tb_passWord.PasswordChar = '*';
             this.tb_passWord.Size = new System.Drawing.Size(269, 22);
             this.tb_passWord.TabIndex = 4;
             // 
@@ -249,7 +251,7 @@ namespace UI.Consultant
             this.bt_GoBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_GoBack.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.bt_GoBack.Location = new System.Drawing.Point(28, 286);
-            this.bt_GoBack.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bt_GoBack.Margin = new System.Windows.Forms.Padding(5);
             this.bt_GoBack.Name = "bt_GoBack";
             this.bt_GoBack.Size = new System.Drawing.Size(244, 37);
             this.bt_GoBack.TabIndex = 10;
@@ -271,7 +273,7 @@ namespace UI.Consultant
             // tb_userName
             // 
             this.tb_userName.Location = new System.Drawing.Point(209, 57);
-            this.tb_userName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_userName.Margin = new System.Windows.Forms.Padding(5);
             this.tb_userName.Name = "tb_userName";
             this.tb_userName.Size = new System.Drawing.Size(269, 22);
             this.tb_userName.TabIndex = 2;
@@ -322,7 +324,7 @@ namespace UI.Consultant
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(41, 112);
-            this.panel2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(872, 649);
             this.panel2.TabIndex = 6;
@@ -330,7 +332,7 @@ namespace UI.Consultant
             // tb_City
             // 
             this.tb_City.Location = new System.Drawing.Point(209, 361);
-            this.tb_City.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_City.Margin = new System.Windows.Forms.Padding(5);
             this.tb_City.Name = "tb_City";
             this.tb_City.Size = new System.Drawing.Size(269, 22);
             this.tb_City.TabIndex = 16;
@@ -349,7 +351,7 @@ namespace UI.Consultant
             // tb_repeatEmail
             // 
             this.tb_repeatEmail.Location = new System.Drawing.Point(208, 572);
-            this.tb_repeatEmail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_repeatEmail.Margin = new System.Windows.Forms.Padding(5);
             this.tb_repeatEmail.Name = "tb_repeatEmail";
             this.tb_repeatEmail.Size = new System.Drawing.Size(269, 22);
             this.tb_repeatEmail.TabIndex = 14;
@@ -368,7 +370,7 @@ namespace UI.Consultant
             // tb_email
             // 
             this.tb_email.Location = new System.Drawing.Point(208, 494);
-            this.tb_email.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_email.Margin = new System.Windows.Forms.Padding(5);
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(269, 22);
             this.tb_email.TabIndex = 12;
@@ -387,7 +389,7 @@ namespace UI.Consultant
             // tb_phoneNumber
             // 
             this.tb_phoneNumber.Location = new System.Drawing.Point(209, 425);
-            this.tb_phoneNumber.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_phoneNumber.Margin = new System.Windows.Forms.Padding(5);
             this.tb_phoneNumber.Name = "tb_phoneNumber";
             this.tb_phoneNumber.Size = new System.Drawing.Size(269, 22);
             this.tb_phoneNumber.TabIndex = 10;
@@ -406,7 +408,7 @@ namespace UI.Consultant
             // tb_zipCode
             // 
             this.tb_zipCode.Location = new System.Drawing.Point(209, 289);
-            this.tb_zipCode.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_zipCode.Margin = new System.Windows.Forms.Padding(5);
             this.tb_zipCode.Name = "tb_zipCode";
             this.tb_zipCode.Size = new System.Drawing.Size(264, 22);
             this.tb_zipCode.TabIndex = 8;
@@ -425,7 +427,7 @@ namespace UI.Consultant
             // tb_address
             // 
             this.tb_address.Location = new System.Drawing.Point(208, 213);
-            this.tb_address.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_address.Margin = new System.Windows.Forms.Padding(5);
             this.tb_address.Name = "tb_address";
             this.tb_address.Size = new System.Drawing.Size(265, 22);
             this.tb_address.TabIndex = 6;
@@ -444,7 +446,7 @@ namespace UI.Consultant
             // tb_lastName
             // 
             this.tb_lastName.Location = new System.Drawing.Point(208, 137);
-            this.tb_lastName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_lastName.Margin = new System.Windows.Forms.Padding(5);
             this.tb_lastName.Name = "tb_lastName";
             this.tb_lastName.Size = new System.Drawing.Size(264, 22);
             this.tb_lastName.TabIndex = 4;
@@ -463,7 +465,7 @@ namespace UI.Consultant
             // tb_firstName
             // 
             this.tb_firstName.Location = new System.Drawing.Point(208, 57);
-            this.tb_firstName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tb_firstName.Margin = new System.Windows.Forms.Padding(5);
             this.tb_firstName.Name = "tb_firstName";
             this.tb_firstName.Size = new System.Drawing.Size(264, 22);
             this.tb_firstName.TabIndex = 2;
@@ -527,7 +529,7 @@ namespace UI.Consultant
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(787, 753);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "SignUpConsultant_Form";
             this.Text = "SignInConsultant_Form";
             this.panel1.ResumeLayout(false);
