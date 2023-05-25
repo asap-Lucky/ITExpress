@@ -110,5 +110,11 @@ namespace Presentation.Customer
                 MessageBox.Show("Invitation Was Decline And Deleted", "DECLINE");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgv_AcceptedInvitations.Refresh();
+            dgv_newInvitations.Refresh();
+        }
     }
 }
