@@ -2,6 +2,7 @@
 using DAL.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,11 @@ namespace BLL.Services
         public List<IInvitation> GetInvitationsViaCostumer(ICustomer customer)
         {
             return InvitationRepo.GetAllInvitationsViaCostumer(customer);
+        }
+
+        public void DeleteInvitation(IInvitation invitation)
+        {
+            InvitationRepo.DeleteInvitation(invitation);
         }
     }
 }

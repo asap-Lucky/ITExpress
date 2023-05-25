@@ -35,8 +35,8 @@ namespace Presentation.Customer
             AcceptedInvitations = invitations.Where(i => i.AcceptStatus == true).ToList();
             IntializeDGV(dgv_newInvitations);
             IntializeDGV(dgv_AcceptedInvitations);
-            dgv_newInvitations.Refresh();
-            dgv_AcceptedInvitations.Refresh();
+            dgv_newInvitations.DataSource = PendingInvitations;
+            dgv_AcceptedInvitations.DataSource = AcceptedInvitations;
             dgv_newInvitations.ClearSelection();
             dgv_AcceptedInvitations.ClearSelection();
         }
@@ -91,6 +91,24 @@ namespace Presentation.Customer
             endTypeColumn.DataPropertyName = "GetProjectEndtype";
             endTypeColumn.HeaderText = "End Type";
             targetDataGridView.Columns.Add(endTypeColumn);
+        }
+
+        private void buttonDecline_Click(object sender, EventArgs e)
+        {
+            if (dgv_newInvitations.SelectedRows[0].DataBoundItem == null)
+            {
+                MessageBox.Show("Please Select a New Invitation", "No Selected Invite");
+            }
+            if (dgv_newInvitations.SelectedRows[0].DataBoundItem != null)
+            {
+                IInvitation invitation = (IInvitation)dgv_newInvitations.SelectedRows[0].DataBoundItem;
+                dgv_newInvitations.ClearSelection();
+                invitationService.DeleteInvitation(invitation);
+                PendingInvitations.Remove(invitation);
+                dgv_newInvitations.Refresh();
+                customerOverviewWindow_Form.InvitationNotification();
+                MessageBox.Show("Invitation Was Decline And Deleted", "DECLINE");
+            }
         }
     }
 }
