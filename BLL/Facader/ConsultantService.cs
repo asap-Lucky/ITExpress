@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace BLL.Facader
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public class ConsultantService
     {
         public IConsultantService consultantService { get; set; }
@@ -21,12 +24,14 @@ namespace BLL.Facader
 
 
         public ConsultantService(IConsultantService consultantService)
-        { 
+        {
             this.consultantService = consultantService;
             this.codeLanguageService = new CodeLanguageService();
             this.endtypeService = new EndtypeService();
         }
 
+        // RegisterConsultant method
+        // Registers a new consultant with the provided information.
         public void RegisterConsultant(string FirstName, string LastName, string Adress, int Zipcode, int Phonenumber, string Email, string Login, string Password, string City, ICodeLanguage CodeLanguage, IEndType Endtype)
         {
             MyConsultant = new Consultant
@@ -49,6 +54,8 @@ namespace BLL.Facader
             consultantService.AddConsultant(MyConsultant);
         }
 
+        // EditConsultantLoginInfo method
+        // Updates the login information (username and password) of a consultant with the given ID.
         public void EditConsultantLoginInfo(int Id, string Login, string Password)
         {
             // Initialize MyConsultant with a new instance of the Consultant class.
@@ -60,6 +67,8 @@ namespace BLL.Facader
             consultantService.EditConsultant(MyConsultant);
         }
 
+        // EditConsultant method
+        // Updates the general information (first name, last name, address, zipcode, phone number, email, city) of a consultant with the given ID.
         public void EditConsultant(int Id, string FirstName, string LastName, string Adress, int Zipcode, int Phonenumber, string Email, string City)
         {
             // Initialize MyConsultant with a new instance of the Consultant class.
@@ -77,6 +86,8 @@ namespace BLL.Facader
             consultantService.EditConsultant(MyConsultant);
         }
 
+        // EditConsultantSpecialization method
+        // Updates the code language and end type specializations of a consultant with the given ID.
         public void EditConsultantSpecialization(int id, ICodeLanguage language, IEndType endType)
         {
             MyConsultant = consultantService.GetConsultant(id);
@@ -87,16 +98,22 @@ namespace BLL.Facader
             consultantService.EditConsultant(MyConsultant);
         }
 
+        // GetConsultant method
+        // Retrieves a consultant with the given ID.
         public IConsultant GetConsultant(int Id)
         {
             return consultantService.GetConsultant(Id);
         }
 
+        // DuplicateEmailChecker method
+        // Checks if a consultant with the provided email address already exists.
         public IConsultant DuplicateEmailChecker(string email)
         {
             return consultantService.GetAllConsultants().FirstOrDefault(c => c.Email == email);
         }
 
+        // DuplicateUsernameChecker method
+        // Checks if a consultant with the provided login username already exists.
         public IConsultant DuplicateUsernameChecker(string username)
         {
             return consultantService.GetAllConsultants().FirstOrDefault(c => c.Login == username);

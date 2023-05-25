@@ -12,12 +12,13 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public partial class EditProfileCustomer : Form
     {
         private Abstraction.Interfaces.ICustomer loggedInCustomer;
-
         ICustomerService customerService = new BLL.Services.CustomerService();
-
         BLL.Facader.CustomerService FacadeService;
 
         public EditProfileCustomer(Abstraction.Interfaces.ICustomer loggedInCustomer)
@@ -27,11 +28,12 @@ namespace Presentation.Customer
             FacadeService = new BLL.Facader.CustomerService(customerService);
         }
 
+        // Discard changes made to the customer profile
         private void bt_DiscardProfileChanges_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to discard changes? All changes WILL BE LOST!", "DISCARD CHANGES?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
-            { 
+            {
                 LoadCustomerData();
                 tb_newUserName.Text = null;
                 tb_newPassWord.Text = null;
@@ -39,12 +41,14 @@ namespace Presentation.Customer
             }
         }
 
+        // Load customer data when the form is loaded
         private void EditProfileCustomer_Load(object sender, EventArgs e)
         {
             LoadCustomerData();
         }
 
-        private void LoadCustomerData() 
+        // Load customer data into the form
+        private void LoadCustomerData()
         {
             loggedInCustomer = FacadeService.GetCustomer(loggedInCustomer.Id);
 
@@ -57,12 +61,12 @@ namespace Presentation.Customer
             tb_currentEmail.Text = loggedInCustomer.Email;
         }
 
+        // Save changes made to the customer profile
         private void SaveChanges()
         {
             // Check if the values of the zipcode and phonenumber can be converted to an integer.
             bool CanParseZipcode = int.TryParse(tb_currentZipCode.Text, out int zipcode);
             bool CanParsePhonenumber = int.TryParse(tb_currentPhoneNumber.Text, out int phonenumber);
-
 
             // Check if the zipcode only consists of numbers.
             if (!CanParseZipcode)
@@ -101,10 +105,11 @@ namespace Presentation.Customer
             }
         }
 
+        // Save changes button click event handler
         private void bt_saveChangesOnProfile_Click(object sender, EventArgs e)
         {
             SaveChanges();
-            MessageBox.Show("Changes have been saved succesfully, you may now close this window safely!", "Saved succesfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Changes have been saved successfully, you may now close this window safely!", "Saved successfully!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

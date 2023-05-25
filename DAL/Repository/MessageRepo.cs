@@ -109,8 +109,6 @@ namespace DAL.Repository
             return messageModels;
         }
 
-        //Question: Explain what the method below does
-        //Answer: This method gets all messages from the database where the consultant id is equal to the consultant id passed in the parameter
         public List<IMessage> GetMessagesByConsultant(IConsultant consultant)
         {
             List<IMessage> messageModels = new List<IMessage>();

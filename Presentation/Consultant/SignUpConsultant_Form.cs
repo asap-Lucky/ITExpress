@@ -12,14 +12,14 @@ using BLL.Models;
 
 namespace UI.Consultant
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public partial class SignUpConsultant_Form : Form
     {
         IConsultantService consultantService = new BLL.Services.ConsultantService();
-
         ICodeLangaugeService codeLanguageService = new BLL.Services.CodeLanguageService();
-
         IEndtypeService endtypeService = new BLL.Services.EndtypeService();
-
         BLL.Facader.ConsultantService FacadeService;
 
         public SignUpConsultant_Form()
@@ -29,11 +29,13 @@ namespace UI.Consultant
             InitializeCombobox();
         }
 
+        // Handle the click event of the Go Back button
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Validate the input and register the consultant
         private bool RegisterConsultant()
         {
             // Check if the values of the zipcode and phonenumber can be converted to an integer.
@@ -82,18 +84,19 @@ namespace UI.Consultant
                 FacadeService.RegisterConsultant(tb_firstName.Text, tb_lastName.Text, tb_address.Text, zipcode, phonenumber, tb_email.Text, tb_userName.Text, tb_passWord.Text, tb_City.Text, (ICodeLanguage)cb_language_1.SelectedItem, (IEndType)cb_endType_1.SelectedItem);
                 return true;
             }
-            
         }
-   
+
+        // Handle the click event of the Sign Up as Customer button
         private void bt_SignUpAsCostumer_Click(object sender, EventArgs e)
         {
             if (RegisterConsultant())
             {
-                MessageBox.Show("Consultant created succesfully!", "Success!", MessageBoxButtons.OK);
+                MessageBox.Show("Consultant created successfully!", "Success!", MessageBoxButtons.OK);
                 this.Close();
             }
         }
 
+        // Initialize the combo boxes with code languages and end types
         private void InitializeCombobox()
         {
             cb_language_1.DataSource = codeLanguageService.GetAllCodeLanguages();

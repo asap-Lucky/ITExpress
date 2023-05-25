@@ -11,58 +11,89 @@ using UI.Costumer;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Djoan
+    /// </summary>
     public partial class AllProjectsOverview_Form : Form
     {
+        // Service for managing projects
         IProjectService projectService = new BLL.Services.ProjectService();
 
+        // Customer object
         private ICustomer customer;
 
-        BLL.Facader.ProjectService FacadeService;
+        // Facade service for project-related operations
+        private BLL.Facader.ProjectService facadeService;
 
+        /// <summary>
+        /// Mapping of status names to their corresponding numeric values
+        /// </summary>
         private Dictionary<string, int> statusMapping = new Dictionary<string, int>
-            {
-                { "New", 1 },
-                { "In work", 4 },
-                { "Closed - Pending", 2 },
-                { "Closed", 3 },
-            };
+    {
+        { "New", 1 },
+        { "In work", 4 },
+        { "Closed - Pending", 2 },
+        { "Closed", 3 },
+    };
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="projectService"></param>
+        /// <param name="customer"></param>
         public AllProjectsOverview_Form(IProjectService projectService, ICustomer customer)
         {
             this.projectService = projectService;
+            this.customer = customer;
             InitializeComponent();
             InitializeDGV();
-            FacadeService = new ProjectService(projectService);
-            this.customer = customer;
+            facadeService = new ProjectService(projectService);
         }
 
+        /// <summary>
+        /// Initializes the DataGridView (DGV) for displaying project data
+        /// </summary>
         private void InitializeDGV()
         {
+            // Retrieve the list of all projects
             List<IProject> projects = projectService.GetAllProjects().ToList();
 
+            // Configure DGV settings
             dgv_AllProjectsOverview.AutoGenerateColumns = false;
             dgv_AllProjectsOverview.DataSource = projects;
             dgv_AllProjectsOverview.CellValidating += dgv_AllProjectsOverview_CellValidating;
             dgv_AllProjectsOverview.CurrentCellDirtyStateChanged += dgv_AllProjectsOverview_CurrentCellDirtyStateChanged;
 
+            // Populate the DGV with columns and data
             PopulateDGV();
         }
 
+        /// <summary>
+        /// Refreshes the DGV with updated project data
+        /// </summary>
         private void RefreshDGV()
         {
+            // Retrieve the updated list of all projects
             List<IProject> projects = projectService.GetAllProjects().ToList();
 
-            dgv_AllProjectsOverview.DataSource = null; // Clear the current data source
-            dgv_AllProjectsOverview.Rows.Clear(); // Clear the existing rows
-            dgv_AllProjectsOverview.Columns.Clear(); // Clear the existing columns
+            // Clear the current data source, existing rows, and columns
+            dgv_AllProjectsOverview.DataSource = null;
+            dgv_AllProjectsOverview.Rows.Clear();
+            dgv_AllProjectsOverview.Columns.Clear();
 
-            dgv_AllProjectsOverview.DataSource = projects; // Assign the updated data source
+            // Assign the updated list of projects as the data source
+            dgv_AllProjectsOverview.DataSource = projects;
 
+            // Populate the DGV with columns and data
             PopulateDGV();
         }
 
+        /// <summary>
+        /// Populates the DGV with columns and data
+        /// </summary>
         private void PopulateDGV()
         {
+            // Create and configure columns for project information
             DataGridViewTextBoxColumn nameColumn = new DataGridViewTextBoxColumn();
             nameColumn.DataPropertyName = "Name";
             nameColumn.HeaderText = "Project name";
@@ -94,7 +125,7 @@ namespace Presentation.Customer
             dgv_AllProjectsOverview.Columns.Add(consultantColumn);
 
             // Iterate through the rows and set the cell value to an empty string if it's null
-            foreach (DataGridViewRow row in dgv_existingProjectsCustomer.Rows)
+            foreach (DataGridViewRow row in dgv_AllProjectsOverview.Rows)
             {
                 DataGridViewCell cell = row.Cells[consultantColumn.Index];
                 if (cell.Value == null)
@@ -138,31 +169,53 @@ namespace Presentation.Customer
             dgv_AllProjectsOverview.Columns.Add(totalHoursColumn);
         }
 
+        /// <summary>
+        /// Event handler for the Refresh button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_Refresh_Click(object sender, EventArgs e)
         {
             RefreshDGV();
         }
 
+        /// <summary>
+        /// Event handler for the View Project button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_ViewProject_Click(object sender, EventArgs e)
         {
-
+            // Retrieve the selected project from the DGV
             IProject selectedProject = dgv_AllProjectsOverview.SelectedRows[0].DataBoundItem as IProject;
 
+            // Open the project form in view-only mode
             EditProjectConsultant_Form openProjectForm = new EditProjectConsultant_Form(customer, selectedProject);
             openProjectForm.DisableEditing();
             openProjectForm.DisableHours();
             openProjectForm.ShowDialog();
-            
         }
 
+        /// <summary>
+        /// Event handler for the Edit Project button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_EditProject_Click(object sender, EventArgs e)
         {
+            // Retrieve the selected project from the DGV
             IProject selectedProject = dgv_AllProjectsOverview.SelectedRows[0].DataBoundItem as IProject;
 
+            // Open the project form in edit mode
             EditProjectConsultant_Form openProjectForm = new EditProjectConsultant_Form(customer, selectedProject);
             openProjectForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Event handler for validating the cell value in the Status column
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgv_AllProjectsOverview_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             if (dgv_AllProjectsOverview.Columns[e.ColumnIndex].Name == "Status" && e.RowIndex >= 0)
@@ -180,7 +233,8 @@ namespace Presentation.Customer
                     int projectId = project.Id;
                     int newStatus = project.Status;
 
-                    FacadeService.EditProjectStatus(projectId, newStatus);
+                    // Update the project status using the facade service
+                    facadeService.EditProjectStatus(projectId, newStatus);
 
                     // Update the Tag property to store the new value
                     cell.Tag = newValue;
@@ -188,6 +242,11 @@ namespace Presentation.Customer
             }
         }
 
+        /// <summary>
+        /// Event handler for handling the current cell dirty state change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgv_AllProjectsOverview_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             if (dgv_AllProjectsOverview.IsCurrentCellDirty)
@@ -196,17 +255,24 @@ namespace Presentation.Customer
             }
         }
 
+        /// <summary>
+        /// Event handler for the Delete button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_Delete_Click(object sender, EventArgs e)
         {
+            // Retrieve the selected project from the DGV
             IProject selectedProject = (IProject)dgv_AllProjectsOverview.SelectedRows[0].DataBoundItem;
-            var confirmResult = MessageBox.Show("Are you sure to delete this project?", "Confirm Delete!", MessageBoxButtons.YesNo);
+
+            // Confirm the deletion with a message box
+            var confirmResult = MessageBox.Show("Are you sure you want to delete this project?", "Confirm Delete!", MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
+                // Delete the project using the project service
                 projectService.DeleteProject(selectedProject);
                 RefreshDGV();
             }
         }
     }
-
 }
-
