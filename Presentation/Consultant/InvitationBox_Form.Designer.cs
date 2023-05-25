@@ -36,6 +36,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_AcceptedInvitations = new System.Windows.Forms.DataGridView();
+            this.buttonDeclineInvitation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_newInvitations)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -50,10 +51,9 @@
             this.bt_acceptInvitation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_acceptInvitation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_acceptInvitation.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_acceptInvitation.Location = new System.Drawing.Point(44, 201);
-            this.bt_acceptInvitation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_acceptInvitation.Location = new System.Drawing.Point(33, 163);
             this.bt_acceptInvitation.Name = "bt_acceptInvitation";
-            this.bt_acceptInvitation.Size = new System.Drawing.Size(273, 37);
+            this.bt_acceptInvitation.Size = new System.Drawing.Size(205, 30);
             this.bt_acceptInvitation.TabIndex = 20;
             this.bt_acceptInvitation.Text = "Accept Invitation";
             this.bt_acceptInvitation.UseVisualStyleBackColor = false;
@@ -66,11 +66,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_newInvitations.BackgroundColor = System.Drawing.Color.White;
             this.dgv_newInvitations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_newInvitations.Location = new System.Drawing.Point(0, 90);
-            this.dgv_newInvitations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_newInvitations.Location = new System.Drawing.Point(0, 73);
             this.dgv_newInvitations.Name = "dgv_newInvitations";
             this.dgv_newInvitations.RowHeadersWidth = 51;
-            this.dgv_newInvitations.Size = new System.Drawing.Size(480, 526);
+            this.dgv_newInvitations.Size = new System.Drawing.Size(360, 427);
             this.dgv_newInvitations.TabIndex = 23;
             // 
             // panel1
@@ -78,10 +77,9 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.lb_LogInSign);
             this.panel1.Controls.Add(this.dgv_newInvitations);
-            this.panel1.Location = new System.Drawing.Point(455, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(341, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(480, 615);
+            this.panel1.Size = new System.Drawing.Size(360, 500);
             this.panel1.TabIndex = 24;
             // 
             // lb_LogInSign
@@ -90,10 +88,9 @@
             this.lb_LogInSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.lb_LogInSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.lb_LogInSign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_LogInSign.Location = new System.Drawing.Point(4, 48);
-            this.lb_LogInSign.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_LogInSign.Location = new System.Drawing.Point(3, 39);
             this.lb_LogInSign.Name = "lb_LogInSign";
-            this.lb_LogInSign.Size = new System.Drawing.Size(230, 39);
+            this.lb_LogInSign.Size = new System.Drawing.Size(184, 31);
             this.lb_LogInSign.TabIndex = 24;
             this.lb_LogInSign.Text = "New invitation";
             this.lb_LogInSign.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,23 +103,22 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(44, 391);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(33, 318);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(273, 37);
+            this.button1.Size = new System.Drawing.Size(205, 30);
             this.button1.TabIndex = 26;
             this.button1.Text = "Refresh";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dgv_AcceptedInvitations);
-            this.panel2.Location = new System.Drawing.Point(943, 15);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(707, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(480, 615);
+            this.panel2.Size = new System.Drawing.Size(360, 500);
             this.panel2.TabIndex = 25;
             // 
             // label1
@@ -131,10 +127,9 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(4, 48);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(3, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(311, 39);
+            this.label1.Size = new System.Drawing.Size(249, 31);
             this.label1.TabIndex = 24;
             this.label1.Text = "Accepted inviations";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -146,26 +141,41 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_AcceptedInvitations.BackgroundColor = System.Drawing.Color.White;
             this.dgv_AcceptedInvitations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_AcceptedInvitations.Location = new System.Drawing.Point(0, 90);
-            this.dgv_AcceptedInvitations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_AcceptedInvitations.Location = new System.Drawing.Point(0, 73);
             this.dgv_AcceptedInvitations.Name = "dgv_AcceptedInvitations";
             this.dgv_AcceptedInvitations.RowHeadersWidth = 51;
-            this.dgv_AcceptedInvitations.Size = new System.Drawing.Size(480, 526);
+            this.dgv_AcceptedInvitations.Size = new System.Drawing.Size(360, 427);
             this.dgv_AcceptedInvitations.TabIndex = 23;
+            // 
+            // buttonDeclineInvitation
+            // 
+            this.buttonDeclineInvitation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.buttonDeclineInvitation.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonDeclineInvitation.FlatAppearance.BorderSize = 0;
+            this.buttonDeclineInvitation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeclineInvitation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeclineInvitation.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonDeclineInvitation.Location = new System.Drawing.Point(33, 237);
+            this.buttonDeclineInvitation.Name = "buttonDeclineInvitation";
+            this.buttonDeclineInvitation.Size = new System.Drawing.Size(205, 30);
+            this.buttonDeclineInvitation.TabIndex = 27;
+            this.buttonDeclineInvitation.Text = "Decline Invitation";
+            this.buttonDeclineInvitation.UseVisualStyleBackColor = false;
+            this.buttonDeclineInvitation.Click += new System.EventHandler(this.buttonDeclineInvitation_Click);
             // 
             // InvitationBox_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
-            this.ClientSize = new System.Drawing.Size(1440, 686);
+            this.ClientSize = new System.Drawing.Size(1040, 557);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonDeclineInvitation);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bt_acceptInvitation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "InvitationBox_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
@@ -188,5 +198,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgv_AcceptedInvitations;
+        private System.Windows.Forms.Button buttonDeclineInvitation;
     }
 }

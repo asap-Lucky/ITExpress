@@ -36,6 +36,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_AcceptedInvitations = new System.Windows.Forms.DataGridView();
+            this.buttonDecline = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_newInvitations)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -107,6 +108,7 @@
             this.button1.TabIndex = 26;
             this.button1.Text = "Refresh";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -143,6 +145,22 @@
             this.dgv_AcceptedInvitations.Size = new System.Drawing.Size(360, 427);
             this.dgv_AcceptedInvitations.TabIndex = 23;
             // 
+            // buttonDecline
+            // 
+            this.buttonDecline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.buttonDecline.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonDecline.FlatAppearance.BorderSize = 0;
+            this.buttonDecline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDecline.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDecline.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonDecline.Location = new System.Drawing.Point(33, 235);
+            this.buttonDecline.Name = "buttonDecline";
+            this.buttonDecline.Size = new System.Drawing.Size(205, 30);
+            this.buttonDecline.TabIndex = 27;
+            this.buttonDecline.Text = "Decline Invitation";
+            this.buttonDecline.UseVisualStyleBackColor = false;
+            this.buttonDecline.Click += new System.EventHandler(this.buttonDecline_Click);
+            // 
             // CustomerInvitationBox_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +168,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1080, 557);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonDecline);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -177,5 +196,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgv_AcceptedInvitations;
+        private System.Windows.Forms.Button buttonDecline;
     }
 }

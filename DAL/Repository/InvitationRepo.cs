@@ -83,6 +83,13 @@ namespace DAL.Repository
             return invitationModels;
         }
 
+        public void DeleteInvitation(IInvitation invitation)
+        {
+            var inviteToBeDeleted = DataContext.Invitations.FirstOrDefault(i => i.InvitationId == invitation.Id);
+            DataContext.Invitations.DeleteOnSubmit(inviteToBeDeleted);
+            DataContext.SubmitChanges();
+        }
+
         public void EditInvitation(IInvitation invitation)
         {
             var targetInvitation = DataContext.Invitations.First(i => i.InvitationId == invitation.Id);

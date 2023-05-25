@@ -23,6 +23,10 @@ namespace Presentation.Customer
         BLL.Services.ProjectService projectService;
         ConsultantOverviewWindow_Form consultantOverviewWindow_Form = new ConsultantOverviewWindow_Form();
 
+        /// <summary>
+        /// Mikkel: Does almost exactly the same as the CustomerInvitationForm but for consultant.
+        /// Probably a smarter way of doing this without using so much code (my money on inheirtance or interface).
+        /// </summary>
         public InvitationBox_Form()
         {
             InitializeComponent();
@@ -78,7 +82,7 @@ namespace Presentation.Customer
                 AcceptedInvitations.Add(invitation);
                 IProject project = invitation.Project;
                 project.Consultant = currentUser;
-                project.Status = 2;
+                project.Status = 4;
                 projectService.EditProject(project);
                 invitationService.EditInvitation(invitation);
                 dgv_newInvitations.DataSource = PendingInvitations;
@@ -87,6 +91,30 @@ namespace Presentation.Customer
                 consultantOverviewWindow_Form.InvitationNotification();
                 MessageBox.Show("SUCCESS","SUCCESS");
             }
+        }
+
+        private void buttonDeclineInvitation_Click(object sender, EventArgs e)
+        {
+            if (dgv_newInvitations.SelectedRows[0].DataBoundItem == null)
+            {
+                MessageBox.Show("Please Select a New Invitation", "No Selected Invite");
+            }
+            if (dgv_newInvitations.SelectedRows[0].DataBoundItem != null)
+            {
+                IInvitation invitation = (IInvitation)dgv_newInvitations.SelectedRows[0].DataBoundItem;
+                dgv_newInvitations.ClearSelection();
+                invitationService.DeleteInvitation(invitation);
+                PendingInvitations.Remove(invitation);
+                dgv_newInvitations.Refresh();
+                consultantOverviewWindow_Form.InvitationNotification();
+                MessageBox.Show("Invitation Was Decline And Deleted", "DECLINE");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgv_AcceptedInvitations.Refresh();
+            dgv_newInvitations.Refresh();
         }
     }
 }

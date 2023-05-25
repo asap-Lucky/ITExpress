@@ -15,8 +15,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace Presentation.Customer
 {
-    //Code Behind: Mikkel
+    /// <summary>
+    ///Code Behind: Mikkel
     //Visual: Marcel
+    /// </summary>
     public partial class SearchConsultant : Form
     {
         private ICustomer CustomerUser { get; set; }
@@ -26,6 +28,15 @@ namespace Presentation.Customer
         private List<IProject> DefaultProjectList { get; set; }
         private List<IConsultant> DefaultConsultantList { get; set; }
         private List<IConsultant> SortedConsultantsList { get; set; }
+
+        /// <summary>
+        /// MikkeL: Constructor for the SearchConsultantForm.
+        /// This one uses a user send as a argument instead of singleton cause it's old.
+        /// Service are instansiated, and list of project is created with items from the database.
+        /// It proceeds to remove project where the status is set to not started yet or the equivalent.
+        /// And sets the datasource of the project datagrid.
+        /// </summary>
+        /// <param name="customerUser"></param>
         public SearchConsultant(ICustomer customerUser)
         {
             InitializeComponent();
@@ -43,7 +54,9 @@ namespace Presentation.Customer
             dataGridView2.ClearSelection();
         }
 
-        //Intialize the project related datagrid
+        /// <summary>
+        /// Mikkel: Intialize the project related datagrid
+        /// </summary>
         public void IntializeDataGridView1()
         {
             dataGridView1.AutoGenerateColumns = false;
@@ -76,7 +89,9 @@ namespace Presentation.Customer
             dataGridView1.Columns.Add(startDateColumn);
         }
 
-        //Intialize the consultant related datagrid
+       /// <summary>
+       /// Mikkel: Intialize the consultant related datagrid
+       /// </summary>
         public void IntializeDataGridView2()
         {
             dataGridView2.AutoGenerateColumns = false;
@@ -120,7 +135,16 @@ namespace Presentation.Customer
             }
         }
 
-        //Functionality for the send invite buton.
+        /// <summary>
+        /// Mikkel: Functionality for the send invite buton.
+        /// It first check if the user has selected a row in each datagrid, notify if the statement is false.
+        /// If it passes it creates a new invitation the customer can send to the qualified consulant.
+        /// After the creation, another check is made to make sure that project dosen't already have a invitation pending, notify if is.
+        /// If all that gets pass, it sends the invitation and updates the datagrid
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_OpenProject_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
