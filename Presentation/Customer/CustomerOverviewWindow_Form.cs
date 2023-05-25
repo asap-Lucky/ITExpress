@@ -29,7 +29,7 @@ namespace Presentation.Customer
             IsMdiContainer = true;
             this.loggedInCustomer = BLL.Singleton.CustomerSingleton.Instance().User;
             invitationService = new BLL.Services.InvitationService();
-            PendingInvitations = invitationService.GetInvitationsViaCostumer(loggedInCustomer);
+            PendingInvitations = invitationService.GetInvitationsViaCostumer(loggedInCustomer).Where(i => i.AcceptStatus == i.AcceptStatus== false).ToList();
             lb_firstNameOfCustomer.Text = loggedInCustomer.FirstName;
             InvitationNotification();
 
