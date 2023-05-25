@@ -13,6 +13,7 @@ namespace Abstraction.Interfaces
         bool IsSend(IInvitation invitation);
         List<IInvitation> GetPendingInvitationsForConsultant(IConsultant consultant);
         List<IInvitation> GetAcceptedInvittationsForConsultant(IConsultant consultant);
+        List<IInvitation> GetPendingInvitationsForCustomer(ICustomer customer);
         void EditInvitation(IInvitation invitation);
         List<IInvitation> GetAllInvitationsViaCostumer(ICustomer customer);
     }

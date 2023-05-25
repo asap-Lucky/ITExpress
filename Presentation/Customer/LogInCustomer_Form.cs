@@ -45,7 +45,7 @@ namespace UI.All
                 BLL.Singleton.CustomerSingleton customerSingleton = BLL.Singleton.CustomerSingleton.Instance();
                 customerSingleton.User = customer;
                 this.Hide();
-                CustomerOverviewWindow_Form overViewWindow_Form = new CustomerOverviewWindow_Form(customer);
+                CustomerOverviewWindow_Form overViewWindow_Form = new CustomerOverviewWindow_Form();
                 overViewWindow_Form.ShowDialog();
                 this.Show();
                 tb_passWordCustomer.Clear();

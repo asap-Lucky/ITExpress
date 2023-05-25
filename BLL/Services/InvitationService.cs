@@ -31,6 +31,11 @@ namespace BLL.Services
             return InvitationRepo.GetPendingInvitationsForConsultant(consultant);
         }
 
+        public List<IInvitation> GetPendingInvitationsForCustomer(ICustomer customer)
+        {
+            return InvitationRepo.GetPendingInvitationsForCustomer(customer);
+        }
+
         public List<IInvitation> GetAcceptedInvittationsForConsultant(IConsultant consultant)
         {
             return InvitationRepo.GetAcceptedInvittationsForConsultant(consultant);

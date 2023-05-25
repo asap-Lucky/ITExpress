@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,90 +28,57 @@ namespace Presentation.Customer
             InitializeComponent();
             MessageService = new BLL.Services.MessageService();
             List<IMessage> messages = MessageService.GetMessagesByConsultant(ConsultantSingleton.Instance().User);
-            UnreadMessages = messages.Where(m => m.IsRead == false).ToList();
-            ReadMessages = messages.Where(m => m.IsRead == true).ToList();
-            DisplayReadMessagesInDGV();
+            var UnreadMessages = messages.Where(m => m.IsRead == false).ToList();
+            var ReadMessages = messages.Where(m => m.IsRead == true).ToList();
             DisplayUnreadMessagesInDGV();
         }
 
-        // Create a method called DisplayReadMessagesInDGV that displays the read messages in the dgv_readMessages using the CurrentConsultant property
-        private void DisplayReadMessagesInDGV()
+        private void BreedDGV()
         {
             dgv_currentConversations.AutoGenerateColumns = false;
             dgv_currentConversations.RowHeadersVisible = false;
             dgv_currentConversations.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            DataGridViewTextBoxColumn senderColumn = new DataGridViewTextBoxColumn();
-            senderColumn.DataPropertyName = "GetSenderName";
-            senderColumn.HeaderText = "Sender";
-            dgv_currentConversations.Columns.Add(senderColumn);
+            DataGridViewTextBoxColumn subjectHeader = new DataGridViewTextBoxColumn();
+            subjectHeader.DataPropertyName = "Message_Header";
+            subjectHeader.HeaderText = "Header";
+            dgv_currentConversations.Columns.Add(subjectHeader);
 
-            DataGridViewTextBoxColumn subjectColumn = new DataGridViewTextBoxColumn();
-            subjectColumn.DataPropertyName = "GetSubject";
-            subjectColumn.HeaderText = "Subject";
-            dgv_currentConversations.Columns.Add(subjectColumn);
+            DataGridViewTextBoxColumn subjectCustomer = new DataGridViewTextBoxColumn();
+            subjectCustomer.DataPropertyName = "GetSubject";
+            subjectCustomer.HeaderText = "Consultant";
+            dgv_currentConversations.Columns.Add(subjectCustomer);
 
-            DataGridViewTextBoxColumn dateColumn = new DataGridViewTextBoxColumn();
-            dateColumn.DataPropertyName = "GetDate";
-            dateColumn.HeaderText = "Date";
-            dgv_currentConversations.Columns.Add(dateColumn);
-
-            dgv_currentConversations.DataSource = ReadMessages;
+            DataGridViewTextBoxColumn subjectIsRead = new DataGridViewTextBoxColumn();
+            subjectIsRead.DataPropertyName = "Message_IsRead";
+            subjectIsRead.HeaderText = "IsRead";
+            dgv_currentConversations.Columns.Add(subjectIsRead);
         }
         
-
+        
+        //This does work partially. It does not display the messages in the dgv because the on line 64 it takes an input of an object and not an int value. Do stuff about it.
         private void DisplayUnreadMessagesInDGV()
         {
-            
+            BreedDGV();
+            BLL.Models.Consultant consultant = ConsultantSingleton.Instance().User as BLL.Models.Consultant;
+            List<IMessage> newMessages = MessageService.GetMessagesByConsultant(consultant);
+
+           
+            UnreadMessages = new List<IMessage>();
+            foreach (IMessage message in newMessages)
+            {
+                IMessage displayMessage = new BLL.Models.Message
+                {
+                    Header = message.Header,
+                    Body = message.Body,
+                    IsRead = message.IsRead,
+                    Customer = message.Customer
+                };
+                UnreadMessages.Add(displayMessage);
+            }
+
+            dgv_newMessages.DataSource = UnreadMessages;
         }
-
-
-
-        private void MessageBoxConsultant_Load(object sender, EventArgs e)
-        {
-            dgv_currentConversations.AutoGenerateColumns = false;
-            dgv_currentConversations.RowHeadersVisible = false;
-            dgv_currentConversations.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            DataGridViewTextBoxColumn senderColumn = new DataGridViewTextBoxColumn();
-            senderColumn.DataPropertyName = "GetSenderName";
-            senderColumn.HeaderText = "Sender";
-            dgv_currentConversations.Columns.Add(senderColumn);
-
-            DataGridViewTextBoxColumn subjectColumn = new DataGridViewTextBoxColumn();
-            subjectColumn.DataPropertyName = "GetSubject";
-            subjectColumn.HeaderText = "Subject";
-            dgv_currentConversations.Columns.Add(subjectColumn);
-
-            DataGridViewTextBoxColumn dateColumn = new DataGridViewTextBoxColumn();
-            dateColumn.DataPropertyName = "GetDate";
-            dateColumn.HeaderText = "Date";
-            dgv_currentConversations.Columns.Add(dateColumn);
-
-            dgv_currentConversations.DataSource = UnreadMessages;
-
-            dgv_newMessages.AutoGenerateColumns = false;
-            dgv_newMessages.RowHeadersVisible = false;
-            dgv_newMessages.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            DataGridViewTextBoxColumn senderColumn2 = new DataGridViewTextBoxColumn();
-            senderColumn2.DataPropertyName = "GetSenderName";
-            senderColumn2.HeaderText = "Sender";
-            dgv_newMessages.Columns.Add(senderColumn2);
-
-            DataGridViewTextBoxColumn subjectColumn2 = new DataGridViewTextBoxColumn();
-            subjectColumn2.DataPropertyName = "GetSubject";
-            subjectColumn2.HeaderText = "Subject";
-            dgv_newMessages.Columns.Add(subjectColumn2);
-
-            DataGridViewTextBoxColumn dateColumn2 = new DataGridViewTextBoxColumn();
-            dateColumn2.DataPropertyName = "GetDate";
-            dateColumn2.HeaderText = "Date";
-            dgv_newMessages.Columns.Add(dateColumn2);
-
-            dgv_newMessages.DataSource = ReadMessages;
-        }
-        
         
 
     }

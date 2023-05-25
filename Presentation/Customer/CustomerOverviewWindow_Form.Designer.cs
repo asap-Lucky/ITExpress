@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.lb_InvitationNotification = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.bt_Messages = new System.Windows.Forms.Button();
             this.bt_LogOut = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.lb_InvitationNotification);
             this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.bt_Messages);
             this.panelMenu.Controls.Add(this.bt_LogOut);
@@ -62,10 +64,22 @@
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(267, 814);
             this.panelMenu.TabIndex = 0;
+            // 
+            // lb_InvitationNotification
+            // 
+            this.lb_InvitationNotification.AutoSize = true;
+            this.lb_InvitationNotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_InvitationNotification.ForeColor = System.Drawing.Color.Red;
+            this.lb_InvitationNotification.Location = new System.Drawing.Point(196, 592);
+            this.lb_InvitationNotification.Name = "lb_InvitationNotification";
+            this.lb_InvitationNotification.Size = new System.Drawing.Size(64, 25);
+            this.lb_InvitationNotification.TabIndex = 10;
+            this.lb_InvitationNotification.Text = "label2";
+            this.lb_InvitationNotification.Visible = false;
             // 
             // button1
             // 
@@ -75,7 +89,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(0, 567);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(267, 74);
             this.button1.TabIndex = 9;
@@ -91,7 +105,7 @@
             this.bt_Messages.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_Messages.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bt_Messages.Location = new System.Drawing.Point(0, 493);
-            this.bt_Messages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_Messages.Margin = new System.Windows.Forms.Padding(4);
             this.bt_Messages.Name = "bt_Messages";
             this.bt_Messages.Size = new System.Drawing.Size(267, 74);
             this.bt_Messages.TabIndex = 8;
@@ -108,7 +122,7 @@
             this.bt_LogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_LogOut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bt_LogOut.Location = new System.Drawing.Point(0, 740);
-            this.bt_LogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_LogOut.Margin = new System.Windows.Forms.Padding(4);
             this.bt_LogOut.Name = "bt_LogOut";
             this.bt_LogOut.Size = new System.Drawing.Size(267, 74);
             this.bt_LogOut.TabIndex = 7;
@@ -124,7 +138,7 @@
             this.bt_editProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_editProfile.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bt_editProfile.Location = new System.Drawing.Point(0, 419);
-            this.bt_editProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_editProfile.Margin = new System.Windows.Forms.Padding(4);
             this.bt_editProfile.Name = "bt_editProfile";
             this.bt_editProfile.Size = new System.Drawing.Size(267, 74);
             this.bt_editProfile.TabIndex = 5;
@@ -140,7 +154,7 @@
             this.bt_searchConsultant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_searchConsultant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bt_searchConsultant.Location = new System.Drawing.Point(0, 345);
-            this.bt_searchConsultant.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_searchConsultant.Margin = new System.Windows.Forms.Padding(4);
             this.bt_searchConsultant.Name = "bt_searchConsultant";
             this.bt_searchConsultant.Size = new System.Drawing.Size(267, 74);
             this.bt_searchConsultant.TabIndex = 4;
@@ -156,7 +170,7 @@
             this.bt_closedProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_closedProjects.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bt_closedProjects.Location = new System.Drawing.Point(0, 271);
-            this.bt_closedProjects.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_closedProjects.Margin = new System.Windows.Forms.Padding(4);
             this.bt_closedProjects.Name = "bt_closedProjects";
             this.bt_closedProjects.Size = new System.Drawing.Size(267, 74);
             this.bt_closedProjects.TabIndex = 3;
@@ -172,7 +186,7 @@
             this.bt_existingProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_existingProjects.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.bt_existingProjects.Location = new System.Drawing.Point(0, 197);
-            this.bt_existingProjects.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_existingProjects.Margin = new System.Windows.Forms.Padding(4);
             this.bt_existingProjects.Name = "bt_existingProjects";
             this.bt_existingProjects.Size = new System.Drawing.Size(267, 74);
             this.bt_existingProjects.TabIndex = 2;
@@ -188,7 +202,7 @@
             this.bt_createNewProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bt_createNewProject.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.bt_createNewProject.Location = new System.Drawing.Point(0, 123);
-            this.bt_createNewProject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_createNewProject.Margin = new System.Windows.Forms.Padding(4);
             this.bt_createNewProject.Name = "bt_createNewProject";
             this.bt_createNewProject.Size = new System.Drawing.Size(267, 74);
             this.bt_createNewProject.TabIndex = 1;
@@ -202,7 +216,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 123);
             this.panel1.TabIndex = 0;
@@ -210,7 +224,7 @@
             // panel3
             // 
             this.panel3.Location = new System.Drawing.Point(267, 123);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(267, 123);
             this.panel3.TabIndex = 2;
@@ -222,7 +236,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(267, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1445, 123);
             this.panel2.TabIndex = 1;
@@ -258,7 +272,7 @@
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(267, 123);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(4);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Size = new System.Drawing.Size(1445, 691);
             this.panelDesktop.TabIndex = 2;
@@ -272,10 +286,11 @@
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMenu);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CustomerOverviewWindow_Form";
             this.Text = "OverViewWindow_Form";
             this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -300,5 +315,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lb_InvitationNotification;
     }
 }
