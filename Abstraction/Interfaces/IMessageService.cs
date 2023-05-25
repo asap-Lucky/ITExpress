@@ -16,5 +16,9 @@ namespace Abstraction.Interfaces
 
         List<IMessage> GetMessagesByConsultant(IConsultant consultant);
 
+        List<IMessage> EditIsReadMessages (IMessage message);
+
+        IMessage GetMessage(int id);
+
     }
 }

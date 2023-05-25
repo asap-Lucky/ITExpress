@@ -36,5 +36,14 @@ namespace BLL.Services
             return _messageRepo.GetMessagesByConsultant(consultant);
         }
 
+        public List<IMessage> EditIsReadMessages(IMessage message)
+        {
+            return _messageRepo.EditIsReadMessage(message);
+        }
+
+        public IMessage GetMessage(int id)
+        {
+            return _messageRepo.GetMessage(id);
+        }
     }
 }

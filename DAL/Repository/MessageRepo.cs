@@ -38,54 +38,7 @@ namespace DAL.Repository
             DataContext.SubmitChanges();
         }
 
-        private IMessage MapToModel(Database.Message messageData)
-        {
-            Models.Message messageModel = new Models.Message()
-            {
-                MessageId = messageData.MessageId,
-                Header = messageData.Message_Header,
-                Body = messageData.Message_Content,
-                IsRead = messageData.Message_IsRead,
-                Customer = new Models.Customer()
-
-                {
-                    Id = messageData.Customer.CustomerId,
-                    FirstName = messageData.Customer.Customer_FirstName,
-                    LastName = messageData.Customer.Customer_LastName,
-                    Login = messageData.Customer.Customer_Login,
-                    Password = messageData.Customer.Customer_Password,
-                    Email = messageData.Customer.Customer_Email,
-                    Address = messageData.Customer.Customer_Address,
-                    ZipCode = messageData.Customer.Customer_ZipCode,
-                    City = messageData.Customer.Customer_City,
-                    PhoneNumber = messageData.Customer.Customer_PhoneNumber
-                },
-                Consultant = new Models.Consultant()
-                {
-                    Id = messageData.Consultant.ConsultantId,
-                    FirstName = messageData.Consultant.Consultant_FirstName,
-                    LastName = messageData.Consultant.Consultant_LastName,
-                    Login = messageData.Consultant.Consultant_Login,
-                    Password = messageData.Consultant.Consultant_Password,
-                    Email = messageData.Consultant.Consultant_Email,
-                    ZipCode = messageData.Consultant.Consultant_ZipCode,
-                    City = messageData.Consultant.Consultant_City,
-                    Address = messageData.Consultant.Consultant_Address,
-                    PhoneNumber = messageData.Consultant.Consultant_PhoneNumber,
-                    Language = new Models.CodeLanguage()
-                    {
-                        Id = messageData.Consultant.CodeLanguage.Id,
-                        Language = messageData.Consultant.CodeLanguage.LanguageName
-                    },
-                    EndType = new Models.EndType()
-                    {
-                        Id = messageData.Consultant.EndType.Id,
-                        EndType1 = messageData.Consultant.EndType.EndType1
-                    }
-                }
-            };
-            return messageModel;
-        }        
+        
         private Database.Message MapToData(IMessage messageModel)
         {
             Database.Message messageData = new Database.Message()
@@ -109,8 +62,6 @@ namespace DAL.Repository
             return messageModels;
         }
 
-        //Question: Explain what the method below does
-        //Answer: This method gets all messages from the database where the consultant id is equal to the consultant id passed in the parameter
         public List<IMessage> GetMessagesByConsultant(IConsultant consultant)
         {
             List<IMessage> messageModels = new List<IMessage>();
@@ -121,6 +72,77 @@ namespace DAL.Repository
                 messageModels.Add(MapToModel(message));
             }
             return messageModels;
+        }
+
+        //Edits a singular messages IsRead property
+        public List<IMessage> EditIsReadMessage (IMessage message)
+        {
+            var messageData = DataContext.Messages.Where(m => m.MessageId == message.MessageId).FirstOrDefault();
+            messageData.Message_IsRead = message.IsRead;
+            DataContext.SubmitChanges();
+            return GetAllMessages();
+        }
+
+        public IMessage GetMessage(int id)
+        {           
+            var dataMessage = DataContext.Messages.FirstOrDefault(c => c.MessageId == id);
+            if (dataMessage != null)
+            {
+                IMessage message = MapToModel(dataMessage);
+                return message;
+            }
+            return new Models.Message();
+        }
+
+        private IMessage MapToModel(Database.Message messageData)
+        {
+            ICustomer messageCustomer = new Models.Customer()
+            {
+                Id = messageData.Customer.CustomerId,
+                FirstName = messageData.Customer.Customer_FirstName,
+                LastName = messageData.Customer.Customer_LastName,
+                Login = messageData.Customer.Customer_Login,
+                Password = messageData.Customer.Customer_Password,
+                Email = messageData.Customer.Customer_Email,
+                Address = messageData.Customer.Customer_Address,
+                ZipCode = messageData.Customer.Customer_ZipCode,
+                City = messageData.Customer.Customer_City,
+                PhoneNumber = messageData.Customer.Customer_PhoneNumber
+            };
+
+            IConsultant messageConsultant = new Models.Consultant()
+            {
+                Id = messageData.Consultant.ConsultantId,
+                FirstName = messageData.Consultant.Consultant_FirstName,
+                LastName = messageData.Consultant.Consultant_LastName,
+                Login = messageData.Consultant.Consultant_Login,
+                Password = messageData.Consultant.Consultant_Password,
+                Email = messageData.Consultant.Consultant_Email,
+                ZipCode = messageData.Consultant.Consultant_ZipCode,
+                City = messageData.Consultant.Consultant_City,
+                Address = messageData.Consultant.Consultant_Address,
+                PhoneNumber = messageData.Consultant.Consultant_PhoneNumber,
+                Language = new Models.CodeLanguage()
+                {
+                    Id = messageData.Consultant.CodeLanguage.Id,
+                    Language = messageData.Consultant.CodeLanguage.LanguageName
+                },
+                EndType = new Models.EndType()
+                {
+                    Id = messageData.Consultant.EndType.Id,
+                    EndType1 = messageData.Consultant.EndType.EndType1
+                }
+            };
+
+            IMessage messageModel = new Models.Message() 
+            {   Body = messageData.Message_Content, 
+                Header = messageData.Message_Header, 
+                IsRead = messageData.Message_IsRead, 
+                Customer = messageCustomer, 
+                Consultant = messageConsultant };
+
+
+            return messageModel;
         }
     }
 }

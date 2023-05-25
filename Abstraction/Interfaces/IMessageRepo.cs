@@ -15,6 +15,10 @@ namespace Abstraction.Interfaces
         List<IMessage> GetMessagesByCustomer(ICustomer customer);
 
         List<IMessage> GetMessagesByConsultant(IConsultant consultant);
+
+        List<IMessage> EditIsReadMessage(IMessage message);
+
+        IMessage GetMessage(int id);
     }
   
 }
