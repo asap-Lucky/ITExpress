@@ -18,5 +18,6 @@ namespace DAL.Models
         public IConsultant Consultant { get; set; }   
 
         public bool IsRead { get; set; }
+        public string GetCustomerName { get { return Customer.Login; } }
     }
 }

@@ -15,6 +15,6 @@ namespace BLL.Models
         public string Header { get; set; }
         public string Body { get; set; }
         public bool IsRead { get; set; }
-
+        public string GetCustomerName { get; }
     }
 }
