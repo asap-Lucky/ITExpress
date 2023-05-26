@@ -79,9 +79,16 @@ namespace Presentation.All
 
         private void buttonRespond_Click(object sender, EventArgs e)
         {
-            ConsultantMessage_Form consultantMessage_Form = new ConsultantMessage_Form();
-            consultantMessage_Form.MessageRespond();
-            consultantMessage_Form.ShowDialog();
+            buttonRespond.Enabled = false;
+            buttonSend.Enabled = true;
+            labelFrom.Visible = false;
+            tb_From.Visible = false;
+            comboBoxTo.Visible = true;
+            comboBoxTo.Enabled = false;
+            comboBoxTo.Text = CustomerMessage.Customer.Email;
+            tb_Title.Text = "Re: " + tb_Title.Text;
+            tb_BodyMessage.Enabled = true;
+            tb_BodyMessage.Clear();
         }
 
         private void buttonSend_Click(object sender, EventArgs e)

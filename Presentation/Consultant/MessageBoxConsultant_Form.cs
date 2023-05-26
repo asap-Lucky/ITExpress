@@ -125,7 +125,7 @@ namespace Presentation.Customer
                     // Access the selected item
                     IMessage selectedMessage = (IMessage)dgv_currentConversations.Rows[selectedIndex].DataBoundItem;
 
-                    RecieveMessage_Form openMessageForm = new RecieveMessage_Form(selectedMessage);
+                    ConsultantMessage_Form openMessageForm = new ConsultantMessage_Form(selectedMessage);
                     openMessageForm.ShowDialog();
                 }
             }
@@ -144,7 +144,7 @@ namespace Presentation.Customer
                     // Access the selected item
                     IMessage selectedMessage = UnreadMessages[selectedIndex];
 
-                    RecieveMessage_Form openMessageForm = new RecieveMessage_Form(selectedMessage);
+                    ConsultantMessage_Form openMessageForm = new ConsultantMessage_Form(selectedMessage);
                     selectedMessage.IsRead = true;
                     MessageService.UpdateMessageStatus(selectedMessage);
                     openMessageForm.ShowDialog();
