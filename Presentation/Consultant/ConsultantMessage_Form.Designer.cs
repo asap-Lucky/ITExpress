@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxTo = new System.Windows.Forms.ComboBox();
             this.tb_From = new System.Windows.Forms.TextBox();
             this.labelFrom = new System.Windows.Forms.Label();
             this.labelTo = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.bt_GoBack = new System.Windows.Forms.Button();
             this.buttonSend = new System.Windows.Forms.Button();
             this.buttonRespond = new System.Windows.Forms.Button();
-            this.comboBoxTo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(557, 128);
             this.panel1.TabIndex = 0;
+            // 
+            // comboBoxTo
+            // 
+            this.comboBoxTo.FormattingEnabled = true;
+            this.comboBoxTo.Location = new System.Drawing.Point(47, 54);
+            this.comboBoxTo.Name = "comboBoxTo";
+            this.comboBoxTo.Size = new System.Drawing.Size(499, 21);
+            this.comboBoxTo.TabIndex = 8;
             // 
             // tb_From
             // 
@@ -161,6 +169,7 @@
             this.buttonSend.TabIndex = 33;
             this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = false;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // buttonRespond
             // 
@@ -177,14 +186,6 @@
             this.buttonRespond.Text = "Respond";
             this.buttonRespond.UseVisualStyleBackColor = false;
             this.buttonRespond.Click += new System.EventHandler(this.buttonRespond_Click);
-            // 
-            // comboBoxTo
-            // 
-            this.comboBoxTo.FormattingEnabled = true;
-            this.comboBoxTo.Location = new System.Drawing.Point(47, 54);
-            this.comboBoxTo.Name = "comboBoxTo";
-            this.comboBoxTo.Size = new System.Drawing.Size(499, 21);
-            this.comboBoxTo.TabIndex = 8;
             // 
             // ConsultantMessage_Form
             // 

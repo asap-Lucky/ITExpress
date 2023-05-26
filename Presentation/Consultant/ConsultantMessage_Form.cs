@@ -14,22 +14,25 @@ using BLL.Singleton;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using Presentation.Customer;
 using BLL.Facader;
+using Message = BLL.Models.Message;
 
 namespace Presentation.All
 {
     public partial class ConsultantMessage_Form : Form
     {
+        MessageService MessageService { get; set; }
         IMessage CustomerMessage { get; set; }
         List<ICustomer> Customers { get; set; }
         BLL.Facader.CustomerService CustomerService { get; set; }
 
         public  ConsultantMessage_Form()
         {
-            InitializeComponent();          
+            InitializeComponent();                     
+            MessageService = new MessageService();
+            CustomerService = new BLL.Facader.CustomerService(new BLL.Services.CustomerService());
             buttonRespond.Visible = false;
             labelFrom.Visible = false;
             tb_From.Visible = false;
-            CustomerService = new BLL.Facader.CustomerService(new BLL.Services.CustomerService());
             Customers = CustomerService.GetAllCustomers();
             comboBoxTo.DisplayMember = "Email";
             comboBoxTo.ValueMember = "ICustomer";
@@ -39,6 +42,8 @@ namespace Presentation.All
         public ConsultantMessage_Form(IMessage message)
         {
             InitializeComponent();
+            MessageService = new MessageService();
+            CustomerService = new BLL.Facader.CustomerService(new BLL.Services.CustomerService());
             CustomerMessage = message;
             buttonSend.Enabled = false;
             labelTo.Visible = false;
@@ -77,6 +82,22 @@ namespace Presentation.All
             ConsultantMessage_Form consultantMessage_Form = new ConsultantMessage_Form();
             consultantMessage_Form.MessageRespond();
             consultantMessage_Form.ShowDialog();
+        }
+
+        private void buttonSend_Click(object sender, EventArgs e)
+        {            
+            ICustomer messageCustomer = CustomerService.GetAllCustomers().FirstOrDefault(c => c.Email == comboBoxTo.Text);
+            IMessage messageSend = new Message()
+            {
+                Header = tb_Title.Text,
+                Body = tb_BodyMessage.Text,
+                Customer = messageCustomer,
+                Consultant = ConsultantSingleton.Instance().User,
+                IsRead = false
+            };
+            MessageService.AddMessage(messageSend);
+            MessageBox.Show("The Message Was Sent","Confirmation");
+            this.Close();
         }
     }
 }
