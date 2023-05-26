@@ -52,7 +52,7 @@
             this.bt_openMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_openMessage.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_openMessage.Location = new System.Drawing.Point(44, 105);
-            this.bt_openMessage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_openMessage.Margin = new System.Windows.Forms.Padding(4);
             this.bt_openMessage.Name = "bt_openMessage";
             this.bt_openMessage.Size = new System.Drawing.Size(273, 37);
             this.bt_openMessage.TabIndex = 20;
@@ -69,7 +69,7 @@
             this.bt_writeMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_writeMessage.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_writeMessage.Location = new System.Drawing.Point(44, 182);
-            this.bt_writeMessage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_writeMessage.Margin = new System.Windows.Forms.Padding(4);
             this.bt_writeMessage.Name = "bt_writeMessage";
             this.bt_writeMessage.Size = new System.Drawing.Size(273, 37);
             this.bt_writeMessage.TabIndex = 19;
@@ -79,12 +79,21 @@
             // 
             // dgv_newMessages
             // 
+            this.dgv_newMessages.AllowUserToAddRows = false;
+            this.dgv_newMessages.AllowUserToDeleteRows = false;
+            this.dgv_newMessages.AllowUserToResizeColumns = false;
+            this.dgv_newMessages.AllowUserToResizeRows = false;
+            this.dgv_newMessages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_newMessages.BackgroundColor = System.Drawing.Color.White;
             this.dgv_newMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_newMessages.Location = new System.Drawing.Point(0, 90);
-            this.dgv_newMessages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_newMessages.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_newMessages.MultiSelect = false;
             this.dgv_newMessages.Name = "dgv_newMessages";
+            this.dgv_newMessages.ReadOnly = true;
+            this.dgv_newMessages.RowHeadersVisible = false;
             this.dgv_newMessages.RowHeadersWidth = 51;
+            this.dgv_newMessages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_newMessages.Size = new System.Drawing.Size(479, 566);
             this.dgv_newMessages.TabIndex = 23;
             this.dgv_newMessages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_newMessages_CellContentClick);
@@ -96,7 +105,7 @@
             this.panel1.Controls.Add(this.lb_LogInSign);
             this.panel1.Controls.Add(this.dgv_newMessages);
             this.panel1.Location = new System.Drawing.Point(400, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(479, 656);
             this.panel1.TabIndex = 24;
@@ -121,7 +130,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dgv_currentConversations);
             this.panel2.Location = new System.Drawing.Point(945, 15);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(479, 656);
             this.panel2.TabIndex = 25;
@@ -142,12 +151,21 @@
             // 
             // dgv_currentConversations
             // 
+            this.dgv_currentConversations.AllowUserToAddRows = false;
+            this.dgv_currentConversations.AllowUserToDeleteRows = false;
+            this.dgv_currentConversations.AllowUserToResizeColumns = false;
+            this.dgv_currentConversations.AllowUserToResizeRows = false;
+            this.dgv_currentConversations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_currentConversations.BackgroundColor = System.Drawing.Color.White;
             this.dgv_currentConversations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_currentConversations.Location = new System.Drawing.Point(0, 90);
-            this.dgv_currentConversations.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_currentConversations.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_currentConversations.MultiSelect = false;
             this.dgv_currentConversations.Name = "dgv_currentConversations";
+            this.dgv_currentConversations.ReadOnly = true;
+            this.dgv_currentConversations.RowHeadersVisible = false;
             this.dgv_currentConversations.RowHeadersWidth = 51;
+            this.dgv_currentConversations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_currentConversations.Size = new System.Drawing.Size(479, 566);
             this.dgv_currentConversations.TabIndex = 24;
             this.dgv_currentConversations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_currentConversations_CellContentClick);
@@ -162,7 +180,7 @@
             this.bt_SaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_SaveChanges.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bt_SaveChanges.Location = new System.Drawing.Point(44, 537);
-            this.bt_SaveChanges.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_SaveChanges.Margin = new System.Windows.Forms.Padding(4);
             this.bt_SaveChanges.Name = "bt_SaveChanges";
             this.bt_SaveChanges.Size = new System.Drawing.Size(273, 37);
             this.bt_SaveChanges.TabIndex = 26;
@@ -182,7 +200,7 @@
             this.Controls.Add(this.bt_openMessage);
             this.Controls.Add(this.bt_writeMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MessageBoxConsultant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
