@@ -94,6 +94,7 @@
     <Compile Include="Repository\MessageRepo.cs" />
     <Compile Include="Repository\InvitationRepo.cs" />
     <Compile Include="Repository\ProjectRepo.cs" />
+    <Compile Include="Repository\SQLCustomerRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

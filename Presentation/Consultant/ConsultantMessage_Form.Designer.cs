@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tb_SendToReciever = new System.Windows.Forms.TextBox();
-            this.tb_FromSenderEmail = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tb_TitleOfMessage = new System.Windows.Forms.TextBox();
+            this.tb_From = new System.Windows.Forms.TextBox();
+            this.labelFrom = new System.Windows.Forms.Label();
+            this.labelTo = new System.Windows.Forms.Label();
+            this.tb_Title = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_BodyMessage = new System.Windows.Forms.TextBox();
             this.bt_GoBack = new System.Windows.Forms.Button();
-            this.bt_Send = new System.Windows.Forms.Button();
+            this.buttonSend = new System.Windows.Forms.Button();
+            this.buttonRespond = new System.Windows.Forms.Button();
+            this.comboBoxTo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,57 +48,50 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.tb_SendToReciever);
-            this.panel1.Controls.Add(this.tb_FromSenderEmail);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.tb_TitleOfMessage);
+            this.panel1.Controls.Add(this.comboBoxTo);
+            this.panel1.Controls.Add(this.tb_From);
+            this.panel1.Controls.Add(this.labelFrom);
+            this.panel1.Controls.Add(this.labelTo);
+            this.panel1.Controls.Add(this.tb_Title);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(557, 128);
             this.panel1.TabIndex = 0;
             // 
-            // tb_SendToReciever
+            // tb_From
             // 
-            this.tb_SendToReciever.Location = new System.Drawing.Point(45, 53);
-            this.tb_SendToReciever.Name = "tb_SendToReciever";
-            this.tb_SendToReciever.Size = new System.Drawing.Size(501, 20);
-            this.tb_SendToReciever.TabIndex = 8;
+            this.tb_From.Location = new System.Drawing.Point(47, 95);
+            this.tb_From.Name = "tb_From";
+            this.tb_From.Size = new System.Drawing.Size(501, 20);
+            this.tb_From.TabIndex = 7;
             // 
-            // tb_FromSenderEmail
+            // labelFrom
             // 
-            this.tb_FromSenderEmail.Location = new System.Drawing.Point(47, 95);
-            this.tb_FromSenderEmail.Name = "tb_FromSenderEmail";
-            this.tb_FromSenderEmail.Size = new System.Drawing.Size(501, 20);
-            this.tb_FromSenderEmail.TabIndex = 7;
+            this.labelFrom.AutoSize = true;
+            this.labelFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelFrom.Location = new System.Drawing.Point(6, 95);
+            this.labelFrom.Name = "labelFrom";
+            this.labelFrom.Size = new System.Drawing.Size(36, 15);
+            this.labelFrom.TabIndex = 6;
+            this.labelFrom.Text = "From";
             // 
-            // label4
+            // labelTo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label4.Location = new System.Drawing.Point(6, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "From";
+            this.labelTo.AutoSize = true;
+            this.labelTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelTo.Location = new System.Drawing.Point(7, 54);
+            this.labelTo.Name = "labelTo";
+            this.labelTo.Size = new System.Drawing.Size(21, 15);
+            this.labelTo.TabIndex = 4;
+            this.labelTo.Text = "To";
             // 
-            // label3
+            // tb_Title
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label3.Location = new System.Drawing.Point(7, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "To";
-            // 
-            // tb_TitleOfMessage
-            // 
-            this.tb_TitleOfMessage.Location = new System.Drawing.Point(45, 13);
-            this.tb_TitleOfMessage.Name = "tb_TitleOfMessage";
-            this.tb_TitleOfMessage.Size = new System.Drawing.Size(501, 20);
-            this.tb_TitleOfMessage.TabIndex = 3;
+            this.tb_Title.Location = new System.Drawing.Point(45, 13);
+            this.tb_Title.Name = "tb_Title";
+            this.tb_Title.Size = new System.Drawing.Size(501, 20);
+            this.tb_Title.TabIndex = 3;
             // 
             // label2
             // 
@@ -153,21 +147,44 @@
             this.bt_GoBack.UseVisualStyleBackColor = false;
             this.bt_GoBack.Click += new System.EventHandler(this.bt_GoBack_Click);
             // 
-            // bt_Send
+            // buttonSend
             // 
-            this.bt_Send.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
-            this.bt_Send.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.bt_Send.FlatAppearance.BorderSize = 0;
-            this.bt_Send.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_Send.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Send.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bt_Send.Location = new System.Drawing.Point(465, 413);
-            this.bt_Send.Name = "bt_Send";
-            this.bt_Send.Size = new System.Drawing.Size(105, 30);
-            this.bt_Send.TabIndex = 33;
-            this.bt_Send.Text = "Send";
-            this.bt_Send.UseVisualStyleBackColor = false;
-            this.bt_Send.Click += new System.EventHandler(this.bt_Send_Click_1);
+            this.buttonSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.buttonSend.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonSend.FlatAppearance.BorderSize = 0;
+            this.buttonSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSend.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonSend.Location = new System.Drawing.Point(465, 413);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(105, 30);
+            this.buttonSend.TabIndex = 33;
+            this.buttonSend.Text = "Send";
+            this.buttonSend.UseVisualStyleBackColor = false;
+            // 
+            // buttonRespond
+            // 
+            this.buttonRespond.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.buttonRespond.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonRespond.FlatAppearance.BorderSize = 0;
+            this.buttonRespond.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRespond.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRespond.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonRespond.Location = new System.Drawing.Point(354, 413);
+            this.buttonRespond.Name = "buttonRespond";
+            this.buttonRespond.Size = new System.Drawing.Size(105, 30);
+            this.buttonRespond.TabIndex = 34;
+            this.buttonRespond.Text = "Respond";
+            this.buttonRespond.UseVisualStyleBackColor = false;
+            this.buttonRespond.Click += new System.EventHandler(this.buttonRespond_Click);
+            // 
+            // comboBoxTo
+            // 
+            this.comboBoxTo.FormattingEnabled = true;
+            this.comboBoxTo.Location = new System.Drawing.Point(47, 54);
+            this.comboBoxTo.Name = "comboBoxTo";
+            this.comboBoxTo.Size = new System.Drawing.Size(499, 21);
+            this.comboBoxTo.TabIndex = 8;
             // 
             // ConsultantMessage_Form
             // 
@@ -175,7 +192,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(583, 450);
-            this.Controls.Add(this.bt_Send);
+            this.Controls.Add(this.buttonRespond);
+            this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.bt_GoBack);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -194,16 +212,17 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox tb_FromSenderEmail;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_TitleOfMessage;
+        private System.Windows.Forms.TextBox tb_From;
+        private System.Windows.Forms.Label labelFrom;
+        private System.Windows.Forms.Label labelTo;
+        private System.Windows.Forms.TextBox tb_Title;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_BodyMessage;
         private System.Windows.Forms.Button bt_GoBack;
-        private System.Windows.Forms.Button bt_Send;
-        private System.Windows.Forms.TextBox tb_SendToReciever;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.Button buttonRespond;
+        private System.Windows.Forms.ComboBox comboBoxTo;
     }
 }

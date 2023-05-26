@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,8 @@ namespace Presentation.Customer
 {
     public partial class MessageBoxCustomer : Form
     {
-        
+     
+        MessageService messageService;
         public MessageBoxCustomer()
         {
             InitializeComponent();
