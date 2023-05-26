@@ -51,6 +51,55 @@ namespace DAL.Repository
             return messageData;
         }
 
+        private IMessage MapToModel(Database.Message messageData)
+        {
+            Models.Message messageModel = new Models.Message()
+            {
+                MessageId = messageData.MessageId,
+                Header = messageData.Message_Header,
+                Body = messageData.Message_Content,
+                IsRead = messageData.Message_IsRead,
+                Customer = new Models.Customer()
+
+                {
+                    Id = messageData.Customer.CustomerId,
+                    FirstName = messageData.Customer.Customer_FirstName,
+                    LastName = messageData.Customer.Customer_LastName,
+                    Login = messageData.Customer.Customer_Login,
+                    Password = messageData.Customer.Customer_Password,
+                    Email = messageData.Customer.Customer_Email,
+                    Address = messageData.Customer.Customer_Address,
+                    ZipCode = messageData.Customer.Customer_ZipCode,
+                    City = messageData.Customer.Customer_City,
+                    PhoneNumber = messageData.Customer.Customer_PhoneNumber
+                },
+                Consultant = new Models.Consultant()
+                {
+                    Id = messageData.Consultant.ConsultantId,
+                    FirstName = messageData.Consultant.Consultant_FirstName,
+                    LastName = messageData.Consultant.Consultant_LastName,
+                    Login = messageData.Consultant.Consultant_Login,
+                    Password = messageData.Consultant.Consultant_Password,
+                    Email = messageData.Consultant.Consultant_Email,
+                    ZipCode = messageData.Consultant.Consultant_ZipCode,
+                    City = messageData.Consultant.Consultant_City,
+                    Address = messageData.Consultant.Consultant_Address,
+                    PhoneNumber = messageData.Consultant.Consultant_PhoneNumber,
+                    Language = new Models.CodeLanguage()
+                    {
+                        Id = messageData.Consultant.CodeLanguage.Id,
+                        Language = messageData.Consultant.CodeLanguage.LanguageName
+                    },
+                    EndType = new Models.EndType()
+                    {
+                        Id = messageData.Consultant.EndType.Id,
+                        EndType1 = messageData.Consultant.EndType.EndType1
+                    }
+                }
+            };
+            return messageModel;
+        }
+
         public List<IMessage> GetMessagesByCustomer(ICustomer customer)
         {
             List<IMessage> messageModels = new List<IMessage>();

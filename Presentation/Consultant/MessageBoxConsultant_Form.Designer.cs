@@ -1,4 +1,4 @@
-namespace Presentation.Customer
+﻿namespace Presentation.Customer
 {
     partial class MessageBoxConsultant
     {
@@ -30,14 +30,17 @@ namespace Presentation.Customer
         {
             this.bt_openMessage = new System.Windows.Forms.Button();
             this.bt_writeMessage = new System.Windows.Forms.Button();
-            this.dgv_MessageDisplay = new System.Windows.Forms.DataGridView();
+            this.dgv_newMessages = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_LogInSign = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_currentConversations = new System.Windows.Forms.DataGridView();
+            this.bt_SaveChanges = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_newMessages)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_currentConversations)).BeginInit();
             this.SuspendLayout();
             // 
             // bt_openMessage
@@ -72,8 +75,9 @@ namespace Presentation.Customer
             this.bt_writeMessage.TabIndex = 19;
             this.bt_writeMessage.Text = "Write message";
             this.bt_writeMessage.UseVisualStyleBackColor = false;
+            this.bt_writeMessage.Click += new System.EventHandler(this.bt_writeMessage_Click_1);
             // 
-            // dgv_MessageDisplay
+            // dgv_newMessages
             // 
             this.dgv_newMessages.AllowUserToAddRows = false;
             this.dgv_newMessages.AllowUserToDeleteRows = false;
@@ -92,9 +96,8 @@ namespace Presentation.Customer
             this.dgv_newMessages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_newMessages.Size = new System.Drawing.Size(479, 566);
             this.dgv_newMessages.TabIndex = 23;
-            this.dgv_newMessages.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_newMessages_CellClick);
+            this.dgv_newMessages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_newMessages_CellContentClick);
             this.dgv_newMessages.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_newMessages_DataBindingComplete);
-            this.dgv_newMessages.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_newMessages_DataError);
             // 
             // panel1
             // 
@@ -113,12 +116,12 @@ namespace Presentation.Customer
             this.lb_LogInSign.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.lb_LogInSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.lb_LogInSign.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lb_LogInSign.Location = new System.Drawing.Point(91, 22);
+            this.lb_LogInSign.Location = new System.Drawing.Point(64, 22);
             this.lb_LogInSign.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_LogInSign.Name = "lb_LogInSign";
             this.lb_LogInSign.Size = new System.Drawing.Size(304, 48);
             this.lb_LogInSign.TabIndex = 24;
-            this.lb_LogInSign.Text = "Messages";
+            this.lb_LogInSign.Text = "New messages";
             this.lb_LogInSign.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -138,7 +141,7 @@ namespace Presentation.Customer
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(253)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(30, 22);
+            this.label1.Location = new System.Drawing.Point(4, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(428, 48);
@@ -165,9 +168,24 @@ namespace Presentation.Customer
             this.dgv_currentConversations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_currentConversations.Size = new System.Drawing.Size(479, 566);
             this.dgv_currentConversations.TabIndex = 24;
-            this.dgv_currentConversations.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_currentConversations_CellClick);
+            this.dgv_currentConversations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_currentConversations_CellContentClick);
             this.dgv_currentConversations.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_currentConversations_DataBindingComplete);
-            this.dgv_currentConversations.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgv_currentConversations_DataError);
+            // 
+            // bt_SaveChanges
+            // 
+            this.bt_SaveChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(177)))), ((int)(((byte)(136)))));
+            this.bt_SaveChanges.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bt_SaveChanges.FlatAppearance.BorderSize = 0;
+            this.bt_SaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_SaveChanges.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_SaveChanges.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.bt_SaveChanges.Location = new System.Drawing.Point(44, 537);
+            this.bt_SaveChanges.Margin = new System.Windows.Forms.Padding(4);
+            this.bt_SaveChanges.Name = "bt_SaveChanges";
+            this.bt_SaveChanges.Size = new System.Drawing.Size(273, 37);
+            this.bt_SaveChanges.TabIndex = 26;
+            this.bt_SaveChanges.Text = "Save changes";
+            this.bt_SaveChanges.UseVisualStyleBackColor = false;
             // 
             // MessageBoxConsultant
             // 
@@ -176,6 +194,7 @@ namespace Presentation.Customer
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(92)))), ((int)(((byte)(112)))));
             this.ClientSize = new System.Drawing.Size(1440, 686);
             this.ControlBox = false;
+            this.Controls.Add(this.bt_SaveChanges);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bt_openMessage);
@@ -185,9 +204,12 @@ namespace Presentation.Customer
             this.Name = "MessageBoxConsultant";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CreateNewProject_Form";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_MessageDisplay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_newMessages)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_currentConversations)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -195,9 +217,12 @@ namespace Presentation.Customer
         #endregion
         private System.Windows.Forms.Button bt_openMessage;
         private System.Windows.Forms.Button bt_writeMessage;
-        private System.Windows.Forms.DataGridView dgv_MessageDisplay;
+        private System.Windows.Forms.DataGridView dgv_newMessages;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgv_currentConversations;
         private System.Windows.Forms.Label lb_LogInSign;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bt_SaveChanges;
     }
 }
