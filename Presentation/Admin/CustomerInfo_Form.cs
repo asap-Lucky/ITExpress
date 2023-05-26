@@ -14,13 +14,17 @@ using BLL.Services;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Marcel
+    /// </summary>
+
     public partial class CustomerInfo : Form
     {
-
+        //Fields
         private Abstraction.Interfaces.ICustomer selectedCustomer { get; set; }
-
         private BLL.Services.CustomerService customerService { get; set; }
 
+        //Constructor which takes the parameter selectedConsultant from the AllConsultantOverview_Form
         public CustomerInfo(ICustomer selectedCustomer)
         {
             InitializeComponent();
@@ -40,12 +44,15 @@ namespace Presentation.Customer
             tb_zipCode.Text = selectedCustomer.ZipCode.ToString();
             tb_userName.Text = selectedCustomer.Login;
             tb_passWord.Text = selectedCustomer.Password;
-
-            // Code that retrives the closed projects for the customer 
-            // Code that retrives the current projects for the customer
         }
 
-        // This button deletes the choosen user
+        /// <summary>
+        /// Delete button which takes the parameter selectedCustomer and deletes it from the database using a call
+        /// to the BLL.Services.CustomerService.DeleteCustomer method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="selectedCustomer"></param> - Viewed Customer from the datagridview
         private void bt_DeleteCustomer_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you wish to delete the selected customer?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -62,12 +69,21 @@ namespace Presentation.Customer
             }
         }
 
+
+        //Button which takes the user back to the previous form
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
             this.Close();
 
         }
 
+
+        /// <summary>
+        /// Edit button which takes the users selectedCustomer as a row and opens a new form with the editable information.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="selectedCustomer"></param> - Viewed Customer from the datagridview
         private void bt_EditCustomerInfo_Click(object sender, EventArgs e)
         {
             //Hides this childform and opens another one on top of this

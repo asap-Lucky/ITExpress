@@ -13,6 +13,11 @@ using BLL.Services;
 
 namespace Presentation.Admin
 {
+    /// <summary>
+    /// Marcel
+    /// </summary>
+
+    //Fields
     public partial class AddSpecialization_Form : Form
     {
         private BLL.Services.CodeLanguageService LanguageService;
@@ -20,12 +25,19 @@ namespace Presentation.Admin
         private Abstraction.Interfaces.ICodeLanguage IcodeLanguage;
 
         private BLL.Models.CodeLanguage CodeLanguage;
+
+        //Constructor
         public AddSpecialization_Form()
         {
             InitializeComponent();
             this.LanguageService = new CodeLanguageService();
         }
 
+
+        //Buttons for the form
+
+
+        //Buttons for going back to the previous form
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -33,6 +45,7 @@ namespace Presentation.Admin
             editspecia.Show();
         }
 
+        //Button for saving the new language
         private void bt_SaveChanges_Click(object sender, EventArgs e)
         {
             var textInput = tb_EnterNewLanguage.Text;

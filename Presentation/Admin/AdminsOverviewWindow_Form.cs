@@ -16,14 +16,21 @@ using Abstraction.Interfaces;
 
 namespace Presentation.Consultant
 {
+    /// <summary>
+    /// Marcel
+    /// </summary>
+
     public partial class AdminsOverviewWindow_Form : Form
     {
+        //Fields
         Button lastClickedButton = null;
 
         public Form currentChildForm;
 
         private Abstraction.Interfaces.IAdmin loggedInAdmin;
 
+
+        //Constructor
         public AdminsOverviewWindow_Form()
         {
             InitializeComponent();
@@ -56,11 +63,16 @@ namespace Presentation.Consultant
             lastClickedButton = clickedButton; // remember the current clicked button
         }
 
+        /// <summary>
+        /// Logic behind the childforms which are displayed in the parentform (this form).
+        /// It looks if a childform is already open, if so it closes it and opens the new childform.
+        /// </summary>
+        /// <param name="childform"></param>
         public void OpenChildForm(Form childform)
         {
             if (currentChildForm != null)
             {
-                // Opems only one instance of the form
+                // Creates only one instance of the form
                 currentChildForm.Close();
             }
             currentChildForm = childform;
@@ -73,16 +85,18 @@ namespace Presentation.Consultant
             childform.Show();
         }
 
+        //Logout button
         private void bt_LogOut_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        public Panel PanelAdminDesktop
-        {
-            get { return panelAdminDesktop; }
-        }
-
+        /// <summary>
+        /// The methods below are for the buttons are the logic behind clickevents for the buttons on the left in the designer.
+        /// They decide which form is opened when a button is clicked upon.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_CustomerList_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;

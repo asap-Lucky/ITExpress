@@ -14,23 +14,23 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Marcel
+    /// </summary>
+
+
     public partial class EditConsultantInfo : Form
     {
         //Fields
         private IConsultant SelectedConsultant { get; set; }
-
         private ICodeLangaugeService codeLanguageService = new BLL.Services.CodeLanguageService();
-
         private IEndtypeService endtypeService = new BLL.Services.EndtypeService();
-
         private BLL.Facader.ConsultantService facadeService { get; set; }
-
         private BLL.Services.ConsultantService consultantService { get; set; }
-
         private List<ICodeLanguage> DefaultCodeLanguages { get; set; }
-
         private List<IEndType> DefaultEndType { get; set; }
 
+        //Constructor
         public EditConsultantInfo(IConsultant selectedConsultant)
         {
             InitializeComponent();
@@ -41,6 +41,7 @@ namespace Presentation.Customer
             InitialiseControl();
         }
 
+        //Buttons that display the textboxes for languages and endtypes
         private void InitializeCombobox()
         {
             cb_language.DataSource = DefaultCodeLanguages;
@@ -50,6 +51,7 @@ namespace Presentation.Customer
             cb_endType.DisplayMember = "Endtype1";
         }
 
+        //Method that displays the consultant data on the UI and uses InitializeCombobox() method to display the languages and endtypes
         private void InitialiseControl()
         {
             tb_id.Text = SelectedConsultant.Id.ToString();
@@ -65,10 +67,9 @@ namespace Presentation.Customer
             cb_language.Text = SelectedConsultant.Language.Language;
             cb_endType.Text = SelectedConsultant.EndType.EndType1;
             InitializeCombobox();
-            // Code that retrives the closed projects for the customer 
-            // Code that retrives the current projects for the customer
         }
 
+        //Button that saves the changes made to the consultant data. Uses the methid SaveChanges() to validate and save the changes
         private void bt_EditConsultant_Click(object sender, EventArgs e)
         {
             consultantService = new BLL.Services.ConsultantService();
@@ -77,6 +78,17 @@ namespace Presentation.Customer
             this.Hide();
         }
 
+
+        /// <summary>
+        /// The SaveChanges() method is responsible for validating and saving changes made to a consultant's information.
+        /// It checks if the entered values for zipcode and phonenumber can be converted to integers, 
+        /// and displays error messages if they cannot. 
+        /// It also ensures that all required textboxes are filled before proceeding with saving the changes. 
+        /// If all validations pass, it assigns the values from the textboxes to the corresponding properties
+        /// of the SelectedConsultant object and calls the EditConsultant method of the consultantService to save the changes.
+        /// </summary>
+        /// <param name="selectedConsultant"></param> - Parameter that holds the selected consultant object.
+        
         private void SaveChanges()
         {
             // Check if the values of the zipcode and phonenumber can be converted to an integer.
@@ -97,7 +109,6 @@ namespace Presentation.Customer
 
             else
             {
-                // 
                 if (string.IsNullOrEmpty(tb_firstName.Text) && string.IsNullOrEmpty(tb_lastName.Text) && string.IsNullOrEmpty(tb_address.Text) && string.IsNullOrEmpty(tb_city.Text) && string.IsNullOrEmpty(tb_email.Text) && string.IsNullOrEmpty(tb_phoneNumber.Text) && string.IsNullOrEmpty(tb_login.Text) && string.IsNullOrEmpty(tb_passWord.Text) && string.IsNullOrEmpty(tb_zipCode.Text))
                 {
                     MessageBox.Show("Please fill out all the textboxes before procedding further", "Missing data", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -124,20 +135,24 @@ namespace Presentation.Customer
                 }
             }
         }
+
+
+        //Button that discards the changes made to the consultant data and resets them to the original values
             private void bt_DiscardChanges_Click(object sender, EventArgs e)
-        {
+       {
             DialogResult result = MessageBox.Show("Do you wish to discard your changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
-            {
+                {
                 InitialiseControl();
-            }
+                }
             else if (result == DialogResult.No)
-            {
+                {
 
-            }
-        }
+                }
+        }   
 
+        //Button that closes the form and goes back to the previous form
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
             this.Close();

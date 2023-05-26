@@ -30,6 +30,8 @@
         {
             this.bt_EditConsultantInfo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tb_id = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.tb_phoneNumber = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_email = new System.Windows.Forms.TextBox();
@@ -53,12 +55,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label13 = new System.Windows.Forms.Label();
             this.bt_DeleteConsultant = new System.Windows.Forms.Button();
             this.bt_GoBack = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -67,14 +63,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.tb_id = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,8 +108,27 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(305, 467);
+            this.panel1.Size = new System.Drawing.Size(564, 467);
             this.panel1.TabIndex = 17;
+            // 
+            // tb_id
+            // 
+            this.tb_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_id.Location = new System.Drawing.Point(19, 69);
+            this.tb_id.Name = "tb_id";
+            this.tb_id.ReadOnly = true;
+            this.tb_id.Size = new System.Drawing.Size(523, 21);
+            this.tb_id.TabIndex = 61;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(16, 51);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(20, 15);
+            this.label15.TabIndex = 60;
+            this.label15.Text = "Id:";
             // 
             // tb_phoneNumber
             // 
@@ -127,7 +136,7 @@
             this.tb_phoneNumber.Location = new System.Drawing.Point(19, 426);
             this.tb_phoneNumber.Name = "tb_phoneNumber";
             this.tb_phoneNumber.ReadOnly = true;
-            this.tb_phoneNumber.Size = new System.Drawing.Size(239, 21);
+            this.tb_phoneNumber.Size = new System.Drawing.Size(523, 21);
             this.tb_phoneNumber.TabIndex = 59;
             // 
             // label9
@@ -146,7 +155,7 @@
             this.tb_email.Location = new System.Drawing.Point(19, 379);
             this.tb_email.Name = "tb_email";
             this.tb_email.ReadOnly = true;
-            this.tb_email.Size = new System.Drawing.Size(239, 21);
+            this.tb_email.Size = new System.Drawing.Size(523, 21);
             this.tb_email.TabIndex = 57;
             // 
             // label5
@@ -165,7 +174,7 @@
             this.tb_city.Location = new System.Drawing.Point(19, 326);
             this.tb_city.Name = "tb_city";
             this.tb_city.ReadOnly = true;
-            this.tb_city.Size = new System.Drawing.Size(239, 21);
+            this.tb_city.Size = new System.Drawing.Size(523, 21);
             this.tb_city.TabIndex = 55;
             // 
             // label4
@@ -184,7 +193,7 @@
             this.tb_zipCode.Location = new System.Drawing.Point(19, 275);
             this.tb_zipCode.Name = "tb_zipCode";
             this.tb_zipCode.ReadOnly = true;
-            this.tb_zipCode.Size = new System.Drawing.Size(239, 21);
+            this.tb_zipCode.Size = new System.Drawing.Size(523, 21);
             this.tb_zipCode.TabIndex = 53;
             // 
             // label3
@@ -203,7 +212,7 @@
             this.tb_address.Location = new System.Drawing.Point(19, 222);
             this.tb_address.Name = "tb_address";
             this.tb_address.ReadOnly = true;
-            this.tb_address.Size = new System.Drawing.Size(239, 21);
+            this.tb_address.Size = new System.Drawing.Size(523, 21);
             this.tb_address.TabIndex = 51;
             // 
             // label11
@@ -222,7 +231,7 @@
             this.tb_lastName.Location = new System.Drawing.Point(19, 166);
             this.tb_lastName.Name = "tb_lastName";
             this.tb_lastName.ReadOnly = true;
-            this.tb_lastName.Size = new System.Drawing.Size(239, 21);
+            this.tb_lastName.Size = new System.Drawing.Size(523, 21);
             this.tb_lastName.TabIndex = 49;
             // 
             // label10
@@ -241,7 +250,7 @@
             this.tb_firstName.Location = new System.Drawing.Point(19, 111);
             this.tb_firstName.Name = "tb_firstName";
             this.tb_firstName.ReadOnly = true;
-            this.tb_firstName.Size = new System.Drawing.Size(239, 21);
+            this.tb_firstName.Size = new System.Drawing.Size(523, 21);
             this.tb_firstName.TabIndex = 47;
             // 
             // label2
@@ -258,11 +267,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label8.Location = new System.Drawing.Point(58, 13);
+            this.label8.Location = new System.Drawing.Point(197, 19);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(160, 24);
+            this.label8.Size = new System.Drawing.Size(195, 24);
             this.label8.TabIndex = 45;
-            this.label8.Text = "Log-in information";
+            this.label8.Text = "Consultant information";
             // 
             // tb_repeatEmail
             // 
@@ -289,9 +298,9 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label17);
-            this.panel2.Location = new System.Drawing.Point(345, 58);
+            this.panel2.Location = new System.Drawing.Point(606, 44);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(330, 155);
+            this.panel2.Size = new System.Drawing.Size(457, 155);
             this.panel2.TabIndex = 18;
             // 
             // tb_login
@@ -300,7 +309,7 @@
             this.tb_login.Location = new System.Drawing.Point(106, 69);
             this.tb_login.Name = "tb_login";
             this.tb_login.ReadOnly = true;
-            this.tb_login.Size = new System.Drawing.Size(184, 21);
+            this.tb_login.Size = new System.Drawing.Size(327, 21);
             this.tb_login.TabIndex = 15;
             // 
             // tb_passWord
@@ -309,7 +318,7 @@
             this.tb_passWord.Location = new System.Drawing.Point(106, 113);
             this.tb_passWord.Name = "tb_passWord";
             this.tb_passWord.ReadOnly = true;
-            this.tb_passWord.Size = new System.Drawing.Size(184, 21);
+            this.tb_passWord.Size = new System.Drawing.Size(327, 21);
             this.tb_passWord.TabIndex = 14;
             // 
             // label7
@@ -336,72 +345,11 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label17.Location = new System.Drawing.Point(65, 13);
+            this.label17.Location = new System.Drawing.Point(170, 13);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(160, 24);
             this.label17.TabIndex = 7;
             this.label17.Text = "Log-in information";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(715, 215);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(348, 264);
-            this.panel3.TabIndex = 19;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label6.Location = new System.Drawing.Point(111, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 24);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Closed projects";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 46);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(353, 218);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.dataGridView2);
-            this.panel4.Controls.Add(this.label13);
-            this.panel4.Location = new System.Drawing.Point(715, 12);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(348, 190);
-            this.panel4.TabIndex = 21;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 58);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(348, 132);
-            this.dataGridView2.TabIndex = 9;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label13.Location = new System.Drawing.Point(111, 13);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(129, 24);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Open projects";
             // 
             // bt_DeleteConsultant
             // 
@@ -446,9 +394,9 @@
             this.panel5.Controls.Add(this.label14);
             this.panel5.Controls.Add(this.label19);
             this.panel5.Controls.Add(this.label20);
-            this.panel5.Location = new System.Drawing.Point(345, 261);
+            this.panel5.Location = new System.Drawing.Point(606, 277);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(330, 135);
+            this.panel5.Size = new System.Drawing.Size(457, 135);
             this.panel5.TabIndex = 23;
             // 
             // tb_endType
@@ -457,7 +405,7 @@
             this.tb_endType.Location = new System.Drawing.Point(106, 90);
             this.tb_endType.Name = "tb_endType";
             this.tb_endType.ReadOnly = true;
-            this.tb_endType.Size = new System.Drawing.Size(184, 21);
+            this.tb_endType.Size = new System.Drawing.Size(327, 21);
             this.tb_endType.TabIndex = 16;
             // 
             // tb_language
@@ -466,7 +414,7 @@
             this.tb_language.Location = new System.Drawing.Point(106, 46);
             this.tb_language.Name = "tb_language";
             this.tb_language.ReadOnly = true;
-            this.tb_language.Size = new System.Drawing.Size(184, 21);
+            this.tb_language.Size = new System.Drawing.Size(327, 21);
             this.tb_language.TabIndex = 17;
             // 
             // label14
@@ -495,30 +443,11 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label20.Location = new System.Drawing.Point(90, 11);
+            this.label20.Location = new System.Drawing.Point(191, 7);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(125, 24);
             this.label20.TabIndex = 9;
             this.label20.Text = "Specialization";
-            // 
-            // tb_id
-            // 
-            this.tb_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_id.Location = new System.Drawing.Point(19, 69);
-            this.tb_id.Name = "tb_id";
-            this.tb_id.ReadOnly = true;
-            this.tb_id.Size = new System.Drawing.Size(239, 21);
-            this.tb_id.TabIndex = 61;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(16, 51);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(20, 15);
-            this.label15.TabIndex = 60;
-            this.label15.Text = "Id:";
             // 
             // ConsultantInfo
             // 
@@ -529,8 +458,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.bt_DeleteConsultant);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.bt_GoBack);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -543,12 +470,6 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -561,18 +482,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox tb_repeatEmail;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_login;
         private System.Windows.Forms.TextBox tb_passWord;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button bt_DeleteConsultant;
         private System.Windows.Forms.Button bt_GoBack;
         private System.Windows.Forms.Panel panel5;

@@ -64,10 +64,5 @@ namespace Presentation.All
                 tb_Sender.Text = senderEmail;
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

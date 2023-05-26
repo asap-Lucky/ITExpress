@@ -15,12 +15,17 @@ using Presentation.Customer;
 
 namespace Presentation.Admin
 {
+    /// <summary>
+    /// Marcel
+    /// </summary>
+    
     public partial class EditSpecialization_Form : Form
     {
         //Fields
         private BLL.Services.CodeLanguageService codeLanguageService {  get; set; }
         private BLL.Models.CodeLanguage CodeLanguage { get; set; }
 
+        //Constructor
         public EditSpecialization_Form()
         {
             InitializeComponent();
@@ -29,18 +34,27 @@ namespace Presentation.Admin
             LoadLanguagesData();
         }
 
+        //Method for loading the data from the database
         private void LoadLanguagesData()
         {
             List<ICodeLanguage> languages = this.codeLanguageService.GetAllCodeLanguages();
             dgv_allLanguages.DataSource = languages;
         }
 
+        //Method for updating the data from the database
         private void UpdateLanguagesData()
         {
             dgv_allLanguages.DataSource = codeLanguageService.GetAllCodeLanguages();
             dgv_allLanguages.Refresh();
         }
 
+
+        /// <summary>
+        /// Method for saving the changes made to the data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="id"></param> - The id of the language
         private void bt_SaveChanges_Click(object sender, EventArgs e)
         {
             if (dgv_allLanguages.SelectedCells.Count > 0)
@@ -76,6 +90,7 @@ namespace Presentation.Admin
             }
         }
 
+        //Button for allowing the admin to edit the languages in the database
         private void bt_EditLanguages_Click(object sender, EventArgs e)
         {
             dgv_allLanguages.ReadOnly = false;
@@ -99,6 +114,7 @@ namespace Presentation.Admin
             }
         }
 
+        //Button for adding a new language to the database
         private void bt_AddLanguage_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -106,6 +122,7 @@ namespace Presentation.Admin
             addSpecialization_Form.ShowDialog();
         }
 
+        //Button for deleting a language from the database (Only the ones that are not assigned to a consultant/project)
         private void bt_delete_Click(object sender, EventArgs e)
         {
             if (dgv_allLanguages.SelectedRows.Count > 0)

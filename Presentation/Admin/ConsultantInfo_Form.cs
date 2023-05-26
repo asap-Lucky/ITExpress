@@ -11,12 +11,17 @@ using System.Windows.Forms;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Marcel
+    /// </summary>
+
     public partial class ConsultantInfo : Form
     {
+        //Fields
         private Abstraction.Interfaces.IConsultant selectedConsultant { get; set; }
-
         private BLL.Services.ConsultantService consultantService { get; set; }
 
+        //Constructor which takes the parameter selectedConsultant from the AllConsultantOverview_Form
         public ConsultantInfo(IConsultant selectedConsultant)
         {
             InitializeComponent();
@@ -24,6 +29,7 @@ namespace Presentation.Customer
             GetConsultantData();
         }
 
+        //Method which is called to get the consultant data from the database and display it on the UI
         private void GetConsultantData()
         {
             tb_id.Text = selectedConsultant.Id.ToString();
@@ -38,13 +44,21 @@ namespace Presentation.Customer
             tb_passWord.Text = selectedConsultant.Password;
             tb_language.Text = selectedConsultant.Language.Language;
             tb_endType.Text = selectedConsultant.EndType.EndType1;
-            // Code that retrives the closed projects for the customer 
-            // Code that retrives the current projects for the customer
         }
 
+
+        //Buttons for the form
+
+        /// <summary>
+        /// Delete button which takes the parameter selectedConsultant and deletes it from the database using a call
+        /// to the BLL.Services.ConsultantService.DeleteConsultant method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="selectedConsultant"></param> - Viewed Consultant from the datagridview
         private void bt_DeleteConsultant_Click(object sender, EventArgs e)
         {
-                DialogResult result = MessageBox.Show("Do you wish to delete the selected customer?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Do you wish to delete this consultant?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
@@ -58,11 +72,18 @@ namespace Presentation.Customer
                 }
         }
 
+        //Button which takes the user back to the previous form
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Edit button which takes the users selectedConsultant as a row and opens a new form with the editable information.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="selectedConsultant"></param> - Viewed Consultant from the datagridview
         private void bt_EditConsultantInfo_Click(object sender, EventArgs e)
         {
             //Hides this childform and opens another one on top of this

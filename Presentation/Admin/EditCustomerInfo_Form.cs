@@ -11,10 +11,14 @@ using Abstraction.Interfaces;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Marcel
+    /// </summary>
+
     public partial class EditCustomerInfo : Form
     {
+        //Fields
         private ICustomer SelectedCustomer { get; set; }
-
         private BLL.Services.CustomerService customerService { get; set; }
 
         public EditCustomerInfo(ICustomer selectedCustomer)
@@ -22,10 +26,12 @@ namespace Presentation.Customer
             InitializeComponent();
             SelectedCustomer = selectedCustomer;
             InitialiseControl();
-            
         }
 
-
+        /// <summary>
+        /// Loads in the information of the selected customer
+        /// </summary>
+        /// <param name="selectedCustomer"></param> - Selected customer from the datagridview object
         public void InitialiseControl()
         {
             tb_firstName.Text = SelectedCustomer.FirstName;
@@ -37,10 +43,8 @@ namespace Presentation.Customer
             tb_zipCode.Text = SelectedCustomer.ZipCode.ToString();
             tb_userName.Text = SelectedCustomer.Login;
             tb_passWord.Text = SelectedCustomer.Password;
-
-            // Code that retrives the closed projects for the customer 
-            // Code that retrives the current projects for the customer
         }
+        
 
         private void bt_SaveChanges_Click(object sender, EventArgs e)
         {
@@ -106,6 +110,7 @@ namespace Presentation.Customer
 
             }
         }
+
 
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
