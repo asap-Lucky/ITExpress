@@ -70,15 +70,14 @@ namespace DAL.Repository
             {
                 // Update the Project object with the new values.
                 targetProject.Project_Name = project.Name;
-                targetProject.Project_CustomerId = project.Consultant.Id;
+                targetProject.Project_CustomerId = project.Customer.Id;
                 targetProject.Project_HourWage = project.HourWage;
 
-                if (project.Consultant.Id != 0)
+                if (project.Consultant != null)
                 {
                     targetProject.Project_ConsultantId = project.Consultant.Id;
                 }
-                
-                targetProject.Project_ConsultantId = project.Consultant.Id;
+
                 targetProject.Project_StartDate = project.StartDate;
                 targetProject.Project_EndDate = project.EndDate;
                 targetProject.Project_Status = project.Status;
@@ -95,7 +94,7 @@ namespace DAL.Repository
                     targetProject.Project_CodeLanguageId = project.Language.Id;
                 }
 
-                if (targetProject.Project_TimeUsed != null)
+                if (project.TimeUsed != null)
                 {
                     targetProject.Project_TimeUsed = (int)project.TimeUsed;
                 }
