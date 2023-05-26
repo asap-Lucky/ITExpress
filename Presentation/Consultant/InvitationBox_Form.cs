@@ -75,8 +75,9 @@ namespace Presentation.Customer
                 MessageBox.Show("Please Select a New Invitation", "No Selected Invite");
             }
             if(dgv_newInvitations.SelectedRows[0].DataBoundItem != null)
-            {
+            {                  
                 IInvitation invitation = (IInvitation)dgv_newInvitations.SelectedRows[0].DataBoundItem;
+                dgv_newInvitations.ClearSelection();
                 invitation.AcceptStatus = true;
                 PendingInvitations.Remove(invitation);
                 AcceptedInvitations.Add(invitation);
@@ -85,10 +86,11 @@ namespace Presentation.Customer
                 project.Status = 4;
                 projectService.EditProject(project);
                 invitationService.EditInvitation(invitation);
-                dgv_newInvitations.DataSource = PendingInvitations;
-                dgv_AcceptedInvitations.DataSource = AcceptedInvitations;
-                dgv_AcceptedInvitations.ClearSelection();
+                dgv_newInvitations.DataSource = PendingInvitations;                           
+                dgv_AcceptedInvitations.DataSource = AcceptedInvitations;                            
                 consultantOverviewWindow_Form.InvitationNotification();
+                dgv_newInvitations.Refresh();
+                dgv_AcceptedInvitations.Refresh();
                 MessageBox.Show("SUCCESS","SUCCESS");
             }
         }
