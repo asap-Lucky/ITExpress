@@ -1,3 +1,4 @@
+﻿using BLL.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +14,17 @@ using BLL.Models;
 using BLL.Singleton;
 using Presentation.All;
 
+
 namespace Presentation.Customer
 {
     public partial class MessageBoxConsultant : Form
     {
-        private Abstraction.Interfaces.IMessage selectedMessage { get; set; }
         List<IMessage> Messages { get; set; }
         private List<IMessage> UnreadMessages { get; set; }
         private List<IMessage> ReadMessages { get; set; }
 
         BLL.Services.MessageService MessageService;
+
 
         public MessageBoxConsultant()
         {
@@ -38,9 +40,11 @@ namespace Presentation.Customer
 
             dgv_newMessages.ClearSelection();
             dgv_currentConversations.ClearSelection();
-
-            dgv_newMessages.DataError += dgv_newMessages_DataError;
-            dgv_currentConversations.DataError += dgv_currentConversations_DataError;
+        }
+        private void bt_writeMessage_Click(object sender, EventArgs e)
+        {
+            CustomerMessage customerMessage = new CustomerMessage(BLL.Singleton.CustomerSingleton.Instance().User);
+            customerMessage.ShowDialog();
         }
 
         private void BreedReadDGV(DataGridView dataGridView)
@@ -48,8 +52,12 @@ namespace Presentation.Customer
             dgv_currentConversations.AutoGenerateColumns = false;
             dgv_currentConversations.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-        //Methods used in the constructor
+            dataGridView.Columns.Clear();
 
+            DataGridViewTextBoxColumn subjectHeader = new DataGridViewTextBoxColumn();
+            subjectHeader.DataPropertyName = "Header";
+            subjectHeader.HeaderText = "Header";
+            dgv_currentConversations.Columns.Add(subjectHeader);
 
             DataGridViewTextBoxColumn subjectCustomer = new DataGridViewTextBoxColumn();
             subjectCustomer.DataPropertyName = "GetCustomerName";
@@ -61,16 +69,12 @@ namespace Presentation.Customer
         {
             dgv_newMessages.AutoGenerateColumns = false;
 
-            dgv_MessageDisplay.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
             dataGridView.Columns.Clear();
 
             DataGridViewTextBoxColumn subjectHeader = new DataGridViewTextBoxColumn();
-            subjectHeader.Name = "Header";
             subjectHeader.DataPropertyName = "Header";
             subjectHeader.HeaderText = "Header";
-            subjectHeader.ReadOnly = true;
-            dgv_MessageDisplay.Columns.Add(subjectHeader);
+            dgv_newMessages.Columns.Add(subjectHeader);
 
             DataGridViewTextBoxColumn subjectCustomer = new DataGridViewTextBoxColumn();
             subjectCustomer.DataPropertyName = "GetCustomerName";
@@ -78,7 +82,6 @@ namespace Presentation.Customer
             dgv_newMessages.Columns.Add(subjectCustomer);
         }
 
-        
         private void DisplayUnreadMessagesInDGV()
         {
             dgv_newMessages.DataSource = UnreadMessages;
@@ -95,7 +98,6 @@ namespace Presentation.Customer
 
         private void bt_openMessage_Click(object sender, EventArgs e)
         {
-
             if (dgv_currentConversations.SelectedRows.Count > 0)
             {
                 IsReadShowForm();
@@ -161,17 +163,20 @@ namespace Presentation.Customer
                     dgv_newMessages.Refresh();
                     dgv_currentConversations.Refresh();
                 }
-
-
             }
         }
 
-        private void dgv_newMessages_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void bt_writeMessage_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_newMessages_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgv_currentConversations.ClearSelection();
         }
 
-        private void dgv_currentConversations_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_currentConversations_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgv_newMessages.ClearSelection();
         }
@@ -180,24 +185,15 @@ namespace Presentation.Customer
         {
             dgv_newMessages.ClearSelection();
             dgv_newMessages.Refresh();
+
         }
 
         private void dgv_currentConversations_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgv_currentConversations.ClearSelection();
             dgv_currentConversations.Refresh();
-        }
 
-        private void dgv_newMessages_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            e.ThrowException = false;
-            e.Cancel = true;
-        }
-
-        private void dgv_currentConversations_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            e.ThrowException = false;
-            e.Cancel = true;
         }
     }
 }
+
