@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,28 +22,44 @@ namespace Presentation.Customer
         private List<IMessage> UnreadMessages { get; set; }
         private List<IMessage> ReadMessages { get; set; }
 
-        private BLL.Services.MessageService MessageService;
+        BLL.Services.MessageService MessageService;
 
         public MessageBoxConsultant()
         {
             InitializeComponent();
             MessageService = new BLL.Services.MessageService();
             Messages = MessageService.GetMessagesByConsultant(ConsultantSingleton.Instance().User);
-            UnreadMessages = Messages.Where(m => m.IsRead == true).ToList();
-            ReadMessages = Messages.Where(m => m.IsRead == false).ToList();
-            BreedUnreadDGV(dgv_MessageDisplay);
+            UnreadMessages = Messages.Where(m => m.IsRead == false).ToList();
+            ReadMessages = Messages.Where(m => m.IsRead == true).ToList();
+            BreedUnreadDGV(dgv_newMessages);
+            BreedReadDGV(dgv_currentConversations);
+            DisplayUnreadMessagesInDGV();
             DisplayreadMessagesInDGV();
+
+            dgv_newMessages.ClearSelection();
+            dgv_currentConversations.ClearSelection();
+
+            dgv_newMessages.DataError += dgv_newMessages_DataError;
+            dgv_currentConversations.DataError += dgv_currentConversations_DataError;
         }
 
+        private void BreedReadDGV(DataGridView dataGridView)
+        {
+            dgv_currentConversations.AutoGenerateColumns = false;
+            dgv_currentConversations.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         //Methods used in the constructor
 
 
+            DataGridViewTextBoxColumn subjectCustomer = new DataGridViewTextBoxColumn();
+            subjectCustomer.DataPropertyName = "GetCustomerName";
+            subjectCustomer.HeaderText = "From";
+            dgv_currentConversations.Columns.Add(subjectCustomer);
+        }
+
         private void BreedUnreadDGV(DataGridView dataGridView)
         {
-            dgv_MessageDisplay.AutoGenerateColumns = false;
-            dgv_MessageDisplay.RowHeadersVisible = false;
-            dgv_MessageDisplay.MultiSelect = false;
+            dgv_newMessages.AutoGenerateColumns = false;
 
             dgv_MessageDisplay.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
@@ -59,94 +75,34 @@ namespace Presentation.Customer
             DataGridViewTextBoxColumn subjectCustomer = new DataGridViewTextBoxColumn();
             subjectCustomer.DataPropertyName = "GetCustomerName";
             subjectCustomer.HeaderText = "From";
-            subjectCustomer.ReadOnly = true;
-            dgv_MessageDisplay.Columns.Add(subjectCustomer);
+            dgv_newMessages.Columns.Add(subjectCustomer);
+        }
 
-            DataGridViewCheckBoxColumn subjectIsRead = new DataGridViewCheckBoxColumn();
-            subjectIsRead.Name = "IsRead";
-            subjectIsRead.DataPropertyName = "IsRead";
-            subjectIsRead.HeaderText = "IsRead";
-            subjectIsRead.ReadOnly = false;
-            dgv_MessageDisplay.Columns.Add(subjectIsRead);
+        
+        private void DisplayUnreadMessagesInDGV()
+        {
+            dgv_newMessages.DataSource = UnreadMessages;
+            dgv_newMessages.Refresh();
+            dgv_newMessages.ClearSelection();
         }
 
         private void DisplayreadMessagesInDGV()
         {
-            dgv_MessageDisplay.DataSource = ReadMessages;
+            dgv_currentConversations.DataSource = ReadMessages;
+            dgv_currentConversations.Refresh();
+            dgv_currentConversations.ClearSelection();
         }
 
-
-        //Click events and methods used in the click events
-
-     
-
-
-        //Changes the checkbox emediatly on the DGV
-        private void dgv_MessageDisplay_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                DataGridViewRow row = dgv_MessageDisplay.Rows[e.RowIndex];
-                var messageDto = Messages.FirstOrDefault(m => m.MessageId == ((IMessage)row.DataBoundItem).MessageId);
-
-                if (messageDto != null)
-                {
-                    if (dgv_MessageDisplay.Columns[e.ColumnIndex].Name == "IsRead")
-                    {
-                        bool isRead = Convert.ToBoolean(row.Cells["IsRead"].Value);
-                        messageDto.IsRead = isRead;
-                    }
-                }
-            }
-
-        }
-
-        private void SaveChangesOnUnopenedMessage()
-        {
-            foreach (DataGridViewRow row in dgv_MessageDisplay.Rows)
-            {
-                if (!row.IsNewRow && row.Cells["IsRead"].Value != null && Convert.ToBoolean(row.Cells["IsRead"].Value))
-                {
-                    var messageDto = this.Messages.FirstOrDefault(m => m.MessageId == ((IMessage)row.DataBoundItem).MessageId);
-
-                    if (messageDto != null)
-                    {
-                        // Update the message properties based on the DataGridView values
-                        messageDto.IsRead = Convert.ToBoolean(row.Cells["IsRead"].Value);
-                    }
-                }
-
-
-            }
-        }
-
-
-        private void bt_SaveChanges_Click(object sender, EventArgs e)
-        {
-            SaveChangesOnUnopenedMessage();
-            {
-               foreach (var messageDto in Messages)
-               {
-                   MessageService.EditIsReadMessages(messageDto);  // <--- This is where the error is (The method returns a nullreference)
-               }
-            }
-        }
-
-        //Opens the message in a new form
         private void bt_openMessage_Click(object sender, EventArgs e)
         {
-            IsReadShowForm();
-        }
 
-        //Logic behund the bt_openMessage_Click
-        private void IsReadShowForm()
-        {
-            if (dgv_MessageDisplay.SelectedRows.Count > 0)
+            if (dgv_currentConversations.SelectedRows.Count > 0)
             {
-                IMessage selectedMessage = (IMessage)dgv_MessageDisplay.SelectedRows[0].DataBoundItem;
-
-                RecieveMessage_Form openMessageForm = new RecieveMessage_Form(selectedMessage);
-                openMessageForm.ShowDialog();
+                IsReadShowForm();
+            }
+            else if (dgv_newMessages.SelectedRows.Count > 0)
+            {
+                IsNotReadShowForm();
             }
             else
             {
@@ -154,6 +110,94 @@ namespace Presentation.Customer
             }
         }
 
-        
+        private void IsReadShowForm()
+        {
+            if (dgv_currentConversations.SelectedRows.Count > 0)
+            {
+                // Get the selected row index
+                int selectedIndex = dgv_currentConversations.SelectedRows[0].Index;
+
+                // Check if the index is valid
+                if (selectedIndex >= 0 && selectedIndex < dgv_currentConversations.Rows.Count)
+                {
+                    // Access the selected item
+                    IMessage selectedMessage = (IMessage)dgv_currentConversations.Rows[selectedIndex].DataBoundItem;
+
+                    RecieveMessage_Form openMessageForm = new RecieveMessage_Form(selectedMessage);
+                    openMessageForm.ShowDialog();
+                }
+            }
+        }
+
+        private void IsNotReadShowForm()
+        {
+            if (dgv_newMessages.SelectedRows.Count > 0)
+            {
+                // Get the selected row index
+                int selectedIndex = dgv_newMessages.SelectedRows[0].Index;
+
+                // Check if the index is valid
+                if (selectedIndex >= 0 && selectedIndex < UnreadMessages.Count)
+                {
+                    // Access the selected item
+                    IMessage selectedMessage = UnreadMessages[selectedIndex];
+
+                    RecieveMessage_Form openMessageForm = new RecieveMessage_Form(selectedMessage);
+                    selectedMessage.IsRead = true;
+                    MessageService.UpdateMessageStatus(selectedMessage);
+                    openMessageForm.ShowDialog();
+
+                    // Remove the item from the list after displaying the form
+                    UnreadMessages.Remove(selectedMessage);
+                    ReadMessages.Add(selectedMessage);
+
+                    // Rebind the updated lists to the DataGridViews
+                    dgv_newMessages.DataSource = UnreadMessages.ToList();
+                    dgv_currentConversations.DataSource = ReadMessages.ToList();
+
+                    // Clear the selection and refresh the DataGridViews
+                    dgv_newMessages.ClearSelection();
+                    dgv_currentConversations.ClearSelection();
+                    dgv_newMessages.Refresh();
+                    dgv_currentConversations.Refresh();
+                }
+
+
+            }
+        }
+
+        private void dgv_newMessages_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgv_currentConversations.ClearSelection();
+        }
+
+        private void dgv_currentConversations_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgv_newMessages.ClearSelection();
+        }
+
+        private void dgv_newMessages_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgv_newMessages.ClearSelection();
+            dgv_newMessages.Refresh();
+        }
+
+        private void dgv_currentConversations_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgv_currentConversations.ClearSelection();
+            dgv_currentConversations.Refresh();
+        }
+
+        private void dgv_newMessages_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+            e.Cancel = true;
+        }
+
+        private void dgv_currentConversations_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+            e.Cancel = true;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,9 +16,9 @@ namespace Abstraction.Interfaces
 
         List<IMessage> GetMessagesByConsultant(IConsultant consultant);
 
-        List<IMessage> EditIsReadMessages (IMessage message);
+        void DeleteMessage(IMessage message);
 
-        IMessage GetMessage(int id);
+        void UpdateMessageStatus(IMessage message);
 
     }
 }

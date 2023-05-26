@@ -1,4 +1,4 @@
-﻿using Abstraction.Interfaces;
+using Abstraction.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,14 +36,15 @@ namespace BLL.Services
             return _messageRepo.GetMessagesByConsultant(consultant);
         }
 
-        public List<IMessage> EditIsReadMessages(IMessage message)
+        public void DeleteMessage(IMessage message)
         {
-            return _messageRepo.EditIsReadMessage(message);
+            _messageRepo.DeleteMessage(message);
         }
 
-        public IMessage GetMessage(int id)
+        public void UpdateMessageStatus(IMessage message)
         {
-            return _messageRepo.GetMessage(id);
+            _messageRepo.UpdateMessageStatus(message);
         }
+
     }
 }

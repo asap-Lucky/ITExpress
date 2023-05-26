@@ -1,4 +1,4 @@
-﻿using Abstraction.Interfaces;
+using Abstraction.Interfaces;
 using DAL.Database;
 using DAL.Models;
 using System;
@@ -74,75 +74,18 @@ namespace DAL.Repository
             return messageModels;
         }
 
-        //Edits a singular messages IsRead property
-        public List<IMessage> EditIsReadMessage (IMessage message)
+        public void DeleteMessage(IMessage message)
+        {
+            var messageData = DataContext.Messages.Where(m => m.MessageId == message.MessageId).FirstOrDefault();
+            DataContext.Messages.DeleteOnSubmit(messageData);
+            DataContext.SubmitChanges();
+        }
+
+        public void UpdateMessageStatus(IMessage message)
         {
             var messageData = DataContext.Messages.Where(m => m.MessageId == message.MessageId).FirstOrDefault();
             messageData.Message_IsRead = message.IsRead;
             DataContext.SubmitChanges();
-            return GetAllMessages();
-        }
-
-        public IMessage GetMessage(int id)
-        {           
-            var dataMessage = DataContext.Messages.FirstOrDefault(c => c.MessageId == id);
-            if (dataMessage != null)
-            {
-                IMessage message = MapToModel(dataMessage);
-                return message;
-            }
-            return new Models.Message();
-        }
-
-        private IMessage MapToModel(Database.Message messageData)
-        {
-            ICustomer messageCustomer = new Models.Customer()
-            {
-                Id = messageData.Customer.CustomerId,
-                FirstName = messageData.Customer.Customer_FirstName,
-                LastName = messageData.Customer.Customer_LastName,
-                Login = messageData.Customer.Customer_Login,
-                Password = messageData.Customer.Customer_Password,
-                Email = messageData.Customer.Customer_Email,
-                Address = messageData.Customer.Customer_Address,
-                ZipCode = messageData.Customer.Customer_ZipCode,
-                City = messageData.Customer.Customer_City,
-                PhoneNumber = messageData.Customer.Customer_PhoneNumber
-            };
-
-            IConsultant messageConsultant = new Models.Consultant()
-            {
-                Id = messageData.Consultant.ConsultantId,
-                FirstName = messageData.Consultant.Consultant_FirstName,
-                LastName = messageData.Consultant.Consultant_LastName,
-                Login = messageData.Consultant.Consultant_Login,
-                Password = messageData.Consultant.Consultant_Password,
-                Email = messageData.Consultant.Consultant_Email,
-                ZipCode = messageData.Consultant.Consultant_ZipCode,
-                City = messageData.Consultant.Consultant_City,
-                Address = messageData.Consultant.Consultant_Address,
-                PhoneNumber = messageData.Consultant.Consultant_PhoneNumber,
-                Language = new Models.CodeLanguage()
-                {
-                    Id = messageData.Consultant.CodeLanguage.Id,
-                    Language = messageData.Consultant.CodeLanguage.LanguageName
-                },
-                EndType = new Models.EndType()
-                {
-                    Id = messageData.Consultant.EndType.Id,
-                    EndType1 = messageData.Consultant.EndType.EndType1
-                }
-            };
-
-            IMessage messageModel = new Models.Message() 
-            {   Body = messageData.Message_Content, 
-                Header = messageData.Message_Header, 
-                IsRead = messageData.Message_IsRead, 
-                Customer = messageCustomer, 
-                Consultant = messageConsultant };
-
-
-            return messageModel;
         }
     }
 }
