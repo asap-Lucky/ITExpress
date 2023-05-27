@@ -111,10 +111,33 @@ namespace DAL.Repository
             return messageModels;
         }
 
+        public List<IMessage> GetUnreadMessagesByCustomer(ICustomer customer)
+        {
+            List<IMessage> messageModels = new List<IMessage>();
+            var dataMessages = DataContext.Messages.Where(m => m.Message_CustomerId == customer.Id && m.Message_IsRead == false).ToList();
+            foreach (var dataMessage in dataMessages)
+            {
+                messageModels.Add(MapToModel(dataMessage));
+            }
+            return messageModels;
+        }
+
         public List<IMessage> GetMessagesByConsultant(IConsultant consultant)
         {
             List<IMessage> messageModels = new List<IMessage>();
             var messageData = DataContext.Messages.Where(m => m.Message_ConsultantId == consultant.Id).ToList();
+
+            foreach (var message in messageData)
+            {
+                messageModels.Add(MapToModel(message));
+            }
+            return messageModels;
+        }
+
+        public List<IMessage> GetUnreadMessagesByConsultant(IConsultant consultant)
+        {
+            List<IMessage> messageModels = new List<IMessage>();
+            var messageData = DataContext.Messages.Where(m => m.Message_ConsultantId == consultant.Id && m.Message_IsRead == false).ToList();
 
             foreach (var message in messageData)
             {

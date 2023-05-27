@@ -19,6 +19,10 @@ namespace Abstraction.Interfaces
         void DeleteMessage(IMessage message);
 
         void UpdateMessageStatus(IMessage message);
+
+        List<IMessage> GetUnreadMessagesByCustomer(ICustomer customer);
+
+        List<IMessage> GetUnreadMessagesByConsultant(IConsultant consultant);
     }
   
 }

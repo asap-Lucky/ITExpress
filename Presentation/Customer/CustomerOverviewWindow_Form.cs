@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Abstraction.Interfaces;
+using BLL.Services;
 using Presentation;
 using Presentation.Customer;
 
@@ -23,16 +24,22 @@ namespace Presentation.Customer
 
         BLL.Services.InvitationService invitationService;
 
+        List<IMessage> PendingMessages { get; set; }
+
+        BLL.Services.MessageService messageService;
+
         public CustomerOverviewWindow_Form()
         {
             InitializeComponent();
             IsMdiContainer = true;
             this.loggedInCustomer = BLL.Singleton.CustomerSingleton.Instance().User;
             invitationService = new BLL.Services.InvitationService();
-            PendingInvitations = invitationService.GetInvitationsViaCostumer(loggedInCustomer).Where(i => i.AcceptStatus == i.AcceptStatus== false).ToList();
+            messageService = new BLL.Services.MessageService();
+            PendingInvitations = invitationService.GetPendingInvitationsForCustomer(loggedInCustomer);
+            PendingMessages = messageService.GetUnreadMessagesByCustomer(loggedInCustomer);
             lb_firstNameOfCustomer.Text = loggedInCustomer.FirstName;
             InvitationNotification();
-
+            MessageNotification();
         }
 
         public void InvitationNotification()
@@ -46,6 +53,19 @@ namespace Presentation.Customer
                 lb_InvitationNotification.Visible = true;
             }
             lb_InvitationNotification.Text = PendingInvitations.Count.ToString();
+        }
+
+        public void MessageNotification()
+        {
+            if (PendingMessages.Count == 0)
+            {
+                lb_MessageNotification.Visible = false;
+            }
+            else
+            {
+                lb_MessageNotification.Visible = true;
+            }
+            lb_MessageNotification.Text = PendingMessages.Count.ToString();
         }
 
         /// <summary>

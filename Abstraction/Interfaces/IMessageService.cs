@@ -20,5 +20,9 @@ namespace Abstraction.Interfaces
 
         void UpdateMessageStatus(IMessage message);
 
+        List<IMessage> GetUnreadMessagesByCustomer(ICustomer customer);
+
+        List<IMessage> GetUnreadMessagesByConsultant(IConsultant consultant);
+
     }
 }

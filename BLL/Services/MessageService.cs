@@ -46,5 +46,15 @@ namespace BLL.Services
             _messageRepo.UpdateMessageStatus(message);
         }
 
+        public List<IMessage> GetUnreadMessagesByCustomer(ICustomer customer)
+        {
+            return _messageRepo.GetUnreadMessagesByCustomer(customer);
+        }
+
+        public List<IMessage> GetUnreadMessagesByConsultant(IConsultant consultant)
+        {
+            return _messageRepo.GetUnreadMessagesByConsultant(consultant);
+        }
+
     }
 }

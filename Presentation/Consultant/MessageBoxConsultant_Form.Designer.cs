@@ -75,7 +75,7 @@
             this.bt_writeMessage.TabIndex = 19;
             this.bt_writeMessage.Text = "Write message";
             this.bt_writeMessage.UseVisualStyleBackColor = false;
-            this.bt_writeMessage.Click += new System.EventHandler(this.bt_writeMessage_Click_1);
+            this.bt_writeMessage.Click += new System.EventHandler(this.bt_writeMessage_Click);
             // 
             // dgv_newMessages
             // 

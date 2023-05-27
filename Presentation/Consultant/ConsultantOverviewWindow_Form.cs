@@ -27,15 +27,22 @@ namespace Presentation.Consultant
 
         BLL.Services.InvitationService invitationService;
 
+        List<IMessage> PendingMessages { get; set; }
+
+        BLL.Services.MessageService messageService;
+
         public ConsultantOverviewWindow_Form()
         {
             InitializeComponent();
             this.loggedInConsultant = BLL.Singleton.ConsultantSingleton.Instance().User;
             invitationService = new BLL.Services.InvitationService();
+            messageService = new BLL.Services.MessageService();
             PendingInvitations = invitationService.GetPendingInvitationsForConsultant(loggedInConsultant);
+            PendingMessages = messageService.GetUnreadMessagesByConsultant(loggedInConsultant);
             IsMdiContainer = true;
             lb_firstNameOfCustomer.Text = loggedInConsultant.FirstName;
             InvitationNotification();
+            MessageNotification();
         }
 
         public void InvitationNotification()
@@ -49,6 +56,19 @@ namespace Presentation.Consultant
                 lb_InvitationNotification.Visible = true;
             }
             lb_InvitationNotification.Text = PendingInvitations.Count.ToString();
+        }
+
+        public void MessageNotification()
+        {
+            if (PendingMessages.Count == 0)
+            {
+                lb_messageNotification.Visible = false;
+            }
+            else
+            {
+                lb_messageNotification.Visible = true;
+            }
+            lb_messageNotification.Text = PendingMessages.Count.ToString();
         }
 
         /// <summary>

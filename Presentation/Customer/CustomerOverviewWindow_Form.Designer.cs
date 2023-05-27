@@ -44,6 +44,7 @@
             this.lb_firstNameOfCustomer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.lb_MessageNotification = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -52,6 +53,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.lb_MessageNotification);
             this.panelMenu.Controls.Add(this.lb_InvitationNotification);
             this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.bt_Messages);
@@ -277,6 +279,18 @@
             this.panelDesktop.Size = new System.Drawing.Size(1445, 691);
             this.panelDesktop.TabIndex = 2;
             // 
+            // lb_MessageNotification
+            // 
+            this.lb_MessageNotification.AutoSize = true;
+            this.lb_MessageNotification.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_MessageNotification.ForeColor = System.Drawing.Color.Red;
+            this.lb_MessageNotification.Location = new System.Drawing.Point(196, 518);
+            this.lb_MessageNotification.Name = "lb_MessageNotification";
+            this.lb_MessageNotification.Size = new System.Drawing.Size(64, 25);
+            this.lb_MessageNotification.TabIndex = 11;
+            this.lb_MessageNotification.Text = "label2";
+            this.lb_MessageNotification.Visible = false;
+            // 
             // CustomerOverviewWindow_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -316,5 +330,6 @@
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lb_InvitationNotification;
+        private System.Windows.Forms.Label lb_MessageNotification;
     }
 }

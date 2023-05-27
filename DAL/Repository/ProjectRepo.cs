@@ -96,6 +96,7 @@ namespace DAL.Repository
 
                 if (project.TimeUsed != null)
                 {
+
                     targetProject.Project_TimeUsed = (int)project.TimeUsed;
                 }
 

@@ -13,10 +13,13 @@ using Abstraction.Interfaces;
 using BLL.Models;
 using BLL.Singleton;
 using Presentation.All;
-
+using Presentation.Consultant;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Djoan og Marcel
+    /// </summary>
     public partial class MessageBoxConsultant : Form
     {
         List<IMessage> Messages { get; set; }
@@ -24,7 +27,6 @@ namespace Presentation.Customer
         private List<IMessage> ReadMessages { get; set; }
 
         BLL.Services.MessageService MessageService;
-
 
         public MessageBoxConsultant()
         {
@@ -36,17 +38,20 @@ namespace Presentation.Customer
             BreedUnreadDGV(dgv_newMessages);
             BreedReadDGV(dgv_currentConversations);
             DisplayUnreadMessagesInDGV();
-            DisplayreadMessagesInDGV();
+            DisplayReadMessagesInDGV();
 
             dgv_newMessages.ClearSelection();
             dgv_currentConversations.ClearSelection();
         }
+
+        // Opens the form to write a new message
         private void bt_writeMessage_Click(object sender, EventArgs e)
         {
             CustomerMessage customerMessage = new CustomerMessage(BLL.Singleton.CustomerSingleton.Instance().User);
             customerMessage.ShowDialog();
         }
 
+        // Configures the DataGridView for displaying read messages
         private void BreedReadDGV(DataGridView dataGridView)
         {
             dgv_currentConversations.AutoGenerateColumns = false;
@@ -65,6 +70,7 @@ namespace Presentation.Customer
             dgv_currentConversations.Columns.Add(subjectCustomer);
         }
 
+        // Configures the DataGridView for displaying unread messages
         private void BreedUnreadDGV(DataGridView dataGridView)
         {
             dgv_newMessages.AutoGenerateColumns = false;
@@ -82,6 +88,7 @@ namespace Presentation.Customer
             dgv_newMessages.Columns.Add(subjectCustomer);
         }
 
+        // Displays unread messages in the DataGridView
         private void DisplayUnreadMessagesInDGV()
         {
             dgv_newMessages.DataSource = UnreadMessages;
@@ -89,13 +96,15 @@ namespace Presentation.Customer
             dgv_newMessages.ClearSelection();
         }
 
-        private void DisplayreadMessagesInDGV()
+        // Displays read messages in the DataGridView
+        private void DisplayReadMessagesInDGV()
         {
             dgv_currentConversations.DataSource = ReadMessages;
             dgv_currentConversations.Refresh();
             dgv_currentConversations.ClearSelection();
         }
 
+        // Handles the event when the "Open Message" button is clicked
         private void bt_openMessage_Click(object sender, EventArgs e)
         {
             if (dgv_currentConversations.SelectedRows.Count > 0)
@@ -112,6 +121,7 @@ namespace Presentation.Customer
             }
         }
 
+        // Displays the form for a read message
         private void IsReadShowForm()
         {
             if (dgv_currentConversations.SelectedRows.Count > 0)
@@ -131,6 +141,7 @@ namespace Presentation.Customer
             }
         }
 
+        // Displays the form for an unread message
         private void IsNotReadShowForm()
         {
             if (dgv_newMessages.SelectedRows.Count > 0)
@@ -166,34 +177,30 @@ namespace Presentation.Customer
             }
         }
 
-        private void bt_writeMessage_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
+        // Clears the selection in the "Unread Messages" DataGridView
         private void dgv_newMessages_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgv_currentConversations.ClearSelection();
         }
 
+        // Clears the selection in the "Current Conversations" DataGridView
         private void dgv_currentConversations_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgv_newMessages.ClearSelection();
         }
 
+        // Clears the selection and refreshes the "Unread Messages" DataGridView
         private void dgv_newMessages_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgv_newMessages.ClearSelection();
             dgv_newMessages.Refresh();
-
         }
 
+        // Clears the selection and refreshes the "Current Conversations" DataGridView
         private void dgv_currentConversations_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgv_currentConversations.ClearSelection();
             dgv_currentConversations.Refresh();
-
         }
     }
 }
-
