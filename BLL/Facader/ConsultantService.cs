@@ -30,6 +30,11 @@ namespace BLL.Facader
             this.endtypeService = new EndtypeService();
         }
 
+        public List<IConsultant> GetAllConsultants()
+        {
+            return consultantService.GetAllConsultants();
+        }
+
         // RegisterConsultant method
         // Registers a new consultant with the provided information.
         public void RegisterConsultant(string FirstName, string LastName, string Adress, int Zipcode, int Phonenumber, string Email, string Login, string Password, string City, ICodeLanguage CodeLanguage, IEndType Endtype)

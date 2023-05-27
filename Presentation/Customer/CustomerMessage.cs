@@ -12,104 +12,91 @@ using BLL.Services;
 using BLL.Models;
 using BLL.Singleton;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Reflection.Emit;
 
 namespace Presentation.Customer
 {
     public partial class CustomerMessage : Form
     {
-        Abstraction.Interfaces.IMessage MyMessage { get; set; }
         BLL.Services.MessageService MessageService { get; set; }
-        List<IConsultant> AllConsultants { get; set; }
-        BLL.Services.ConsultantService ConsultantService { get; set; }
+        List<IConsultant> Consultants { get; set; }
+        BLL.Facader.ConsultantService ConsultantService { get; set; }
         List<string> Emails { get; set; }
+        IMessage ConsultantMessage { get; set; }
 
-        ICustomer CurrentUser { get; set; }
-
-        public CustomerMessage(ICustomer customer)
+        /// <summary>
+        /// Use this constructor when writing a new message
+        /// </summary>
+        public CustomerMessage()
         {
             InitializeComponent();
-            MessageService = new BLL.Services.MessageService();
-            ConsultantService = new ConsultantService();
-            MyMessage = new BLL.Models.Message();
-            CurrentUser = BLL.Singleton.CustomerSingleton.Instance().User;
-            AllConsultants = ConsultantService.GetAllConsultants();
-            Emails = new List<string>();
-            foreach(var consultant in AllConsultants)
-            {
-                Emails.Add(consultant.Email);
-            }
-
-            tb_FromSenderEmail.Text = CurrentUser.Email;
+            MessageService = new MessageService();
+            ConsultantService = new BLL.Facader.ConsultantService(new BLL.Services.ConsultantService());
+            buttonRespond.Visible = false;
+            labelFrom.Visible = false;
+            tb_From.Visible = false;
+            Consultants = ConsultantService.GetAllConsultants();
+            comboBoxTo.DisplayMember = "Email";
+            comboBoxTo.ValueMember = "Consultant";
+            comboBoxTo.DataSource = Consultants;
         }
 
-        private void bt_Send_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Use this constructor when opening a message
+        /// </summary>
+        /// <param name="message"></param>
+        public CustomerMessage(IMessage message)
         {
-            StoreMessageInDatabase();
-            MessageBox.Show("Your message has been send");
-            this.Close();
-        }
-
-        //Select consultant that the message has to be sent to
-
-        public IConsultant SelectConsultant2(string email)
-        {
-            IConsultant consultant = new BLL.Models.Consultant();
-            List<IConsultant> allConsultants = ConsultantService.GetAllConsultants();
-
-            string reCieveremail = tb_SendToReciever.Text;
-            consultant = allConsultants.FirstOrDefault(c => c.Email == reCieveremail);
-
-            if (allConsultants != null)
-            {
-                //Remember to specify that it has to look through the tb_EmailTextBox as a reciever
-
-
-                consultant = allConsultants.FirstOrDefault(c => c.Email == email);
-
-            }
-
-            return consultant;
+            InitializeComponent();
+            MessageService = new MessageService();
+            ConsultantService = new BLL.Facader.ConsultantService(new BLL.Services.ConsultantService());
+            ConsultantMessage = message;
+            buttonSend.Enabled = false;
+            labelTo.Visible = false;
+            comboBoxTo.Visible = false;
+            tb_Title.Text = message.Header;
+            tb_Title.Enabled = false;
+            tb_Title.Text = message.Body;
+            tb_Title.Enabled = false;
+            tb_From.Text = message.Customer.GetFullName;
+            tb_From.Enabled = false;
+            tb_BodyMessage.Text = message.Body;
+            tb_BodyMessage.Enabled = false;
         }
         
-
-        public IConsultant SelectConsultant(string email)
-        {
-            IConsultant consultant = new BLL.Models.Consultant();
-            List<IConsultant> allConsultants = ConsultantService.GetAllConsultants();
-
-            string reCieveremail = tb_SendToReciever.Text;
-            
-
-            if (allConsultants != null)
-            {
-                //Remember to specify that it has to look through the tb_EmailTextBox as a reciever
-                
-                
-                consultant = allConsultants.FirstOrDefault(c => c.Email == email);
-              
-            }
-            return consultant = SelectConsultant(email);
-        }
-
-        
-        //Stores the message that has to be saved using the "SelectConsultant" method as an identification of the foreign key to the consultant that the message has to be sent to
-        //question: Can you write the code below to it displays the singleton of the c
-        //answer:
-        
-        public void StoreMessageInDatabase()
-        {
-            IConsultant consultant = SelectConsultant2(tb_SendToReciever.Text);
-            MyMessage.Header = tb_TitleOfMessage.Text;
-            MyMessage.Body = tb_BodyMessage.Text;
-            MyMessage.Customer = CurrentUser;
-            MyMessage.Consultant = consultant;
-            MyMessage.IsRead = true;
-            MessageService.AddMessage(MyMessage);
-        }
-
         private void bt_GoBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            IConsultant messageConsultant = ConsultantService.GetAllConsultants().FirstOrDefault(c => c.Email == comboBoxTo.Text);
+            IMessage messageSend = new BLL.Models.Message()
+            {
+                Header = tb_Title.Text,
+                Body = tb_BodyMessage.Text,
+                Customer = BLL.Singleton.CustomerSingleton.Instance().User,
+                Consultant = messageConsultant,
+                IsRead = false
+            };
+            MessageService.AddMessage(messageSend);
+            MessageBox.Show("The Message Was Sent", "Confirmation");
+            this.Close();
+        }
+
+        private void buttonRespond_Click(object sender, EventArgs e)
+        {
+            buttonRespond.Enabled = false;
+            buttonSend.Enabled = true;
+            labelFrom.Visible = false;
+            tb_From.Visible = false;
+            comboBoxTo.Visible = true;
+            comboBoxTo.Enabled = false;
+            comboBoxTo.Text = ConsultantMessage.Consultant.Email;
+            tb_Title.Text = "Re: " + tb_Title.Text;
+            tb_BodyMessage.Enabled = true;
+            tb_BodyMessage.Clear();
         }
     }
 }
