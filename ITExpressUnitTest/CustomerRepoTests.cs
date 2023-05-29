@@ -39,7 +39,7 @@ namespace ITExpressUnitTest
                 Address = "test",
                 ZipCode = 0,
                 City = "test",
-                PhoneNumber = 0
+                PhoneNumber = 5
             };
 
             //Act
@@ -76,9 +76,7 @@ namespace ITExpressUnitTest
             bool customerFound = false;
             foreach (ICustomer customer in testCustomers)
             {
-                if (customer.FirstName == testCustomer.FirstName
-                    && customer.LastName == testCustomer.LastName
-                    && customer.Address == testCustomer.Address)
+                if (customer == testCustomer)
                 {
                     customerFound = true;
                     break;
