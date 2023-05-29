@@ -79,8 +79,10 @@ namespace Presentation.Customer
                 dgv_newInvitations.DataSource = PendingInvitations;
                 dgv_AcceptedInvitations.DataSource = dgv_AcceptedInvitations;
                 customerOverviewWindow_Form.InvitationNotification();
-                dgv_newInvitations.Refresh();
-                dgv_AcceptedInvitations.Refresh();
+                dgv_newInvitations.DataSource = null;
+                dgv_AcceptedInvitations.DataSource = null;
+                dgv_newInvitations.DataSource = PendingInvitations;
+                dgv_AcceptedInvitations.DataSource = AcceptedInvitations;
                 MessageBox.Show("SUCCESS", "SUCCESS");
             }
         }

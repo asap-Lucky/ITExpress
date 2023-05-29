@@ -68,6 +68,7 @@ namespace Presentation.Customer
             targetDataGridView.Columns.Add(endTypeColumn);
         }
 
+        //The null values are there because if they arent, we get a indexoutrange exception.
         private void bt_acceptInvitation_Click(object sender, EventArgs e)
         {
             if (dgv_newInvitations.SelectedRows[0].DataBoundItem == null)
@@ -77,7 +78,6 @@ namespace Presentation.Customer
             if(dgv_newInvitations.SelectedRows[0].DataBoundItem != null)
             {                  
                 IInvitation invitation = (IInvitation)dgv_newInvitations.SelectedRows[0].DataBoundItem;
-                dgv_newInvitations.ClearSelection();
                 invitation.AcceptStatus = true;
                 PendingInvitations.Remove(invitation);
                 AcceptedInvitations.Add(invitation);
@@ -85,12 +85,14 @@ namespace Presentation.Customer
                 project.Consultant = currentUser;
                 project.Status = 4;
                 projectService.EditProject(project);
-                invitationService.EditInvitation(invitation);
-                dgv_newInvitations.DataSource = PendingInvitations;                           
-                dgv_AcceptedInvitations.DataSource = AcceptedInvitations;                            
+                invitationService.EditInvitation(invitation);                           
                 consultantOverviewWindow_Form.InvitationNotification();
-                dgv_newInvitations.Refresh();
-                dgv_AcceptedInvitations.Refresh();
+                dgv_newInvitations.ClearSelection();
+                dgv_AcceptedInvitations.ClearSelection();
+                dgv_newInvitations.DataSource = null;
+                dgv_AcceptedInvitations.DataSource = null;
+                dgv_newInvitations.DataSource = PendingInvitations;
+                dgv_AcceptedInvitations.DataSource = AcceptedInvitations;
                 MessageBox.Show("SUCCESS","SUCCESS");
             }
         }
