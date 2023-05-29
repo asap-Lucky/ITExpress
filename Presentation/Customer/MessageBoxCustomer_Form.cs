@@ -58,7 +58,7 @@ namespace Presentation.Customer
         private void bt_writeMessage_Click(object sender, EventArgs e)
         {
             // Open the customer message form to compose a new message
-            CustomerMessage customerMessage = new CustomerMessage(BLL.Singleton.CustomerSingleton.Instance().User);
+            CustomerMessage customerMessage = new CustomerMessage();
             customerMessage.ShowDialog();
         }
 
@@ -151,7 +151,7 @@ namespace Presentation.Customer
                     IMessage selectedMessage = (IMessage)dgv_currentConversations.Rows[selectedIndex].DataBoundItem;
 
                     // Open the message form for the selected read message
-                    RecieveMessage_Form openMessageForm = new RecieveMessage_Form(selectedMessage);
+                    CustomerMessage openMessageForm = new CustomerMessage(selectedMessage);
                     openMessageForm.ShowDialog();
                 }
             }
@@ -171,7 +171,7 @@ namespace Presentation.Customer
                     IMessage selectedMessage = UnreadMessages[selectedIndex];
 
                     // Open the message form for the selected unread message
-                    RecieveMessage_Form openMessageForm = new RecieveMessage_Form(selectedMessage);
+                    CustomerMessage openMessageForm = new CustomerMessage(selectedMessage);
 
                     // Mark the message as read and update its status
                     selectedMessage.IsRead = true;
