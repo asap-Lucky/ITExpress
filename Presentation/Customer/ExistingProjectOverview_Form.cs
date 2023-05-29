@@ -43,7 +43,7 @@ namespace Presentation.Customer
         public void InitializeDataGridView()
         {
             List<IProject> projects = projectService.GetProjectsByCostumer(loggedInCustomer)
-                .Where(p => p.Status == 1 || p.Status == 2)
+                .Where(p => p.Status != 3)
                 .ToList();
 
             dgv_existingProjectsCustomer.AutoGenerateColumns = false;
@@ -58,7 +58,7 @@ namespace Presentation.Customer
         private void RefreshDataGridView()
         {
             List<IProject> projects = projectService.GetProjectsByCostumer(loggedInCustomer)
-                .Where(p => p.Status == 1 || p.Status == 2 || p.Status == 4)
+                .Where(p => p.Status != 3)
                 .ToList();
 
             dgv_existingProjectsCustomer.DataSource = null; // Clear the current data source
