@@ -47,7 +47,7 @@ namespace Presentation.Customer
         // Opens the form to write a new message
         private void bt_writeMessage_Click(object sender, EventArgs e)
         {
-            CustomerMessage customerMessage = new CustomerMessage(BLL.Singleton.CustomerSingleton.Instance().User);
+            CustomerMessage customerMessage = new CustomerMessage();
             customerMessage.ShowDialog();
         }
 
