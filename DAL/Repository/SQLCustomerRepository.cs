@@ -24,8 +24,6 @@ namespace DAL.Repository
         public List<ICustomer> GetAllCustomers()
         {
             DataTable customerTable = new DataTable();
-            List<ICustomer> customerModels = new List<ICustomer>();
-
             using (Connection)
             {
                 string query = "SELECT * ALL FROM Customer";
@@ -40,6 +38,37 @@ namespace DAL.Repository
                 Connection.Close();
             }
             return MapToModels(customerTable);
+        }
+
+        public void AddCustomer(ICustomer customer)
+        {
+            string query = "INSERT INTO Customer (Customer_FirstName, " +
+                "Customer_LastName, " +
+                "Customer_Login, " +
+                "Customer_Password, " +
+                "Customer_Email, " +
+                "Customer_ZipCode, " +
+                "Customer_City," +
+                "Customer_Address, " +
+                "Customer_PhoneNumber) " +
+                "VALUES " +
+                "(@Customer_FirstName, " +
+                "@Customer_LastName, " +
+                "@Customer_Login, " +
+                "@Customer_Password, " +
+                "@Customer_Email, " +
+                "@Customer_Zipcode, " +
+                "@Customer_City, " +
+                "@Customer_Address, " +
+                "@Customer_PhoneNumber)";
+            using (Connection)
+            {
+                SqlCommand sqlCommand = new SqlCommand(query, Connection);
+                sqlCommand = MapToCommand(sqlCommand, customer);
+                Connection.Open();
+                sqlCommand.ExecuteNonQuery();
+                Connection.Close();
+            }
         }
 
         public void EditCustomer(ICustomer customer)

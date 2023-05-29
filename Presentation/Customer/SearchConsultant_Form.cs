@@ -47,7 +47,7 @@ namespace Presentation.Customer
             this.ConsultantService = new BLL.Services.ConsultantService();
             this.InvitationService = new InvitationService();
             DefaultProjectList = ProjectService.GetProjectsByCostumer(CustomerUser);
-            DefaultProjectList.RemoveAll(p => p.Status == 3);
+            DefaultProjectList.RemoveAll(p => p.Status != 1);
             DefaultConsultantList = this.ConsultantService.GetAllConsultants(); 
             dataGridView1.DataSource = DefaultProjectList;            
             dataGridView1.ClearSelection();
