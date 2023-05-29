@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -60,10 +61,54 @@ namespace DAL.Repository
             }
         }
 
-       /* public List<ICodeLanguage> GetAllCodeLanguages()
+        public List<ICodeLanguage> GetAllCodeLanguages()
         {
-            DataTable languagetable = new DataTable();
+            List<ICodeLanguage> languageModels = new List<ICodeLanguage>();
+            DataTable languageTable = new DataTable();
+            string query = "SELECT * FROM CodeLanguage";
 
-        }*/
+            using (Connection) 
+            {
+                SqlCommand sqlCommand = new SqlCommand(query, Connection);
+                Connection.Open();
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+                    adapter.Fill(languageTable);
+                }
+                Connection.Close();
+            }
+            foreach(DataRow row in languageTable.Rows)
+            {
+                ICodeLanguage codeLanguage = new Models.CodeLanguage();
+                codeLanguage.Id = Convert.ToInt32(row["Id"]);
+                codeLanguage.Language = row["LanguageName"].ToString();
+                languageModels.Add(codeLanguage);
+            }
+            return languageModels;
+        }
+
+        public ICodeLanguage GetCodeLanguage(ICodeLanguage language)
+        {
+            ICodeLanguage languageCode = new Models.CodeLanguage();
+            DataTable languageTable = new DataTable();
+            string query = "SELECT * FROM CodeLangauge WHERE Id = @Id";
+            SqlCommand command = new SqlCommand(query, Connection);
+            command.Parameters.AddWithValue("@Id", language.Id);
+            using (Connection)
+            {
+                Connection.Open();
+                using (SqlDataAdapter adapter = new SqlDataAdapter())
+                {
+                    adapter.Fill(languageTable);
+                }
+                Connection.Close();
+            }
+            foreach (DataRow row in languageTable.Rows)
+            {
+                language.Id = Convert.ToInt32(row["Id"]);
+                language.Language = row["LanguageName"].ToString();
+            }
+            return languageCode;
+        }
     }
 }
