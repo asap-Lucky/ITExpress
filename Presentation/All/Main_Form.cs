@@ -18,7 +18,10 @@ namespace UI
         public Main_Form()
         {
             InitializeComponent();
-
+            ToolTip customerTip = new ToolTip();
+            customerTip.SetToolTip(bt_LogInAsCostumer, "Pick this if you want to login as a customer");
+            ToolTip consultantTip = new ToolTip();
+            consultantTip.SetToolTip(bt_LogInAsConsultant, "Pick this if you want to login as a consultant");
         }
 
         private void bt_LogInAsCostumer_Click(object sender, EventArgs e)

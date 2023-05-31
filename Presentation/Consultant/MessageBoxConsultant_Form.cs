@@ -31,6 +31,10 @@ namespace Presentation.Customer
         public MessageBoxConsultant()
         {
             InitializeComponent();
+            ToolTip newTip = new ToolTip();
+            newTip.SetToolTip(bt_writeMessage, "Write a new message");
+            ToolTip openTip = new ToolTip();
+            openTip.SetToolTip(bt_openMessage, "Open a selected message");
             MessageService = new BLL.Services.MessageService();
             Messages = MessageService.GetMessagesByConsultant(ConsultantSingleton.Instance().User);
             UnreadMessages = Messages.Where(m => m.IsRead == false).ToList();
