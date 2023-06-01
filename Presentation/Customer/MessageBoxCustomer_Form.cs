@@ -32,6 +32,11 @@ namespace Presentation.Customer
         {
             InitializeComponent();
 
+            ToolTip newTip = new ToolTip();
+            newTip.SetToolTip(bt_writeMessage, "Write a new message");
+            ToolTip openTip = new ToolTip();
+            openTip.SetToolTip(bt_openMessage, "Open a selected message");
+
             // Initialize the MessageService
             MessageService = new BLL.Services.MessageService();
 

@@ -37,6 +37,7 @@ namespace Presentation.All
             labelFrom.Visible = false;
             tb_From.Visible = false;
             Customers = CustomerService.GetAllCustomers();
+            Customers = Customers.OrderBy(c => c.Email).ToList();
             comboBoxTo.DisplayMember = "Email";
             comboBoxTo.ValueMember = "ICustomer";
             comboBoxTo.DataSource = Customers;
