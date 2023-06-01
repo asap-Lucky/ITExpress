@@ -14,7 +14,9 @@ using BLL.Services;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentation.Customer
-{
+{ /// <summary>
+/// VIljo
+/// </summary>
     public partial class CreateNewProject_Form : Form
     {
         private Abstraction.Interfaces.ICustomer loggedInCustomer;

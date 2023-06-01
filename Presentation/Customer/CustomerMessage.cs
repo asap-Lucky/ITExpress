@@ -16,6 +16,9 @@ using System.Reflection.Emit;
 
 namespace Presentation.Customer
 {
+    /// <summary>
+    /// Viljo
+    /// </summary>
     public partial class CustomerMessage : Form
     {
         BLL.Services.MessageService MessageService { get; set; }

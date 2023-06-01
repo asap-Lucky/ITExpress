@@ -12,6 +12,9 @@ using System.Windows.Forms;
 
 namespace Presentation.All
 {
+    /// <summary>
+    /// Viljo
+    /// </summary>
     public partial class RecieveMessage_Form : Form
     {
         Abstraction.Interfaces.IMessage selectedMessage;

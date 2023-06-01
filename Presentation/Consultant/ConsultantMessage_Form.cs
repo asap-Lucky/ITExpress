@@ -18,6 +18,9 @@ using Message = BLL.Models.Message;
 
 namespace Presentation.All
 {
+    /// <summary>
+    /// Viljo
+    /// </summary>
     public partial class ConsultantMessage_Form : Form
     {
         MessageService MessageService { get; set; }
