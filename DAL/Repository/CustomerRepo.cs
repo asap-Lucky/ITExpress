@@ -107,8 +107,15 @@ namespace DAL.Repository
         //Checks the the customer table for the login and password information
         public bool IsValidCustomer(string login, string password)
         {
-            var customer = DataContext.Customers.FirstOrDefault(c => c.Customer_Login == login && c.Customer_Password == password);
-            return customer != null;
+            var customer = DataContext.Customers.FirstOrDefault(c => c.Customer_Login == login);
+
+            if (customer != null && customer.Customer_Password == password)
+            {
+                // Performs a case-sesitive string comparison
+                return true;
+            }
+
+            return false;
         }
 
         public ICustomer GetCustomer(int id)

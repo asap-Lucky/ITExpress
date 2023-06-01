@@ -109,8 +109,15 @@ namespace DAL.Repository
         /// <returns>Returns true if the consultant exists, otherwise false.</returns>
         public bool IsValidConsultant(string login, string password)
         {
-            var consultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login &&  c.Consultant_Password == password);
-            return consultant != null;
+            var consultant = DataContext.Consultants.FirstOrDefault(c => c.Consultant_Login == login);
+
+            if (consultant != null && consultant.Consultant_Password == password)
+            {
+                // Performs a case-sensitive string comparison
+                return true;
+            }
+
+            return false;
         }
 
         public IConsultant GetConsultant(int id)
