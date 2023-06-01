@@ -11,22 +11,22 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    internal class SQLCustomerRepository
+    public class SQLCustomerRepository
     {
-        string connectionString = "Data Source=ucl-jtm-sqlserver.database.windows.net;Initial Catalog=2-sem-gr-1;Persist Security Info=True;User ID=2-sem-gr-1-login;Password=Gr21Pa$$word!";
+        string ConnectionString { get; set; }
         SqlConnection Connection { get; set; }
 
         public SQLCustomerRepository()
         {
-            Connection = new SqlConnection(connectionString);
+            ConnectionString = "Data Source=ucl-jtm-sqlserver.database.windows.net;Initial Catalog=2-sem-gr-1;Persist Security Info=True;User ID=2-sem-gr-1-login;Password=Gr21Pa$$word!";
         }
 
         public List<ICustomer> GetAllCustomers()
         {
             DataTable customerTable = new DataTable();
-            using (Connection)
+            using(Connection =  new SqlConnection(ConnectionString))
             {
-                string query = "SELECT * ALL FROM Customer";
+                string query = "SELECT * FROM Customer";
                 SqlCommand command = new SqlCommand(query, Connection);
 
                 Connection.Open();
@@ -61,7 +61,7 @@ namespace DAL.Repository
                 "@Customer_City, " +
                 "@Customer_Address, " +
                 "@Customer_PhoneNumber)";
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand sqlCommand = new SqlCommand(query, Connection);
                 sqlCommand = MapToCommand(sqlCommand, customer);
@@ -73,7 +73,7 @@ namespace DAL.Repository
 
         public void EditCustomer(ICustomer customer)
         {
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 string query = "UPDATE Customer SET " +
                     "Customer_FirstName = @Customer_FirstName," +
@@ -98,7 +98,7 @@ namespace DAL.Repository
 
         public void DeleteCustomer(ICustomer customer)
         {
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 string query = "DELETE FROM Customer WHERE CustomerId = @CustomerId";
 
@@ -114,7 +114,7 @@ namespace DAL.Repository
         {
             bool isValid = false;
             DataTable customerTable = new DataTable();
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 string query = "SELECT * FROM Customer WHERE Customer_Login = @Customer_Login AND Customer_Password = @Customer_Password";
                 SqlCommand command = new SqlCommand(query, Connection);
@@ -141,7 +141,7 @@ namespace DAL.Repository
         public ICustomer GetCustomer(int id)
         {
             DataTable customerTable = new DataTable();
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 string query = "SELECT * FROM Customer WHERE CustomerId = @CustomerId";
                 SqlCommand command = new SqlCommand(query, Connection);
@@ -161,7 +161,7 @@ namespace DAL.Repository
         public ICustomer GetCustomer(string login, string password)
         {
             DataTable customerTable = new DataTable();
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 string query = "SELECT * FROM Customer WHERE Customer_Login = @Customer_Login and Customer_Password = @Customer_Password";
                 SqlCommand command = new SqlCommand(query, Connection);
