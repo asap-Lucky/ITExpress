@@ -31,7 +31,9 @@ namespace Presentation.Customer
         IEndtypeService endtypeService = new BLL.Services.EndtypeService();
 
 
-
+        /// <summary>
+        /// Constructor for CreateNewProject_Form
+        /// </summary>
         public CreateNewProject_Form(ICustomer loggedincustomer)
         {
             InitializeComponent();
@@ -41,7 +43,9 @@ namespace Presentation.Customer
 
             MyProject = new Project();
         }
-
+        /// <summary>
+        /// Register the project
+        /// </summary>
         private void RegisterProject()
         {
             bool canParseHourWage = decimal.TryParse(tb_projectHourWage.Text, out decimal hourWage);
@@ -69,6 +73,9 @@ namespace Presentation.Customer
             }
         }
 
+        /// <summary>
+        /// Initialize the comboboxes
+        /// </summary>
         private void InitializeCombobox()
         {
             cb_projectRequierements.DataSource = codeLanguageService.GetAllCodeLanguages();
@@ -84,15 +91,25 @@ namespace Presentation.Customer
         {
 
         }
-
+        /// <summary>
+        /// Save button click event handler
+        /// </summary>
         private void button1_Click_1(object sender, EventArgs e)
         {
-            RegisterProject();
-            DialogResult dialogresult = MessageBox.Show("Project has been created succesfully, you may now close this window safely.", "Project created succesfully!", MessageBoxButtons.OK);
-            if (dialogresult == DialogResult.OK)
-            {
-                this.Close();
-            }
+            
+                if (cb_projectRequierements.SelectedItem == null || cb_projectEndtype.SelectedItem == null)
+                {
+                    MessageBox.Show("You have to choose an End Type and Code Language.", "Missing Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Stop the save process if the required selections are not made
+                }
+
+                RegisterProject();
+                DialogResult dialogresult = MessageBox.Show("Project has been created successfully, you may now close this window safely.", "Project created successfully!", MessageBoxButtons.OK);
+                if (dialogresult == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            
         }
 
         private void bt_DiscardProject_Click_1(object sender, EventArgs e)

@@ -48,7 +48,7 @@ namespace Presentation.Customer
         /// <summary>
         /// Use this constructor when opening a message
         /// </summary>
-        /// <param name="message"></param>
+        
         public CustomerMessage(IMessage message)
         {
             InitializeComponent();
