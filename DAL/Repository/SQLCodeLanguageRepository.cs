@@ -12,18 +12,18 @@ namespace DAL.Repository
 {
     public class SQLCodeLanguageRepository
     {
-        string connectionString = "Data Source=ucl-jtm-sqlserver.database.windows.net;Initial Catalog=2-sem-gr-1;Persist Security Info=True;User ID=2-sem-gr-1-login;Password=Gr21Pa$$word!";
+        string ConnectionString { get; set; }
         SqlConnection Connection { get; set; }
 
         public SQLCodeLanguageRepository()
         {
-            Connection = new SqlConnection(connectionString);
+            ConnectionString = "Data Source=ucl-jtm-sqlserver.database.windows.net;Initial Catalog=2-sem-gr-1;Persist Security Info=True;User ID=2-sem-gr-1-login;Password=Gr21Pa$$word!";
         }
 
         public void AddCodeLanguage(ICodeLanguage codeLanguage)
         {
             string query = "INSERT INTO CodeLanguage (LanguageName) VALUES (@LanguageName)";
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand sqlCommand = new SqlCommand(query, Connection);
                 sqlCommand.Parameters.AddWithValue("@LanguageName", codeLanguage.Language);
@@ -37,7 +37,7 @@ namespace DAL.Repository
         public void DeleteCodeLanguage(ICodeLanguage language)
         {
             string query = "DELETE FROM CodeLanguage WHERE Id = @Id";
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand sqlCommand = new SqlCommand(query, Connection);
                 sqlCommand.Parameters.AddWithValue("@Id", language.Id);
@@ -50,7 +50,7 @@ namespace DAL.Repository
         public void EditCodeLanguage(ICodeLanguage dto)
         {
             string query = "UPDATE CodeLanguage SET LanguageName = @LanguageName WHERE Id = @Id";
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand sqlCommand = new SqlCommand(query, Connection);
                 sqlCommand.Parameters.AddWithValue("@Id", dto.Id);
@@ -67,7 +67,7 @@ namespace DAL.Repository
             DataTable languageTable = new DataTable();
             string query = "SELECT * FROM CodeLanguage";
 
-            using (Connection) 
+            using (Connection = new SqlConnection(ConnectionString)) 
             {
                 SqlCommand sqlCommand = new SqlCommand(query, Connection);
                 Connection.Open();
@@ -94,7 +94,7 @@ namespace DAL.Repository
             string query = "SELECT * FROM CodeLangauge WHERE Id = @Id";
             SqlCommand command = new SqlCommand(query, Connection);
             command.Parameters.AddWithValue("@Id", language.Id);
-            using (Connection)
+            using (Connection = new SqlConnection(ConnectionString))
             {
                 Connection.Open();
                 using (SqlDataAdapter adapter = new SqlDataAdapter())
