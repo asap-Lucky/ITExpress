@@ -13,8 +13,12 @@ using UI.Consultant;
 
 namespace UI
 {
+    //Author: All from the group
+
     public partial class Main_Form : Form
     {
+
+        //Constructor
         public Main_Form()
         {
             InitializeComponent();
@@ -24,6 +28,10 @@ namespace UI
             consultantTip.SetToolTip(bt_LogInAsConsultant, "Pick this if you want to login as a consultant");
         }
 
+
+        //Buttons for the form
+
+        //Button which takes the user to the customer login form
         private void bt_LogInAsCostumer_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -32,6 +40,7 @@ namespace UI
             this.Show();
         }
 
+        //Button which takes the user to the consultant login form
         private void bt_LogInAsConsultant_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -40,6 +49,7 @@ namespace UI
             this.Show();
         }
 
+        //Button which takes the user to the admin login form
         private void bt_LogInAsAdmin_Click(object sender, EventArgs e)
         {
             this.Hide();
